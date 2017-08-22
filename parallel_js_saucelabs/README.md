@@ -18,12 +18,12 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     ```
 2. Credentials
     * In the terminal export your Sauce Labs Credentials as environmental variables:
-    ```
+
     $ export SAUCE_USERNAME=<your Sauce Labs username>
-	$ export SAUCE_ACCESS_KEY=<your Sauce Labs access key>
-    ```
-    * Set Build ID (Optional):
-    ```
+	 $ export SAUCE_ACCESS_KEY=<your Sauce Labs access key>
+    
+    $ Set Build ID (Optional):
+    
     $ export BUILD_TAG=sauce_automated_build_name
     
     $ export applitoolsKey=<your applitools key>
@@ -37,8 +37,7 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 
 4. Browser Configurations
 	* Set your OS/Browser combinations in Gruntfile.js
-	```
-	    * Click [here](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) for SL capabilities configurator.
+	   * Click [here](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) for SL capabilities configurator.
 
 ### Running Tests
 
