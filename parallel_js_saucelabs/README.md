@@ -19,14 +19,15 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 2. Credentials
     * In the terminal export your Sauce Labs Credentials as environmental variables:
 
-    $ export SAUCE_USERNAME=<your Sauce Labs username>
-	 $ export SAUCE_ACCESS_KEY=<your Sauce Labs access key>
+    $ export SAUCE_USERNAME="<your Sauce Labs username>"
+	 
+    $ export SAUCE_ACCESS_KEY="<your Sauce Labs access key>"
     
     $ Set Build ID (Optional):
     
     $ export BUILD_TAG=sauce_automated_build_name
     
-    $ export applitoolsKey=<your applitools key>
+    $ export applitoolsKey="<your applitools key>"
 
 3. Project Dependencies
 	* Install Node modules
