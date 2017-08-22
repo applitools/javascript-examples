@@ -27,7 +27,6 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     $ export BUILD_TAG=sauce_automated_build_name
     
     $ export applitoolsKey=<your applitools key>
-    ```
 
 3. Project Dependencies
 	* Install Node modules
