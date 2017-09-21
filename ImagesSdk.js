@@ -4,7 +4,7 @@ var RSVP = require('rsvp');
 
 // Initialize the eyes SDK and set your private API key.
 var eyes = new Eyes();
-eyes.setApiKey("your applitools key");
+eyes.setApiKey(process.env.APPLITOOLS_KEY);
 
 // Define the OS.
 eyes.setOs("Windows 10");
