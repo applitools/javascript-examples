@@ -4,15 +4,15 @@ var path = require('path');
 
 module.exports = function (grunt) {
     // configure tasks
-    grunt.initConfig({        
+    grunt.initConfig({
         mocha_parallel: {
             options: {
                 args: function(suiteName) {
                     return [];
                 },
                 env: function(suiteName) {
-                    process.env.BROWSER = grunt.option('browser');
-                    process.env.VERSION = grunt.option('version');
+                    process.env.BROWSER  = grunt.option('browser');
+                    process.env.VERSION  = grunt.option('version');
                     process.env.PLATFORM = grunt.option('platform');
                     return process.env;
                 },
@@ -31,14 +31,14 @@ module.exports = function (grunt) {
                 concurrency: os.cpus().length * 1.5
             }
         },
-        
+
         parallel: {
             assets: {
                 options: {
                     grunt: true
                 },
-                tasks: [    
-                            'run_windows10_chrome', 
+                tasks: [
+                            'run_windows10_chrome',
                             'run_Windows10_firefox',
                             'run_Windows8_IE',
                             'run_OSX10.10_chrome'
@@ -46,24 +46,24 @@ module.exports = function (grunt) {
             }
         }
     });
-    
+
     //https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
     // load tasks
     grunt.loadNpmTasks('grunt-mocha-parallel');
     grunt.loadNpmTasks('grunt-parallel');
-    
+
     grunt.registerTask('Windows10_chrome', function(n) {
       grunt.option('browser', 'chrome');
       grunt.option('version', '59.0');
       grunt.option('platform', "Windows 10");
     });
-    
+
     grunt.registerTask('Windows10_firefox', function(n) {
       grunt.option('browser', 'firefox');
       grunt.option('version', '49.0');
       grunt.option('platform', "Windows 10");
     });
-  
+
     grunt.registerTask('Windows8_IE', function(n) {
       grunt.option('browser', 'internet explorer');
       grunt.option('version', '10.0');
@@ -75,7 +75,7 @@ module.exports = function (grunt) {
       grunt.option('version', '54.0');
       grunt.option('platform', "OS X 10.10");
     });
-    
+
     // register tasks
     grunt.registerTask('default', ['parallel']);
 
@@ -84,4 +84,3 @@ module.exports = function (grunt) {
     grunt.registerTask('run_Windows8_IE',       ['Windows8_IE',        'mocha_parallel']);
     grunt.registerTask('run_OSX10.10_chrome',   ['OSX10.10_chrome_54', 'mocha_parallel']);
 };
-
