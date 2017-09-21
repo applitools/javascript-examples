@@ -23,6 +23,8 @@ function main() {
         // Visual checkpoint #1.
         eyes.checkWindow('Main Page');
 
+        eyes.checkElementBy(By.css("div.section"), null, "Hello World Image");
+
         // Click the "Click me!" button.
         driver.findElement(By.tagName('button')).click();
 
