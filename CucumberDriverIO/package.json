@@ -1,0 +1,19 @@
+{
+  "name": "cucumber_driver_io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ava": "^0.24.0",
+    "cucumber": "^1.2.2",
+    "eyes.selenium": "0.0.53",
+    "selenium-webdriver": "^3.0.0-beta-2",
+    "wdio-cucumber-framework": "^0.2.4",
+    "webdriverio": "^4.2.5"
+  }
+}
