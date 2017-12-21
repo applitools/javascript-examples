@@ -49,7 +49,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 40,
+    maxInstances: 2,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -65,13 +65,13 @@ exports.config = {
             browser: 'firefox',
             platform: 'Windows 10',
             version: '49.0',
-            screenResolution: '1280x1024',
-        }// , {
-//             browser: 'chrome',
-//             platform: 'OS X 10.10',
-//             version: '54.0',
-//             screenResolution: '1280x1024',
-//         }
+            screenResolution: '1280x1024'
+        }, {
+            browser: 'firefox',
+            platform: 'macOS 10.13',
+            version: '49.0',
+            screenResolution: '2360x1770'
+        }
     ],
     //
     // ===================
@@ -183,7 +183,7 @@ exports.config = {
         eyes.setApiKey(applitoolsKey);
         eyes.setForceFullPageScreenshot(true);
         eyes.setStitchMode(Eyes.StitchMode.CSS);
-
+        eyes.setBatch("Applitools");
 
         browser.addCommand("EyesOpen", function (testName) {
             console.log("Opening eyes");
