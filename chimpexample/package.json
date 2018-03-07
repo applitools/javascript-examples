@@ -1,0 +1,33 @@
+{
+  "name": "chimp-webdriverio-example",
+  "version": "1.0.0",
+  "description": "Example of chimp webdriverio and mocha",
+  "scripts": {
+    "test": "node node_modules/.bin/chimp",
+    "lint": "node node_modules/.bin/eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "chimp",
+    "webdriverio",
+    "mocha"
+  ],
+  "author": "Stephen Hawkings",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "chimp": "*",
+    "eyes.selenium": "*"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.0",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.0.1"
+  }
+}

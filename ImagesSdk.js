@@ -6,6 +6,10 @@ var RSVP = require('rsvp');
 var eyes = new Eyes();
 eyes.setApiKey(process.env.APPLITOOLS_KEY);
 
+var ConsoleLogHandler = require('eyes.images').ConsoleLogHandler;
+eyes.setLogHandler(new ConsoleLogHandler(true));
+
+
 // Define the OS.
 eyes.setOs("Windows 10");
 
