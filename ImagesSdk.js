@@ -1,54 +1,59 @@
-var http = require('http');
+var https = require('https');
 var Eyes = require('eyes.images').Eyes;
+// This example uses RSVP library for creating promises.
 var RSVP = require('rsvp');
 
+// Switch between the versions to generate test failure.
+var version = "0.1";
+//var version = "0.2";
+
 var eyes = new Eyes();
-eyes.setApiKey("your_applitools_api_key");
+// This is your api key, make sure you use it in all your tests.
+eyes.setApiKey("YOUR_API_KEY");
+// Define the OS and hosting application to identify the baseline
+eyes.setOs("Windows 7");
+eyes.setHostingApp("My Maxthon browser");
 
-var ConsoleLogHandler = require('eyes.images').ConsoleLogHandler;
-eyes.setLogHandler(new ConsoleLogHandler(true));
 
-
-// Define the OS.
-eyes.setOs("Windows 10");
-
-// Start the test and set the browser's viewport size to 800x600.
-var testPromise = eyes.open("Image test", "Javascript screenshot test!", {width: 800, height: 600})
+// Start visual testing.
+var testPromise = eyes.open("Applitools site", "Sanity Test", {width: 785, height: 1087})
     .then(function () {
-
         // Load page image and validate.
-        return getImage('applitools.com', '/images/tutorials/applitools_hero.png').then(function (img) {
-
-            // Visual validation.
+        return getImage("store.applitools.com","/download/contact_us.png/" + version).then(function (img) {
+            // Visual validation point #1
             return eyes.checkImage(img, 'Contact-us page');
         });
     })
     .then(function () {
-            // End visual testing. Validate visual correctness.
-            return eyes.close(false);
-        }, function () {
-            return eyes.abortIfNotClosed();
-        }
-    );
+        // Load another page image and validate
+        return getImage("store.applitools.com", "/download/resources.png/" + version).then(function (img) {
+            // Visual validation point #2
+            return eyes.checkImage(img);
+        });
+    })
+    .then(function () {
+        // End visual testing. Validate visual correctness.
+        return eyes.close(false);
+    }, function () {
+        return eyes.abortIfNotClosed();
+    }
+);
 
 // Handle test results.
 testPromise.then(function (results) {
     console.log("results", results);
 });
 
-// Handle the image.
 function getImage(host, path) {
     var options = {
         host: host,
         path: path
     };
 
-    console.log("Got path: " + path);
-
     var deferred = RSVP.defer();
 
-    http.request(options, function (res) {
-        res.setEncoding('binary');
+    https.request(options, function (res) {
+        res.setEncoding('binary'); // this
 
         var data = "";
         res.on('data', function(chunk) {
