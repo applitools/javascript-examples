@@ -3,7 +3,7 @@ var Eyes = require('eyes.images').Eyes;
 var RSVP = require('rsvp');
 
 var eyes = new Eyes();
-eyes.setApiKey(process.env.APPLITOOLS_KEY);
+eyes.setApiKey("your_applitools_api_key");
 
 var ConsoleLogHandler = require('eyes.images').ConsoleLogHandler;
 eyes.setLogHandler(new ConsoleLogHandler(true));
