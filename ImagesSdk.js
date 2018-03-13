@@ -2,7 +2,6 @@ var http = require('http');
 var Eyes = require('eyes.images').Eyes;
 var RSVP = require('rsvp');
 
-// Initialize the eyes SDK and set your private API key.
 var eyes = new Eyes();
 eyes.setApiKey(process.env.APPLITOOLS_KEY);
 
