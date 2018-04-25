@@ -8,7 +8,7 @@ promise.USE_PROMISE_MANAGER = false;
 var Eyes = require('eyes.selenium').Eyes;
 var eyes = new Eyes();
 
-eyes.setApiKey(process.env.APPLITOOLS_KEY);
+eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
 eyes.setForceFullPageScreenshot(true);
 eyes.setStitchMode(Eyes.StitchMode.CSS);
 

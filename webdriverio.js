@@ -24,7 +24,7 @@ async function main() {
     // Initialize the eyes SDK and set your private API key.
     const {Eyes, Target} = require('@applitools/eyes.webdriverio');
     let eyes = new Eyes();
-    eyes.setApiKey('YourAPIKey');
+    eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
 
     try {
 
