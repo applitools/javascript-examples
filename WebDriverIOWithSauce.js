@@ -10,7 +10,6 @@ const browserOptions = {
   port: 80,
   path: '/wd/hub',
   desiredCapabilities: {
-    //baseUrl: "http://${sauceUser}:@ondemand.saucelabs.com:80/wd/hub",
     services: ['sauce'],
     username: sauceUser,
     accessKey: sauceKey,

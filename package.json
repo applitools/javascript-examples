@@ -14,8 +14,9 @@
     "webdriverio": "^4.12.0"
   },
   "devDependencies": {
-    "@applitools/eyes.webdriverio": "^1.0.1",
-    "eyes.images": "0.0.50"
+    "@applitools/eyes.webdriverio": "^1.1.0",
+    "eyes.images": "0.0.50",
+    "wdio-browserstack-service": "^0.1.15"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +24,3 @@
   "author": "",
   "license": "ISC"
 }
-
-
