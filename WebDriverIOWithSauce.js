@@ -2,8 +2,8 @@ async function main() {
     const webdriverio = require('webdriverio');
     var ConsoleLogHandler = require('eyes.selenium').ConsoleLogHandler;
 
-    var sauceUser = process.env.SAUCE_USER;
-    var sauceKey = process.env.SAUCE_KEY;
+    var sauceUser = process.env.SAUCE_USER || "matan";
+    var sauceKey = process.env.SAUCE_KEY || "ec79e940-078b-41d4-91a6-d7d6008cf1ea";
 
 const browserOptions = {
   host: "ondemand.saucelabs.com",
@@ -30,9 +30,12 @@ const browserOptions = {
 
     // Initialize the eyes SDK and set your private API key.
     const {Eyes, Target} = require('@applitools/eyes.webdriverio');
+    const {BatchInfo, FloatingMatchSettings, RectangleSize} = require('@applitools/eyes.sdk.core');
     let eyes = new Eyes();
     eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
     eyes.setLogHandler(new ConsoleLogHandler(true));
+    let batchInfo = new BatchInfo('WebDriverIO Tests');
+    eyes.setBatch(batchInfo);
 
 
     try {

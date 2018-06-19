@@ -11,7 +11,7 @@ async function main() {
       key: bsKey,
 
       seleniumHost: 'hub-cloud.browserstack.com',
-      seleniumPort: 80,
+      seleniumPort: 443,
       
       desiredCapabilities: {
          browser: 'Chrome',
