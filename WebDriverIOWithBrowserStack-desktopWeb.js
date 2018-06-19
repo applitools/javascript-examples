@@ -2,8 +2,8 @@ async function main() {
     const webdriverio = require('webdriverio');
     var ConsoleLogHandler = require('eyes.selenium').ConsoleLogHandler;
 
-    var bsUser = process.env.BS_USER || "justinison8";
-    var bsKey = process.env.BS_KEY || "5qyqVytms3N1p4Dxew51";
+    var bsUser = process.env.BS_USER || "yourUser";
+    var bsKey = process.env.BS_KEY || "yourKey";
     var applitoolsKey = process.env.APPLITOOLS_API_KEY || "yourApplitoolsKey";
     
     var options = {
