@@ -1,5 +1,4 @@
 require('chromedriver');
-//var webdriver = require('selenium-webdriver');
 const {Builder, By, until} = require('selenium-webdriver');
 const {ConsoleLogHandler, Target, MatchLevel, StitchMode} = require('eyes.selenium');
 var Eyes = require('eyes.selenium').Eyes;
@@ -10,7 +9,7 @@ eyes.setStitchMode(Eyes.StitchMode.CSS);
 
 var driver = null, eyes = null;
 
-describe('Eyes.Selenium.JavaScript - Selenium', function () {
+describe('USA Today', function () {
 
     this.timeout(5 * 60 * 1000);
 
@@ -30,19 +29,19 @@ describe('Eyes.Selenium.JavaScript - Selenium', function () {
         var appName = this.test.parent.title;
         var testName = this.currentTest.title;
 
-        return eyes.open(driver, 'USA Today', 'Capture Video Regions').then(function (browser) {
+        return eyes.open(driver, appName, testName).then(function (browser) {
            driver = browser;
         });
     });
 
-    it("check video regions", function () {
+    it("Capture Video Regions", function () {
        driver.get("http://uw.usatoday.com/story/tech/nation-now/2018/02/07/spacex-falcon-heavy-center-booster/314813002/");
        
        var videos = driver.findElements(By.css('#videoWrap > video-wrap'));
        
        videos.then(function(elements) {
            for (var i = 0; i < elements.length; i++) {
-              eyes.checkRegionByElement(elements[i], 'test');
+              eyes.checkRegionByElement(elements[i], 'Video: ' + (i + 1));
            }
        });
        
