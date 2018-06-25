@@ -12,7 +12,7 @@ function main() {
 
     eyes.setBatch(process.env.APPLITOOLS_BATCH_NAME, process.env.APPLITOOLS_BATCH_ID);
 
-    eyes.setApiKey(process.env.APPLITOOLS_KEY);
+    eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
 
     try {
 

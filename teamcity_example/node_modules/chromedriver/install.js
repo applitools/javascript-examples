@@ -7,7 +7,7 @@ var request = require('request');
 var kew = require('kew');
 var mkdirp = require('mkdirp');
 var path = require('path');
-var rimraf = require('rimraf').sync;
+var del = require('del');
 var util = require('util');
 
 var libPath = path.join(__dirname, 'lib', 'chromedriver');
@@ -24,20 +24,15 @@ if (platform === 'linux') {
   if (process.arch === 'x64') {
     platform += '64';
   } else {
-    platform += '32';
+    console.log('Only Linux 64 bits supported.');
+    process.exit(1);
   }
-} else if (platform === 'darwin') {
+} else if (platform === 'darwin' || platform === 'freebsd') {
   if (process.arch === 'x64') {
     platform = 'mac64';
   } else {
     console.log('Only Mac 64 bits supported.');
     process.exit(1);
-  }
-} else if (platform === 'freebsd') {
-  if (process.arch === 'x64') {
-    platform = 'mac64';
-  } else {
-    platform = 'mac32';
   }
 } else if (platform !== 'win32') {
   console.log('Unexpected platform or architecture:', process.platform, process.arch);
@@ -114,8 +109,9 @@ function findSuitableTempDirectory() {
 
 
 function getRequestOptions(downloadPath) {
-  var options = {uri: downloadPath};
-  var proxyUrl = options.protocol === 'https:'
+  var options = {uri: downloadPath, method: 'GET'};
+  var protocol = options.uri.substring(0, options.uri.indexOf('//'));
+  var proxyUrl = protocol === 'https:'
     ? process.env.npm_config_https_proxy
     : (process.env.npm_config_proxy || process.env.npm_config_http_proxy);
   if (proxyUrl) {
@@ -126,6 +122,16 @@ function getRequestOptions(downloadPath) {
 
   // Use certificate authority settings from npm
   var ca = process.env.npm_config_ca;
+
+  // Parse ca string like npm does
+  if (ca && ca.match(/^".*"$/)) {
+    try {
+      ca = JSON.parse(ca.trim());
+    } catch (e) {
+      console.error('Could not parse ca string', process.env.npm_config_ca, e);
+    }
+  }
+
   if (!ca && process.env.npm_config_cafile) {
     try {
       ca = fs.readFileSync(process.env.npm_config_cafile, {encoding: 'utf8'})
@@ -151,14 +157,19 @@ function getRequestOptions(downloadPath) {
     options.ca = ca;
   }
 
+  // Use specific User-Agent
+  if (process.env.npm_config_user_agent) {
+    options.headers = {'User-Agent': process.env.npm_config_user_agent};
+  }
+
   return options;
 }
 
 function getLatestVersion(requestOptions) {
   var deferred = kew.defer();
-  request.get(requestOptions, function (err, response, data) {
+  request(requestOptions, function (err, response, data) {
     if (err) {
-      deferred.reject('Error with ' + requestOptions.protocol + ' request: ' + err);
+      deferred.reject('Error with http(s) request: ' + err);
     } else {
       chromedriver_version = data.trim();
       deferred.resolve(true);
@@ -174,10 +185,10 @@ function requestBinary(requestOptions, filePath) {
   var notifiedCount = 0;
   var outFile = fs.openSync(filePath, 'w');
 
-  var client = request.get(requestOptions);
+  var client = request(requestOptions);
 
   client.on('error', function (err) {
-    deferred.reject('Error with http request: ' + err);
+    deferred.reject('Error with http(s) request: ' + err);
   });
 
   client.on('data', function (data) {
@@ -213,29 +224,30 @@ function extractDownload(filePath, tmpPath) {
 
 
 function copyIntoPlace(tmpPath, targetPath) {
-  rimraf(targetPath);
-  console.log("Copying to target path", targetPath);
-  fs.mkdirSync(targetPath);
+  return del(targetPath)
+    .then(function() {
+      console.log("Copying to target path", targetPath);
+      fs.mkdirSync(targetPath);
 
-  // Look for the extracted directory, so we can rename it.
-  var files = fs.readdirSync(tmpPath);
-  var promises = files.map(function (name) {
-    var deferred = kew.defer();
+      // Look for the extracted directory, so we can rename it.
+      var files = fs.readdirSync(tmpPath);
+      var promises = files.map(function(name) {
+        var deferred = kew.defer();
 
-    var file = path.join(tmpPath, name);
-    var reader = fs.createReadStream(file);
+        var file = path.join(tmpPath, name);
+        var reader = fs.createReadStream(file);
 
-    var targetFile = path.join(targetPath, name);
-    var writer = fs.createWriteStream(targetFile);
-    writer.on("close", function () {
-      deferred.resolve(true);
+        var targetFile = path.join(targetPath, name);
+        var writer = fs.createWriteStream(targetFile);
+        writer.on("close", function() {
+          deferred.resolve(true);
+        });
+
+        reader.pipe(writer);
+        return deferred.promise;
+      });
+      return kew.all(promises);
     });
-
-    reader.pipe(writer);
-    return deferred.promise;
-  });
-
-  return kew.all(promises);
 }
 
 
