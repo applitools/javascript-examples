@@ -1,0 +1,16 @@
+{
+  "name": "testobject-web-test",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "dependencies": {
+    "webdriverio": "4.13.1",
+    "wdio-mocha-framework": "0.2.13",
+    "selenium-standalone": "5.1.0"
+  },
+  "devDependencies": {
+    "wdio-eyes.selenium-service": "0.0.15",
+    "wdio-selenium-standalone-service": "0.0.10"
+  }
+}
