@@ -19,7 +19,7 @@
  * </example>
  *
  * @alias browser.waitForExist
- * @param {String}   selector CSS selector to query
+ * @param {String}   selector element selector to wait for
  * @param {Number=}  ms       time in ms (default: 500)
  * @param {Boolean=} reverse  if true it instead waits for the selector to not match any elements (default: false)
  * @uses utility/waitUntil, state/isExisting
@@ -46,8 +46,8 @@ let waitForExist = function (selector, ms, reverse) {
         ms = this.options.waitforTimeout
     }
 
-    const isReversed = reverse ? '' : 'not'
-    const errorMsg = `element ("${selector || this.lastResult.selector}") still ${isReversed} existing after ${ms}ms`
+    const isReversed = reverse ? '' : 'not '
+    const errorMsg = `element ("${selector || this.lastResult.selector}") still ${isReversed}existing after ${ms}ms`
 
     return this.waitUntil(() => {
         return this.isExisting(selector).then((isExisting) => {

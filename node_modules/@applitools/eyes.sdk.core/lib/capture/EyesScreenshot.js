@@ -34,8 +34,8 @@ class EyesScreenshot {
    *
    * @abstract
    * @param {Region} region The region for which we should get the sub screenshot.
-   * @param {Boolean} throwIfClipped Throw an EyesException if the region is not fully contained in the screenshot.
-   * @return {Promise.<EyesScreenshot>} A screenshot instance containing the given region.
+   * @param {boolean} throwIfClipped Throw an EyesException if the region is not fully contained in the screenshot.
+   * @return {Promise<EyesScreenshot>} A screenshot instance containing the given region.
    */
   getSubScreenshot(region, throwIfClipped) {
     throw new TypeError('The method `getSubScreenshot` from `EyesScreenshot` should be implemented!');

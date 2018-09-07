@@ -1,10 +1,7 @@
-rgb2hex [![Build Status](https://travis-ci.org/christian-bromann/rgb2hex.svg?branch=master)](https://travis-ci.org/christian-bromann/rgb2hex) [![Coverage Status](https://coveralls.io/repos/christian-bromann/rgb2hex/badge.png)](https://coveralls.io/r/christian-bromann/rgb2hex)
+rgb2hex [![Build Status](https://travis-ci.org/christian-bromann/rgb2hex.svg?branch=master)](https://travis-ci.org/christian-bromann/rgb2hex) [![Coverage Status](https://coveralls.io/repos/christian-bromann/rgb2hex/badge.png)](https://coveralls.io/r/christian-bromann/rgb2hex) [![Known Vulnerabilities](https://snyk.io/test/github/christian-bromann/rgb2hex/badge.svg?targetFile=package.json)](https://snyk.io/test/github/christian-bromann/rgb2hex?targetFile=package.json)
 =======
 
-[![Selenium Test Status](https://saucelabs.com/browser-matrix/rgb2hex.svg)](https://saucelabs.com/u/rgb2hex)
-
 Parse any rgb or rgba string into a hex color. Lightweight library, no dependencies!
-
 
 ## Installation
 
@@ -66,3 +63,12 @@ maintain the existing coding style.
 
 ## Release History
 * 2013-04-22   v0.1.0   first working version
+* 2018-05-24   v0.1.1   updated dependencies switch test framework to jest
+* 2018-06-13   v0.1.2   Fixes uncontrolled resource consumption vulnerability referenced in #1. ([ref1](https://nodesecurity.io/advisories/647), [ref2](https://snyk.io/vuln/npm:rgb2hex:20180429))
+* 2018-06-13   v0.1.3   allow semicolon at the end of an rgb string
+* 2018-06-19   v0.1.4   ignore text before or after the color
+* 2018-07-04   v0.1.5   Fix stripping of color and regexp
+* 2018-07-05   v0.1.6   Prevent Regular Expression Denial of Service attacks
+* 2018-07-05   v0.1.7   Minor coverage fix
+* 2018-07-05   v0.1.8   Better handle alpha values
+* 2018-07-18   v0.1.9   Support transparent colors

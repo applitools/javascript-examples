@@ -9,7 +9,7 @@ const DEFLATE_BUFFER_RATE = 0.6;
 
 /**
  * @param {Buffer} pixels
- * @param {int} pixelLength
+ * @param {number} pixelLength
  * @return {Buffer}
  */
 const rgbaToAbgrColors = (pixels, pixelLength) => {
@@ -32,9 +32,9 @@ const rgbaToAbgrColors = (pixels, pixelLength) => {
  * Computes the width and height of the image data contained in the block at the input column and row.
  *
  * @param {{width: number, height: number}} imageSize The image size in pixels.
- * @param {int} blockSize The block size for which we would like to compute the image data width and height.
- * @param {int} blockColumn The block column index
- * @param {int} blockRow The block row index
+ * @param {number} blockSize The block size for which we would like to compute the image data width and height.
+ * @param {number} blockColumn The block column index
+ * @param {number} blockRow The block row index
  * @return {{width: number, height: number}} The width and height of the image data contained in the block.
  */
 const getActualBlockSize = (imageSize, blockSize, blockColumn, blockRow) => {
@@ -47,11 +47,11 @@ const getActualBlockSize = (imageSize, blockSize, blockColumn, blockRow) => {
  * @param {Buffer} sourcePixels
  * @param {Buffer} targetPixels
  * @param {{width: number, height: number}} imageSize
- * @param {int} pixelLength
- * @param {int} blockSize
- * @param {int} blockColumn
- * @param {int} blockRow
- * @param {int} channel
+ * @param {number} pixelLength
+ * @param {number} blockSize
+ * @param {number} blockColumn
+ * @param {number} blockRow
+ * @param {number} channel
  * @return {{isIdentical: boolean, buffer: Buffer}}
  */
 const compareAndCopyBlockChannelData = (
@@ -112,7 +112,7 @@ class ImageDeltaCompressor {
    * @param {Image|png.Image} targetData The image we want to compress.
    * @param {Buffer} targetBuffer The image we want to compress in its png buffer representation.
    * @param {Image|png.Image} sourceData The baseline image by which a compression will be performed.
-   * @param {int} [blockSize=10] How many pixels per block.
+   * @param {number} [blockSize=10] How many pixels per block.
    * @return {Buffer} The compression result.
    */
   static compressByRawBlocks(targetData, targetBuffer, sourceData, blockSize = 10) {

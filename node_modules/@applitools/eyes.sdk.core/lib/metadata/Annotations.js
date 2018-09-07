@@ -12,7 +12,7 @@ class Annotations {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {Annotations}
    */
   static fromObject(object) {

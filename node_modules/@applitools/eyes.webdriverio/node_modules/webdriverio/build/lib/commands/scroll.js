@@ -86,6 +86,10 @@ var scroll = function scroll(selector, xoffset, yoffset) {
         });
     }
 
+    /**
+     * if a selector is given or an element was queried in on of the prior commands
+     * and stored in a variable (then selector equals null)
+     */
     if (selector) {
         return this.element(selector).then(function (res) {
             /**

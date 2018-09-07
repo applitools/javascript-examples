@@ -11,7 +11,7 @@ class AppOutputProvider {
    * @abstract
    * @param {Region} region
    * @param {EyesScreenshot} lastScreenshot
-   * @return {Promise.<AppOutputWithScreenshot>}
+   * @return {Promise<AppOutputWithScreenshot>}
    */
   getAppOutput(region, lastScreenshot) {
     throw new TypeError('The method `getAppOutput` from `AppOutputProvider` should be implemented!');

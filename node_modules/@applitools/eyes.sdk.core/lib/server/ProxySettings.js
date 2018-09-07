@@ -9,9 +9,9 @@ const { ArgumentGuard } = require('../ArgumentGuard');
 class ProxySettings {
   /**
    *
-   * @param {String} uri The proxy's URI.
-   * @param {String} [username] The username to be sent to the proxy.
-   * @param {String} [password] The password to be sent to the proxy.
+   * @param {string} uri The proxy's URI.
+   * @param {string} [username] The username to be sent to the proxy.
+   * @param {string} [password] The password to be sent to the proxy.
    */
   constructor(uri, username, password) {
     ArgumentGuard.notNull(uri, 'uri');
@@ -40,7 +40,7 @@ class ProxySettings {
 
   // noinspection FunctionWithMoreThanThreeNegationsJS
   /**
-   * @return {{protocol: string, host: string, port: int, auth: {username: string, password: string}}}
+   * @return {{protocol: string, host: string, port: number, auth: {username: string, password: string}}}
    */
   toProxyObject() {
     const proxy = {};

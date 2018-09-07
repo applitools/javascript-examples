@@ -9,9 +9,9 @@ const { GeneralUtils } = require('./utils/GeneralUtils');
 class BatchInfo {
   /**
    * Creates a new BatchInfo instance.
-   * @param {String} [name] Name of batch or {@code null} if anonymous.
+   * @param {string} [name] Name of batch or {@code null} if anonymous.
    * @param {Date} [startedAt] Batch start time, defaults to the current time.
-   * @param {String} [id]
+   * @param {string} [id]
    */
   constructor(name, startedAt, id) {
     this._id = id || process.env.APPLITOOLS_BATCH_ID || GeneralUtils.guid();
@@ -20,7 +20,7 @@ class BatchInfo {
   }
 
   /**
-   * @return {String} The id of the current batch.
+   * @return {string} The id of the current batch.
    */
   getId() {
     return this._id;
@@ -31,7 +31,7 @@ class BatchInfo {
    * Sets a unique identifier for the batch. Sessions with batch info which includes the same ID will be grouped
    * together.
    *
-   * @param {String} value The batch's ID
+   * @param {string} value The batch's ID
    */
   setId(value) {
     ArgumentGuard.notNullOrEmpty(value, 'id');

@@ -3,7 +3,6 @@
 const path = require('path');
 const fs = require('fs');
 
-const { GeneralUtils } = require('../utils/GeneralUtils');
 const { LogHandler } = require('./LogHandler');
 
 /**
@@ -11,14 +10,13 @@ const { LogHandler } = require('./LogHandler');
  */
 class FileLogHandler extends LogHandler {
   /**
-   * @param {Boolean} isVerbose Whether to handle or ignore verbose log messages.
-   * @param {String} [filename] The file in which to save the logs.
+   * @param {boolean} isVerbose Whether to handle or ignore verbose log messages.
+   * @param {string} [filename] The file in which to save the logs.
    * @param {boolean} [append=true] Whether to append the logs to existing file, or to overwrite the existing file.
    */
   constructor(isVerbose, filename = 'eyes.log', append = true) {
     super();
 
-    // this._append = append;
     this._filename = filename;
     this._append = append;
     this.setIsVerbose(isVerbose);
@@ -53,12 +51,12 @@ class FileLogHandler extends LogHandler {
   /**
    * Handle a message to be logged.
    *
-   * @param {Boolean} verbose Whether this message is flagged as verbose or not.
-   * @param {String} logString The string to log.
+   * @param {boolean} verbose Whether this message is flagged as verbose or not.
+   * @param {string} logString The string to log.
    */
   onMessage(verbose, logString) {
     if (this._writer && (!verbose || this._isVerbose)) {
-      this._writer.write(`${GeneralUtils.toISO8601DateTime()} Eyes: ${logString}\n`);
+      this._writer.write(`${this.formatMessage(logString)}\n`);
     }
   }
 }

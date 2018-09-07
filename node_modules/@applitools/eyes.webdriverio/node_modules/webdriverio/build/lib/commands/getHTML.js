@@ -53,7 +53,23 @@ var getHTML = function getHTML(selector, includeSelectorTag) {
      */
     includeSelectorTag = typeof includeSelectorTag === 'boolean' ? includeSelectorTag : true;
 
-    return this.selectorExecute(selector, _getHTML2.default, includeSelectorTag).then(function (html) {
+    /**
+     * check if we already queried the element within a prior command, in these cases
+     * the selector attribute is null and the element can be recieved calling the
+     * `element` command again
+     */
+    var getHtmlResultPromise = void 0;
+    if (selector === null) {
+        getHtmlResultPromise = this.elements(selector).then(function (res) {
+            return _this.execute(_getHTML2.default, res.value, includeSelectorTag);
+        }).then(function (result) {
+            return result.value;
+        });
+    } else {
+        getHtmlResultPromise = this.selectorExecute(selector, _getHTML2.default, includeSelectorTag);
+    }
+
+    return getHtmlResultPromise.then(function (html) {
         /**
          * throw NoSuchElement error if no element was found
          */

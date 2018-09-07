@@ -7,7 +7,7 @@ class GetFloatingRegion {
   /**
    * @param {EyesBase} eyesBase
    * @param {EyesScreenshot} screenshot
-   * @return {Promise.<FloatingMatchSettings>}
+   * @return {Promise<FloatingMatchSettings>}
    */
   getRegion(eyesBase, screenshot) {}
 }

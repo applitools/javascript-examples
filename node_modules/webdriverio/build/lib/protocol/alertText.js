@@ -3,29 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-/**
- *
- * Gets the text of the currently displayed JavaScript alert(), confirm(), or prompt() dialog.
- *
- * <example>
-    :alertText.js
-    it('demonstrate the alertDismiss command', function () {
-        if (browser.alertText()) {
-            browser.alertDismiss();
-        }
-        // ...
-    });
- * </example>
- *
- * @param {String=} text  Keystrokes to send to the prompt() dialog.
- * @return {String}      The text of the currently displayed alert.
- * @throws {RuntimeError}   If no alert is present. The seleniumStack.type parameter will equal 'NoAlertOpenError'.
- *
- * @see  https://w3c.github.io/webdriver/webdriver-spec.html#get-alert-text
- * @see  https://w3c.github.io/webdriver/webdriver-spec.html#send-alert-text
- * @type protocol
- *
- */
+
+var _utilities = require('../helpers/utilities');
 
 var alertText = function alertText(text) {
     var _this = this;
@@ -45,7 +24,7 @@ var alertText = function alertText(text) {
         /**
          * jsonwire command not supported try webdriver endpoint
          */
-        if (err.message.match(/did not match a known command/)) {
+        if ((0, _utilities.isUnknownCommand)(err)) {
             requestOptions.path = '/session/:sessionId/alert/text';
             return _this.requestHandler.create(requestOptions, data);
         }
@@ -56,7 +35,28 @@ var alertText = function alertText(text) {
     return this.unify(request, {
         extractValue: true
     });
-};
+}; /**
+    *
+    * Gets the text of the currently displayed JavaScript alert(), confirm(), or prompt() dialog.
+    *
+    * <example>
+       :alertText.js
+       it('demonstrate the alertText command', function () {
+           let alert = browser.alertText();
+           expect(alert).toEqual('There are unsaved changes on the page.');
+           // ...
+       });
+    * </example>
+    *
+    * @param {String=} text  Keystrokes to send to the prompt() dialog.
+    * @return {String}      The text of the currently displayed alert.
+    * @throws {RuntimeError}   If no alert is present. The seleniumStack.type parameter will equal 'NoAlertOpenError'.
+    *
+    * @see  https://w3c.github.io/webdriver/webdriver-spec.html#get-alert-text
+    * @see  https://w3c.github.io/webdriver/webdriver-spec.html#send-alert-text
+    * @type protocol
+    *
+    */
 
 exports.default = alertText;
 module.exports = exports['default'];

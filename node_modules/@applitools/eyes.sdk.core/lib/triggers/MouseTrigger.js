@@ -63,7 +63,7 @@ class MouseTrigger extends Trigger {
 
 /**
  * @readonly
- * @enum {String}
+ * @enum {string}
  */
 MouseTrigger.MouseAction = {
   None: 'None',

@@ -19,7 +19,7 @@ class RunningSession {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {RunningSession}
    */
   static fromObject(object) {
@@ -28,60 +28,60 @@ class RunningSession {
     });
   }
 
-  /** @return {String} */
+  /** @return {string} */
   getId() {
     return this._id;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setId(value) {
     this._id = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getSessionId() {
     return this._sessionId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setSessionId(value) {
     this._sessionId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBatchId() {
     return this._batchId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBatchId(value) {
     this._batchId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineId() {
     return this._baselineId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBaselineId(value) {
     this._baselineId = value;
   }
 
-  /** @return {String} */
+  /** @return {string} */
   getUrl() {
     return this._url;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setUrl(value) {
     this._url = value;
   }
@@ -97,12 +97,12 @@ class RunningSession {
     this._renderingInfo = value;
   }
 
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsNewSession() {
     return this._isNewSession;
   }
 
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setNewSession(value) {
     this._isNewSession = value;
   }

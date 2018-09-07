@@ -60,7 +60,7 @@ class UserAgent {
   }
 
   /**
-   * @param {String} userAgent User agent string to parse
+   * @param {string} userAgent User agent string to parse
    * @param {boolean} unknowns Whether to treat unknown products as {@code UNKNOWN} or throw an exception.
    * @return {UserAgent} A representation of the user agent string.
    */
@@ -175,8 +175,8 @@ class UserAgent {
     // Explicit browser version (if available)
     if (VERSION_REGEX.test(userAgent)) {
       const versionMatch = VERSION_REGEX.exec(userAgent);
-      result._browserMajorVersion = versionMatch.group('major');
-      result._browserMinorVersion = versionMatch.group('minor');
+      result._browserMajorVersion = versionMatch[2];
+      result._browserMinorVersion = versionMatch[3];
     }
 
     return result;

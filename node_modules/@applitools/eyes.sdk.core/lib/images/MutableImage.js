@@ -67,7 +67,7 @@ const retrieveImageSize = that => {
  */
 class MutableImage {
   /**
-   * @param {Buffer|String} image Encoded bytes of image (buffer or base64 string)
+   * @param {Buffer|string} image Encoded bytes of image (buffer or base64 string)
    * @param {PromiseFactory} promiseFactory An object which will be used for creating deferreds/promises.
    */
   constructor(image, promiseFactory) {
@@ -83,18 +83,18 @@ class MutableImage {
     this._isParsed = false;
     /** @type {png.Image|Image} */
     this._imageBmp = undefined;
-    /** @type {int} */
+    /** @type {number} */
     this._width = 0;
-    /** @type {int} */
+    /** @type {number} */
     this._height = 0;
-    /** @type {int} */
+    /** @type {number} */
     this._top = 0;
-    /** @type {int} */
+    /** @type {number} */
     this._left = 0;
   }
 
   /**
-   * @param {String} str Base64 string of image
+   * @param {string} str Base64 string of image
    * @param {PromiseFactory} promiseFactory An object which will be used for creating deferreds/promises.
    * @return {MutableImage}
    */
@@ -103,8 +103,8 @@ class MutableImage {
   }
 
   /**
-   * @param {int} width
-   * @param {int} height
+   * @param {number} width
+   * @param {number} height
    * @param {PromiseFactory} promiseFactory An object which will be used for creating deferreds/promises.
    * @return {MutableImage}
    */
@@ -122,7 +122,7 @@ class MutableImage {
    * Coordinates represent the image's position in a larger context (if any).
    * E.g., A screenshot of the browser's viewport of a web page.
    *
-   * @return {Promise.<Location>} The coordinates of the image in the larger context (if any)
+   * @return {Promise<Location>} The coordinates of the image in the larger context (if any)
    */
   getCoordinates() {
     return this._promiseFactory.resolve(new Location(this._left, this._top));
@@ -134,7 +134,7 @@ class MutableImage {
    * E.g., A screenshot of the browser's viewport of a web page.
    *
    * @param {Location} coordinates
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   setCoordinates(coordinates) {
     this._left = coordinates.getX();
@@ -153,7 +153,7 @@ class MutableImage {
   }
 
   /**
-   * @return {Number}
+   * @return {number}
    */
   getWidth() {
     retrieveImageSize(this);
@@ -161,7 +161,7 @@ class MutableImage {
   }
 
   /**
-   * @return {Number}
+   * @return {number}
    */
   getHeight() {
     retrieveImageSize(this);
@@ -172,7 +172,7 @@ class MutableImage {
   /**
    * Return the image as buffer and image width and height.
    *
-   * @return {Promise.<{imageBuffer: Buffer, width: number, height: number}>}
+   * @return {Promise<{imageBuffer: Buffer, width: number, height: number}>}
    */
   asObject() {
     const that = this;
@@ -188,8 +188,8 @@ class MutableImage {
   /**
    * Scales the image in place (used to downsize by 2 for retina display chrome bug - and tested accordingly).
    *
-   * @param {Number} scaleRatio
-   * @return {Promise.<MutableImage>}
+   * @param {number} scaleRatio
+   * @return {Promise<MutableImage>}
    */
   scale(scaleRatio) {
     if (scaleRatio === 1) {
@@ -214,7 +214,7 @@ class MutableImage {
    * Crops the image according to the given region.
    *
    * @param {Region} region
-   * @return {Promise.<MutableImage>}
+   * @return {Promise<MutableImage>}
    */
   crop(region) {
     const that = this;
@@ -236,7 +236,7 @@ class MutableImage {
    * !WARNING this method copy image and crop it. Use image.crop() when it is possible
    *
    * @param {Region} region
-   * @return {Promise.<MutableImage>}
+   * @return {Promise<MutableImage>}
    */
   getImagePart(region) {
     const that = this;
@@ -249,8 +249,8 @@ class MutableImage {
   /**
    * Rotates an image clockwise by a number of degrees rounded to the nearest 90 degrees.
    *
-   * @param {Number} degrees The number of degrees to rotate the image by
-   * @return {Promise.<MutableImage>}
+   * @param {number} degrees The number of degrees to rotate the image by
+   * @return {Promise<MutableImage>}
    */
   rotate(degrees) {
     const that = this;
@@ -274,10 +274,10 @@ class MutableImage {
   }
 
   /**
-   * @param {int} dx
-   * @param {int} dy
+   * @param {number} dx
+   * @param {number} dy
    * @param {MutableImage} srcImage
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   copyRasterData(dx, dy, srcImage) {
     const that = this;
@@ -304,8 +304,8 @@ class MutableImage {
   /**
    * Write image to local directory
    *
-   * @param {String} filename
-   * @return {Promise}
+   * @param {string} filename
+   * @return {Promise<void>}
    */
   save(filename) {
     const that = this;
@@ -314,7 +314,7 @@ class MutableImage {
   }
 
   /**
-   * @return {?Promise.<Buffer>}
+   * @return {?Promise<Buffer>}
    */
   getImageBuffer() {
     const that = this;
@@ -322,7 +322,7 @@ class MutableImage {
   }
 
   /**
-   * @return {?Promise.<Buffer>}
+   * @return {?Promise<Buffer>}
    */
   getImageBase64() {
     const that = this;
@@ -330,7 +330,7 @@ class MutableImage {
   }
 
   /**
-   * @return {?Promise.<png.Image|Image>}
+   * @return {?Promise<png.Image|Image>}
    */
   getImageData() {
     const that = this;
@@ -338,10 +338,11 @@ class MutableImage {
   }
 
   /**
-   * @return {Promise.<MutableImage>}
+   * @param [value=this] What to resolve
+   * @return {Promise<MutableImage>}
    */
-  resolve() {
-    return this._promiseFactory.resolve(this);
+  resolve(value = this) {
+    return this._promiseFactory.resolve(value);
   }
 }
 

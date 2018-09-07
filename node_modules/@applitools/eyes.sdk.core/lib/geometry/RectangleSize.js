@@ -18,8 +18,8 @@ class RectangleSize {
    * - (size: RectangleSize): from another instance of RectangleSize
    * - (object: {width: number, height: number}): from object
    *
-   * @param {Number|RectangleSize|RectangleSizeObject} arg1 The width of the rectangle.
-   * @param {Number} [arg2] The height of the rectangle.
+   * @param {number|RectangleSize|RectangleSizeObject} arg1 The width of the rectangle.
+   * @param {number} [arg2] The height of the rectangle.
    */
   constructor(arg1, arg2) {
     const width = arg1;
@@ -68,7 +68,7 @@ class RectangleSize {
   /**
    * Parses a string into a {link RectangleSize} instance.
    *
-   * @param {String} size A string representing width and height separated by "x".
+   * @param {string} size A string representing width and height separated by "x".
    * @return {RectangleSize} An instance representing the input size.
    */
   static parse(size) {
@@ -82,14 +82,14 @@ class RectangleSize {
   }
 
   /**
-   * @return {Number} The rectangle's width.
+   * @return {number} The rectangle's width.
    */
   getWidth() {
     return this._width;
   }
 
   /**
-   * @return {Number} The rectangle's height.
+   * @return {number} The rectangle's height.
    */
   getHeight() {
     return this._height;
@@ -98,8 +98,8 @@ class RectangleSize {
   /**
    * Indicates whether some other RectangleSize is "equal to" this one.
    *
-   * @param {Object|RectangleSize} obj The reference object with which to compare.
-   * @return {Boolean} {@code true} if this object is the same as the obj argument; {@code false} otherwise.
+   * @param {object|RectangleSize} obj The reference object with which to compare.
+   * @return {boolean} {@code true} if this object is the same as the obj argument; {@code false} otherwise.
    */
   equals(obj) {
     if (typeof obj !== typeof this || !(obj instanceof RectangleSize)) {
@@ -112,18 +112,16 @@ class RectangleSize {
   /**
    * Get a scaled version of the current size.
    *
-   * @param {Number} scaleRatio The ratio by which to scale the results.
+   * @param {number} scaleRatio The ratio by which to scale the results.
    * @return {RectangleSize} A scaled copy of the current size.
    */
   scale(scaleRatio) {
     return new RectangleSize(Math.ceil(this._width * scaleRatio), Math.ceil(this._height * scaleRatio));
   }
 
+  /** @override */
   toJSON() {
-    return {
-      width: this._width,
-      height: this._height,
-    };
+    return { width: this._width, height: this._height };
   }
 
   /** @override */

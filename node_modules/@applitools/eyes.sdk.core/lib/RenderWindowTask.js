@@ -1,11 +1,11 @@
 'use strict';
 
-const { ArgumentGuard } = require('./ArgumentGuard');
-const { GeneralUtils } = require('./utils/GeneralUtils');
-const { RenderStatus } = require('./renderer/RenderStatus');
-const { RenderRequest } = require('./renderer/RenderRequest');
+const PromisePool = require('es6-promise-pool');
 
-const GET_STATUS_INTERVAL = 500; // Milliseconds
+const { ArgumentGuard } = require('./ArgumentGuard');
+const { RenderStatus } = require('./renderer/RenderStatus');
+
+const DEFAULT_CONCURRENCY_LIMIT = 100;
 
 class RenderWindowTask {
   /**
@@ -25,34 +25,72 @@ class RenderWindowTask {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {String} webhook
-   * @param {String} url
-   * @param {RGridDom} rGridDom
-   * @param {number} renderWidth
-   * @return {Promise.<String>} Rendered image URL
+   * @param {RenderRequest} renderRequest
+   * @return {Promise<string>} Rendered image URL
    */
-  renderWindow(webhook, url, rGridDom, renderWidth) {
-    const renderRequest = new RenderRequest(webhook, url, rGridDom, renderWidth);
-
+  renderWindow(renderRequest) {
     const that = this;
-    return that.postRender(rGridDom, renderRequest)
+    return that.postRender(renderRequest)
       .then(runningRender => that.getRenderStatus(runningRender))
-      .then(/** RenderStatusResults */ renderStatus => renderStatus.getImageLocation());
+      .then(renderStatus => renderStatus.getImageLocation());
+  }
+
+  /**
+   * @param {RenderRequest} renderRequest
+   * @return {Promise<RunningRender>}
+   */
+  postRender(renderRequest) {
+    const that = this;
+    return that._serverConnector.render(renderRequest)
+      .then(newRender => {
+        if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
+          renderRequest.setRenderId(newRender.getRenderId());
+
+          return that.putResources(renderRequest.getDom(), newRender)
+            .then(() => that.postRender(renderRequest));
+        }
+
+        return newRender;
+      });
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @param {RenderRequest[]} renderRequests
+   * @return {Promise<RunningRender>}
+   */
+  postRenderBatch(renderRequests) {
+    return this._serverConnector.render(renderRequests);
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @param {RenderRequest} renderRequest
+   * @return {Promise<void>}
+   */
+  checkAndPutResources(renderRequest) {
+    const that = this;
+    return that._serverConnector.render(renderRequest)
+      .then(newRender => {
+        if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
+          return that.putResources(renderRequest.getDom(), newRender);
+        }
+
+        return null;
+      });
   }
 
   /**
    * @param {RunningRender} runningRender
-   * @return {Promise.<RenderStatusResults>}
+   * @param {boolean} [delayBeforeRequest=false]
+   * @return {Promise<RenderStatusResults>}
    */
-  getRenderStatus(runningRender) {
+  getRenderStatus(runningRender, delayBeforeRequest = false) {
     const that = this;
-    return that._serverConnector.renderStatus(runningRender)
-      .catch(() => GeneralUtils.sleep(GET_STATUS_INTERVAL, that._promiseFactory)
-        .then(() => that.getRenderStatus(runningRender)))
+    return that._serverConnector.renderStatus(runningRender, delayBeforeRequest)
       .then(renderStatusResults => {
         if (renderStatusResults.getStatus() === RenderStatus.RENDERING) {
-          return GeneralUtils.sleep(GET_STATUS_INTERVAL, that._promiseFactory)
-            .then(() => that.getRenderStatus(runningRender));
+          return that.getRenderStatus(runningRender, true);
         } else if (renderStatusResults.getStatus() === RenderStatus.ERROR) {
           return that._promiseFactory.reject(renderStatusResults.getError());
         }
@@ -61,48 +99,45 @@ class RenderWindowTask {
       });
   }
 
+  // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {RGridDom} rGridDom
-   * @param {RenderRequest} renderRequest
-   * @param {RunningRender} [runningRender]
-   * @return {Promise.<RunningRender>}
+   * @param {string[]} renderIds
+   * @param {boolean} [delayBeforeRequest=false] If {@code true}, then the request will be delayed
+   * @return {Promise<RenderStatusResults[]>}
    */
-  postRender(rGridDom, renderRequest, runningRender) {
-    const that = this;
-    return that._serverConnector.render(renderRequest, runningRender)
-      .then(newRender => {
-        if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
-          return that.putResources(rGridDom, renderRequest, newRender)
-            .then(() => that.postRender(rGridDom, renderRequest, newRender));
-        }
-
-        return newRender;
-      });
+  getRenderStatusBatch(renderIds, delayBeforeRequest) {
+    return this._serverConnector.renderStatusById(renderIds, delayBeforeRequest);
   }
 
   /**
    * @param {RGridDom} rGridDom
-   * @param {RenderRequest} renderRequest
-   * @param {RunningRender} [runningRender]
-   * @return {Promise.<RunningRender>}
+   * @param {RunningRender} runningRender
+   * @param {number} [concurrency]
+   * @return {Promise<void>}
    */
-  putResources(rGridDom, renderRequest, runningRender) {
+  putResources(rGridDom, runningRender, concurrency = DEFAULT_CONCURRENCY_LIMIT) {
     const that = this;
-    const promises = [];
+    let promise = that._promiseFactory.resolve();
 
     if (runningRender.getNeedMoreDom()) {
-      promises.push(that._serverConnector.renderPutResource(runningRender, rGridDom.asResource()));
+      promise = promise.then(() => that._serverConnector.renderPutResource(runningRender, rGridDom.asResource()));
     }
 
     if (runningRender.getNeedMoreResources()) {
-      rGridDom.getResources().forEach(resource => {
-        if (runningRender.getNeedMoreResources().includes(resource.getUrl())) {
-          promises.push(that._serverConnector.renderPutResource(runningRender, resource));
+      const resources = rGridDom.getResources();
+
+      const pool = new PromisePool(function* generatePutResourcesPromises() {
+        for (let l = resources.length - 1; l >= 0; l -= 1) {
+          if (runningRender.getNeedMoreResources().includes(resources[l].getUrl())) {
+            yield that._serverConnector.renderPutResource(runningRender, resources[l]);
+          }
         }
-      });
+      }, concurrency);
+
+      promise = promise.then(() => pool.start());
     }
 
-    return that._promiseFactory.all(promises);
+    return promise;
   }
 }
 

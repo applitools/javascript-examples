@@ -18,7 +18,7 @@ class ImageMatchSettings {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {ImageMatchSettings}
    */
   static fromObject(object) {
@@ -122,13 +122,13 @@ class ImageMatchSettings {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIgnoreCaret() {
     return this._ignoreCaret;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIgnoreCaret(value) {
     this._ignoreCaret = value;
   }

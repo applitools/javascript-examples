@@ -20,7 +20,7 @@ class Logger {
   }
 
   /**
-   * @param {Object} handler The log handler to set. If you want a log handler which does nothing, use
+   * @param {object} handler The log handler to set. If you want a log handler which does nothing, use
    *   {@link NullLogHandler}.
    */
   setLogHandler(handler) {
@@ -50,7 +50,7 @@ class Logger {
   // noinspection JSMethodCanBeStatic
   /**
    * @private
-   * @return {String} The name of the method which called the logger, if possible, or an empty string.
+   * @return {string} The name of the method which called the logger, if possible, or an empty string.
    */
   _getPrefix() {
     const trace = GeneralUtils.getStackTrace();

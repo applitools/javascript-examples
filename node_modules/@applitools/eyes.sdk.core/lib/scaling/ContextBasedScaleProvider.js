@@ -9,8 +9,8 @@ const ALLOWED_DCES_DEVIATION = 10;
 const UNKNOWN_SCALE_RATIO = 0;
 
 /**
- * @param {int} viewportWidth
- * @param {int} imageToScaleWidth
+ * @param {number} viewportWidth
+ * @param {number} imageToScaleWidth
  * @param {number} currentScaleRatio
  * @return {number}
  */
@@ -63,7 +63,7 @@ class ContextBasedScaleProvider extends ScaleProvider {
   /**
    * Set the scale ratio based on the given image.
    *
-   * @param {int} imageToScaleWidth The width of the image to scale, used for calculating the scale ratio.
+   * @param {number} imageToScaleWidth The width of the image to scale, used for calculating the scale ratio.
    */
   updateScaleRatio(imageToScaleWidth) {
     const viewportWidth = this._viewportSize.getWidth();

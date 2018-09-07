@@ -5,18 +5,18 @@
   "main": "screenshots.js",
   "dependencies": {
     "ava": "^0.25.0",
-    "chromedriver": "^2.36.0",
+    "chromedriver": "^2.41.0",
     "eyes.images": "^0.0.50",
     "eyes.selenium": "^0.0.77",
-    "npm": "^5.7.1",
+    "npm": "^5.10.0",
     "selenium-webdriver": "^3.6.0",
-    "sleep": "^5.1.1",
-    "webdriverio": "^4.12.0"
+    "sleep": "^5.2.3",
+    "webdriverio": "^4.13.2"
   },
   "devDependencies": {
-    "@applitools/eyes.webdriverio": "^1.1.0",
+    "@applitools/eyes.webdriverio": "^1.2.0",
     "eyes.images": "0.0.50",
-    "wdio-browserstack-service": "^0.1.15"
+    "wdio-browserstack-service": "^0.1.16"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

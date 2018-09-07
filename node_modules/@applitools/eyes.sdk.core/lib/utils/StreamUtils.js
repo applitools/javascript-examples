@@ -5,7 +5,7 @@ const Stream = require('stream');
 class ReadableBufferStream extends Stream.Readable {
   /**
    * @param {Buffer} buffer The buffer to be used as the stream's source.
-   * @param {Object} [options] An "options" object to be passed to the stream constructor.
+   * @param {object} [options] An "options" object to be passed to the stream constructor.
    */
   constructor(buffer, options) {
     super(options);
@@ -25,7 +25,7 @@ class ReadableBufferStream extends Stream.Readable {
 
 class WritableBufferStream extends Stream.Writable {
   /**
-   * @param {Object} [options] An "options" object to be passed to the stream constructor.
+   * @param {object} [options] An "options" object to be passed to the stream constructor.
    * @return {WritableBufferStream}
    */
   constructor(options) {
@@ -37,7 +37,7 @@ class WritableBufferStream extends Stream.Writable {
   /**
    * Override of the _write function, as require when implementing a Writable stream.
    * @param {Buffer|string} chunk The chunk to write to the stream.
-   * @param {String} enc If {@code chunk} is a string, this is the encoding of {@code chunk}.
+   * @param {string} enc If {@code chunk} is a string, this is the encoding of {@code chunk}.
    * @param {function} next The callback to call when finished handling {@code chunk}.
    * @private
    */
@@ -50,7 +50,7 @@ class WritableBufferStream extends Stream.Writable {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Boolean} {@code false} if the stream wishes for the calling code to wait for the 'drain' event to be
+   * @return {boolean} {@code false} if the stream wishes for the calling code to wait for the 'drain' event to be
    *   emitted before continuing to write additional data, otherwise {@code true}.
    */
   writeInt(value) {
@@ -61,7 +61,7 @@ class WritableBufferStream extends Stream.Writable {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Boolean} {@code false} if the stream wishes for the calling code to wait for the 'drain' event to be
+   * @return {boolean} {@code false} if the stream wishes for the calling code to wait for the 'drain' event to be
    *   emitted before continuing to write additional data, otherwise {@code true}.
    */
   writeShort(value) {
@@ -72,7 +72,7 @@ class WritableBufferStream extends Stream.Writable {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Boolean} {@code false} if the stream wishes for the calling code to wait for the 'drain' event to be
+   * @return {boolean} {@code false} if the stream wishes for the calling code to wait for the 'drain' event to be
    *   emitted before continuing to write additional data, otherwise {@code true}.
    */
   writeByte(value) {

@@ -12,7 +12,7 @@ class ExpectedAppOutput {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {ExpectedAppOutput}
    */
   static fromObject(object) {
@@ -20,13 +20,13 @@ class ExpectedAppOutput {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getTag() {
     return this._tag;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setTag(value) {
     this._tag = value;
   }

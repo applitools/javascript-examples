@@ -12,8 +12,8 @@ const DATE_FORMAT = 'yyyy_mm_dd_HH_MM_ss_l';
 class FileDebugScreenshotsProvider extends DebugScreenshotsProvider {
   /**
    * @param {MutableImage} image
-   * @param {String} suffix
-   * @return {Promise}
+   * @param {string} suffix
+   * @return {Promise<void>}
    */
   save(image, suffix) {
     const filename = `${this._path}${this._prefix}${this.getFormattedTimeStamp()}_${suffix}.png`;
@@ -22,7 +22,7 @@ class FileDebugScreenshotsProvider extends DebugScreenshotsProvider {
 
   // noinspection JSMethodCanBeStatic
   /**
-   * @return {Promise}
+   * @return {string}
    */
   getFormattedTimeStamp() {
     return dateformat(new Date(), DATE_FORMAT);

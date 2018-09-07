@@ -50,7 +50,7 @@ class PromiseFactory {
    *
    * @template T
    * @param {T} [value] argument to be resolved by this Promise. Can also be a Promise or a thenable to resolve.
-   * @return {Promise.<T>}
+   * @return {Promise<T>}
    */
   resolve(value) {
     return this.makePromise(resolve => {
@@ -63,7 +63,7 @@ class PromiseFactory {
    *
    * @template T
    * @param {T} [value] reason why this Promise rejected.
-   * @return {Promise.<T>}
+   * @return {Promise<T>}
    */
   reject(value) {
     return this.makePromise((resolve, reject) => {
@@ -75,8 +75,8 @@ class PromiseFactory {
    * The method returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves or
    * rejects, with the value or reason from that promise.
    *
-   * @param {Iterable.<Promise>} iterable
-   * @return {Promise.<*>}
+   * @param {Iterable<Promise<*>>} iterable
+   * @return {Promise<*>}
    */
   race(iterable) {
     return this.makePromise((resolve, reject) => {
@@ -91,8 +91,8 @@ class PromiseFactory {
    * The method returns a single Promise that resolves when all of the promises in the iterable argument have resolved
    * or when the iterable argument contains no promises. It rejects with the reason of the first promise that rejects.
    *
-   * @param {Iterable.<Promise>} iterable
-   * @return {Promise.<[*]>}
+   * @param {Iterable<Promise<*>>} iterable
+   * @return {Promise<*[]>}
    */
   all(iterable) {
     const args = Array.prototype.slice.call(iterable);

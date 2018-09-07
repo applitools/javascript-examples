@@ -1,6 +1,7 @@
 'use strict';
 
 const { MatchLevel } = require('./MatchLevel');
+const { GeneralUtils } = require('../utils/GeneralUtils');
 
 /**
  * Encapsulates match settings for the a session.
@@ -9,16 +10,16 @@ class ImageMatchSettings {
   /**
    * @param {MatchLevel} matchLevel The "strictness" level to use.
    * @param {ExactMatchSettings} [exact] Additional threshold parameters when the {@code Exact} match level is used.
-   * @param {Boolean} [ignoreCaret]
+   * @param {boolean} [ignoreCaret]
    */
   constructor(matchLevel = MatchLevel.Strict, exact, ignoreCaret) {
     this._matchLevel = matchLevel;
     this._exact = exact;
     this._ignoreCaret = ignoreCaret;
     /** @type {Region[]} */
-    this._ignoreRegions = [];
+    this._ignore = [];
     /** @type {FloatingMatchSettings[]} */
-    this._floatingMatchSettings = [];
+    this._floating = [];
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -55,7 +56,7 @@ class ImageMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Boolean} The parameters for the "IgnoreCaret" match settings.
+   * @return {boolean} The parameters for the "IgnoreCaret" match settings.
    */
   getIgnoreCaret() {
     return this._ignoreCaret;
@@ -63,7 +64,7 @@ class ImageMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {Boolean} value The parameters for the "ignoreCaret" match settings.
+   * @param {boolean} value The parameters for the "ignoreCaret" match settings.
    */
   setIgnoreCaret(value) {
     this._ignoreCaret = value;
@@ -75,7 +76,7 @@ class ImageMatchSettings {
    * @return {Region[]} the array of regions to ignore.
    */
   getIgnoreRegions() {
-    return this._ignoreRegions;
+    return this._ignore;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -84,7 +85,7 @@ class ImageMatchSettings {
    * @param {Region[]} value The array of regions to ignore.
    */
   setIgnoreRegions(value) {
-    this._ignoreRegions = value;
+    this._ignore = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -93,7 +94,7 @@ class ImageMatchSettings {
    * @return {FloatingMatchSettings[]} an array of floating regions.
    */
   getFloatingRegions() {
-    return this._floatingMatchSettings;
+    return this._floating;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -102,18 +103,12 @@ class ImageMatchSettings {
    * @param {FloatingMatchSettings[]} value The array of floating regions.
    */
   setFloatingRegions(value) {
-    this._floatingMatchSettings = value;
+    this._floating = value;
   }
 
   /** @override */
   toJSON() {
-    return {
-      matchLevel: this._matchLevel,
-      exact: this._exact,
-      ignoreCaret: this._ignoreCaret,
-      ignore: this._ignoreRegions,
-      floating: this._floatingMatchSettings,
-    };
+    return GeneralUtils.toPlain(this);
   }
 
   /** @override */

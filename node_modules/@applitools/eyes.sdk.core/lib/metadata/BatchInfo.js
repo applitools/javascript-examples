@@ -10,7 +10,7 @@ class BatchInfo {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {BatchInfo}
    */
   static fromObject(object) {
@@ -18,25 +18,25 @@ class BatchInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getId() {
     return this._id;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setId(value) {
     this._id = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getName() {
     return this._name;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setName(value) {
     this._name = value;
   }

@@ -7,7 +7,25 @@ var _isWithinViewport2 = _interopRequireDefault(_isWithinViewport);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = function isVisibleWithinViewport(selector) {
-    return this.selectorExecute(selector, _isWithinViewport2.default).then(function (res) {
+    var _this = this;
+
+    /**
+     * check if we already queried the element within a prior command, in these cases
+     * the selector attribute is null and the element can be recieved calling the
+     * `element` command again
+     */
+    var resultPromise = void 0;
+    if (selector === null) {
+        resultPromise = this.elements(selector).then(function (res) {
+            return _this.execute(_isWithinViewport2.default, res.value);
+        }).then(function (result) {
+            return result.value;
+        });
+    } else {
+        resultPromise = this.selectorExecute(selector, _isWithinViewport2.default);
+    }
+
+    return resultPromise.then(function (res) {
         if (Array.isArray(res) && res.length === 1) {
             return res[0];
         }
@@ -18,7 +36,7 @@ module.exports = function isVisibleWithinViewport(selector) {
          * if element does not exist it is automatically not visible :-)
          */
         if (err.message.indexOf('NoSuchElement') > -1) {
-            return true;
+            return false;
         }
 
         throw err;

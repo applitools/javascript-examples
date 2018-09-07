@@ -9,7 +9,7 @@ class Image {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {Image}
    */
   static fromObject(object) {
@@ -17,13 +17,13 @@ class Image {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getId() {
     return this._id;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setId(value) {
     this._id = value;
   }

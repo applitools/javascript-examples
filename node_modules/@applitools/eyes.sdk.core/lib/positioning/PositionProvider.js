@@ -7,7 +7,7 @@
  */
 class PositionProvider {
   /**
-   * @return {Promise.<Location>} The current position, or {@code null} if position is not available.
+   * @return {Promise<Location>} The current position, or {@code null} if position is not available.
    */
   getCurrentPosition() {}
 
@@ -15,23 +15,23 @@ class PositionProvider {
    * Go to the specified location.
    *
    * @param {Location} location The position to set.
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   setPosition(location) {}
 
   /**
-   * @return {Promise.<RectangleSize>} The entire size of the container which the position is relative to.
+   * @return {Promise<RectangleSize>} The entire size of the container which the position is relative to.
    */
   getEntireSize() {}
 
   /**
-   * @return {Promise.<PositionMemento>}
+   * @return {Promise<PositionMemento>}
    */
   getState() {}
 
   /**
    * @param {PositionMemento} state The initial state of position
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   restoreState(state) {}
 }

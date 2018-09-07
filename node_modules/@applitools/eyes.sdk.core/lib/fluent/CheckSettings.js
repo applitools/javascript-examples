@@ -13,7 +13,7 @@ const { GetFloatingRegion } = require('./GetFloatingRegion');
  */
 class CheckSettings {
   /**
-   * @param {?int} [timeout=-1]
+   * @param {?number} [timeout=-1]
    * @param {Region|RegionObject} [region]
    */
   constructor(timeout = -1, region) {
@@ -103,7 +103,7 @@ class CheckSettings {
   }
 
   /**
-   * @return {Boolean}
+   * @return {boolean}
    */
   getIgnoreCaret() {
     return this._ignoreCaret;
@@ -122,7 +122,7 @@ class CheckSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {Boolean} [stitchContent=true]
+   * @param {boolean} [stitchContent=true]
    * @return {CheckSettings}
    */
   stitchContent(stitchContent = true) {
@@ -131,7 +131,7 @@ class CheckSettings {
   }
 
   /**
-   * @return {Boolean}
+   * @return {boolean}
    */
   getStitchContent() {
     return this._stitchContent;
@@ -141,7 +141,7 @@ class CheckSettings {
   /**
    * Defines the timeout to use when acquiring and comparing screenshots.
    *
-   * @param {int} timeoutMilliseconds The timeout to use in milliseconds.
+   * @param {number} timeoutMilliseconds The timeout to use in milliseconds.
    * @return {CheckSettings} This instance of the settings object.
    */
   timeout(timeoutMilliseconds) {
@@ -150,7 +150,7 @@ class CheckSettings {
   }
 
   /**
-   * @return {int}
+   * @return {number}
    */
   getTimeout() {
     return this._timeout;
@@ -229,10 +229,10 @@ class CheckSettings {
    *
    * @param {GetFloatingRegion|Region|FloatingMatchSettings} regionOrContainer The content rectangle or region
    *   container
-   * @param {int} [maxUpOffset] How much the content can move up.
-   * @param {int} [maxDownOffset] How much the content can move down.
-   * @param {int} [maxLeftOffset] How much the content can move to the left.
-   * @param {int} [maxRightOffset] How much the content can move to the right.
+   * @param {number} [maxUpOffset] How much the content can move up.
+   * @param {number} [maxDownOffset] How much the content can move down.
+   * @param {number} [maxLeftOffset] How much the content can move to the left.
+   * @param {number} [maxRightOffset] How much the content can move to the right.
    * @return {CheckSettings} This instance of the settings object.
    */
   floating(regionOrContainer, maxUpOffset, maxDownOffset, maxLeftOffset, maxRightOffset) {
@@ -269,7 +269,7 @@ class CheckSettings {
    * Adds a floating region. A floating region is a a region that can be placed within the boundaries of a
    * bigger region.
    *
-   * @param {int} maxOffset How much each of the content rectangles can move in any direction.
+   * @param {number} maxOffset How much each of the content rectangles can move in any direction.
    * @param {Region...} regionsOrContainers One or more content rectangles or region containers
    * @return {CheckSettings} This instance of the settings object.
    */

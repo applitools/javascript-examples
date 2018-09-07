@@ -9,13 +9,13 @@ class ExactMatchSettings {
   /**
    * Encapsulate threshold settings for the "Exact" match level.
    *
-   * @param {Number} [minDiffIntensity=0] The minimum intensity difference of pixel to be considered a change. Valid
+   * @param {number} [minDiffIntensity=0] The minimum intensity difference of pixel to be considered a change. Valid
    *   values are 0-255.
-   * @param {Number} [minDiffWidth=0] The minimum width of an intensity filtered pixels cluster to be considered a
+   * @param {number} [minDiffWidth=0] The minimum width of an intensity filtered pixels cluster to be considered a
    *   change. Must be >= 0.
-   * @param {Number} [minDiffHeight=0] The minimum height of an intensity filtered pixels cluster to be considered a
+   * @param {number} [minDiffHeight=0] The minimum height of an intensity filtered pixels cluster to be considered a
    *   change. Must be >= 0.
-   * @param {Number} [matchThreshold=0] The maximum percentage(!) of different pixels (after intensity, width and
+   * @param {number} [matchThreshold=0] The maximum percentage(!) of different pixels (after intensity, width and
    *   height filtering) which is still considered as a match. Valid values are fractions between 0-1.
    */
   constructor(minDiffIntensity, minDiffWidth, minDiffHeight, matchThreshold) {
@@ -27,7 +27,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Number} The minimum intensity difference of pixel to be considered a change.
+   * @return {number} The minimum intensity difference of pixel to be considered a change.
    */
   getMinDiffIntensity() {
     return this._minDiffIntensity;
@@ -35,7 +35,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {Number} value The minimum intensity difference of pixel to be considered a change. Valid values are 0-255.
+   * @param {number} value The minimum intensity difference of pixel to be considered a change. Valid values are 0-255.
    */
   setMinDiffIntensity(value) {
     this._minDiffIntensity = value;
@@ -43,7 +43,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Number} The minimum width of an intensity filtered pixels cluster to be considered a change.
+   * @return {number} The minimum width of an intensity filtered pixels cluster to be considered a change.
    */
   getMinDiffWidth() {
     return this._minDiffWidth;
@@ -51,7 +51,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {Number} value The minimum width of an intensity filtered pixels cluster to be considered a change.
+   * @param {number} value The minimum width of an intensity filtered pixels cluster to be considered a change.
    *   Must be >= 0.
    */
   setMinDiffWidth(value) {
@@ -60,7 +60,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Number} The minimum width of an intensity filtered pixels cluster to be considered a change.
+   * @return {number} The minimum width of an intensity filtered pixels cluster to be considered a change.
    */
   getMinDiffHeight() {
     return this._minDiffHeight;
@@ -68,7 +68,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {Number} value The minimum height of an intensity filtered pixels cluster to be considered a change. Must
+   * @param {number} value The minimum height of an intensity filtered pixels cluster to be considered a change. Must
    *   be >= 0.
    */
   setMinDiffHeight(value) {
@@ -77,7 +77,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Number} The maximum percentage(!) of different pixels (after intensity, width and height filtering) which
+   * @return {number} The maximum percentage(!) of different pixels (after intensity, width and height filtering) which
    *   is still considered as a match.
    */
   getMatchThreshold() {
@@ -86,7 +86,7 @@ class ExactMatchSettings {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {Number} value The maximum percentage(!) of different pixels (after intensity, width and height filtering)
+   * @param {number} value The maximum percentage(!) of different pixels (after intensity, width and height filtering)
    *   which is still considered as a match. Valid values are fractions between 0-1.
    */
   setMatchThreshold(value) {

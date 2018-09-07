@@ -19,7 +19,7 @@ class StartInfo {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {StartInfo}
    */
   static fromObject(object) {
@@ -27,61 +27,61 @@ class StartInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getSessionType() {
     return this._sessionType;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setSessionType(value) {
     this._sessionType = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsTransient() {
     return this._isTransient;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsTransient(value) {
     this._isTransient = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getAppIdOrName() {
     return this._appIdOrName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setAppIdOrName(value) {
     this._appIdOrName = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getCompareWithParentBranch() {
     return this._compareWithParentBranch;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setCompareWithParentBranch(value) {
     this._compareWithParentBranch = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getScenarioIdOrName() {
     return this._scenarioIdOrName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setScenarioIdOrName(value) {
     this._scenarioIdOrName = value;
   }
@@ -111,13 +111,13 @@ class StartInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getMatchLevel() {
     return this._matchLevel;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setMatchLevel(value) {
     this._matchLevel = value;
   }
@@ -135,25 +135,25 @@ class StartInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getAgentId() {
     return this._agentId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setAgentId(value) {
     this._agentId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Object[]} */
+  /** @return {object[]} */
   getProperties() {
     return this._properties;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Object[]} value */
+  /** @param {object[]} value */
   setProperties(value) {
     this._properties = value;
   }

@@ -2,7 +2,7 @@
 
 /**
  * @readonly
- * @enum {String}
+ * @enum {string}
  */
 const OSNames = {
   Unknown: 'Unknown',

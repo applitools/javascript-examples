@@ -7,9 +7,7 @@ describe('TestObject website', function() {
   });
 
   it('Hello World', function() {
-     console.log("OPENING EYES....")
      browser.eyesOpen("Hello World");
-     console.log("DONE OPENING EYES....")
      browser.eyesCheckWindow("Hello World Page");
      browser.click('button');
      browser.eyesCheckWindow("Click!");

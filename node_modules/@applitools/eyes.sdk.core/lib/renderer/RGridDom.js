@@ -17,7 +17,7 @@ class RGridDom {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {Object} The domNodes of the current page.
+   * @return {object} The domNodes of the current page.
    */
   getDomNodes() {
     return this._domNodes;
@@ -25,7 +25,7 @@ class RGridDom {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @param {Object} value The page's domNodes
+   * @param {object} value The page's domNodes
    */
   setDomNodes(value) {
     ArgumentGuard.notNull(value, 'domNodes');

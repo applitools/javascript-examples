@@ -1,6 +1,5 @@
 'use strict';
 
-const { GeneralUtils } = require('../utils/GeneralUtils');
 const { LogHandler } = require('./LogHandler');
 
 /**
@@ -8,7 +7,7 @@ const { LogHandler } = require('./LogHandler');
  */
 class ConsoleLogHandler extends LogHandler {
   /**
-   * @param {Boolean} isVerbose Whether to handle or ignore verbose log messages.
+   * @param {boolean} isVerbose Whether to handle or ignore verbose log messages.
    */
   constructor(isVerbose) {
     super();
@@ -24,12 +23,12 @@ class ConsoleLogHandler extends LogHandler {
   /**
    * Handle a message to be logged.
    *
-   * @param {Boolean} verbose - is the message verbose
-   * @param {String} logString
+   * @param {boolean} verbose - is the message verbose
+   * @param {string} logString
    */
   onMessage(verbose, logString) {
     if (!verbose || this._isVerbose) {
-      console.log(`${GeneralUtils.toISO8601DateTime()} Eyes: ${logString}`);
+      console.log(this.formatMessage(logString)); // eslint-disable-line
     }
   }
 }

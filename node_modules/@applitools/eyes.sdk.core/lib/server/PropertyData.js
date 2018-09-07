@@ -2,8 +2,8 @@
 
 class PropertyData {
   /**
-   * @param {String} name
-   * @param {String} value
+   * @param {string} name
+   * @param {string} value
    */
   constructor(name, value) {
     this._name = name;
@@ -11,29 +11,30 @@ class PropertyData {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getName() {
     return this._name;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setName(value) {
     this._name = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getValue() {
     return this._value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setValue(value) {
     this._value = value;
   }
 
+  /** @override */
   toJSON() {
     return {
       name: this._name,

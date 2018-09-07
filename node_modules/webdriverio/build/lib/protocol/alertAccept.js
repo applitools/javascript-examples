@@ -4,27 +4,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = alertAccept;
-/**
- *
- * Accepts the currently displayed alert dialog. Usually, this is equivalent to
- * clicking on the 'OK' button in the dialog.
- *
- * <example>
-    :alertAccept.js
-    it('demonstrate the alertAccept command', function () {
-        if (browser.alertText()) {
-            browser.alertAccept();
-        }
-        // ...
-    });
- * </example>
- *
- * @throws {RuntimeError}   If no alert is present. The seleniumStack.type parameter will equal 'NoAlertOpenError'.
- *
- * @see  https://w3c.github.io/webdriver/webdriver-spec.html#accept-alert
- * @type protocol
- *
- */
+
+var _utilities = require('../helpers/utilities');
 
 function alertAccept() {
     var _this = this;
@@ -38,12 +19,35 @@ function alertAccept() {
         /**
          * jsonwire command not supported try webdriver endpoint
          */
-        if (err.message.match(/did not match a known command/)) {
+        if ((0, _utilities.isUnknownCommand)(err)) {
             requestOptions.path = '/session/:sessionId/alert/accept';
             return _this.requestHandler.create(requestOptions);
         }
 
         throw err;
     });
-}
+} /**
+   *
+   * Accepts the currently displayed alert dialog. Usually, this is equivalent to
+   * clicking on the 'OK' button in the dialog.
+   *
+   * <example>
+      :alertAccept.js
+      it('demonstrate the alertAccept command', function () {
+          try {
+              browser.alertAccept();
+          } catch (e) {
+              // no alert found
+          }
+          // ...
+      });
+   * </example>
+   *
+   * @throws {RuntimeError}   If no alert is present. The seleniumStack.type parameter will equal 'NoAlertOpenError'.
+   *
+   * @see  https://w3c.github.io/webdriver/webdriver-spec.html#accept-alert
+   * @type protocol
+   *
+   */
+
 module.exports = exports['default'];

@@ -13,23 +13,30 @@
             };
         }
 
-        // parse input
-        var digits = /(.*?)rgb(a)*\((\d+),(\d+),(\d+)(,[0-9]*\.*[0-9]+)*\)/.exec(color.replace(/\s+/g,''));
+        /**
+         * strip spaces
+         */
+        var strippedColor = color.replace(/\s+/g,'');
+
+        /**
+         * parse input
+         */
+        var digits = /(.*?)rgb(a)??\((\d{1,3}),(\d{1,3}),(\d{1,3})(,([01]|0??\.([0-9]{0,3})))??\)/.exec(strippedColor);
 
         if(!digits) {
             // or throw error if input isn't a valid rgb(a) color
             throw new Error('given color (' + color + ') isn\'t a valid rgb or rgba color');
         }
 
-        var red = parseInt(digits[3]);
-        var green = parseInt(digits[4]);
-        var blue = parseInt(digits[5]);
+        var red = parseInt(digits[3], 10);
+        var green = parseInt(digits[4], 10);
+        var blue = parseInt(digits[5], 10);
         var alpha = digits[6] ? /([0-9\.]+)/.exec(digits[6])[0] : '1';
         var rgb = ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1);
 
         // parse alpha value into float
         if(alpha.substr(0,1) === '.') {
-            alpha = parseFloat('0' + alpha, 10);
+            alpha = parseFloat('0' + alpha);
         }
 
         // limit alpha value to 1
@@ -38,12 +45,12 @@
         }
 
         // cut alpha value after 2 digits after comma
-        alpha = parseFloat(Math.round(alpha * 100), 10) / 100;
+        alpha = parseFloat(Math.round(alpha * 100)) / 100;
 
         return {
-            hex: digits[1] + '#' + rgb.toString(16),
+            hex: '#' + rgb.toString(16),
             alpha: alpha
-        }
+        };
 
     };
 

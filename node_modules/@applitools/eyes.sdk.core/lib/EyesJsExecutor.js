@@ -13,7 +13,7 @@ class EyesJsExecutor {
    *
    * @param {!(string|Function)} script The script to execute.
    * @param {...*} varArgs The arguments to pass to the script.
-   * @return {Promise.<T>} A promise that will resolve to the scripts return value.
+   * @return {Promise<T>} A promise that will resolve to the scripts return value.
    * @template T
    */
   executeScript(script, ...varArgs) {}

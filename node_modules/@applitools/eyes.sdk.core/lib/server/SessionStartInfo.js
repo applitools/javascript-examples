@@ -8,23 +8,23 @@ const { ArgumentGuard } = require('../ArgumentGuard');
  */
 class SessionStartInfo {
   /**
-   * @param {String} agentId
+   * @param {string} agentId
    * @param {SessionType} sessionType
-   * @param {String} appIdOrName
-   * @param {String} verId
-   * @param {String} scenarioIdOrName
+   * @param {string} appIdOrName
+   * @param {string} verId
+   * @param {string} scenarioIdOrName
    * @param {BatchInfo} batchInfo
-   * @param {String} baselineEnvName
-   * @param {String} environmentName
+   * @param {string} baselineEnvName
+   * @param {string} environmentName
    * @param {AppEnvironment} environment
    * @param {ImageMatchSettings} defaultMatchSettings
-   * @param {String} branchName
-   * @param {String} parentBranchName
-   * @param {String} baselineBranchName
-   * @param {Boolean} compareWithParentBranch
-   * @param {Boolean} ignoreBaseline
+   * @param {string} branchName
+   * @param {string} parentBranchName
+   * @param {string} baselineBranchName
+   * @param {boolean} compareWithParentBranch
+   * @param {boolean} ignoreBaseline
    * @param {PropertyData[]} properties
-   * @param {Boolean} render=false
+   * @param {boolean} render=false
    */
   constructor(
     agentId,
@@ -72,7 +72,7 @@ class SessionStartInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getAgentId() {
     return this._agentId;
   }
@@ -84,19 +84,19 @@ class SessionStartInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getAppIdOrName() {
     return this._appIdOrName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getVerId() {
     return this._verId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getScenarioIdOrName() {
     return this._scenarioIdOrName;
   }
@@ -108,13 +108,13 @@ class SessionStartInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineEnvName() {
     return this._baselineEnvName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getEnvironmentName() {
     return this._environmentName;
   }
@@ -132,31 +132,31 @@ class SessionStartInfo {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBranchName() {
     return this._branchName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getParentBranchName() {
     return this._parentBranchName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineBranchName() {
     return this._baselineBranchName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getCompareWithParentBranch() {
     return this._compareWithParentBranch;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIgnoreBaseline() {
     return this._ignoreBaseline;
   }

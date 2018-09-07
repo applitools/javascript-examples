@@ -24,7 +24,7 @@ class Trigger {
 
 /**
  * @readonly
- * @enum {String}
+ * @enum {string}
  */
 Trigger.TriggerType = {
   Unknown: 'Unknown',

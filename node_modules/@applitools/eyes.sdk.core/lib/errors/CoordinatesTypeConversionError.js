@@ -9,7 +9,7 @@ class CoordinatesTypeConversionError extends EyesError {
   /**
    * Represents an error trying to convert between two coordinate types.
    *
-   * @param {CoordinatesType|String} from The source coordinates type or message.
+   * @param {CoordinatesType|string} from The source coordinates type or message.
    * @param {CoordinatesType} [to] The target coordinates type.
    * @param [params...] Other params for Error constructor
    */

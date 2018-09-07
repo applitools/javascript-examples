@@ -20,7 +20,7 @@ class ActualAppOutput {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {ActualAppOutput}
    */
   static fromObject(object) {
@@ -64,37 +64,37 @@ class ActualAppOutput {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIgnoreExpectedOutputSettings() {
     return this._ignoreExpectedOutputSettings;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIgnoreExpectedOutputSettings(value) {
     this._ignoreExpectedOutputSettings = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsMatching() {
     return this._isMatching;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsMatching(value) {
     this._isMatching = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getAreImagesMatching() {
     return this._areImagesMatching;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setAreImagesMatching(value) {
     this._areImagesMatching = value;
   }
@@ -112,49 +112,49 @@ class ActualAppOutput {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Object[]} */
+  /** @return {object[]} */
   getUserInputs() {
     return this._userInputs;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Object[]} value */
+  /** @param {object[]} value */
   setUserInputs(value) {
     this._userInputs = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getWindowTitle() {
     return this._windowTitle;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setWindowTitle(value) {
     this._windowTitle = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getTag() {
     return this._tag;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setTag(value) {
     this._tag = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsPrimary() {
     return this._isPrimary;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsPrimary(value) {
     this._isPrimary = value;
   }

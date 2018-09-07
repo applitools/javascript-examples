@@ -37,8 +37,8 @@ class DebugScreenshotsProvider {
   /**
    * @abstract
    * @param {MutableImage} image
-   * @param {String} suffix
-   * @return {Promise}
+   * @param {string} suffix
+   * @return {Promise<void>}
    */
   save(image, suffix) {}
 }

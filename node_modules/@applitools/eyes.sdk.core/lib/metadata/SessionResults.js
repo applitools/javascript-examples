@@ -36,7 +36,7 @@ class SessionResults {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {SessionResults}
    */
   static fromObject(object) {
@@ -44,13 +44,13 @@ class SessionResults {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getId() {
     return this._id;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setId(value) {
     this._id = value;
   }
@@ -68,37 +68,37 @@ class SessionResults {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getRunningSessionId() {
     return this._runningSessionId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setRunningSessionId(value) {
     this._runningSessionId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsAborted() {
     return this._isAborted;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsAborted(value) {
     this._isAborted = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsStarred() {
     return this._isStarred;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsStarred(value) {
     this._isStarred = value;
   }
@@ -116,73 +116,73 @@ class SessionResults {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBatchId() {
     return this._batchId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBatchId(value) {
     this._batchId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getSecretToken() {
     return this._secretToken;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setSecretToken(value) {
     this._secretToken = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getState() {
     return this._state;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setState(value) {
     this._state = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getStatus() {
     return this._status;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setStatus(value) {
     this._status = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsDefaultStatus() {
     return this._isDefaultStatus;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsDefaultStatus(value) {
     this._isDefaultStatus = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getStartedAt() {
     return this._startedAt;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setStartedAt(value) {
     this._startedAt = value;
   }
@@ -200,13 +200,13 @@ class SessionResults {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsDifferent() {
     return this._isDifferent;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsDifferent(value) {
     this._isDifferent = value;
   }
@@ -260,85 +260,85 @@ class SessionResults {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineId() {
     return this._baselineId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBaselineId(value) {
     this._baselineId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineRevId() {
     return this._baselineRevId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBaselineRevId(value) {
     this._baselineRevId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getScenarioId() {
     return this._scenarioId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setScenarioId(value) {
     this._scenarioId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getScenarioName() {
     return this._scenarioName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setScenarioName(value) {
     this._scenarioName = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getAppId() {
     return this._appId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setAppId(value) {
     this._appId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineModelId() {
     return this._baselineModelId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBaselineModelId(value) {
     this._baselineModelId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineEnvId() {
     return this._baselineEnvId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBaselineEnvId(value) {
     this._baselineEnvId = value;
   }
@@ -356,37 +356,37 @@ class SessionResults {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getAppName() {
     return this._appName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setAppName(value) {
     this._appName = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getBaselineBranchName() {
     return this._baselineBranchName;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setBaselineBranchName(value) {
     this._baselineBranchName = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsNew() {
     return this._isNew;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsNew(value) {
     this._isNew = value;
   }

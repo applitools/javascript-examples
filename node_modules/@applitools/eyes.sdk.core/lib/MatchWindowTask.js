@@ -16,7 +16,7 @@ class MatchWindowTask {
    * @param {Logger} logger A logger instance.
    * @param {ServerConnector} serverConnector Our gateway to the agent
    * @param {RunningSession} runningSession The running session in which we should match the window
-   * @param {int} retryTimeout The default total time to retry matching (ms).
+   * @param {number} retryTimeout The default total time to retry matching (ms).
    * @param {EyesBase} eyes The eyes object.
    * @param {AppOutputProvider} appOutputProvider A callback for getting the application output when performing match.
    */
@@ -48,11 +48,11 @@ class MatchWindowTask {
    * @protected
    * @param {Trigger[]} userInputs The user inputs related to the current appOutput.
    * @param {AppOutputWithScreenshot} appOutput The application output to be matched.
-   * @param {String} tag Optional tag to be associated with the match (can be {@code null}).
-   * @param {Boolean} ignoreMismatch Whether to instruct the server to ignore the match attempt in case of a mismatch.
+   * @param {string} tag Optional tag to be associated with the match (can be {@code null}).
+   * @param {boolean} ignoreMismatch Whether to instruct the server to ignore the match attempt in case of a mismatch.
    * @param {CheckSettings} checkSettings The internal settings to use.
    * @param {ImageMatchSettings} imageMatchSettings The settings to use.
-   * @return {Promise.<MatchResult>} The match result.
+   * @return {Promise<MatchResult>} The match result.
    */
   performMatch(userInputs, appOutput, tag, ignoreMismatch, checkSettings, imageMatchSettings) {
     const that = this;
@@ -81,7 +81,7 @@ class MatchWindowTask {
    * @param {ImageMatchSettings} imageMatchSettings
    * @param {EyesBase} eyes
    * @param {AppOutputWithScreenshot} appOutput
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   static collectIgnoreRegions(checkSettings, imageMatchSettings, eyes, appOutput) {
     const screenshot = appOutput.getScreenshot();
@@ -99,7 +99,7 @@ class MatchWindowTask {
    * @param {ImageMatchSettings} imageMatchSettings
    * @param {EyesBase} eyes
    * @param {AppOutputWithScreenshot} appOutput
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   static collectFloatingRegions(checkSettings, imageMatchSettings, eyes, appOutput) {
     const screenshot = appOutput.getScreenshot();
@@ -118,14 +118,14 @@ class MatchWindowTask {
    *
    * @param {Trigger[]} userInputs User input preceding this match.
    * @param {Region} region Window region to capture.
-   * @param {String} tag Optional tag to be associated with the match (can be {@code null}).
-   * @param {Boolean} shouldRunOnceOnTimeout Force a single match attempt at the end of the match timeout.
-   * @param {Boolean} ignoreMismatch Whether to instruct the server to ignore the match attempt in case of a mismatch.
+   * @param {string} tag Optional tag to be associated with the match (can be {@code null}).
+   * @param {boolean} shouldRunOnceOnTimeout Force a single match attempt at the end of the match timeout.
+   * @param {boolean} ignoreMismatch Whether to instruct the server to ignore the match attempt in case of a mismatch.
    * @param {CheckSettings} checkSettings The internal settings to use.
    * @param {ImageMatchSettings} imageMatchSettings The settings to use.
-   * @param {int} retryTimeout The amount of time to retry matching in milliseconds or a negative value to use the
+   * @param {number} retryTimeout The amount of time to retry matching in milliseconds or a negative value to use the
    *   default retry timeout.
-   * @return {Promise.<MatchResult>} Returns the results of the match
+   * @return {Promise<MatchResult>} Returns the results of the match
    */
   matchWindow(
     userInputs,
@@ -168,13 +168,13 @@ class MatchWindowTask {
    * @private
    * @param {Trigger[]} userInputs
    * @param {Region} region
-   * @param {String} tag
-   * @param {Boolean} shouldRunOnceOnTimeout
-   * @param {Boolean} ignoreMismatch
+   * @param {string} tag
+   * @param {boolean} shouldRunOnceOnTimeout
+   * @param {boolean} ignoreMismatch
    * @param {CheckSettings} checkSettings
    * @param {ImageMatchSettings} imageMatchSettings
-   * @param {int} retryTimeout
-   * @return {Promise.<EyesScreenshot>}
+   * @param {number} retryTimeout
+   * @return {Promise<EyesScreenshot>}
    */
   _takeScreenshot(
     userInputs,
@@ -227,12 +227,12 @@ class MatchWindowTask {
    * @private
    * @param {Trigger[]} userInputs
    * @param {Region} region
-   * @param {String} tag
-   * @param {Boolean} ignoreMismatch
+   * @param {string} tag
+   * @param {boolean} ignoreMismatch
    * @param {CheckSettings} checkSettings
    * @param {ImageMatchSettings} imageMatchSettings
-   * @param {int} retryTimeout
-   * @return {Promise.<EyesScreenshot>}
+   * @param {number} retryTimeout
+   * @return {Promise<EyesScreenshot>}
    */
   _retryTakingScreenshot(userInputs, region, tag, ignoreMismatch, checkSettings, imageMatchSettings, retryTimeout) {
     const that = this;
@@ -302,11 +302,11 @@ class MatchWindowTask {
    * @private
    * @param {Trigger[]} userInputs
    * @param {Region} region
-   * @param {String} tag
-   * @param {Boolean} ignoreMismatch
+   * @param {string} tag
+   * @param {boolean} ignoreMismatch
    * @param {CheckSettings} checkSettings
    * @param {ImageMatchSettings} imageMatchSettings
-   * @return {Promise.<EyesScreenshot>}
+   * @return {Promise<EyesScreenshot>}
    */
   _tryTakeScreenshot(userInputs, region, tag, ignoreMismatch, checkSettings, imageMatchSettings) {
     const that = this;

@@ -83,7 +83,7 @@ class SessionEventHandler {
   /**
    * Called when setting the size of the appolication window is about to start.
    *
-   * @param sizeToSet {Object} an object with 'width' and 'height' properties.
+   * @param sizeToSet {object} an object with 'width' and 'height' properties.
    */
   setSizeWillStart(sizeToSet) {}
 
@@ -95,22 +95,22 @@ class SessionEventHandler {
   /**
    * Called after a session had started.
    *
-   * @param autSessionId {String} The AUT session ID.
+   * @param autSessionId {string} The AUT session ID.
    */
   testStarted(autSessionId) {}
 
   /**
    * Called after a session had ended.
    *
-   * @param autSessionId {String} The AUT session ID.
-   * @param testResults {Object} The test results.
+   * @param autSessionId {string} The AUT session ID.
+   * @param testResults {object} The test results.
    */
   testEnded(autSessionId, testResults) {}
 
   /**
    * Called before a new validation will be started.
    *
-   * @param autSessionId {String} The AUT session ID.
+   * @param autSessionId {string} The AUT session ID.
    * @param validationInfo {ValidationInfo} The validation parameters.
    */
   validationWillStart(autSessionId, validationInfo) {}
@@ -118,8 +118,8 @@ class SessionEventHandler {
   /**
    * Called when a validation had ended.
    *
-   * @param autSessionId {String} The AUT session ID.
-   * @param validationId {String} The ID of the validation which had ended.
+   * @param autSessionId {string} The AUT session ID.
+   * @param validationId {string} The ID of the validation which had ended.
    * @param validationResult {ValidationResult} The validation results.
    */
   validationEnded(autSessionId, validationId, validationResult) {}

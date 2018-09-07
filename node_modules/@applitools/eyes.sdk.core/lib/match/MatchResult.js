@@ -12,7 +12,7 @@ class MatchResult {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {MatchResult}
    */
   static fromObject(object) {

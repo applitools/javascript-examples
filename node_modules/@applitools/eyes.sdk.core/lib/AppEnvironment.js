@@ -1,5 +1,7 @@
 'use strict';
 
+const { GeneralUtils } = require('./utils/GeneralUtils');
+
 /**
  * The environment in which the application under test is executing.
  */
@@ -7,8 +9,8 @@ class AppEnvironment {
   /**
    * Creates a new AppEnvironment instance.
    *
-   * @param {String} [os]
-   * @param {String} [hostingApp]
+   * @param {string} [os]
+   * @param {string} [hostingApp]
    * @param {RectangleSize} [displaySize]
    */
   constructor(os, hostingApp, displaySize) {
@@ -22,12 +24,12 @@ class AppEnvironment {
   /**
    * Creates a new AppEnvironment instance.
    *
-   * @param {String} inferred
+   * @param {string} inferred
    * @return {AppEnvironment}
    */
   static fromInferred(inferred) {
     const env = new AppEnvironment();
-    env.inferred = inferred;
+    env.setInferred(inferred);
     return env;
   }
 
@@ -35,7 +37,7 @@ class AppEnvironment {
   /**
    * Gets the information inferred from the execution environment or {@code null} if no information could be inferred.
    *
-   * @return {String}
+   * @return {string}
    */
   geInferred() {
     return this._inferred;
@@ -44,7 +46,7 @@ class AppEnvironment {
   /**
    * Sets the inferred environment information.
    *
-   * @param {String} value
+   * @param {string} value
    */
   setInferred(value) {
     this._inferred = value;
@@ -53,7 +55,7 @@ class AppEnvironment {
   /**
    * Gets the OS hosting the application under test or {@code null} if unknown.
    *
-   * @return {String}
+   * @return {string}
    */
   getOs() {
     return this._os;
@@ -62,7 +64,7 @@ class AppEnvironment {
   /**
    * Sets the OS hosting the application under test or {@code null} if unknown.
    *
-   * @param {String} value
+   * @param {string} value
    */
   setOs(value) {
     this._os = value;
@@ -72,7 +74,7 @@ class AppEnvironment {
   /**
    * Gets the application hosting the application under test or {@code null} if unknown.
    *
-   * @return {String}
+   * @return {string}
    */
   getHostingApp() {
     return this._hostingApp;
@@ -81,7 +83,7 @@ class AppEnvironment {
   /**
    * Sets the application hosting the application under test or {@code null} if unknown.
    *
-   * @param {String} value
+   * @param {string} value
    */
   setHostingApp(value) {
     this._hostingApp = value;
@@ -106,13 +108,9 @@ class AppEnvironment {
     this._displaySize = value;
   }
 
+  /** @override */
   toJSON() {
-    return {
-      inferred: this._inferred,
-      os: this._os,
-      hostingApp: this._hostingApp,
-      displaySize: this._displaySize,
-    };
+    return GeneralUtils.toPlain(this);
   }
 
   /** @override */

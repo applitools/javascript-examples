@@ -4,7 +4,7 @@
  * The type of the session.
  *
  * @readonly
- * @enum {Number}
+ * @enum {number}
  */
 const SessionType = {
   /**

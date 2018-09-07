@@ -5,10 +5,10 @@ const { CutProvider } = require('./CutProvider');
 
 class FixedCutProvider extends CutProvider {
   /**
-   * @param {Number} header The header to cut in pixels.
-   * @param {Number} footer The footer to cut in pixels.
-   * @param {Number} left The left to cut in pixels.
-   * @param {Number} right The right to cut in pixels.
+   * @param {number} header The header to cut in pixels.
+   * @param {number} footer The footer to cut in pixels.
+   * @param {number} left The left to cut in pixels.
+   * @param {number} right The right to cut in pixels.
    */
   constructor(header, footer, left, right) {
     super();
@@ -21,7 +21,7 @@ class FixedCutProvider extends CutProvider {
 
   /**
    * @param {MutableImage} image The image to cut.
-   * @return {Promise.<MutableImage>} A new cut image.
+   * @return {Promise<MutableImage>} A new cut image.
    */
   cut(image) {
     const that = this;
@@ -61,7 +61,7 @@ class FixedCutProvider extends CutProvider {
   /**
    * Get a scaled version of the cut provider.
    *
-   * @param {Number} scaleRatio The ratio by which to scale the current cut parameters.
+   * @param {number} scaleRatio The ratio by which to scale the current cut parameters.
    * @return {CutProvider} A new scale cut provider instance.
    */
   scale(scaleRatio) {

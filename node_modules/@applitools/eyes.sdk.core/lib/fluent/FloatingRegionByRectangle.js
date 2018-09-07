@@ -6,10 +6,10 @@ const { FloatingMatchSettings } = require('../match/FloatingMatchSettings');
 class FloatingRegionByRectangle extends GetFloatingRegion {
   /**
    * @param {Region} rect
-   * @param {int} maxUpOffset
-   * @param {int} maxDownOffset
-   * @param {int} maxLeftOffset
-   * @param {int} maxRightOffset
+   * @param {number} maxUpOffset
+   * @param {number} maxDownOffset
+   * @param {number} maxLeftOffset
+   * @param {number} maxRightOffset
    */
   constructor(rect, maxUpOffset, maxDownOffset, maxLeftOffset, maxRightOffset) {
     super();

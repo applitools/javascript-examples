@@ -4,7 +4,7 @@
  * Determines how detected failures are reported.
  *
  * @readonly
- * @enum {Number}
+ * @enum {number}
  */
 const FailureReports = {
   /**

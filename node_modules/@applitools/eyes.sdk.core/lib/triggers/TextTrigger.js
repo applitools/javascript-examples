@@ -10,7 +10,7 @@ class TextTrigger extends Trigger {
   /**
    *
    * @param {Region} control
-   * @param {String} text
+   * @param {string} text
    */
   constructor(control, text) {
     super();
@@ -24,7 +24,7 @@ class TextTrigger extends Trigger {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @return {String}
+   * @return {string}
    */
   getText() {
     return this._text;

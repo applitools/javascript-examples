@@ -29,7 +29,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         browser.chooseFile('#upload-test', toUpload)
 
-        browser.getValue('#upload-test')
+        var val = browser.getValue('#upload-test')
         expect(/cat\-to\-upload\.gif$/.test(val)).to.be.equal(true)
     })
  * </example>

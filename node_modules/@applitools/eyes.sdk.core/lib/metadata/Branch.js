@@ -10,7 +10,7 @@ class Branch {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {Branch}
    */
   static fromObject(object) {
@@ -18,37 +18,37 @@ class Branch {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getId() {
     return this._id;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setId(value) {
     this._id = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getName() {
     return this._name;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setName(value) {
     this._name = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getIsDeleted() {
     return this._isDeleted;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setIsDeleted(value) {
     this._isDeleted = value;
   }

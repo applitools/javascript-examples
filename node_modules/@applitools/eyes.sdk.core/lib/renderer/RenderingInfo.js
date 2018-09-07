@@ -10,49 +10,49 @@ class RenderingInfo {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {RenderingInfo}
    */
   static fromObject(object) {
     return GeneralUtils.assignTo(new RenderingInfo(), object);
   }
 
-  /** @return {String} */
+  /** @return {string} */
   getServiceUrl() {
     return this._serviceUrl;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setServiceUrl(value) {
     this._serviceUrl = value;
   }
 
-  /** @return {String} */
+  /** @return {string} */
   getAccessToken() {
     return this._accessToken;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setAccessToken(value) {
     this._accessToken = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getResultsUrl() {
     return this._resultsUrl;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setResultsUrl(value) {
     this._resultsUrl = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {{sub: string, exp: int, iss: string}} */
+  /** @return {{sub: string, exp: number, iss: string}} */
   getDecodedAccessToken() {
     if (this._payload) {
       this._payload = GeneralUtils.jwtDecode(this._accessToken);

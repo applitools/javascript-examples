@@ -4,7 +4,7 @@
  * Encapsulates the type of coordinates used by the region provider.
  *
  * @readonly
- * @enum {Number}
+ * @enum {number}
  */
 const CoordinatesType = {
   /**

@@ -7,7 +7,7 @@
  */
 class ImageProvider {
   /**
-   * @return {Promise.<MutableImage>}
+   * @return {Promise<MutableImage>}
    */
   getImage() {}
 }

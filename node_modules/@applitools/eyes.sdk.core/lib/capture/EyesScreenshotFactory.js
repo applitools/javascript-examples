@@ -8,7 +8,7 @@
 class EyesScreenshotFactory {
   /**
    * @param {MutableImage} image
-   * @return {Promise.<EyesScreenshot>}
+   * @return {Promise<EyesScreenshot>}
    */
   makeScreenshot(image) {}
 }

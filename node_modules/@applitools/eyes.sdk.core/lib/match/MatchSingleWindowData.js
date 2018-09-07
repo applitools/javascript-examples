@@ -12,8 +12,8 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {Trigger[]} userInputs A list of triggers between the previous matchWindow call and the current matchWindow
    *   call. Can be array of size 0, but MUST NOT be null.
    * @param {AppOutput} appOutput The appOutput for the current matchWindow call.
-   * @param {String} tag The tag of the window to be matched.
-   * @param {?Boolean} ignoreMismatch
+   * @param {string} tag The tag of the window to be matched.
+   * @param {?boolean} ignoreMismatch
    * @param {?Options} options
    */
   constructor(startInfo, userInputs, appOutput, tag, ignoreMismatch, options) {
@@ -101,13 +101,13 @@ class MatchSingleWindowData extends MatchWindowData {
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getAgentId() {
     return this._agentId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} agentId */
+  /** @param {string} agentId */
   setAgentId(agentId) {
     this._agentId = agentId;
   }

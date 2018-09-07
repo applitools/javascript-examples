@@ -63,6 +63,7 @@ exports.PositionMemento = require('./lib/positioning/PositionMemento').PositionM
 exports.PositionProvider = require('./lib/positioning/PositionProvider').PositionProvider;
 exports.RegionProvider = require('./lib/positioning/RegionProvider').RegionProvider;
 
+exports.RenderInfo = require('./lib/renderer/RenderInfo').RenderInfo;
 exports.RenderingInfo = require('./lib/renderer/RenderingInfo').RenderingInfo;
 exports.RenderRequest = require('./lib/renderer/RenderRequest').RenderRequest;
 exports.RenderStatus = require('./lib/renderer/RenderStatus').RenderStatus;
@@ -98,6 +99,7 @@ exports.PropertyHandler = require('./lib/utils/PropertyHandler').PropertyHandler
 exports.ReadOnlyPropertyHandler = require('./lib/utils/ReadOnlyPropertyHandler').ReadOnlyPropertyHandler;
 exports.SimplePropertyHandler = require('./lib/utils/SimplePropertyHandler').SimplePropertyHandler;
 exports.StreamUtils = require('./lib/utils/StreamUtils').ReadableBufferStream;
+exports.TestResultsFormatter = require('./lib/utils/TestResultsFormatter').TestResultsFormatter;
 exports.UserAgent = require('./lib/utils/UserAgent').UserAgent;
 
 exports.ArgumentGuard = require('./lib/ArgumentGuard').ArgumentGuard;

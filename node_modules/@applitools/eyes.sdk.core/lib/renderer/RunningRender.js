@@ -16,32 +16,32 @@ class RunningRender {
   }
 
   /**
-   * @param {Object} object
+   * @param {object} object
    * @return {RunningRender}
    */
   static fromObject(object) {
     return GeneralUtils.assignTo(new RunningRender(), object);
   }
 
-  /** @return {String} */
+  /** @return {string} */
   getRenderId() {
     return this._renderId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setRenderId(value) {
     this._renderId = value;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @return {String} */
+  /** @return {string} */
   getJobId() {
     return this._jobId;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String} value */
+  /** @param {string} value */
   setJobId(value) {
     this._jobId = value;
   }
@@ -57,24 +57,24 @@ class RunningRender {
     this._renderStatus = value;
   }
 
-  /** @return {String[]} */
+  /** @return {string[]} */
   getNeedMoreResources() {
     return this._needMoreResources;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {String[]} value */
+  /** @param {string[]} value */
   setNeedMoreResources(value) {
     this._needMoreResources = value;
   }
 
-  /** @return {Boolean} */
+  /** @return {boolean} */
   getNeedMoreDom() {
     return this._needMoreDom;
   }
 
   // noinspection JSUnusedGlobalSymbols
-  /** @param {Boolean} value */
+  /** @param {boolean} value */
   setNeedMoreDom(value) {
     this._needMoreDom = value;
   }
