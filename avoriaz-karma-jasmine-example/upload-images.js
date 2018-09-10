@@ -24,16 +24,16 @@ async function asyncForEach(array, callback) {
   }
 }
 
-const screenshots = './.tmp/screenshots/';
+const screenshotsDir = './.tmp/screenshots/';
 
-fs.readdir(screenshots, function( err, files ) {
+fs.readdir(screenshotsDir, function( err, files ) {
    const start = async () => {
       await asyncForEach(files, async (file) => {
          
          await waitFor(50)
          console.log(file)
-         var image = fs.readFileSync('./.tmp/screenshots/' + file);
-         console.log("My File: " + file);
+         var image = fs.readFileSync(screenshotsDir + file);
+         console.log("My Image: " + file);
 
          var firstTestPromise = eyes.open('Karma Jasmine Example', file).then(function () {
              return eyes.checkImage(image, file);
@@ -48,18 +48,17 @@ fs.readdir(screenshots, function( err, files ) {
          await firstTestPromise.then(function (results) {
              var testResultsFormatter = new TestResultsFormatter();
              testResultsFormatter.addResults(results);
-             console.log("first results", results);
+             console.log(`${file} Results:`, results);
          });
       
       })
       console.log('Done')
    }
-   
    start()
 })
 
 
-//Or use the ImageTester CLI
+//Or alternatively use the ImageTester CLI
 // var exec = require('child_process').exec;
 // var child = exec(`java -jar ImageTester.jar -a "Karma Jasmine Example" -ap "PhantomJS" -os "Mac OS X 10.13" -k ${process.env.APPLITOOLS_API_KEY} -f ./.tmp/screenshots/`,
 //   function (error, stdout, stderr){
