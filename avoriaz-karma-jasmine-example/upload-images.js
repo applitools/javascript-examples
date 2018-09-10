@@ -31,7 +31,6 @@ fs.readdir(screenshotsDir, function( err, files ) {
       await asyncForEach(files, async (file) => {
          
          await waitFor(50)
-         console.log(file)
          var image = fs.readFileSync(screenshotsDir + file);
          console.log("My Image: " + file);
 
@@ -50,8 +49,8 @@ fs.readdir(screenshotsDir, function( err, files ) {
              testResultsFormatter.addResults(results);
              console.log(`${file} Results:`, results);
          });
-      
       })
+      
       console.log('Done')
    }
    start()
