@@ -49,12 +49,10 @@ fs.readdir(screenshotsDir, function( err, files ) {
              testResultsFormatter.addResults(results);
              console.log(`${file} Results:`, results);
          });
-      
       })
    }
    start()
 })
-
 
 //Or alternatively use the ImageTester CLI
 // var exec = require('child_process').exec;
@@ -65,4 +63,3 @@ fs.readdir(screenshotsDir, function( err, files ) {
 //       console.log("Error -> "+error);
 //     }
 // });
-
