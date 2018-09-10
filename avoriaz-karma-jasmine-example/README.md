@@ -19,6 +19,10 @@ npm run unit
 
 # run all tests
 npm test
+
+# upload images to Applitools
+* set your applitools api key to APPLITOOLS_API_KEY environement variable. 
+* node upload-images.js
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
