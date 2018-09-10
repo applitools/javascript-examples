@@ -11,7 +11,7 @@ var TestResultsFormatter = require('eyes.images').TestResultsFormatter;
 var eyes = new Eyes();
 var ConsoleLogHandler = require('eyes.images').ConsoleLogHandler;
 eyes.setLogHandler(new ConsoleLogHandler(true));
-eyes.setApiKey(process.env.APPLITOOLS_KEY);
+eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
 
 eyes.setHostOS('Mac OS X 10.10');
 eyes.setHostingApp("My browser");
