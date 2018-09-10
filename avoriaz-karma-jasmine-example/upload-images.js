@@ -49,9 +49,8 @@ fs.readdir(screenshotsDir, function( err, files ) {
              testResultsFormatter.addResults(results);
              console.log(`${file} Results:`, results);
          });
-      })
       
-      console.log('Done')
+      })
    }
    start()
 })
