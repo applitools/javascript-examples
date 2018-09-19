@@ -14,7 +14,7 @@ class AppEnvironment {
    * @param {RectangleSize} [displaySize]
    */
   constructor(os, hostingApp, displaySize) {
-    this._inferred = null;
+    this._inferred = undefined;
     this._os = os;
     this._hostingApp = hostingApp;
     this._displaySize = displaySize;

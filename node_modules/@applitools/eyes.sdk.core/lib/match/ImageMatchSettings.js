@@ -16,10 +16,17 @@ class ImageMatchSettings {
     this._matchLevel = matchLevel;
     this._exact = exact;
     this._ignoreCaret = ignoreCaret;
+
     /** @type {Region[]} */
-    this._ignore = [];
+    this._ignoreRegions = [];
+    /** @type {Region[]} */
+    this._layoutRegions = [];
+    /** @type {Region[]} */
+    this._strictRegions = [];
+    /** @type {Region[]} */
+    this._contentRegions = [];
     /** @type {FloatingMatchSettings[]} */
-    this._floating = [];
+    this._floatingMatchSettings = [];
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -76,16 +83,70 @@ class ImageMatchSettings {
    * @return {Region[]} the array of regions to ignore.
    */
   getIgnoreRegions() {
-    return this._ignore;
+    return this._ignoreRegions;
   }
 
   // noinspection JSUnusedGlobalSymbols
   /**
    * Sets an array of regions to ignore.
-   * @param {Region[]} value The array of regions to ignore.
+   * @param {Region[]} ignoreRegions The array of regions to ignore.
    */
-  setIgnoreRegions(value) {
-    this._ignore = value;
+  setIgnoreRegions(ignoreRegions) {
+    this._ignoreRegions = ignoreRegions;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Sets an array of regions to check using the Layout method.
+   * @param {Region[]} layoutRegions The array of regions to ignore.
+   */
+  setLayoutRegions(layoutRegions) {
+    this._layoutRegions = layoutRegions;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Returns the array of regions to check using the Layout method.
+   * @return {Region[]} the array of regions to ignore.
+   */
+  getLayoutRegions() {
+    return this._layoutRegions;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Returns the array of regions to check using the Strict method.
+   * @return {Region[]} the array of regions to ignore.
+   */
+  getStrictRegions() {
+    return this._strictRegions;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Sets an array of regions to check using the Strict method.
+   * @param {Region[]} strictRegions The array of regions to ignore.
+   */
+  setStrictRegions(strictRegions) {
+    this._strictRegions = strictRegions;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Returns the array of regions to check using the Content method.
+   * @return {Region[]} the array of regions to ignore.
+   */
+  getContentRegions() {
+    return this._contentRegions;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Sets an array of regions to check using the Content method.
+   * @param {Region[]} contentRegions The array of regions to ignore.
+   */
+  setContentRegions(contentRegions) {
+    this._contentRegions = contentRegions;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -94,21 +155,27 @@ class ImageMatchSettings {
    * @return {FloatingMatchSettings[]} an array of floating regions.
    */
   getFloatingRegions() {
-    return this._floating;
+    return this._floatingMatchSettings;
   }
 
   // noinspection JSUnusedGlobalSymbols
   /**
    * Sets an array of floating regions.
-   * @param {FloatingMatchSettings[]} value The array of floating regions.
+   * @param {FloatingMatchSettings[]} floatingMatchSettings The array of floating regions.
    */
-  setFloatingRegions(value) {
-    this._floating = value;
+  setFloatingRegions(floatingMatchSettings) {
+    this._floatingMatchSettings = floatingMatchSettings;
   }
 
   /** @override */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this, [], {
+      ignoreRegions: 'ignore',
+      layoutRegions: 'layout',
+      strictRegions: 'strict',
+      contentRegions: 'content',
+      floatingMatchSettings: 'floating',
+    });
   }
 
   /** @override */

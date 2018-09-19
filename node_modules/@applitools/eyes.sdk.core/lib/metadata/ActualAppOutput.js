@@ -4,19 +4,19 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class ActualAppOutput {
   constructor() {
-    this._image = null;
-    this._thumbprint = null;
-    this._imageMatchSettings = null;
-    this._ignoreExpectedOutputSettings = null;
-    this._isMatching = null;
-    this._areImagesMatching = null;
+    this._image = undefined;
+    this._thumbprint = undefined;
+    this._imageMatchSettings = undefined;
+    this._ignoreExpectedOutputSettings = undefined;
+    this._isMatching = undefined;
+    this._areImagesMatching = undefined;
 
-    this._occurredAt = null;
+    this._occurredAt = undefined;
 
-    this._userInputs = null;
-    this._windowTitle = null;
-    this._tag = null;
-    this._isPrimary = null;
+    this._userInputs = undefined;
+    this._windowTitle = undefined;
+    this._tag = undefined;
+    this._isPrimary = undefined;
   }
 
   /**

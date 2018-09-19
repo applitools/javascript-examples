@@ -8,11 +8,11 @@ const { RGridResource } = require('./RGridResource');
 
 class RGridDom {
   constructor() {
-    this._domNodes = null;
+    this._domNodes = undefined;
     this._resources = [];
 
-    this._sha256hash = null;
-    this._contentAsCdt = null;
+    this._sha256hash = undefined;
+    this._contentAsCdt = undefined;
   }
 
   // noinspection JSUnusedGlobalSymbols

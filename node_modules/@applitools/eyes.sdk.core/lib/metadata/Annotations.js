@@ -4,11 +4,11 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class Annotations {
   constructor() {
-    this._floating = null;
-    this._ignore = null;
-    this._strict = null;
-    this._content = null;
-    this._layout = null;
+    this._floating = undefined;
+    this._ignore = undefined;
+    this._strict = undefined;
+    this._content = undefined;
+    this._layout = undefined;
   }
 
   /**

@@ -159,8 +159,7 @@ const sendLongRequest = (that, name, options = {}) => {
   options.headers['Eyes-Expect'] = '202+location'; // eslint-disable-line no-param-reassign
   options.headers['Eyes-Date'] = GeneralUtils.toRfc1123DateTime(); // eslint-disable-line no-param-reassign
 
-  return sendRequest(that, name, options)
-    .then(response => longRequestCheckStatus(that, name, response));
+  return sendRequest(that, name, options).then(response => longRequestCheckStatus(that, name, response));
 };
 
 /**
@@ -194,14 +193,14 @@ class ServerConnector {
     this._promiseFactory = promiseFactory;
     this._logger = logger;
     this._serverUrl = serverUrl;
-    this._apiKey = null;
+    this._apiKey = undefined;
 
-    this._renderingServerUrl = null;
-    this._renderingAuthToken = null;
+    this._renderingServerUrl = undefined;
+    this._renderingAuthToken = undefined;
 
-    this._proxySettings = null;
+    this._proxySettings = undefined;
     this._httpOptions = {
-      proxy: null,
+      proxy: undefined,
       headers: DEFAULT_HEADERS,
       timeout: DEFAULT_TIMEOUT_MS,
       responseType: 'json',

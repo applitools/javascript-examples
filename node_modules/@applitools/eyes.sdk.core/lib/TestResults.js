@@ -6,8 +6,8 @@ const { TestResultsStatus } = require('./TestResultsStatus');
 
 class SessionUrls {
   constructor() {
-    this._batch = null;
-    this._session = null;
+    this._batch = undefined;
+    this._session = undefined;
   }
 
   /**
@@ -50,11 +50,11 @@ class SessionUrls {
 
 class ApiUrls {
   constructor() {
-    this._baselineImage = null;
-    this._currentImage = null;
-    this._checkpointImage = null;
-    this._checkpointImageThumbnail = null;
-    this._diffImage = null;
+    this._baselineImage = undefined;
+    this._currentImage = undefined;
+    this._checkpointImage = undefined;
+    this._checkpointImageThumbnail = undefined;
+    this._diffImage = undefined;
   }
 
   /**
@@ -133,8 +133,8 @@ class ApiUrls {
 
 class AppUrls {
   constructor() {
-    this._step = null;
-    this._stepEditor = null;
+    this._step = undefined;
+    this._stepEditor = undefined;
   }
 
   /**
@@ -177,12 +177,12 @@ class AppUrls {
 
 class StepInfo {
   constructor() {
-    this._name = null;
-    this._isDifferent = null;
-    this._hasBaselineImage = null;
-    this._hasCurrentImage = null;
-    this._appUrls = null;
-    this._apiUrls = null;
+    this._name = undefined;
+    this._isDifferent = undefined;
+    this._hasBaselineImage = undefined;
+    this._hasCurrentImage = undefined;
+    this._appUrls = undefined;
+    this._apiUrls = undefined;
   }
 
   /**
@@ -279,37 +279,38 @@ class StepInfo {
  */
 class TestResults {
   constructor() {
-    this._name = null;
-    this._secretToken = null;
-    // this._id = null;
-    this._status = null;
-    this._appName = null;
-    this._batchName = null;
-    this._batchId = null;
-    this._branchName = null;
-    this._hostOS = null;
-    this._hostApp = null;
-    this._hostDisplaySize = null;
-    this._startedAt = null;
-    this._duration = null;
-    this._isNew = null;
-    this._isSaved = null;
-    this._isDifferent = null;
-    this._isAborted = null;
-    // this._defaultMatchSettings = null;
-    this._appUrls = null;
-    this._apiUrls = null;
-    this._stepsInfo = null;
-    this._steps = null;
-    this._matches = null;
-    this._mismatches = null;
-    this._missing = null;
-    this._exactMatches = null;
-    this._strictMatches = null;
-    this._contentMatches = null;
-    this._layoutMatches = null;
-    this._noneMatches = null;
-    this._url = null;
+    this._id = undefined;
+    this._name = undefined;
+    this._secretToken = undefined;
+    // this._id = undefined;
+    this._status = undefined;
+    this._appName = undefined;
+    this._batchName = undefined;
+    this._batchId = undefined;
+    this._branchName = undefined;
+    this._hostOS = undefined;
+    this._hostApp = undefined;
+    this._hostDisplaySize = undefined;
+    this._startedAt = undefined;
+    this._duration = undefined;
+    this._isNew = undefined;
+    this._isSaved = undefined;
+    this._isDifferent = undefined;
+    this._isAborted = undefined;
+    // this._defaultMatchSettings = undefined;
+    this._appUrls = undefined;
+    this._apiUrls = undefined;
+    this._stepsInfo = undefined;
+    this._steps = undefined;
+    this._matches = undefined;
+    this._mismatches = undefined;
+    this._missing = undefined;
+    this._exactMatches = undefined;
+    this._strictMatches = undefined;
+    this._contentMatches = undefined;
+    this._layoutMatches = undefined;
+    this._noneMatches = undefined;
+    this._url = undefined;
   }
 
   /**
@@ -322,9 +323,20 @@ class TestResults {
       startedAt: GeneralUtils.fromISO8601DateTime,
       appUrls: SessionUrls.fromObject,
       apiUrls: SessionUrls.fromObject,
-      stepsInfo: steps => Array.from(steps)
-        .map(step => StepInfo.fromObject(step)),
+      stepsInfo: steps => Array.from(steps).map(step => StepInfo.fromObject(step)),
     });
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /** @return {string} */
+  getId() {
+    return this._id;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /** @param {string} value */
+  setId(value) {
+    this._id = value;
   }
 
   // noinspection JSUnusedGlobalSymbols

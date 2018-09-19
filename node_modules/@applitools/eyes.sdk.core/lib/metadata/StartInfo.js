@@ -4,18 +4,18 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class StartInfo {
   constructor() {
-    this._sessionType = null;
-    this._isTransient = null;
-    this._ignoreBaseline = null;
-    this._appIdOrName = null;
-    this._compareWithParentBranch = null;
-    this._scenarioIdOrName = null;
-    this._batchInfo = null;
-    this._environment = null;
-    this._matchLevel = null;
-    this._defaultMatchSettings = null;
-    this._agentId = null;
-    this._properties = null;
+    this._sessionType = undefined;
+    this._isTransient = undefined;
+    this._ignoreBaseline = undefined;
+    this._appIdOrName = undefined;
+    this._compareWithParentBranch = undefined;
+    this._scenarioIdOrName = undefined;
+    this._batchInfo = undefined;
+    this._environment = undefined;
+    this._matchLevel = undefined;
+    this._defaultMatchSettings = undefined;
+    this._agentId = undefined;
+    this._properties = undefined;
   }
 
   /**

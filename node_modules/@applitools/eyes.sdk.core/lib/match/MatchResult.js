@@ -7,8 +7,8 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
  */
 class MatchResult {
   constructor() {
-    this._asExpected = null;
-    this._windowId = null;
+    this._asExpected = undefined;
+    this._windowId = undefined;
   }
 
   /**

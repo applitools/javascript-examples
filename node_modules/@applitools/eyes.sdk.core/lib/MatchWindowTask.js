@@ -84,14 +84,33 @@ class MatchWindowTask {
    * @return {Promise<void>}
    */
   static collectIgnoreRegions(checkSettings, imageMatchSettings, eyes, appOutput) {
-    const screenshot = appOutput.getScreenshot();
-    const regionPromises = checkSettings.getIgnoreRegions()
-      .map(container => container.getRegion(eyes, screenshot), eyes);
+    return eyes.getPromiseFactory().resolve()
+      .then(() => MatchWindowTask.collectRegions(checkSettings.getIgnoreRegions(), eyes, appOutput.getScreenshot())
+        .then(ignoreRegions => imageMatchSettings.setIgnoreRegions(ignoreRegions)))
+      .then(() => MatchWindowTask.collectRegions(checkSettings.getLayoutRegions(), eyes, appOutput.getScreenshot())
+        .then(layoutRegions => imageMatchSettings.setLayoutRegions(layoutRegions)))
+      .then(() => MatchWindowTask.collectRegions(checkSettings.getStrictRegions(), eyes, appOutput.getScreenshot())
+        .then(strictRegions => imageMatchSettings.setStrictRegions(strictRegions)))
+      .then(() => MatchWindowTask.collectRegions(checkSettings.getContentRegions(), eyes, appOutput.getScreenshot())
+        .then(contentRegions => imageMatchSettings.setContentRegions(contentRegions)));
+  }
 
-    return eyes.getPromiseFactory().all(regionPromises)
-      .then(ignoreRegions => {
-        imageMatchSettings.setIgnoreRegions(ignoreRegions);
-      });
+  /**
+   * @param {GetRegion[]} regionProviders
+   * @param {EyesBase} eyes
+   * @param {EyesScreenshot} screenshot
+   * @return {Promise<Region[]>}
+   */
+  static collectRegions(regionProviders, eyes, screenshot) {
+    const regionsPromises = [];
+    regionProviders.forEach(regionProvider => {
+      try {
+        regionsPromises.push(regionProvider.getRegion(eyes, screenshot));
+      } catch (e) {
+        eyes.log('WARNING - ignore region was out of bounds.', e);
+      }
+    });
+    return eyes.getPromiseFactory().all(regionsPromises);
   }
 
   /**
@@ -336,7 +355,7 @@ class MatchWindowTask {
    * @param {Region} region
    */
   _updateBounds(region) {
-    if (region.isEmpty()) {
+    if (region.isSizeEmpty()) {
       if (this._lastScreenshot) {
         this._lastScreenshotBounds = new Region(
           0,

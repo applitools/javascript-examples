@@ -4,9 +4,9 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class Branch {
   constructor() {
-    this._id = null;
-    this._name = null;
-    this._isDeleted = null;
+    this._id = undefined;
+    this._name = undefined;
+    this._isDeleted = undefined;
   }
 
   /**

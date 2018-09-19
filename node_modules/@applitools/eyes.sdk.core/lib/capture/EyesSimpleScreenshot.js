@@ -47,7 +47,8 @@ class EyesSimpleScreenshot extends EyesScreenshot {
     // We want to get the sub-screenshot in as-is coordinates type.
     const subScreenshotRegion = this.getIntersectedRegion(region, CoordinatesType.SCREENSHOT_AS_IS);
 
-    if (subScreenshotRegion.isEmpty() || (throwIfClipped && !subScreenshotRegion.getSize().equals(region.getSize()))) {
+    if (subScreenshotRegion.isSizeEmpty() ||
+      (throwIfClipped && !subScreenshotRegion.getSize().equals(region.getSize()))) {
       throw new OutOfBoundsError(`Region [${region}] is out of screenshot bounds [${this._bounds}]`);
     }
 
@@ -137,7 +138,7 @@ class EyesSimpleScreenshot extends EyesScreenshot {
     ArgumentGuard.notNull(region, 'region');
     ArgumentGuard.notNull(resultCoordinatesType, 'coordinatesType');
 
-    if (region.isEmpty()) {
+    if (region.isSizeEmpty()) {
       return new Region(region);
     }
 
@@ -149,7 +150,7 @@ class EyesSimpleScreenshot extends EyesScreenshot {
     intersectedRegion.intersect(this._bounds);
 
     // If the intersection is empty we don't want to convert the coordinates.
-    if (region.isEmpty()) {
+    if (region.isSizeEmpty()) {
       return region;
     }
 

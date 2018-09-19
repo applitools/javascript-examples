@@ -10,9 +10,6 @@ const { CoordinatesType } = require('./geometry/CoordinatesType');
 const { FileDebugScreenshotsProvider } = require('./debug/FileDebugScreenshotsProvider');
 const { NullDebugScreenshotProvider } = require('./debug/NullDebugScreenshotProvider');
 
-const { SimplePropertyHandler } = require('./utils/SimplePropertyHandler');
-const { ReadOnlyPropertyHandler } = require('./utils/ReadOnlyPropertyHandler');
-
 const { ImageDeltaCompressor } = require('./images/ImageDeltaCompressor');
 
 const { AppOutputProvider } = require('./capture/AppOutputProvider');
@@ -40,6 +37,10 @@ const { NewTestError } = require('./errors/NewTestError');
 const { OutOfBoundsError } = require('./errors/OutOfBoundsError');
 const { TestFailedError } = require('./errors/TestFailedError');
 
+const { ValidationInfo } = require('./events/ValidationInfo');
+const { ValidationResult } = require('./events/ValidationResult');
+const { SessionEventHandlers } = require('./events/SessionEventHandlers');
+
 const { CheckSettings } = require('./fluent/CheckSettings');
 
 const { RenderWindowTask } = require('./RenderWindowTask');
@@ -51,13 +52,15 @@ const { TestResultsStatus } = require('./TestResultsStatus');
 const { TestResults } = require('./TestResults');
 const { ServerConnector } = require('./server/ServerConnector');
 
-const { FailureReports } = require('./FailureReports');
+const { SimplePropertyHandler } = require('./utils/SimplePropertyHandler');
+const { ReadOnlyPropertyHandler } = require('./utils/ReadOnlyPropertyHandler');
 const { GeneralUtils } = require('./utils/GeneralUtils');
+
+const { FailureReports } = require('./FailureReports');
 const { ArgumentGuard } = require('./ArgumentGuard');
 const { AppEnvironment } = require('./AppEnvironment');
 const { MatchWindowTask } = require('./MatchWindowTask');
 const { MatchSingleWindowTask } = require('./MatchSingleWindowTask');
-const { SessionEventHandler } = require('./SessionEventHandler');
 const { BatchInfo } = require('./BatchInfo');
 const { PromiseFactory } = require('./PromiseFactory');
 
@@ -115,21 +118,20 @@ class EyesBase {
     this._failureReports = FailureReports.ON_CLOSE;
     /** @type {ImageMatchSettings} */
     this._defaultMatchSettings = new ImageMatchSettings();
+    this._defaultMatchSettings.setIgnoreCaret(true);
 
     /** @type {Trigger[]} */
     this._userInputs = [];
     /** @type {PropertyData[]} */
     this._properties = [];
-    /** @type {boolean} */
-    this._render = false;
 
     /** @type {boolean} */
     this._useImageDeltaCompression = true;
 
     /** @type {number} */
     this._validationId = -1;
-    /** @type {SessionEventHandler[]} */
-    this._sessionEventHandlers = [];
+    /** @type {SessionEventHandlers} */
+    this._sessionEventHandlers = new SessionEventHandlers(this._promiseFactory);
 
     /**
      * Used for automatic save of a test run. New tests are automatically saved by default.
@@ -154,6 +156,8 @@ class EyesBase {
 
     /** @type {boolean} */ this._isOpen = undefined;
     /** @type {string} */ this._agentId = undefined;
+    /** @type {boolean} */ this._render = false;
+    /** @type {boolean} */ this._saveDiffs = undefined;
 
     /** @type {SessionType} */ this._sessionType = undefined;
     /** @type {string} */ this._testName = undefined;
@@ -185,22 +189,42 @@ class EyesBase {
     this._autSessionId = undefined;
   }
 
-  /** @private */
-  _initProviders() {
-    // TODO: do we need to reset all the providers when user call to open? It may be unexpected.
-    /** @type {PropertyHandler<ScaleProvider>} */
-    this._scaleProviderHandler = new SimplePropertyHandler();
-    this._scaleProviderHandler.set(new NullScaleProvider());
-    /** @type {PositionProvider} */
-    this._positionProvider = new InvalidPositionProvider();
-    /** @type {PropertyHandler<RectangleSize>} */
-    this._viewportSizeHandler = new SimplePropertyHandler();
-    this._viewportSizeHandler.set(null);
+  // noinspection FunctionWithMoreThanThreeNegationsJS
+  /**
+   * @param {boolean} [hardReset=false] If false, init providers only if they're not initialized.
+   * @private
+   */
+  _initProviders(hardReset = false) {
+    if (hardReset) {
+      this._scaleProviderHandler = undefined;
+      this._cutProviderHandler = undefined;
+      this._positionProviderHandler = undefined;
+      this._viewportSizeHandler = undefined;
+      this._debugScreenshotsProvider = undefined;
+    }
+
+    if (!this._scaleProviderHandler) {
+      /** @type {PropertyHandler<ScaleProvider>} */
+      this._scaleProviderHandler = new SimplePropertyHandler();
+      this._scaleProviderHandler.set(new NullScaleProvider());
+    }
 
     if (!this._cutProviderHandler) {
       /** @type {PropertyHandler<CutProvider>} */
       this._cutProviderHandler = new SimplePropertyHandler();
       this._cutProviderHandler.set(new NullCutProvider());
+    }
+
+    if (!this._positionProviderHandler) {
+      /** @type {PropertyHandler<PositionProvider>} */
+      this._positionProviderHandler = new SimplePropertyHandler();
+      this._positionProviderHandler.set(new InvalidPositionProvider());
+    }
+
+    if (!this._viewportSizeHandler) {
+      /** @type {PropertyHandler<RectangleSize>} */
+      this._viewportSizeHandler = new SimplePropertyHandler();
+      this._viewportSizeHandler.set(null);
     }
 
     if (!this._debugScreenshotsProvider) {
@@ -373,8 +397,7 @@ class EyesBase {
    * @return {string} The current branch name.
    */
   getBranchName() {
-    // noinspection JSUnresolvedVariable
-    return this._branchName || process.env.APPLITOOLS_BRANCH;
+    return this._branchName;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -392,8 +415,7 @@ class EyesBase {
    * @return {string} The name of the current parent branch under which new branches will be created.
    */
   getParentBranchName() {
-    // noinspection JSUnresolvedVariable
-    return this._parentBranchName || process.env.APPLITOOLS_PARENT_BRANCH;
+    return this._parentBranchName;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -411,8 +433,7 @@ class EyesBase {
    * @return {string} The name of the baseline branch
    */
   getBaselineBranchName() {
-    // noinspection JSUnresolvedVariable
-    return this._baselineBranchName || process.env.APPLITOOLS_BASELINE_BRANCH;
+    return this._baselineBranchName;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -518,7 +539,7 @@ class EyesBase {
       return;
     }
 
-    if (arguments.length === 1) {
+    if (batchOrName instanceof BatchInfo) {
       this._batch = batchOrName;
     } else {
       this._batch = new BatchInfo(batchOrName, batchDate, batchId);
@@ -600,10 +621,9 @@ class EyesBase {
 
   // noinspection JSUnusedGlobalSymbols
   /**
-   * @protected
    * @return {string} The full agent id composed of both the base agent id and the user given agent id.
    */
-  _getFullAgentId() {
+  getFullAgentId() {
     const agentId = this.getAgentId();
     if (!agentId) {
       return this.getBaseAgentId();
@@ -624,7 +644,7 @@ class EyesBase {
    * @return {string}
    */
   static getDefaultServerUrl() {
-    return 'https://eyesapi.applitools.com';
+    return process.env.APPLITOOLS_SERVER_URL || 'https://eyesapi.applitools.com';
   }
 
   /**
@@ -656,6 +676,13 @@ class EyesBase {
     } else {
       this._cutProviderHandler = new SimplePropertyHandler(new NullCutProvider());
     }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  getIsCutProviderExplicitlySet() {
+    return this._cutProviderHandler && !(this._cutProviderHandler.get() instanceof NullCutProvider);
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -714,6 +741,24 @@ class EyesBase {
    */
   getRender() {
     return this._render;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Automatically save differences as a baseline.
+   *
+   * @param {boolean} saveDiffs Sets whether to automatically save differences as baseline.
+   */
+  setSaveDiffs(saveDiffs) {
+    this._saveDiffs = saveDiffs;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @return {boolean} whether to automatically save differences as baseline.
+   */
+  getSaveDiffs() {
+    return this._saveDiffs;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -909,6 +954,7 @@ class EyesBase {
       that._logger.verbose(`${isAborted ? 'Aborting' : 'Closing'} server session...`);
       that._isOpen = false;
       that.clearUserInputs();
+      that._initProviders(true);
 
       // If a session wasn't started, use empty results.
       if (!that._runningSession) {
@@ -916,16 +962,10 @@ class EyesBase {
         that._logger.log('--- Empty test ended.');
 
         const testResults = new TestResults();
-
-        if (that._autSessionId) {
-          return that._notifyEvent('testEnded', that._autSessionId, null).then(() => {
-            that._finallyClose();
-            return resolve(testResults);
-          });
-        }
-
-        that._finallyClose();
-        return resolve(testResults);
+        return that._sessionEventHandlers.testEnded(that._autSessionId, testResults).then(() => {
+          that._finallyClose();
+          return resolve(testResults);
+        });
       }
 
       const isNewSession = that._runningSession.getIsNewSession();
@@ -955,38 +995,42 @@ class EyesBase {
 
           serverResults = results;
           that._logger.verbose(`Results: ${results}`);
+        })
+        .then(() => {
+          const status = serverResults.getStatus();
 
-          const status = results.getStatus();
           if (status === TestResultsStatus.Unresolved) {
             if (serverResults.getIsNew()) {
               that._logger.log(`--- New test ended. Please approve the new baseline at ${sessionResultsUrl}`);
 
               if (throwEx) {
                 that._finallyClose();
-                return reject(new NewTestError(results, that._sessionStartInfo));
+                return reject(new NewTestError(serverResults, that._sessionStartInfo));
               }
-              return resolve(results);
+              return resolve(serverResults);
             }
 
             that._logger.log(`--- Failed test ended. See details at ${sessionResultsUrl}`);
 
             if (throwEx) {
               that._finallyClose();
-              return reject(new DiffsFoundError(results, that._sessionStartInfo));
+              return reject(new DiffsFoundError(serverResults, that._sessionStartInfo));
             }
-            return resolve(results);
-          } else if (status === TestResultsStatus.Failed) {
+            return resolve(serverResults);
+          }
+
+          if (status === TestResultsStatus.Failed) {
             that._logger.log(`--- Failed test ended. See details at ${sessionResultsUrl}`);
 
             if (throwEx) {
               that._finallyClose();
-              return reject(new TestFailedError(results, that._sessionStartInfo));
+              return reject(new TestFailedError(serverResults, that._sessionStartInfo));
             }
-            return resolve(results);
+            return resolve(serverResults);
           }
 
           that._logger.log(`--- Test passed. See details at ${sessionResultsUrl}`);
-          return resolve(results);
+          return resolve(serverResults);
         })
         .catch(err => {
           serverResults = null;
@@ -997,7 +1041,7 @@ class EyesBase {
       .catch(err => {
         serverError = err;
       })
-      .then(() => that._notifyEvent('testEnded', that._autSessionId, serverResults))
+      .then(() => that._sessionEventHandlers.testEnded(that._autSessionId, serverResults))
       .then(() => {
         that._finallyClose();
         if (serverError) {
@@ -1018,33 +1062,6 @@ class EyesBase {
     this._logger.getLogHandler().close();
   }
 
-  /**
-   * Notifies all handlers of an event.
-   *
-   * @private
-   * @param {string} eventName The event to notify
-   * @param {...object} [param1] The first of what may be a list of "hidden" parameters, to be passed to the event
-   *   notification function. May also be undefined.
-   * @return {Promise<void>} A promise which resolves when the event was delivered/failed to all handlers.
-   */
-  _notifyEvent(eventName, ...param1) {
-    const that = this;
-    return that._promiseFactory.makePromise(resolve => {
-      that._logger.verbose('Notifying event:', eventName);
-      const notificationPromises = [];
-
-      that._sessionEventHandlers.forEach(handler => {
-        // Call the event with the rest of the (hidden) parameters supplied to this function.
-        const promise = handler[eventName](...param1).then(null, err => {
-          that._logger.verbose(`'${eventName}' notification handler returned an error: ${err}`);
-        });
-        notificationPromises.push(promise);
-      });
-
-      that._promiseFactory.all(notificationPromises).then(() => resolve());
-    });
-  }
-
   // noinspection JSUnusedGlobalSymbols
   /**
    * Sets the host OS name - overrides the one in the agent string.
@@ -1057,7 +1074,7 @@ class EyesBase {
     if (hostOS) {
       this._hostOS = hostOS.trim();
     } else {
-      this._hostOS = null;
+      this._hostOS = undefined;
     }
   }
 
@@ -1081,7 +1098,7 @@ class EyesBase {
     if (hostApp) {
       this._hostApp = hostApp.trim();
     } else {
-      this._hostApp = null;
+      this._hostApp = undefined;
     }
   }
 
@@ -1105,7 +1122,7 @@ class EyesBase {
     if (baselineName) {
       this._baselineEnvName = baselineName.trim();
     } else {
-      this._baselineEnvName = null;
+      this._baselineEnvName = undefined;
     }
   }
 
@@ -1130,7 +1147,7 @@ class EyesBase {
     if (baselineEnvName) {
       this._baselineEnvName = baselineEnvName.trim();
     } else {
-      this._baselineEnvName = null;
+      this._baselineEnvName = undefined;
     }
   }
 
@@ -1156,7 +1173,7 @@ class EyesBase {
     if (envName) {
       this._environmentName = envName.trim();
     } else {
-      this._environmentName = null;
+      this._environmentName = undefined;
     }
   }
 
@@ -1175,7 +1192,7 @@ class EyesBase {
    * @return {PositionProvider} The currently set position provider.
    */
   getPositionProvider() {
-    return this._positionProvider;
+    return this._positionProviderHandler.get();
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -1183,7 +1200,11 @@ class EyesBase {
    * @param {PositionProvider} positionProvider The position provider to be used.
    */
   setPositionProvider(positionProvider) {
-    this._positionProvider = positionProvider;
+    if (positionProvider) {
+      this._positionProviderHandler = new ReadOnlyPropertyHandler(this._logger, positionProvider);
+    } else {
+      this._positionProviderHandler = new SimplePropertyHandler(new InvalidPositionProvider());
+    }
   }
 
   /**
@@ -1214,18 +1235,18 @@ class EyesBase {
     ArgumentGuard.notNull(regionProvider, 'regionProvider');
 
     this._validationId += 1;
-    const validationInfo = new SessionEventHandler.ValidationInfo();
+    const validationInfo = new ValidationInfo();
     validationInfo.setValidationId(this._validationId);
     validationInfo.setTag(tag);
 
     // default result
-    const validationResult = new SessionEventHandler.ValidationResult();
+    const validationResult = new ValidationResult();
 
     const that = this;
     let matchResult;
     return that
       .beforeMatchWindow()
-      .then(() => that._notifyEvent('validationWillStart', that._autSessionId, validationInfo))
+      .then(() => that._sessionEventHandlers.validationWillStart(that._autSessionId, validationInfo))
       .then(() => EyesBase.matchWindow(regionProvider, tag, ignoreMismatch, checkSettings, that))
       .then(result => {
         matchResult = result;
@@ -1243,12 +1264,7 @@ class EyesBase {
         that._validateResult(tag, matchResult);
 
         that._logger.verbose('Done!');
-        return that._notifyEvent(
-          'validationEnded',
-          that._autSessionId,
-          validationInfo.getValidationId(),
-          validationResult
-        );
+        return that._sessionEventHandlers.validationEnded(that._autSessionId, validationInfo.getValidationId(), validationResult);
       })
       .then(() => matchResult);
   }
@@ -1290,20 +1306,21 @@ class EyesBase {
           that.getBaseAgentId(),
           that._sessionType,
           that.getAppName(),
-          null,
+          undefined,
           that._testName,
           that.getBatch(),
           that._baselineEnvName,
           that._environmentName,
           appEnvironment,
           that._defaultMatchSettings,
-          that.getBranchName(),
-          that.getParentBranchName(),
-          that.getBaselineBranchName(),
+          that._branchName || process.env.APPLITOOLS_BRANCH,
+          that._parentBranchName || process.env.APPLITOOLS_PARENT_BRANCH,
+          that._baselineBranchName || process.env.APPLITOOLS_BASELINE_BRANCH,
           that._compareWithParentBranch,
           that._ignoreBaseline,
-          that._properties,
-          that._render
+          that._render,
+          that._saveDiffs,
+          that._properties
         );
 
         const outputProvider = new AppOutputProvider();
@@ -1389,11 +1406,10 @@ class EyesBase {
     const replaceWindowData = new MatchWindowData(userInputs, new AppOutput(title, screenshot), tag, null, null);
 
     const that = this;
-    return that._serverConnector.replaceWindow(that._runningSession, stepIndex, replaceWindowData)
-      .then(result => {
-        that._logger.verbose('EyesBase.replaceWindow done');
-        return result;
-      });
+    return that._serverConnector.replaceWindow(that._runningSession, stepIndex, replaceWindowData).then(result => {
+      that._logger.verbose('EyesBase.replaceWindow done');
+      return result;
+    });
   }
 
   /**
@@ -1409,7 +1425,7 @@ class EyesBase {
   static matchWindow(regionProvider, tag, ignoreMismatch, checkSettings, self, skipStartingSession = false) {
     let retryTimeout = -1;
     const defaultMatchSettings = self.getDefaultMatchSettings();
-    let imageMatchSettings = null;
+    let imageMatchSettings;
 
     return self.getPromiseFactory().resolve()
       .then(() => {
@@ -1502,11 +1518,12 @@ class EyesBase {
 
       ArgumentGuard.notNull(testName, 'testName');
 
-      this._logger.verbose(`Agent = ${this._getFullAgentId()}`);
+      this._logger.verbose(`Agent = ${this.getFullAgentId()}`);
       this._logger.verbose(`openBase('${appName}', '${testName}', '${viewportSize}')`);
 
       this._validateApiKey();
       this._logOpenBase();
+
       const that = this;
       return this._validateSessionOpen()
         .then(() => {
@@ -1685,7 +1702,7 @@ class EyesBase {
     newControl = this._matchWindowTask
       .getLastScreenshot()
       .getIntersectedRegion(newControl, CoordinatesType.SCREENSHOT_AS_IS);
-    if (newControl.isEmpty()) {
+    if (newControl.isSizeEmpty()) {
       this._logger.verbose(`Ignoring '${text}' (out of bounds)`);
       return;
     }
@@ -1743,7 +1760,7 @@ class EyesBase {
       .getIntersectedRegion(control, CoordinatesType.SCREENSHOT_AS_IS);
 
     // If the region is NOT empty, we'll give the coordinates relative to the control.
-    if (!controlScreenshotIntersect.isEmpty()) {
+    if (!controlScreenshotIntersect.isSizeEmpty()) {
       const l = controlScreenshotIntersect.getLocation();
       cursorInScreenshot.offset(-l.getX(), -l.getY());
     }
@@ -1798,21 +1815,20 @@ class EyesBase {
       .then(autSessionId => {
         that._autSessionId = autSessionId;
       })
-      .then(() => that._notifyEvent('testStarted', that._autSessionId))
-      .then(() => that._notifyEvent('setSizeWillStart', that._autSessionId, that._viewportSize))
+      .then(() => that._sessionEventHandlers.testStarted(that._autSessionId))
+      .then(() => that._sessionEventHandlers.setSizeWillStart(that._viewportSize))
       .then(() => that._ensureViewportSize()
-        .catch(err => that._notifyEvent('setSizeEnded', that._autSessionId)
-          .then(() => {
-            // Throw to skip execution of all consecutive "then" blocks.
-            throw new EyesError('Failed to set/get viewport size', err);
-          })))
-      .then(() => that._notifyEvent('setSizeEnded', that._autSessionId))
-      .then(() => that._notifyEvent('initStarted', that._autSessionId))
+        .catch(err => {
+          // Throw to skip execution of all consecutive "then" blocks.
+          throw new EyesError('Failed to set/get viewport size', err);
+        }))
+      .then(() => that._sessionEventHandlers.setSizeEnded())
+      .then(() => that._sessionEventHandlers.initStarted())
       .then(() => that.getAppEnvironment())
       .then(appEnv => {
         appEnvironment = appEnv;
         that._logger.verbose(`Application environment is ${appEnvironment}`);
-        return that._notifyEvent('initEnded', that._autSessionId);
+        return that._sessionEventHandlers.initEnded();
       })
       .then(() => {
         that._sessionStartInfo = new SessionStartInfo(
@@ -1826,13 +1842,14 @@ class EyesBase {
           that._environmentName,
           appEnvironment,
           that._defaultMatchSettings,
-          that.getBranchName(),
-          that.getParentBranchName(),
-          that.getBaselineBranchName(),
+          that._branchName || process.env.APPLITOOLS_BRANCH,
+          that._parentBranchName || process.env.APPLITOOLS_PARENT_BRANCH,
+          that._baselineBranchName || process.env.APPLITOOLS_BASELINE_BRANCH,
           that._compareWithParentBranch,
           that._ignoreBaseline,
-          that._properties,
-          that._render
+          that._render,
+          that._saveDiffs,
+          that._properties
         );
 
         that._logger.verbose('Starting server session...');
@@ -1915,7 +1932,7 @@ class EyesBase {
             screenshot = newScreenshot;
 
             // Cropping by region if necessary
-            if (!region.isEmpty()) {
+            if (!region.isSizeEmpty()) {
               return screenshot.getSubScreenshot(region, false).then(subScreenshot => {
                 screenshot = subScreenshot;
                 return that._debugScreenshotsProvider.save(subScreenshot.getImage(), 'SUB_SCREENSHOT');
@@ -1969,11 +1986,32 @@ class EyesBase {
 
   // noinspection JSUnusedGlobalSymbols
   /**
+   * @return {SessionEventHandlers}
+   */
+  getSessionEventHandlers() {
+    return this._sessionEventHandlers;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
    * @param {SessionEventHandler} eventHandler
    */
   addSessionEventHandler(eventHandler) {
     eventHandler.setPromiseFactory(this._promiseFactory);
-    this._sessionEventHandlers.push(eventHandler);
+    this._sessionEventHandlers.addEventHandler(eventHandler);
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @param {SessionEventHandler} eventHandler
+   */
+  removeSessionEventHandler(eventHandler) {
+    this._sessionEventHandlers.removeEventHandler(eventHandler);
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  clearSessionEventHandlers() {
+    this._sessionEventHandlers.clearEventHandlers();
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -2122,6 +2160,13 @@ class EyesBase {
    */
   getPromiseFactory() {
     return this._promiseFactory;
+  }
+
+  /**
+   * @param {string...} args
+   */
+  log(...args) {
+    this._logger.log(...args);
   }
 }
 

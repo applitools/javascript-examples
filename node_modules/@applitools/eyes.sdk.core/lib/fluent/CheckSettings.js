@@ -17,13 +17,17 @@ class CheckSettings {
    * @param {Region|RegionObject} [region]
    */
   constructor(timeout = -1, region) {
+    /** @type {MatchLevel} */
     this._matchLevel = undefined;
-    this._ignoreCaret = undefined;
+    this._ignoreCaret = false;
     this._stitchContent = false;
     this._timeout = timeout;
     this._targetRegion = region;
 
     this._ignoreRegions = [];
+    this._layoutRegions = [];
+    this._strictRegions = [];
+    this._contentRegions = [];
     this._floatingRegions = [];
   }
 
@@ -113,10 +117,11 @@ class CheckSettings {
   /**
    * Defines that the screenshot will contain the entire element or region, even if it's outside the view.
    *
+   * @param {boolean} [fully=true]
    * @return {CheckSettings} This instance of the settings object.
    */
-  fully() {
-    this._stitchContent = true;
+  fully(fully = true) {
+    this._stitchContent = fully;
     return this;
   }
 
@@ -175,41 +180,106 @@ class CheckSettings {
     return this._targetRegion;
   }
 
-  // noinspection JSUnusedGlobalSymbols
+  // noinspection JSMethodCanBeStatic
   /**
-   * Adds a region to ignore.
-   *
-   * @param {GetRegion|Region} regionOrContainer The region or region container to ignore when validating the
-   *   screenshot.
-   * @return {CheckSettings} This instance of the settings object.
+   * @protected
+   * @param {GetRegion|Region} region
+   * @return {GetRegion}
    */
-  ignore(regionOrContainer) {
-    if (regionOrContainer instanceof Region) {
-      this._ignoreRegions.push(new IgnoreRegionByRectangle(regionOrContainer));
-    } else if (regionOrContainer instanceof GetRegion) {
-      this._ignoreRegions.push(regionOrContainer);
-    } else {
-      throw new TypeError('ignore method called with argument of unknown type!');
+  _regionToRegionProvider(region) {
+    if (region instanceof Region) {
+      return new IgnoreRegionByRectangle(region);
     }
 
-    return this;
+    if (region instanceof GetRegion) {
+      return region;
+    }
+
+    throw new TypeError('ignore method called with argument of unknown type!');
+  }
+
+  /**
+   * @deprecated use {@link ignoreRegions} instead
+   */
+  ignore(...regions) {
+    return this.ignoreRegions(regions);
+  }
+
+  /**
+   * @deprecated use {@link ignoreRegions} instead
+   */
+  ignores(...regions) {
+    return this.ignoreRegions(regions);
   }
 
   // noinspection JSUnusedGlobalSymbols
   /**
    * Adds one or more ignore regions.
    *
-   * @param {GetRegion...|Region...} regionsOrContainers One or more regions or region containers to ignore when
-   *   validating the screenshot.
+   * @param {(GetRegion|Region)...} regions A region to ignore when validating the screenshot.
    * @return {CheckSettings} This instance of the settings object.
    */
-  ignores(...regionsOrContainers) {
-    if (!regionsOrContainers) {
-      throw new TypeError('ignores method called without arguments!');
+  ignoreRegions(...regions) {
+    if (!regions) {
+      throw new TypeError('ignoreRegions method called without arguments!');
     }
 
-    regionsOrContainers.forEach(region => {
-      this.ignore(region);
+    regions.forEach(region => {
+      this._ignoreRegions.push(this._regionToRegionProvider(region));
+    });
+
+    return this;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Adds one or more layout regions.
+   * @param {(GetRegion|Region)...} regions A region to match using the Layout method.
+   * @return {CheckSettings} This instance of the settings object.
+   */
+  layoutRegions(...regions) {
+    if (!regions) {
+      throw new TypeError('layoutRegions method called without arguments!');
+    }
+
+    regions.forEach(region => {
+      this._layoutRegions.push(this._regionToRegionProvider(region));
+    });
+
+    return this;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Adds one or more strict regions.
+   * @param {(GetRegion|Region)...} regions A region to match using the Strict method.
+   * @return {CheckSettings} This instance of the settings object.
+   */
+  strictRegions(...regions) {
+    if (!regions) {
+      throw new TypeError('strictRegions method called without arguments!');
+    }
+
+    regions.forEach(region => {
+      this._strictRegions.push(this._regionToRegionProvider(region));
+    });
+
+    return this;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Adds one or more content regions.
+   * @param {(GetRegion|Region)...} regions A region to match using the Content method.
+   * @return {CheckSettings} This instance of the settings object.
+   */
+  contentRegions(...regions) {
+    if (!regions) {
+      throw new TypeError('contentRegions method called without arguments!');
+    }
+
+    regions.forEach(region => {
+      this._contentRegions.push(this._regionToRegionProvider(region));
     });
 
     return this;
@@ -220,6 +290,27 @@ class CheckSettings {
    */
   getIgnoreRegions() {
     return this._ignoreRegions;
+  }
+
+  /**
+   * @return {GetRegion[]}
+   */
+  getStrictRegions() {
+    return this._strictRegions;
+  }
+
+  /**
+   * @return {GetRegion[]}
+   */
+  getLayoutRegions() {
+    return this._layoutRegions;
+  }
+
+  /**
+   * @return {GetRegion[]}
+   */
+  getContentRegions() {
+    return this._contentRegions;
   }
 
   // noinspection JSUnusedGlobalSymbols

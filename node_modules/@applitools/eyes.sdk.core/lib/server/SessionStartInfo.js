@@ -23,8 +23,9 @@ class SessionStartInfo {
    * @param {string} baselineBranchName
    * @param {boolean} compareWithParentBranch
    * @param {boolean} ignoreBaseline
+   * @param {boolean} saveDiffs
+   * @param {boolean} render
    * @param {PropertyData[]} properties
-   * @param {boolean} render=false
    */
   constructor(
     agentId,
@@ -42,8 +43,9 @@ class SessionStartInfo {
     baselineBranchName,
     compareWithParentBranch,
     ignoreBaseline,
-    properties,
-    render
+    saveDiffs,
+    render,
+    properties
   ) {
     ArgumentGuard.notNullOrEmpty(agentId, 'agentId');
     ArgumentGuard.notNullOrEmpty(appIdOrName, 'appIdOrName');
@@ -67,8 +69,9 @@ class SessionStartInfo {
     this._baselineBranchName = baselineBranchName;
     this._compareWithParentBranch = compareWithParentBranch;
     this._ignoreBaseline = ignoreBaseline;
-    this._properties = properties;
+    this._saveDiffs = saveDiffs;
     this._render = render;
+    this._properties = properties;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -171,6 +174,12 @@ class SessionStartInfo {
   /** @return {boolean} */
   getRender() {
     return this._render;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /** @return {boolean} */
+  getSaveDiffs() {
+    return this._saveDiffs;
   }
 
   /** @override */

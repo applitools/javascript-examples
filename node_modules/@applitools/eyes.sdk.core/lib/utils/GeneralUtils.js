@@ -40,7 +40,7 @@ class GeneralUtils {
 
     for (let i = 0, l = suffixes.length; i < l; i += 1) {
       /** @type {string} */
-      const suffix = suffixes[i];
+      const suffix = String(suffixes[i]);
       if (!suffix.startsWith('/') && !(i === l - 1 && suffix.startsWith('?'))) {
         concatUrl += '/';
       }
@@ -91,16 +91,19 @@ class GeneralUtils {
    *
    * @param {object} object
    * @param {string[]} [exclude]
+   * @param {object} [rename]
    * @return {object}
    */
-  static toPlain(object, exclude = []) {
+  static toPlain(object, exclude = [], rename = {}) {
     if (object == null) {
       throw new TypeError('Cannot make null plain.');
     }
 
     const plainObject = {};
     Object.keys(object).forEach(objectKey => {
-      const publicKey = objectKey.replace('_', '');
+      let publicKey = objectKey.replace('_', '');
+      if (rename[publicKey]) publicKey = rename[publicKey];
+
       if (hasOwnProperty.call(object, objectKey) && !exclude.includes(objectKey)) {
         if (object[objectKey] instanceof Object && typeof object[objectKey].toJSON === 'function') {
           plainObject[publicKey] = object[objectKey].toJSON();
@@ -310,19 +313,19 @@ class GeneralUtils {
   static stringify(...args) {
     return args
       .map(arg => {
-        if (GeneralUtils.isPlainObject(arg)) {
+        if (arg != null && typeof arg === 'object') {
+          if (arg.constructor !== Object) {
+            // Not plain object
+            if (arg instanceof Error && arg.stack) {
+              return arg.stack;
+            }
+
+            if (typeof arg.toString === 'function' && arg.toString !== Object.prototype.toString) {
+              return arg.toString();
+            }
+          }
+
           return JSON.stringify(arg);
-        }
-
-        if (arg instanceof Error) {
-          return arg.stack;
-        }
-
-        if (
-          typeof arg === 'function' ||
-          (typeof arg === 'object' && typeof arg.toString === 'function')
-        ) {
-          return arg.toString();
         }
 
         return arg;
@@ -375,6 +378,14 @@ class GeneralUtils {
    */
   static isPlainObject(value) {
     return GeneralUtils.isObject(value) && value.constructor === Object;
+  }
+
+  /**
+   * @param value
+   * @return {boolean}
+   */
+  static isArray(value) {
+    return Array.isArray(value);
   }
 
   /**

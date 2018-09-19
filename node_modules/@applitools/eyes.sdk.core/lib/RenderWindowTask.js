@@ -41,17 +41,15 @@ class RenderWindowTask {
    */
   postRender(renderRequest) {
     const that = this;
-    return that._serverConnector.render(renderRequest)
-      .then(newRender => {
-        if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
-          renderRequest.setRenderId(newRender.getRenderId());
+    return that._serverConnector.render(renderRequest).then(newRender => {
+      if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
+        renderRequest.setRenderId(newRender.getRenderId());
 
-          return that.putResources(renderRequest.getDom(), newRender)
-            .then(() => that.postRender(renderRequest));
-        }
+        return that.putResources(renderRequest.getDom(), newRender).then(() => that.postRender(renderRequest));
+      }
 
-        return newRender;
-      });
+      return newRender;
+    });
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -70,14 +68,13 @@ class RenderWindowTask {
    */
   checkAndPutResources(renderRequest) {
     const that = this;
-    return that._serverConnector.render(renderRequest)
-      .then(newRender => {
-        if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
-          return that.putResources(renderRequest.getDom(), newRender);
-        }
+    return that._serverConnector.render(renderRequest).then(newRender => {
+      if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
+        return that.putResources(renderRequest.getDom(), newRender);
+      }
 
-        return null;
-      });
+      return null;
+    });
   }
 
   /**
@@ -87,16 +84,17 @@ class RenderWindowTask {
    */
   getRenderStatus(runningRender, delayBeforeRequest = false) {
     const that = this;
-    return that._serverConnector.renderStatus(runningRender, delayBeforeRequest)
-      .then(renderStatusResults => {
-        if (renderStatusResults.getStatus() === RenderStatus.RENDERING) {
-          return that.getRenderStatus(runningRender, true);
-        } else if (renderStatusResults.getStatus() === RenderStatus.ERROR) {
-          return that._promiseFactory.reject(renderStatusResults.getError());
-        }
+    return that._serverConnector.renderStatus(runningRender, delayBeforeRequest).then(renderStatusResults => {
+      if (renderStatusResults.getStatus() === RenderStatus.RENDERING) {
+        return that.getRenderStatus(runningRender, true);
+      }
 
-        return renderStatusResults;
-      });
+      if (renderStatusResults.getStatus() === RenderStatus.ERROR) {
+        return that._promiseFactory.reject(renderStatusResults.getError());
+      }
+
+      return renderStatusResults;
+    });
   }
 
   // noinspection JSUnusedGlobalSymbols

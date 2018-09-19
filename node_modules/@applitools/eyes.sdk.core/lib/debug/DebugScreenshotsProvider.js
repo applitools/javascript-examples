@@ -11,7 +11,7 @@ const DEFAULT_PATH = '';
 class DebugScreenshotsProvider {
   constructor() {
     this._prefix = DEFAULT_PREFIX;
-    this._path = null;
+    this._path = undefined;
   }
 
   getPrefix() {

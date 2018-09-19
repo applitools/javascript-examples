@@ -6,6 +6,17 @@ const fs = require('fs');
 const { LogHandler } = require('./LogHandler');
 
 /**
+ * @param {string} filename
+ */
+function ensureDirectoryExistence(filename) {
+  const dirname = path.dirname(filename);
+  if (!fs.existsSync(dirname)) {
+    ensureDirectoryExistence(dirname);
+    fs.mkdirSync(dirname);
+  }
+}
+
+/**
  * Write log massages to the browser/node console
  */
 class FileLogHandler extends LogHandler {
@@ -34,6 +45,7 @@ class FileLogHandler extends LogHandler {
       encoding: 'utf8',
     };
 
+    ensureDirectoryExistence(file);
     this._writer = fs.createWriteStream(file, opts);
   }
 

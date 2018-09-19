@@ -4,8 +4,8 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class Image {
   constructor() {
-    this._id = null;
-    this._size = null;
+    this._id = undefined;
+    this._size = undefined;
   }
 
   /**

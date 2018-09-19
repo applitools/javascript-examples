@@ -4,35 +4,35 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class SessionResults {
   constructor() {
-    this._id = null;
-    this._revision = null;
-    this._runningSessionId = null;
-    this._isAborted = null;
-    this._isStarred = null;
-    this._startInfo = null;
-    this._batchId = null;
-    this._secretToken = null;
-    this._state = null;
-    this._status = null;
-    this._isDefaultStatus = null;
-    this._startedAt = null;
-    this._duration = null;
-    this._isDifferent = null;
-    this._env = null;
-    this._branch = null;
-    this._expectedAppOutput = null;
-    this._actualAppOutput = null;
-    this._baselineId = null;
-    this._baselineRevId = null;
-    this._scenarioId = null;
-    this._scenarioName = null;
-    this._appId = null;
-    this._baselineModelId = null;
-    this._baselineEnvId = null;
-    this._baselineEnv = null;
-    this._appName = null;
-    this._baselineBranchName = null;
-    this._isNew = null;
+    this._id = undefined;
+    this._revision = undefined;
+    this._runningSessionId = undefined;
+    this._isAborted = undefined;
+    this._isStarred = undefined;
+    this._startInfo = undefined;
+    this._batchId = undefined;
+    this._secretToken = undefined;
+    this._state = undefined;
+    this._status = undefined;
+    this._isDefaultStatus = undefined;
+    this._startedAt = undefined;
+    this._duration = undefined;
+    this._isDifferent = undefined;
+    this._env = undefined;
+    this._branch = undefined;
+    this._expectedAppOutput = undefined;
+    this._actualAppOutput = undefined;
+    this._baselineId = undefined;
+    this._baselineRevId = undefined;
+    this._scenarioId = undefined;
+    this._scenarioName = undefined;
+    this._appId = undefined;
+    this._baselineModelId = undefined;
+    this._baselineEnvId = undefined;
+    this._baselineEnv = undefined;
+    this._appName = undefined;
+    this._baselineBranchName = undefined;
+    this._isNew = undefined;
   }
 
   /**

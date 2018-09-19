@@ -2,7 +2,7 @@ function main() {
 
     const {Builder, By, until} = require('selenium-webdriver');
         
-    var driver = new Builder().forBrowser('chrome').build();
+    var driver = new Builder().forBrowser('safari').build();
 
     var Eyes = require('eyes.selenium').Eyes;
     var eyes = new Eyes();
@@ -14,13 +14,13 @@ function main() {
 
     try {
 
-        eyes.open(driver, 'Applitools', 'Life', {width: 1440, height: 1012});
+        eyes.open(driver, 'Github', 'Home Page', {width: 1440, height: 1012});
 
-        driver.get('http://uw.usatoday.com/news/nation/');
+        driver.get('http://github.com');
         
-        driver.executeScript("window.scrollTo(0, document.body.scrollHeight);")
+        //driver.executeScript("window.scrollTo(0, document.body.scrollHeight);")
 
-        eyes.checkWindow('Life');
+        eyes.checkWindow('Github');
 
         eyes.close(false);
 

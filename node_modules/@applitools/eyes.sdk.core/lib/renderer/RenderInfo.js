@@ -2,6 +2,7 @@
 
 const { GeneralUtils } = require('../utils/GeneralUtils');
 const { Region } = require('../geometry/Region');
+const { EmulationInfo } = require('./EmulationInfo');
 
 class RenderInfo {
   constructor() {
@@ -10,6 +11,7 @@ class RenderInfo {
     this._sizeMode = undefined;
     this._selector = undefined;
     this._region = undefined;
+    this._emulationInfo = undefined;
   }
 
   /**
@@ -19,6 +21,7 @@ class RenderInfo {
   static fromObject(object) {
     const mapping = {};
     if (object.region) mapping.region = Region.fromObject;
+    if (object.emulationInfo) mapping.emulationInfo = EmulationInfo.fromObject;
     
     return GeneralUtils.assignTo(new RenderInfo(), object, mapping);
   }
@@ -86,10 +89,26 @@ class RenderInfo {
     this._region = value;
   }
 
+  // noinspection JSUnusedGlobalSymbols
+  /** @return {string} */
+  getEmulationInfo() {
+    return this._emulationInfo;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /** @param {string} value */
+  setEmulationInfo(value) {
+    this._emulationInfo = value;
+  }
+
   /** @override */
   toJSON() {
-    const obj = GeneralUtils.toPlain(this);
+    const obj = GeneralUtils.toPlain(this, ['_emulationInfo']);
     
+    if (this._emulationInfo) {
+      obj.emulationInfo = this._emulationInfo.toJSON();
+    }
+
     // TODO remove this when rendering-grid changes x/y to left/top
     if (obj.region) {
       obj.region.x = obj.region.left;

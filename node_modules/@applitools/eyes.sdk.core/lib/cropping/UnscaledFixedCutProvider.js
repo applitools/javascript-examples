@@ -2,6 +2,7 @@
 
 const { Region } = require('../geometry/Region');
 const { CutProvider } = require('./CutProvider');
+const { NullCutProvider } = require('./NullCutProvider');
 
 class UnscaledFixedCutProvider extends CutProvider {
   /**
@@ -66,6 +67,10 @@ class UnscaledFixedCutProvider extends CutProvider {
    * @return {CutProvider} A new scale cut provider instance.
    */
   scale(scaleRatio) {
+    if (this instanceof NullCutProvider) {
+      return this;
+    }
+
     return new UnscaledFixedCutProvider(this._header, this._footer, this._left, this._right);
   }
 }

@@ -14,7 +14,7 @@
     "webdriverio": "^4.13.2"
   },
   "devDependencies": {
-    "@applitools/eyes.webdriverio": "^1.2.0",
+    "@applitools/eyes.webdriverio": "^1.2.1",
     "eyes.images": "0.0.50",
     "wdio-browserstack-service": "^0.1.16"
   },

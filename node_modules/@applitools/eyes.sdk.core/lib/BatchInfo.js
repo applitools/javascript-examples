@@ -11,12 +11,20 @@ class BatchInfo {
    * Creates a new BatchInfo instance.
    * @param {string} [name] Name of batch or {@code null} if anonymous.
    * @param {Date} [startedAt] Batch start time, defaults to the current time.
-   * @param {string} [id]
+   * @param {string} [id] ID of the batch, should be generated using GeneralUtils.guid().
    */
   constructor(name, startedAt, id) {
     this._id = id || process.env.APPLITOOLS_BATCH_ID || GeneralUtils.guid();
     this._name = name || process.env.APPLITOOLS_BATCH_NAME;
     this._startedAt = GeneralUtils.toISO8601DateTime(startedAt || new Date());
+  }
+
+  /**
+   * @param {object} object
+   * @return {BatchInfo}
+   */
+  static fromObject(object) {
+    return GeneralUtils.assignTo(new BatchInfo(), object);
   }
 
   /**

@@ -4,9 +4,9 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class BatchInfo {
   constructor() {
-    this._id = null;
-    this._name = null;
-    this._startedAt = null;
+    this._id = undefined;
+    this._name = undefined;
+    this._startedAt = undefined;
   }
 
   /**

@@ -7,11 +7,11 @@ const { ArgumentGuard } = require('../ArgumentGuard');
 
 class RGridResource {
   constructor() {
-    this._url = null;
-    this._contentType = null;
-    this._content = null;
+    this._url = undefined;
+    this._contentType = undefined;
+    this._content = undefined;
 
-    this._sha256hash = null;
+    this._sha256hash = undefined;
   }
 
   /**

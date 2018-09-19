@@ -13,6 +13,7 @@ class RenderRequest {
    * @param {RenderInfo} [renderInfo]
    * @param {string} [platform]
    * @param {string} [browserName]
+   * @param {Object} [scriptHooks]
    */
   constructor(webhook, url, dom, renderInfo, platform, browserName, scriptHooks) {
     ArgumentGuard.notNullOrEmpty(webhook, 'webhook');
@@ -94,8 +95,6 @@ class RenderRequest {
   setScriptHooks(value) {
     this._scriptHooks = value;
   }
-
-
 
   /** @override */
   toJSON() {

@@ -8,12 +8,12 @@ const { RenderingInfo } = require('../renderer/RenderingInfo');
  */
 class RunningSession {
   constructor() {
-    this._id = null;
-    this._sessionId = null;
-    this._batchId = null;
-    this._baselineId = null;
-    this._url = null;
-    this._renderingInfo = null;
+    this._id = undefined;
+    this._sessionId = undefined;
+    this._batchId = undefined;
+    this._baselineId = undefined;
+    this._url = undefined;
+    this._renderingInfo = undefined;
 
     this._isNewSession = false;
   }

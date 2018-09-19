@@ -81,6 +81,11 @@ class RectangleSize {
     return new RectangleSize(parseInt(parts[0], 10), parseInt(parts[1], 10));
   }
 
+  /** @return {boolean} */
+  isEmpty() {
+    return this.getWidth() === 0 && this.getHeight() === 0;
+  }
+
   /**
    * @return {number} The rectangle's width.
    */
@@ -129,5 +134,7 @@ class RectangleSize {
     return `${this._width}x${this._height}`;
   }
 }
+
+RectangleSize.EMPTY = new RectangleSize(0, 0);
 
 exports.RectangleSize = RectangleSize;

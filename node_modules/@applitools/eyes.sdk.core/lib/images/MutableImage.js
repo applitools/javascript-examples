@@ -309,8 +309,7 @@ class MutableImage {
    */
   save(filename) {
     const that = this;
-    return that.getImageBuffer()
-      .then(imageBuffer => ImageUtils.saveImage(imageBuffer, filename, that._promiseFactory));
+    return that.getImageBuffer().then(imageBuffer => ImageUtils.saveImage(imageBuffer, filename, that._promiseFactory));
   }
 
   /**

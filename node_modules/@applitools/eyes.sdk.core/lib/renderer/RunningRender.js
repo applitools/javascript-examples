@@ -10,9 +10,9 @@ class RunningRender {
     this._renderId = false;
     this._jobId = false;
 
-    this._renderStatus = null;
-    this._needMoreResources = null;
-    this._needMoreDom = null;
+    this._renderStatus = undefined;
+    this._needMoreResources = undefined;
+    this._needMoreDom = undefined;
   }
 
   /**

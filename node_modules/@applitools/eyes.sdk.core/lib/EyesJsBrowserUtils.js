@@ -39,6 +39,39 @@ const JS_RETURN_CONTENT_ENTIRE_SIZE = `${JS_COMPUTE_CONTENT_ENTIRE_SIZE}return [
 
 const JS_SCROLL_TO_BOTTOM_RIGHT = `${JS_COMPUTE_CONTENT_ENTIRE_SIZE}window.scrollTo(totalWidth, totalHeight);`;
 
+const JS_GET_OVERFLOW_AWARE_CONTENT_ENTIRE_SIZE =
+  'var scrollWidth = document.documentElement.scrollWidth; ' +
+  'var bodyScrollWidth = document.body.scrollWidth; ' +
+  'var bodyOverflowX = window.getComputedStyle(document.body).overflowX;' +
+  'var documentOverflowX = window.getComputedStyle(document.documentElement).overflowX;' +
+  'var totalWidth = undefined;' +
+  'if (bodyOverflowX !== "hidden" && documentOverflowX !== "hidden")' +
+  '{ totalWidth = Math.max(scrollWidth, bodyScrollWidth); }' +
+  'else if (bodyOverflowX !== "hidden" && documentOverflowX === "hidden")' +
+  '{ totalWidth = bodyScrollWidth; }' +
+  'else if (bodyOverflowX === "hidden" && documentOverflowX !== "hidden")' +
+  '{ totalWidth = scrollWidth; }' +
+  'else if (bodyOverflowX === "hidden" && documentOverflowX === "hidden")' +
+  '{ totalWidth = window.innerWidth; }' +
+  'var clientHeight = document.documentElement.clientHeight; ' +
+  'var bodyClientHeight = document.body.clientHeight; ' +
+  'var scrollHeight = document.documentElement.scrollHeight; ' +
+  'var bodyScrollHeight = document.body.scrollHeight; ' +
+  'var maxDocElementHeight = Math.max(clientHeight, scrollHeight); ' +
+  'var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); ' +
+  'var bodyOverflowY = window.getComputedStyle(document.body).overflowY;' +
+  'var documentOverflowY = window.getComputedStyle(document.documentElement).overflowY;' +
+  'var totalHeight = undefined;' +
+  'if (bodyOverflowY !== "hidden" && documentOverflowY !== "hidden")' +
+  '{ totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); }' +
+  'else if (bodyOverflowY !== "hidden" && documentOverflowY === "hidden")' +
+  '{ totalHeight = maxBodyHeight; }' +
+  'else if (bodyOverflowY === "hidden" && documentOverflowY !== "hidden")' +
+  '{ totalHeight = maxDocElementHeight; }' +
+  'else if (bodyOverflowY === "hidden" && documentOverflowY === "hidden")' +
+  '{ totalHeight = window.innerHeight; }' +
+  'return [totalWidth, totalHeight];';
+
 const JS_TRANSFORM_KEYS = ['transform', '-webkit-transform'];
 
 const JS_GET_IS_BODY_OVERFLOW_HIDDEN =
@@ -142,7 +175,7 @@ class EyesJsBrowserUtils {
    * @return {Promise<void>} A promise which resolves after the action is performed and timeout passed.
    */
   static setCurrentScrollPosition(executor, location) {
-    return executor.executeScript(`window.scrollTo(${location.getY()}, ${location.getY()})`);
+    return executor.executeScript(`window.scrollTo(${location.getX()}, ${location.getY()})`);
   }
 
   /**
@@ -169,6 +202,20 @@ class EyesJsBrowserUtils {
       .then(result => new RectangleSize(parseInt(result[0], 10) || 0, parseInt(result[1], 10) || 0))
       .catch(err => {
         throw new EyesError('Failed to extract entire size!', err);
+      });
+  }
+
+  /**
+   * Get the entire page size.
+   *
+   * @param {EyesJsExecutor} executor The executor to use.
+   * @return {Promise<RectangleSize>} A promise which resolves to an object containing the width/height of the page.
+   */
+  static getOverflowAwareContentEntireSize(executor) {
+    return executor.executeScript(JS_GET_OVERFLOW_AWARE_CONTENT_ENTIRE_SIZE)
+      .then(result => new RectangleSize(parseInt(result[0], 10) || 0, parseInt(result[1], 10) || 0))
+      .catch(err => {
+        throw new EyesError('Failed to extract overflow aware entire size!', err);
       });
   }
 

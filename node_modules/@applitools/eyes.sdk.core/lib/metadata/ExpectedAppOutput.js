@@ -4,11 +4,11 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class ExpectedAppOutput {
   constructor() {
-    this._tag = null;
-    this._image = null;
-    this._thumbprint = null;
-    this._occurredAt = null;
-    this._annotations = null;
+    this._tag = undefined;
+    this._image = undefined;
+    this._thumbprint = undefined;
+    this._occurredAt = undefined;
+    this._annotations = undefined;
   }
 
   /**

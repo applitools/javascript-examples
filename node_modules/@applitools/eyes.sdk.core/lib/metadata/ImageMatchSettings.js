@@ -4,17 +4,17 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class ImageMatchSettings {
   constructor() {
-    this._matchLevel = null;
-    this._ignore = null;
-    this._strict = null;
-    this._content = null;
-    this._layout = null;
-    this._floating = null;
-    this._splitTopHeight = null;
-    this._splitBottomHeight = null;
-    this._ignoreCaret = null;
-    this._scale = null;
-    this._remainder = null;
+    this._matchLevel = undefined;
+    this._ignore = undefined;
+    this._strict = undefined;
+    this._content = undefined;
+    this._layout = undefined;
+    this._floating = undefined;
+    this._splitTopHeight = undefined;
+    this._splitBottomHeight = undefined;
+    this._ignoreCaret = undefined;
+    this._scale = undefined;
+    this._remainder = undefined;
   }
 
   /**

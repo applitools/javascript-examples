@@ -4,9 +4,9 @@ const { GeneralUtils } = require('../utils/GeneralUtils');
 
 class RenderingInfo {
   constructor() {
-    this._serviceUrl = null;
-    this._accessToken = null;
-    this._resultsUrl = null;
+    this._serviceUrl = undefined;
+    this._accessToken = undefined;
+    this._resultsUrl = undefined;
   }
 
   /**

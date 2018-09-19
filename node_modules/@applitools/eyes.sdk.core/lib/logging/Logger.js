@@ -1,6 +1,5 @@
 'use strict';
 
-const { ArgumentGuard } = require('../ArgumentGuard');
 const { GeneralUtils } = require('../utils/GeneralUtils');
 const { NullLogHandler } = require('./NullLogHandler');
 
@@ -20,13 +19,11 @@ class Logger {
   }
 
   /**
-   * @param {object} handler The log handler to set. If you want a log handler which does nothing, use
+   * @param {LogHandler} [handler] The log handler to set. If you want a log handler which does nothing, use
    *   {@link NullLogHandler}.
    */
   setLogHandler(handler) {
-    ArgumentGuard.notNull(handler, 'handler');
-
-    this._logHandler = handler;
+    this._logHandler = handler || new NullLogHandler();
   }
 
   /**
@@ -58,7 +55,7 @@ class Logger {
     let prefix = '';
     // getStackTrace()<-getPrefix()<-log()/verbose()<-"actual caller"
     if (trace && trace.length >= 2 && trace[2].getMethodName()) {
-      prefix = `${trace[2].getMethodName()}():`;
+      prefix = `${trace[2].getMethodName()}(): `;
     }
 
     return prefix;
