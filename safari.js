@@ -1,9 +1,16 @@
 function main() {
 
-    const {Builder, By, until} = require('selenium-webdriver');
+    //const {Builder, By, until} = require('selenium-webdriver');
         
-    var driver = new Builder().forBrowser('safari').build();
-
+    //var driver = new Builder().forBrowser('safari').build();
+    
+    let wd = require('selenium-webdriver');
+    let safari = require('selenium-webdriver/safari');
+    let opts = new safari.Options();
+    opts.setTechnologyPreview(false);
+    let caps = opts.toCapabilities();
+    let driver = new wd.Builder().withCapabilities(caps).build(); 
+    
     var Eyes = require('eyes.selenium').Eyes;
     var eyes = new Eyes();
 
@@ -14,7 +21,7 @@ function main() {
 
     try {
 
-        eyes.open(driver, 'Github', 'Home Page', {width: 1440, height: 1012});
+        eyes.open(wd, 'Github', 'Home Page', {width: 1440, height: 1012});
 
         driver.get('http://github.com');
         

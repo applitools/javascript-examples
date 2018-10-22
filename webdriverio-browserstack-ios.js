@@ -1,8 +1,8 @@
 async function main() {
     const webdriverio = require('webdriverio');
     
-    var bsUser = process.env.BS_USER || "justinison8";
-    var bsKey = process.env.BS_KEY || "5qyqVytms3N1p4Dxew51";
+    var bsUser = process.env.BS_USER || "yourBSUser";
+    var bsKey = process.env.BS_KEY || "YourBSKey";
     var applitoolsKey = process.env.APPLITOOLS_API_KEY || "yourApplitoolsKey";
     
     var options = {
@@ -44,14 +44,9 @@ async function main() {
        // Start the test and set the browser's viewport size to 800x600.
        await eyes.open(browser, 'Hello World!', 'My first WebdriverIO iOS test!');
        
-       //await eyes.setImageCut(new FixedCutProvider(135, 63, 0, 0));
-       
-       //await eyes.check('Main Page', Target.window());
-       
-       //await eyes.check("Page", Target.region(By.cssSelector('body')).fully);
        await eyes.checkWindow('Window');
 
-       await eyes.close();
+       await eyes.close(false);
 
     } finally {
 
