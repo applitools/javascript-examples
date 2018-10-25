@@ -30,7 +30,9 @@ async function main() {
     let eyes = new Eyes();
     eyes.setApiKey(applitoolsKey);
     eyes.setLogHandler(new ConsoleLogHandler(true));
-    eyes.setStitchMode(StitchMode.SCROLL);
+    eyes.setForceFullPageScreenshot(true);
+    //eyes.setStitchMode(StitchMode.CSS);
+    //eyes.setStitchMode(StitchMode.SCROLL);
     //eyes.getIsCutProviderExplicitlySet
     //eyes.setLogHandler(new ConsoleLogHandler(true));
 
@@ -43,8 +45,8 @@ async function main() {
        
        // Start the test and set the browser's viewport size to 800x600.
        await eyes.open(browser, 'Hello World!', 'My first WebdriverIO iOS test!');
-       
-       await eyes.checkRegionBy(By.cssSelector('div.fancy.title.primary'), 'Title');
+       await eyes.check("Capture Title", Target.region(By.cssSelector("div.fancy.title.primary"));
+       //await eyes.checkRegionBy(By.cssSelector('div.fancy.title.primary'), 'Title');
        await eyes.checkWindow('Window');
 
        await eyes.close(false);
