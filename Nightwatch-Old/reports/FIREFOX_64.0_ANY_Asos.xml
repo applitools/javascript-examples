@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="2"
+            failures="0"
+            tests="1">
+
+  <testsuite name="Asos"
+    errors="2" failures="0" hostname="" id="" package="Asos" skipped="0"
+    tests="1" time="35.45" timestamp="Thu, 01 Nov 2018 21:24:33 GMT">
+  
+    <testcase name="Demo test Asos" classname="Asos" time="35.45" assertions="0">
+    </testcase>
+  
+
+  
+    <system-err>
+      ERROR: Unable to locate element: &#34;#txtSearch&#34; using: css selector
+    at Object.Demo test Asos (/Users/justin/repos/applitools/js/Nightwatch/tests/Asos.js:45:6)
+    at Module.call (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;.go&#34; using: css selector
+    at Object.Demo test Asos (/Users/justin/repos/applitools/js/Nightwatch/tests/Asos.js:46:6)
+    at Module.call (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/justin/repos/applitools/js/Nightwatch/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>

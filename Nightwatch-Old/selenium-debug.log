@@ -1,0 +1,264 @@
+15:59:40.133 INFO - Selenium build info: version: '3.4.0', revision: 'unknown'
+15:59:40.134 INFO - Launching a standalone Selenium Server
+2018-11-29 15:59:40.173:INFO::main: Logging initialized @972ms to org.seleniumhq.jetty9.util.log.StdErrLog
+15:59:40.320 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+ registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
+15:59:40.321 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+ registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
+15:59:40.321 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+15:59:40.321 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
+Unable to create new instances on this machine.
+15:59:40.321 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+15:59:40.321 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+2018-11-29 15:59:40.422:INFO:osjs.Server:main: jetty-9.4.3.v20170317
+2018-11-29 15:59:40.504:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@46d56d67{/,null,AVAILABLE}
+2018-11-29 15:59:40.597:INFO:osjs.AbstractConnector:main: Started ServerConnector@146ba0ac{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2018-11-29 15:59:40.598:INFO:osjs.Server:main: Started @1397ms
+15:59:40.598 INFO - Selenium Server is up and running
+15:59:41.686 INFO - SessionCleaner initialized with insideBrowserTimeout 0 and clientGoneTimeout 1800000 polling every 180000
+15:59:41.814 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, marionette=true, name=Example Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
+15:59:41.911 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, marionette=true, name=Example Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]
+1543525183754	geckodriver	INFO	geckodriver 0.21.0
+1543525183762	geckodriver	INFO	Listening on 127.0.0.1:30319
+1543525184005	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/40/msfn1rsj72q4bw_x_h2zvv0m0000gn/T/rust_mozprofile.9FosSJVx9FZy"
+1543525185378	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1543525185379	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1543525185559	Marionette	DEBUG	Received observer notification profile-after-change
+1543525185713	Marionette	DEBUG	Received observer notification command-line-startup
+1543525185713	Marionette	DEBUG	Received observer notification nsPref:changed
+1543525185713	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1543525185933	Marionette	DEBUG	Received observer notification toplevel-window-ready
+1543525187257	Marionette	DEBUG	Received observer notification sessionstore-windows-restored
+1543525187258	Marionette	DEBUG	Waiting for delayed startup...
+1543525187447	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1543525187447	Marionette	DEBUG	Setting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer to true
+1543525187447	Marionette	DEBUG	Setting recommended pref apz.content_response_timeout to 60000
+1543525187448	Marionette	DEBUG	Setting recommended pref browser.contentblocking.introCount to 99
+1543525187448	Marionette	DEBUG	Setting recommended pref browser.download.panel.shown to true
+1543525187448	Marionette	DEBUG	Setting recommended pref browser.pagethumbnails.capturing_disabled to true
+1543525187448	Marionette	DEBUG	Setting recommended pref browser.search.update to false
+1543525187449	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1543525187449	Marionette	DEBUG	Setting recommended pref browser.tabs.disableBackgroundZombification to false
+1543525187449	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnCloseOtherTabs to false
+1543525187449	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnOpen to false
+1543525187449	Marionette	DEBUG	Setting recommended pref browser.usedOnWindows10.introURL to 
+1543525187450	Marionette	DEBUG	Setting recommended pref browser.urlbar.suggest.searches to false
+1543525187450	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1543525187450	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1543525187450	Marionette	DEBUG	Setting recommended pref dom.disable_open_during_load to false
+1543525187450	Marionette	DEBUG	Setting recommended pref dom.file.createInChild to true
+1543525187450	Marionette	DEBUG	Setting recommended pref dom.max_chrome_script_run_time to 0
+1543525187450	Marionette	DEBUG	Setting recommended pref dom.max_script_run_time to 0
+1543525187450	Marionette	DEBUG	Setting recommended pref extensions.getAddons.cache.enabled to false
+1543525187450	Marionette	DEBUG	Setting recommended pref extensions.webservice.discoverURL to http://%(server)s/dummy/discoveryURL
+1543525187450	Marionette	DEBUG	Setting recommended pref network.http.prompt-temp-redirect to false
+1543525187450	Marionette	DEBUG	Setting recommended pref network.http.speculative-parallel-limit to 0
+1543525187450	Marionette	DEBUG	Setting recommended pref security.fileuri.strict_origin_policy to false
+1543525187451	Marionette	DEBUG	Setting recommended pref security.notification_enable_delay to 0
+1543525187451	Marionette	DEBUG	Setting recommended pref signon.autofillForms to false
+1543525187451	Marionette	DEBUG	Setting recommended pref signon.rememberSignons to false
+1543525187494	Marionette	INFO	Listening on port 60226
+1543525187494	Marionette	DEBUG	Remote service is active
+1543525187598	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:60273
+1543525187600	Marionette	TRACE	0 -> [0,1,"WebDriver:NewSession",{"browserName":"firefox","capabilities":{"desiredCapabilities":{"browserName":"firefox"}}}]
+1543525187649	Marionette	DEBUG	[4294967297] Frame script loaded
+1543525187653	Marionette	DEBUG	[4294967297] Frame script registered
+1543525187668	Marionette	TRACE	0 <- [1,1,null,{"sessionId":"64c6ad9a-9d10-fe46-a89b-76428570f198","capabilities":{"browserName":"firefox","browserVersion":"64.0" ... ecCompliantPointerOrigin":false,"moz:webdriverClick":true,"capabilities":{"desiredCapabilities":{"browserName":"firefox"}}}}]
+15:59:47.713 INFO - Detected dialect: W3C
+15:59:47.762 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, marionette=true, name=Example Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
+15:59:49.793 INFO - Executing: org.openqa.selenium.remote.server.handler.GetSessionCapabilities@7bd4d6ed)
+15:59:49.793 INFO - Done: org.openqa.selenium.remote.server.handler.GetSessionCapabilities@7bd4d6ed
+15:59:49.818 INFO - Executing: org.openqa.selenium.remote.server.handler.GetSessionCapabilities@11d9fd11)
+15:59:49.818 INFO - Executing: [get: https://applitools.com/helloworld])
+15:59:49.819 INFO - Done: org.openqa.selenium.remote.server.handler.GetSessionCapabilities@11d9fd11
+1543525189827	Marionette	TRACE	0 -> [0,2,"WebDriver:Navigate",{"url":"https://applitools.com/helloworld"}]
+1543525189833	Marionette	DEBUG	[4294967297] Received DOM event beforeunload for about:blank
+1543525189965	Marionette	DEBUG	[4294967297] Received DOM event pagehide for about:blank
+1543525190210	Marionette	DEBUG	[4294967297] Received DOM event DOMContentLoaded for https://applitools.com/helloworld
+1543525190369	Marionette	DEBUG	[4294967297] Received DOM event pageshow for https://applitools.com/helloworld
+1543525190370	Marionette	TRACE	0 <- [1,2,null,{"value":null}]
+15:59:50.376 INFO - Done: [get: https://applitools.com/helloworld]
+15:59:50.415 INFO - Executing: [execute script: var height = undefined; var width = undefined; if (window.innerHeight) { height = window.innerHeight; } else if (document.documentElement && document.documentElement.clientHeight) { height = document.documentElement.clientHeight; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientHeight) {height = b.clientHeight;} }; if (window.innerWidth) { width = window.innerWidth; } else if (document.documentElement && document.documentElement.clientWidth) { width = document.documentElement.clientWidth; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];, [null]])
+1543525190422	Marionette	TRACE	0 -> [0,3,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var height = undefined; var width = undefined; if  ... y')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];","scriptTimeout":null,"specialPowers":false}]
+1543525190429	Marionette	TRACE	0 <- [1,3,null,{"value":[1280,988]}]
+15:59:50.433 INFO - Done: [execute script: var height = undefined; var width = undefined; if (window.innerHeight) { height = window.innerHeight; } else if (document.documentElement && document.documentElement.clientHeight) { height = document.documentElement.clientHeight; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientHeight) {height = b.clientHeight;} }; if (window.innerWidth) { width = window.innerWidth; } else if (document.documentElement && document.documentElement.clientWidth) { width = document.documentElement.clientWidth; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];, [null]]
+15:59:50.444 INFO - Executing: [set window position])
+1543525190453	Marionette	TRACE	0 -> [0,4,"WebDriver:SetWindowRect",{"height":null,"width":null,"x":null,"y":null}]
+1543525190454	Marionette	TRACE	0 <- [1,4,null,{"x":4,"y":23,"width":1280,"height":1062,"state":"normal"}]
+15:59:50.457 INFO - Done: [set window position]
+15:59:50.469 INFO - Executing: [get window size])
+1543525190473	Marionette	TRACE	0 -> [0,5,"WebDriver:GetWindowRect",{}]
+1543525190474	Marionette	TRACE	0 <- [1,5,null,{"x":4,"y":23,"width":1280,"height":1062,"state":"normal"}]
+15:59:50.477 INFO - Done: [get window size]
+15:59:50.492 INFO - Executing: [set window size])
+1543525190497	Marionette	TRACE	0 -> [0,6,"WebDriver:SetWindowRect",{"height":724,"width":1024,"x":null,"y":null}]
+1543525190540	Marionette	TRACE	0 <- [1,6,null,{"x":4,"y":23,"width":1024,"height":724,"state":"normal"}]
+15:59:50.544 INFO - Done: [set window size]
+15:59:51.562 INFO - Executing: [get window size])
+1543525191567	Marionette	TRACE	0 -> [0,7,"WebDriver:GetWindowRect",{}]
+1543525191567	Marionette	TRACE	0 <- [1,7,null,{"x":4,"y":23,"width":1024,"height":724,"state":"normal"}]
+15:59:51.571 INFO - Done: [get window size]
+15:59:51.584 INFO - Executing: [execute script: var height = undefined; var width = undefined; if (window.innerHeight) { height = window.innerHeight; } else if (document.documentElement && document.documentElement.clientHeight) { height = document.documentElement.clientHeight; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientHeight) {height = b.clientHeight;} }; if (window.innerWidth) { width = window.innerWidth; } else if (document.documentElement && document.documentElement.clientWidth) { width = document.documentElement.clientWidth; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];, [null]])
+1543525191588	Marionette	TRACE	0 -> [0,8,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var height = undefined; var width = undefined; if  ... y')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];","scriptTimeout":null,"specialPowers":false}]
+1543525191592	Marionette	TRACE	0 <- [1,8,null,{"value":[1024,650]}]
+15:59:51.594 INFO - Done: [execute script: var height = undefined; var width = undefined; if (window.innerHeight) { height = window.innerHeight; } else if (document.documentElement && document.documentElement.clientHeight) { height = document.documentElement.clientHeight; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientHeight) {height = b.clientHeight;} }; if (window.innerWidth) { width = window.innerWidth; } else if (document.documentElement && document.documentElement.clientWidth) { width = document.documentElement.clientWidth; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];, [null]]
+15:59:51.603 INFO - Executing: [execute script: return navigator.userAgent, []])
+1543525191608	Marionette	TRACE	0 -> [0,9,"WebDriver:ExecuteScript",{"args":[],"newSandbox":false,"script":"return navigator.userAgent","scriptTimeout":null,"specialPowers":false}]
+1543525191611	Marionette	TRACE	0 <- [1,9,null,{"value":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:64.0) Gecko/20100101 Firefox/64.0"}]
+15:59:51.614 INFO - Done: [execute script: return navigator.userAgent, []]
+15:59:52.400 INFO - Executing: [execute script: return window.devicePixelRatio, [null]])
+1543525192406	Marionette	TRACE	0 -> [0,10,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"return window.devicePixelRatio","scriptTimeout":null,"specialPowers":false}]
+1543525192411	Marionette	TRACE	0 <- [1,10,null,{"value":1}]
+15:59:52.415 INFO - Done: [execute script: return window.devicePixelRatio, [null]]
+15:59:52.428 INFO - Executing: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]])
+1543525192434	Marionette	TRACE	0 -> [0,11,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var scrollWidth = document.documentElement.scroll ... Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];","scriptTimeout":null,"specialPowers":false}]
+1543525192440	Marionette	TRACE	0 <- [1,11,null,{"value":[1024,650]}]
+15:59:52.443 INFO - Done: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]]
+15:59:52.457 INFO - Executing: [execute script: var height = undefined; var width = undefined; if (window.innerHeight) { height = window.innerHeight; } else if (document.documentElement && document.documentElement.clientHeight) { height = document.documentElement.clientHeight; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientHeight) {height = b.clientHeight;} }; if (window.innerWidth) { width = window.innerWidth; } else if (document.documentElement && document.documentElement.clientWidth) { width = document.documentElement.clientWidth; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];, [null]])
+1543525192462	Marionette	TRACE	0 -> [0,12,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var height = undefined; var width = undefined; if ... y')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];","scriptTimeout":null,"specialPowers":false}]
+1543525192466	Marionette	TRACE	0 <- [1,12,null,{"value":[1024,650]}]
+15:59:52.469 INFO - Done: [execute script: var height = undefined; var width = undefined; if (window.innerHeight) { height = window.innerHeight; } else if (document.documentElement && document.documentElement.clientHeight) { height = document.documentElement.clientHeight; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientHeight) {height = b.clientHeight;} }; if (window.innerWidth) { width = window.innerWidth; } else if (document.documentElement && document.documentElement.clientWidth) { width = document.documentElement.clientWidth; } else { var b = document.getElementsByTagName('body')[0]; if (b.clientWidth) { width = b.clientWidth;} }; return [width, height];, [null]]
+15:59:52.485 INFO - Executing: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]])
+1543525192489	Marionette	TRACE	0 -> [0,13,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var scrollWidth = document.documentElement.scroll ... Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];","scriptTimeout":null,"specialPowers":false}]
+1543525192493	Marionette	TRACE	0 <- [1,13,null,{"value":[1024,650]}]
+15:59:52.495 INFO - Done: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]]
+15:59:52.505 INFO - Executing: [execute script: return window.devicePixelRatio, [null]])
+1543525192511	Marionette	TRACE	0 -> [0,14,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"return window.devicePixelRatio","scriptTimeout":null,"specialPowers":false}]
+1543525192516	Marionette	TRACE	0 <- [1,14,null,{"value":1}]
+15:59:52.522 INFO - Done: [execute script: return window.devicePixelRatio, [null]]
+15:59:52.539 INFO - Executing: [execute script: return { 'transform': document.documentElement.style['transform'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }, [null]])
+1543525192545	Marionette	TRACE	0 -> [0,15,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"return { 'transform': document.documentElement.st ... m'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }","scriptTimeout":null,"specialPowers":false}]
+1543525192562	Marionette	TRACE	0 <- [1,15,null,{"value":{"transform":"","-webkit-transform":""}}]
+15:59:52.566 INFO - Done: [execute script: return { 'transform': document.documentElement.style['transform'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }, [null]]
+15:59:52.586 INFO - Executing: [execute script: document.documentElement.style['transform'] = 'translate(-0px, -0px)';document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';, [null]])
+1543525192595	Marionette	TRACE	0 -> [0,16,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"document.documentElement.style['transform'] = 'tr ... ;document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';","scriptTimeout":null,"specialPowers":false}]
+1543525192599	Marionette	TRACE	0 <- [1,16,null,{"value":null}]
+15:59:52.601 INFO - Done: [execute script: document.documentElement.style['transform'] = 'translate(-0px, -0px)';document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';, [null]]
+15:59:52.970 INFO - Executing: [take screenshot])
+1543525192974	Marionette	TRACE	0 -> [0,17,"WebDriver:TakeScreenshot",{"full":false,"highlights":[],"id":null}]
+1543525192998	Marionette	TRACE	0 <- [1,17,null,{"value":"iVBORw0KGgoAAAANSUhEUgAABAAAAAKKCAYAAACj5ikHAAAgAElEQVR4nOzdd3Rc1b32cdl0QkJuEgKEJEByw01IhYRcSHLfEGoSgmyM ... DAgAAAAACAAQEAAAAAAwIAAAAABgQAAAAADAgAAAAAGBAAAAAAMCAAAAAAYEAAAAAAwIAAAAAAgAEBAAAAAAMCAAAAAAYCK65MmeAmsV4AAAAASUVORK5CYII="}]
+15:59:53.002 INFO - Done: [take screenshot]
+15:59:53.016 INFO - Executing: [execute script: var doc = document.documentElement; var x = window.scrollX || ((window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)); var y = window.scrollY || ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];, [null]])
+1543525193019	Marionette	TRACE	0 -> [0,18,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var doc = document.documentElement; var x = windo ...  ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];","scriptTimeout":null,"specialPowers":false}]
+1543525193024	Marionette	TRACE	0 <- [1,18,null,{"value":[0,0]}]
+15:59:53.026 INFO - Done: [execute script: var doc = document.documentElement; var x = window.scrollX || ((window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)); var y = window.scrollY || ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];, [null]]
+15:59:53.035 INFO - Executing: [execute script: document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';, [null]])
+1543525193039	Marionette	TRACE	0 -> [0,19,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';","scriptTimeout":null,"specialPowers":false}]
+1543525193041	Marionette	TRACE	0 <- [1,19,null,{"value":null}]
+15:59:53.044 INFO - Done: [execute script: document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';, [null]]
+15:59:53.308 INFO - Executing: [get title])
+1543525193313	Marionette	TRACE	0 -> [0,20,"WebDriver:GetTitle",{}]
+1543525193313	Marionette	TRACE	0 <- [1,20,null,{"value":"Applitools"}]
+15:59:53.315 INFO - Done: [get title]
+15:59:54.357 INFO - Executing: [find element: By.cssSelector: div.section:nth-child(3) > button:nth-child(1)])
+1543525194363	Marionette	TRACE	0 -> [0,21,"WebDriver:FindElement",{"using":"css selector","value":"div.section:nth-child(3) > button:nth-child(1)"}]
+1543525194367	Marionette	TRACE	0 <- [1,21,null,{"value":{"element-6066-11e4-a52e-4f735466cecf":"3780be1f-bf50-6b49-995c-3e5f660f1a51"}}]
+15:59:54.384 INFO - Done: [find element: By.cssSelector: div.section:nth-child(3) > button:nth-child(1)]
+15:59:54.393 INFO - Executing: [click: 0 [[FirefoxDriver: firefox on ANY (64c6ad9a-9d10-fe46-a89b-76428570f198)] -> css selector: div.section:nth-child(3) > button:nth-child(1)]])
+1543525194401	Marionette	TRACE	0 -> [0,22,"WebDriver:ElementClick",{"id":"3780be1f-bf50-6b49-995c-3e5f660f1a51"}]
+1543525194622	Marionette	DEBUG	[4294967297] Canceled page load listener because no navigation has been detected
+1543525194624	Marionette	TRACE	0 <- [1,22,null,{"value":null}]
+15:59:54.627 INFO - Done: [click: 0 [[FirefoxDriver: firefox on ANY (64c6ad9a-9d10-fe46-a89b-76428570f198)] -> css selector: div.section:nth-child(3) > button:nth-child(1)]]
+15:59:54.639 INFO - Executing: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]])
+1543525194643	Marionette	TRACE	0 -> [0,23,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var scrollWidth = document.documentElement.scroll ... Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];","scriptTimeout":null,"specialPowers":false}]
+1543525194649	Marionette	TRACE	0 <- [1,23,null,{"value":[1024,650]}]
+15:59:54.652 INFO - Done: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]]
+15:59:54.659 INFO - Executing: [execute script: return window.devicePixelRatio, [null]])
+1543525194663	Marionette	TRACE	0 -> [0,24,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"return window.devicePixelRatio","scriptTimeout":null,"specialPowers":false}]
+1543525194667	Marionette	TRACE	0 <- [1,24,null,{"value":1}]
+15:59:54.669 INFO - Done: [execute script: return window.devicePixelRatio, [null]]
+15:59:54.675 INFO - Executing: [execute script: return { 'transform': document.documentElement.style['transform'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }, [null]])
+1543525194680	Marionette	TRACE	0 -> [0,25,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"return { 'transform': document.documentElement.st ... m'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }","scriptTimeout":null,"specialPowers":false}]
+1543525194683	Marionette	TRACE	0 <- [1,25,null,{"value":{"transform":"","-webkit-transform":""}}]
+15:59:54.685 INFO - Done: [execute script: return { 'transform': document.documentElement.style['transform'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }, [null]]
+15:59:54.692 INFO - Executing: [execute script: document.documentElement.style['transform'] = 'translate(-0px, -0px)';document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';, [null]])
+1543525194697	Marionette	TRACE	0 -> [0,26,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"document.documentElement.style['transform'] = 'tr ... ;document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';","scriptTimeout":null,"specialPowers":false}]
+1543525194701	Marionette	TRACE	0 <- [1,26,null,{"value":null}]
+15:59:54.703 INFO - Done: [execute script: document.documentElement.style['transform'] = 'translate(-0px, -0px)';document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';, [null]]
+15:59:55.069 INFO - Executing: [take screenshot])
+1543525195073	Marionette	TRACE	0 -> [0,27,"WebDriver:TakeScreenshot",{"full":false,"highlights":[],"id":null}]
+1543525195113	Marionette	TRACE	0 <- [1,27,null,{"value":"iVBORw0KGgoAAAANSUhEUgAABAAAAAKKCAYAAACj5ikHAAAgAElEQVR4nOzdd3Rc1b32cdl0QkJuEgKEJEByw01IhYRcSHLfEGoSgmyM ... AAgAEBAAAAAAMCAAAAAAYEAAAAAAwIAAAAABgQAAAAADAgAAAAAGBAAAAAAMCAAAAAAIABAQAAAAADAgAAAAAGBAAAAAAMBISORt7fRmmWAAAAAElFTkSuQmCC"}]
+15:59:55.120 INFO - Done: [take screenshot]
+15:59:55.130 INFO - Executing: [execute script: var doc = document.documentElement; var x = window.scrollX || ((window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)); var y = window.scrollY || ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];, [null]])
+1543525195134	Marionette	TRACE	0 -> [0,28,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var doc = document.documentElement; var x = windo ...  ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];","scriptTimeout":null,"specialPowers":false}]
+1543525195139	Marionette	TRACE	0 <- [1,28,null,{"value":[0,0]}]
+15:59:55.141 INFO - Done: [execute script: var doc = document.documentElement; var x = window.scrollX || ((window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)); var y = window.scrollY || ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];, [null]]
+15:59:55.149 INFO - Executing: [execute script: document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';, [null]])
+1543525195153	Marionette	TRACE	0 -> [0,29,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';","scriptTimeout":null,"specialPowers":false}]
+1543525195156	Marionette	TRACE	0 <- [1,29,null,{"value":null}]
+15:59:55.158 INFO - Done: [execute script: document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';, [null]]
+15:59:55.805 INFO - Executing: [get title])
+1543525195809	Marionette	TRACE	0 -> [0,30,"WebDriver:GetTitle",{}]
+1543525195809	Marionette	TRACE	0 <- [1,30,null,{"value":"Applitools"}]
+15:59:55.811 INFO - Done: [get title]
+15:59:57.437 INFO - Executing: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]])
+1543525197443	Marionette	TRACE	0 -> [0,31,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var scrollWidth = document.documentElement.scroll ... Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];","scriptTimeout":null,"specialPowers":false}]
+1543525197448	Marionette	TRACE	0 <- [1,31,null,{"value":[1024,650]}]
+15:59:57.451 INFO - Done: [execute script: var scrollWidth = document.documentElement.scrollWidth; var bodyScrollWidth = document.body.scrollWidth; var totalWidth = Math.max(scrollWidth, bodyScrollWidth); var clientHeight = document.documentElement.clientHeight; var bodyClientHeight = document.body.clientHeight; var scrollHeight = document.documentElement.scrollHeight; var bodyScrollHeight = document.body.scrollHeight; var maxDocElementHeight = Math.max(clientHeight, scrollHeight); var maxBodyHeight = Math.max(bodyClientHeight, bodyScrollHeight); var totalHeight = Math.max(maxDocElementHeight, maxBodyHeight); return [totalWidth, totalHeight];, [null]]
+15:59:57.458 INFO - Executing: [execute script: return window.devicePixelRatio, [null]])
+1543525197463	Marionette	TRACE	0 -> [0,32,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"return window.devicePixelRatio","scriptTimeout":null,"specialPowers":false}]
+1543525197469	Marionette	TRACE	0 <- [1,32,null,{"value":1}]
+15:59:57.471 INFO - Done: [execute script: return window.devicePixelRatio, [null]]
+15:59:57.479 INFO - Executing: [execute script: return { 'transform': document.documentElement.style['transform'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }, [null]])
+1543525197483	Marionette	TRACE	0 -> [0,33,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"return { 'transform': document.documentElement.st ... m'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }","scriptTimeout":null,"specialPowers":false}]
+1543525197486	Marionette	TRACE	0 <- [1,33,null,{"value":{"transform":"","-webkit-transform":""}}]
+15:59:57.488 INFO - Done: [execute script: return { 'transform': document.documentElement.style['transform'],'-webkit-transform': document.documentElement.style['-webkit-transform'], }, [null]]
+15:59:57.495 INFO - Executing: [execute script: document.documentElement.style['transform'] = 'translate(-0px, -0px)';document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';, [null]])
+1543525197498	Marionette	TRACE	0 -> [0,34,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"document.documentElement.style['transform'] = 'tr ... ;document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';","scriptTimeout":null,"specialPowers":false}]
+1543525197502	Marionette	TRACE	0 <- [1,34,null,{"value":null}]
+15:59:57.504 INFO - Done: [execute script: document.documentElement.style['transform'] = 'translate(-0px, -0px)';document.documentElement.style['-webkit-transform'] = 'translate(-0px, -0px)';, [null]]
+15:59:57.873 INFO - Executing: [take screenshot])
+1543525197877	Marionette	TRACE	0 -> [0,35,"WebDriver:TakeScreenshot",{"full":false,"highlights":[],"id":null}]
+1543525197910	Marionette	TRACE	0 <- [1,35,null,{"value":"iVBORw0KGgoAAAANSUhEUgAABAAAAAKKCAYAAACj5ikHAAAgAElEQVR4nOzdd3Rc1b32cdl0QkJuEgKEJEByw01IhYRcSHLfEGoSgmyM ... AAgAEBAAAAAAMCAAAAAAYEAAAAAAwIAAAAABgQAAAAADAgAAAAAGBAAAAAAMCAAAAAAIABAQAAAAADAgAAAAAGBAAAAAAMBISORt7fRmmWAAAAAElFTkSuQmCC"}]
+15:59:57.919 INFO - Done: [take screenshot]
+15:59:57.929 INFO - Executing: [execute script: var doc = document.documentElement; var x = window.scrollX || ((window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)); var y = window.scrollY || ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];, [null]])
+1543525197933	Marionette	TRACE	0 -> [0,36,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"var doc = document.documentElement; var x = windo ...  ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];","scriptTimeout":null,"specialPowers":false}]
+1543525197936	Marionette	TRACE	0 <- [1,36,null,{"value":[0,0]}]
+15:59:57.938 INFO - Done: [execute script: var doc = document.documentElement; var x = window.scrollX || ((window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)); var y = window.scrollY || ((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)); return [x, y];, [null]]
+15:59:57.946 INFO - Executing: [execute script: document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';, [null]])
+1543525197950	Marionette	TRACE	0 -> [0,37,"WebDriver:ExecuteScript",{"args":[null],"newSandbox":false,"script":"document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';","scriptTimeout":null,"specialPowers":false}]
+1543525197952	Marionette	TRACE	0 <- [1,37,null,{"value":null}]
+15:59:57.954 INFO - Done: [execute script: document.documentElement.style['-webkit-transform'] = '';document.documentElement.style['transform'] = '';, [null]]
+15:59:58.457 INFO - Executing: [get title])
+1543525198461	Marionette	TRACE	0 -> [0,38,"WebDriver:GetTitle",{}]
+1543525198461	Marionette	TRACE	0 <- [1,38,null,{"value":"Applitools"}]
+15:59:58.463 INFO - Done: [get title]
+16:00:00.590 INFO - Executing: [delete session: b961a52f-eb30-4c45-b098-308f121a2872])
+16:00:00.591 INFO - Executing: [delete session: b961a52f-eb30-4c45-b098-308f121a2872])
+1543525200596	Marionette	TRACE	0 -> [0,39,"Marionette:Quit",{"flags":["eForceQuit"]}]
+1543525200597	Marionette	INFO	Stopped listening on port 60226
+1543525200653	Marionette	TRACE	0 <- [1,39,null,{"cause":"shutdown"}]
+1543525200738	Marionette	TRACE	0 -> [0,40,"Marionette:Quit",{"flags":["eForceQuit"]}]
+1543525200739	Marionette	TRACE	0 <- [1,40,{"error":"invalid session id","message":"Tried to run command without establishing a connection","stacktrace":"WebDrive ... et@chrome://marionette/content/server.js:236:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:490:9\n"},null]
+1543525200753	Marionette	DEBUG	Closed connection 0
+1543525200911	Marionette	DEBUG	Received observer notification xpcom-will-shutdown
+1543525200911	Marionette	DEBUG	Resetting recommended pref app.update.disabledForTesting
+1543525200911	Marionette	DEBUG	Resetting recommended pref security.turn_off_all_security_so_that_viruses_can_take_over_this_computer
+1543525200912	Marionette	DEBUG	Resetting recommended pref apz.content_response_timeout
+1543525200913	Marionette	DEBUG	Resetting recommended pref browser.contentblocking.introCount
+1543525200913	Marionette	DEBUG	Resetting recommended pref browser.download.panel.shown
+1543525200913	Marionette	DEBUG	Resetting recommended pref browser.pagethumbnails.capturing_disabled
+1543525200914	Marionette	DEBUG	Resetting recommended pref browser.search.update
+1543525200914	Marionette	DEBUG	Resetting recommended pref toolkit.cosmeticAnimations.enabled
+1543525200914	Marionette	DEBUG	Resetting recommended pref browser.tabs.disableBackgroundZombification
+1543525200915	Marionette	DEBUG	Resetting recommended pref browser.tabs.warnOnCloseOtherTabs
+1543525200915	Marionette	DEBUG	Resetting recommended pref browser.tabs.warnOnOpen
+1543525200915	Marionette	DEBUG	Resetting recommended pref browser.usedOnWindows10.introURL
+1543525200915	Marionette	DEBUG	Resetting recommended pref browser.urlbar.suggest.searches
+1543525200916	Marionette	DEBUG	Resetting recommended pref datareporting.policy.dataSubmissionPolicyAccepted
+1543525200916	Marionette	DEBUG	Resetting recommended pref dom.disable_beforeunload
+1543525200916	Marionette	DEBUG	Resetting recommended pref dom.disable_open_during_load
+1543525200916	Marionette	DEBUG	Resetting recommended pref dom.file.createInChild
+1543525200916	Marionette	DEBUG	Resetting recommended pref dom.max_chrome_script_run_time
+1543525200916	Marionette	DEBUG	Resetting recommended pref dom.max_script_run_time
+1543525200916	Marionette	DEBUG	Resetting recommended pref extensions.getAddons.cache.enabled
+1543525200916	Marionette	DEBUG	Resetting recommended pref extensions.webservice.discoverURL
+1543525200916	Marionette	DEBUG	Resetting recommended pref network.http.prompt-temp-redirect
+1543525200916	Marionette	DEBUG	Resetting recommended pref network.http.speculative-parallel-limit
+1543525200916	Marionette	DEBUG	Resetting recommended pref security.fileuri.strict_origin_policy
+1543525200917	Marionette	DEBUG	Resetting recommended pref security.notification_enable_delay
+1543525200917	Marionette	DEBUG	Resetting recommended pref signon.autofillForms
+1543525200917	Marionette	DEBUG	Resetting recommended pref signon.rememberSignons
+1543525200917	Marionette	DEBUG	Remote service is inactive
+16:00:01.362 INFO - Done: [delete session: b961a52f-eb30-4c45-b098-308f121a2872]
+16:00:01.362 INFO - Done: [delete session: b961a52f-eb30-4c45-b098-308f121a2872]

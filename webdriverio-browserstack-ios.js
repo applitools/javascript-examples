@@ -45,7 +45,8 @@ async function main() {
        
        // Start the test and set the browser's viewport size to 800x600.
        await eyes.open(browser, 'Hello World!', 'My first WebdriverIO iOS test!');
-       await eyes.check("Capture Title", Target.region(By.cssSelector("div.fancy.title.primary"));
+       //await eyes.check("Capture Title", Target.region(By.cssSelector("div.fancy.title.primary")));
+       await eyes.check("Region by element", Target.region(By.css("div.fancy.title.primary")));
        //await eyes.checkRegionBy(By.cssSelector('div.fancy.title.primary'), 'Title');
        await eyes.checkWindow('Window');
 

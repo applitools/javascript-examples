@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="Asos"
+    errors="0" failures="1" hostname="" id="" package="Asos" skipped="0"
+    tests="1" time="50.22" timestamp="Wed, 01 Mar 2017 15:00:41 GMT">
+  
+    <testcase name="Demo test Asos" time="50.22" assertions="0"><failure message="AssertionError: true == false - expected &quot;false&quot; but got: &quot;true&quot;">    at /Users/yanir/Code/applitools.examples/JavaScript/Nightwatch/tests/Asos.js:50:18
+    at process._tickCallback (internal/process/next_tick.js:103:7)</failure>
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>
