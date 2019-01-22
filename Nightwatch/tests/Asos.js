@@ -6,7 +6,7 @@ var assert = require('assert');
 var FixedCutProvider = require('eyes.selenium').FixedCutProvider;
 //require('NightEyes');
 
-eyes.setApiKey('9RkMajXrzS1Zu110oTWQps102CHiPRPmeyND99E9iL0G7yAc110');
+eyes.setApiKey('YourAPIKey');
 eyes.setForceFullPageScreenshot(true);
 eyes.setStitchMode(Eyes.StitchMode.CSS);
 //eyes.setStitchMode(Eyes.StitchMode.Scroll);
