@@ -14,23 +14,11 @@ var config = {
     ],
     
     services: [
-       'selenium-standalone',
-       'eyes.selenium'
+       'selenium-standalone'
     ],
     
-    applitools: {
-        apiKey: process.env.APPLITOOLS_API_KEY,     //Required
-        appName: "My Application",                  //Recommended
-        viewport: {width: 1000, height: 800},       //Recommended for web, don't use in mobile
-        batchName: "Config Batch",                  //Optional
-        globalMatchLevel: "Strict",                 //Optional
-        disableCSSScrolling: false,                 //Optional
-        disableFullPageScreenshot: false,           //Optional
-        serverUrl: "https://eyes.applitools.com"    //Optional
-    },
-    
     specs: [
-        './specs/**/*.js'
+        './specs/test.js'
     ],
 
     sync: true,
