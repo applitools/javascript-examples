@@ -22,9 +22,14 @@ async function main() {
     let browser = driver.init();
 
     // Initialize the eyes SDK and set your private API key.
-    const {Eyes, Target} = require('@applitools/eyes.webdriverio');
+    const {ConsoleLogHandler, BatchInfo} = require('@applitools/eyes.sdk.core');
+    const {By, Eyes, Target, StitchMode} = require('@applitools/eyes.webdriverio');
+    
     let eyes = new Eyes();
+    eyes.setLogHandler(new ConsoleLogHandler(true));
+    eyes.setForceFullPageScreenshot(true);
     eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
+    
 
     try {
 
