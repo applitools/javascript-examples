@@ -1,5 +1,6 @@
 const helper = require('./helper.js');
-  
+const batchId = helper.genBatchId();
+
 exports.config = {
    //Run locally
   //seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -32,6 +33,6 @@ exports.config = {
    },
       
   onPrepare: function () {
-     global.batchId = helper.genBatchId();
+     global.batchId = batchId;
   },
 };
