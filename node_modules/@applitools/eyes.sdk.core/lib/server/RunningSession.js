@@ -1,7 +1,7 @@
 'use strict';
 
 const { GeneralUtils } = require('../utils/GeneralUtils');
-const { RenderingInfo } = require('../renderer/RenderingInfo');
+const { RenderingInfo } = require('./RenderingInfo');
 
 /**
  * Encapsulates data for the session currently running in the agent.

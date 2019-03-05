@@ -5,11 +5,11 @@
     "test": "./node_modules/.bin/wdio wdio.conf.js"
   },
   "dependencies": {
-    "selenium-standalone": "6.15.4",
+    "selenium-standalone": "6.15.6",
     "wdio-mocha-framework": "^0.6.4"
   },
   "devDependencies": {
-    "@wdio/eyes.webdriverio": "^2.0.3",
+    "@applitools/eyes.webdriverio": "^2.0.1",
     "wdio-mocha-framework": "^0.6.4",
     "wdio-selenium-standalone-service": "0.0.12"
   }

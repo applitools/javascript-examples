@@ -4,18 +4,19 @@
   "description": "",
   "main": "screenshots.js",
   "dependencies": {
-    "ava": "^0.25.0",
-    "chromedriver": "^2.44.1",
+    "ava": "^1.2.1",
+    "chromedriver": "^2.46.0",
     "eyes.images": "^0.0.50",
-    "eyes.selenium": "^0.0.77",
-    "npm": "^5.10.0",
+    "eyes.selenium": "^4.7.3",
+    "npm": "^6.8.0",
     "selenium-webdriver": "^3.6.0",
-    "sleep": "^5.2.3",
-    "webdriverio": "^4.14.1"
+    "sleep": "^6.0.0",
+    "webdriverio": "^4.14.2",
+    "wdio-sync": "^0.7.3"
   },
   "devDependencies": {
-    "@applitools/eyes.webdriverio": "^1.2.1",
-    "eyes.images": "0.0.50",
+    "@applitools/eyes.webdriverio": "^2.0.1",
+    "eyes.images": "3.6.3",
     "wdio-browserstack-service": "^0.1.18"
   },
   "scripts": {

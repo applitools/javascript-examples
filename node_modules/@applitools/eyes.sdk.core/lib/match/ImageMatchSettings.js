@@ -11,11 +11,13 @@ class ImageMatchSettings {
    * @param {MatchLevel} matchLevel The "strictness" level to use.
    * @param {ExactMatchSettings} [exact] Additional threshold parameters when the {@code Exact} match level is used.
    * @param {boolean} [ignoreCaret]
+   * @param {boolean} [useDom]
    */
-  constructor(matchLevel = MatchLevel.Strict, exact, ignoreCaret) {
+  constructor(matchLevel = MatchLevel.Strict, exact, ignoreCaret, useDom) {
     this._matchLevel = matchLevel;
     this._exact = exact;
     this._ignoreCaret = ignoreCaret;
+    this._useDom = useDom;
 
     /** @type {Region[]} */
     this._ignoreRegions = [];
@@ -75,6 +77,22 @@ class ImageMatchSettings {
    */
   setIgnoreCaret(value) {
     this._ignoreCaret = value;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @return {boolean}
+   */
+  getUseDom() {
+    return this._useDom;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @param {boolean}
+   */
+  setUseDom(value) {
+    this._useDom = value;
   }
 
   // noinspection JSUnusedGlobalSymbols

@@ -69,7 +69,6 @@ exports.PositionProvider = require('./lib/positioning/PositionProvider').Positio
 exports.RegionProvider = require('./lib/positioning/RegionProvider').RegionProvider;
 
 exports.RenderInfo = require('./lib/renderer/RenderInfo').RenderInfo;
-exports.RenderingInfo = require('./lib/renderer/RenderingInfo').RenderingInfo;
 exports.RenderRequest = require('./lib/renderer/RenderRequest').RenderRequest;
 exports.RenderStatus = require('./lib/renderer/RenderStatus').RenderStatus;
 exports.RenderStatusResults = require('./lib/renderer/RenderStatusResults').RenderStatusResults;
@@ -91,6 +90,7 @@ exports.ScaleProviderIdentityFactory = require('./lib/scaling/ScaleProviderIdent
 
 exports.PropertyData = require('./lib/server/PropertyData').PropertyData;
 exports.ProxySettings = require('./lib/server/ProxySettings').ProxySettings;
+exports.RenderingInfo = require('./lib/server/RenderingInfo').RenderingInfo;
 exports.RunningSession = require('./lib/server/RunningSession').RunningSession;
 exports.ServerConnector = require('./lib/server/ServerConnector').ServerConnector;
 exports.SessionStartInfo = require('./lib/server/SessionStartInfo').SessionStartInfo;
@@ -103,6 +103,7 @@ exports.Trigger = require('./lib/triggers/Trigger').Trigger;
 exports.BrowserNames = require('./lib/utils/BrowserNames').BrowserNames;
 exports.GeneralUtils = require('./lib/utils/GeneralUtils').GeneralUtils;
 exports.OSNames = require('./lib/utils/OSNames').OSNames;
+exports.PerformanceUtils = require('./lib/utils/PerformanceUtils').PerformanceUtils;
 exports.PropertyHandler = require('./lib/utils/PropertyHandler').PropertyHandler;
 exports.ReadOnlyPropertyHandler = require('./lib/utils/ReadOnlyPropertyHandler').ReadOnlyPropertyHandler;
 exports.SimplePropertyHandler = require('./lib/utils/SimplePropertyHandler').SimplePropertyHandler;

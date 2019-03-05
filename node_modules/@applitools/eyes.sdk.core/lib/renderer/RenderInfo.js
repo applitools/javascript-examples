@@ -22,7 +22,7 @@ class RenderInfo {
     const mapping = {};
     if (object.region) mapping.region = Region.fromObject;
     if (object.emulationInfo) mapping.emulationInfo = EmulationInfo.fromObject;
-    
+
     return GeneralUtils.assignTo(new RenderInfo(), object, mapping);
   }
 
@@ -104,7 +104,7 @@ class RenderInfo {
   /** @override */
   toJSON() {
     const obj = GeneralUtils.toPlain(this, ['_emulationInfo']);
-    
+
     if (this._emulationInfo) {
       obj.emulationInfo = this._emulationInfo.toJSON();
     }

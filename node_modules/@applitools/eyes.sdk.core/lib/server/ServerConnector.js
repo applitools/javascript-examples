@@ -1,15 +1,16 @@
 'use strict';
 
 const axios = require('axios');
+const zlib = require('zlib');
 
 const { ProxySettings } = require('./ProxySettings');
+const { RenderingInfo } = require('./RenderingInfo');
 const { RunningSession } = require('./RunningSession');
 const { TestResults } = require('../TestResults');
 const { MatchResult } = require('../match/MatchResult');
 const { GeneralUtils } = require('../utils/GeneralUtils');
 const { ArgumentGuard } = require('../ArgumentGuard');
 
-const { RenderingInfo } = require('../renderer/RenderingInfo');
 const { RunningRender } = require('../renderer/RunningRender');
 const { RenderStatusResults } = require('../renderer/RenderStatusResults');
 
@@ -50,7 +51,7 @@ const sendRequest = (that, name, options, retry = 1, delayBeforeRetry = false) =
     // This 'if' fixes a bug in Axios whereby Axios doesn't send a content-length when the buffer is of length 0.
     // This behavior makes the rendering-grid's nginx get stuck as it doesn't know when the body ends.
     // https://github.com/axios/axios/issues/1701
-    options.data = ''
+    options.data = '';
   }
   // eslint-disable-next-line max-len
   that._logger.verbose(`ServerConnector.${name} will now post call to ${options.url} with params ${JSON.stringify(options.params)}`);
@@ -746,6 +747,38 @@ class ServerConnector {
 
       throw new Error(`ServerConnector.renderStatus - unexpected status (${response.statusText})`);
     }));
+  }
+
+  /**
+   * @param {string} domJson
+   * @return {Promise<string>}
+   */
+  postDomSnapshot(domJson) {
+    ArgumentGuard.notNull(domJson, 'domJson');
+    this._logger.verbose('ServerConnector.postDomSnapshot called');
+
+    const that = this;
+    const options = GeneralUtils.mergeDeep(that._httpOptions, {
+      method: 'POST',
+      url: GeneralUtils.urlConcat(this._serverUrl, EYES_API_PATH, '/running/data'),
+      params: {
+        apiKey: that.getApiKey(),
+      },
+      headers: {
+        'Content-Type': 'application/octet-stream',
+      },
+    });
+
+    options.data = zlib.gzipSync(Buffer.from(domJson));
+    return sendRequest(that, 'postDomSnapshot', options).then(response => {
+      const validStatusCodes = [HTTP_STATUS_CODES.OK, HTTP_STATUS_CODES.CREATED];
+      if (validStatusCodes.includes(response.status)) {
+        that._logger.verbose('ServerConnector.postDomSnapshot - post succeeded');
+        return response.headers.location;
+      }
+
+      throw new Error(`ServerConnector.postDomSnapshot - unexpected status (${response.statusText})`);
+    });
   }
 }
 

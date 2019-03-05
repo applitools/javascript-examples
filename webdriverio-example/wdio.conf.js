@@ -21,7 +21,7 @@ var config = {
         './specs/test.js'
     ],
 
-    sync: true,
+    sync: false,
     logLevel: 'verbose',
     coloredLogs: true,
     screenshotPath: './errorShots/',

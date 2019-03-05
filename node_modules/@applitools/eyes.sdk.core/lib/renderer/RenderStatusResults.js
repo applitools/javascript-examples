@@ -2,6 +2,7 @@
 
 const { GeneralUtils } = require('../utils/GeneralUtils');
 const { RectangleSize } = require('../geometry/RectangleSize');
+const { Region } = require('../geometry/Region');
 
 /**
  * Encapsulates data for the render currently running in the client.
@@ -15,6 +16,7 @@ class RenderStatusResults {
     this._os = undefined;
     this._userAgent = undefined;
     this._deviceSize = undefined;
+    this._selectorRegions = undefined;
   }
 
   /**
@@ -24,7 +26,8 @@ class RenderStatusResults {
   static fromObject(object) {
     const mapping = {};
     if (object.deviceSize) mapping.deviceSize = RectangleSize.fromObject;
-    return GeneralUtils.assignTo(new RenderStatusResults(), object);
+    if (object.selectorRegions) mapping.selectorRegions = regions => regions ? regions.map(regionFromRGridObj) : regions;
+    return GeneralUtils.assignTo(new RenderStatusResults(), object, mapping);
   }
 
   /** @return {boolean} */
@@ -36,7 +39,8 @@ class RenderStatusResults {
       this._error === undefined &&
       this._os === undefined &&
       this._userAgent === undefined &&
-      this._deviceSize === undefined
+      this._deviceSize === undefined &&
+      this._selectorRegions === undefined
     );
   }
 
@@ -110,6 +114,16 @@ class RenderStatusResults {
     this._deviceSize = value;
   }
 
+  /** @return {Region[]} */
+  getSelectorRegions() {
+    return this._selectorRegions;
+  }
+
+  /** @param {Region[]} value */
+  setSelectorRegions(value) {
+    this._selectorRegions = value;
+  }
+
   /** @override */
   toJSON() {
     return GeneralUtils.toPlain(this);
@@ -119,6 +133,15 @@ class RenderStatusResults {
   toString() {
     return `RenderStatusResults { ${JSON.stringify(this)} }`;
   }
+}
+
+function regionFromRGridObj({x, y, width, height}) {
+  return Region.fromObject({
+    left: x,
+    top: y,
+    width,
+    height
+  });
 }
 
 exports.RenderStatusResults = RenderStatusResults;

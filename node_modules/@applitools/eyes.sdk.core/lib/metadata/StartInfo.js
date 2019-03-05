@@ -16,6 +16,7 @@ class StartInfo {
     this._defaultMatchSettings = undefined;
     this._agentId = undefined;
     this._properties = undefined;
+    this._render = undefined;
   }
 
   /**
@@ -156,6 +157,18 @@ class StartInfo {
   /** @param {object[]} value */
   setProperties(value) {
     this._properties = value;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /** @return {boolean} */
+  getRender() {
+    return this._render;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /** @param {boolean} value */
+  setRender(value) {
+    this._render = value;
   }
 
   /** @override */

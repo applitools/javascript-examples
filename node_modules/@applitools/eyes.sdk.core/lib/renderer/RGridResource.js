@@ -75,6 +75,7 @@ class RGridResource {
     return {
       hashFormat: 'sha256',
       hash: this.getSha256Hash(),
+      contentType: this.getContentType(),
     };
   }
 
