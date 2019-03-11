@@ -18,7 +18,6 @@ describe('Capital One', function() {
      eyes.setApiKey(process.env.APPLITOOLS_KEY);
      eyes.setForceFullPageScreenshot(true);
      eyes.setStitchMode(StitchMode.CSS);
-     //eyes.setBatch(batchInfo);
      console.log("My Batch ID: " + batchId)
      eyes.setBatch({id: batchId, name: batchInfo});
      

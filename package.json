@@ -7,7 +7,7 @@
     "ava": "^1.2.1",
     "chromedriver": "^2.46.0",
     "eyes.images": "^0.0.50",
-    "eyes.selenium": "^4.7.3",
+    "eyes.selenium": "^3.6.3",
     "npm": "^6.8.0",
     "selenium-webdriver": "^3.6.0",
     "sleep": "^6.0.0",
@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@applitools/eyes.webdriverio": "^2.0.1",
-    "eyes.images": "3.6.3",
     "wdio-browserstack-service": "^0.1.18"
   },
   "scripts": {

@@ -23,7 +23,6 @@ async function main() {
     // Navigate the browser to the "hello world!" web-site.
     await driver.get('https://applitools.com/helloworld');
     
-    await eyes.checkWindow('Main Page');
     // Visual checkpoint #1.
     await eyes.check('Main Page', Target.window());
 
