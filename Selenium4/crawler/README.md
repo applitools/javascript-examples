@@ -23,6 +23,8 @@ Options:
 
 ### Examples:
 
+* Set an environment variable for your Applitools API Key. e.g. export APPLITOOLS_API_KEY="Your_API_KEY"
+
 * Generate Sitemap and Run: `$ crawler.js -u https://seleniumconf.com`
 * Use existing sitemap.xml and Run: `$ crawler.js -s ./www.seleniumconf.com.xml`
 * Use a self made sitemap and Run: `$ crawler.js -s ./random-sitemap.xml`
