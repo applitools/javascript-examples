@@ -17,7 +17,7 @@ Options:
   -m, --sitemapUrl [sitemapUrl  Specify a sitemap URL. e.g. -m https://www.example.com/sitemap.xml
   --no-grid                     Disable the Visual Grid and run locally only (Default: true). e.g. --no-grid
   --log                         Enable Applitools Debug Logs (Default: false). e.g. --log
-  --headless					Run Chrome headless (Default: false). e.g. --headless
+  --headless                    Run Chrome headless (Default: false). e.g. --headless
   -h, --help                    output usage information
 ```
 
