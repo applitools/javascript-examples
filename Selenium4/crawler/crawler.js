@@ -66,18 +66,16 @@ async function sitemapArray(sitemap, url = null) {
 
 async function browser(url) {
 	
-	var path = require('path');
+  var path = require('path');
 
 	require('chromedriver');
-
-	var expect = require('chai').expect;
-   
+  const { Options: ChromeOptions } = require('selenium-webdriver/chrome');
 	const {Builder, By, until} = require('selenium-webdriver');
-	var request = require('request');
 
 	const { ConsoleLogHandler, Region, TestResults, GeneralUtils, MatchLevel } = require('@applitools/eyes-sdk-core');
 	const { Eyes, Target, SeleniumConfiguration, BrowserType, StitchMode, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
 
+  var expect = require('chai').expect;
 	try {
 
     var eyes = new Eyes(enableVisualGrid);
@@ -86,8 +84,12 @@ async function browser(url) {
 	  eyes.setBatch({id: batchId, name: sitemapFile});
 	  //eyes.setBatch(new BatchInfo(sitemapFile));
 
-	  var driver = new Builder().forBrowser('chrome').build();
-
+    if (headless) {
+      var driver = new Builder().forBrowser('chrome').setChromeOptions(new ChromeOptions().headless()).build();
+    } else {
+      var driver = new Builder().forBrowser('chrome').build();
+    }
+    
     var sessionId = await driver.getSession().then(function(session){
         var sessionId = session.id_;
         console.log('\nStarting Session: ', sessionId);
@@ -165,9 +167,9 @@ const promiseProducer = () => {
 	const url = array.pop();
 
 	return new Promise((resolve) => {    	
-        browser(url).then(function (url) {
-        	resolve(url);
-        });
+    browser(url).then(function (url) {
+     	resolve(url);
+    });
 	});
 };
 
@@ -181,6 +183,7 @@ function isInt(value) {
 
 let enableVisualGrid = Boolean;
 let log = Boolean;
+let headless = Boolean;
 let sitemapFile = String;
 let array = Array;
 
@@ -196,10 +199,12 @@ async function crawler() {
   		.option('-m, --sitemapUrl [sitemapUrl', 'Specify a sitemap URL. e.g. -m https://www.example.com/sitemap.xml')
   		.option('--no-grid', 'Disable the Visual Grid and run locally only (Default: true). e.g. --no-grid')
   		.option('--log', 'Enable Applitools Debug Logs (Default: false). e.g. --log')
+      .option('--headless', 'Run Chrome headless (Default: false). e.g. --headless')
   		.parse(process.argv);
 
   enableVisualGrid = program.grid;
   log = program.log;
+  headless = program.headless;
 
   if (!isInt(program.browsers)) {
     program.browsers = 10;

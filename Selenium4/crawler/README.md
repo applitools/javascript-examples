@@ -17,6 +17,7 @@ Options:
   -m, --sitemapUrl [sitemapUrl  Specify a sitemap URL. e.g. -m https://www.example.com/sitemap.xml
   --no-grid                     Disable the Visual Grid and run locally only (Default: true). e.g. --no-grid
   --log                         Enable Applitools Debug Logs (Default: false). e.g. --log
+  --headless					Run Chrome headless (Default: false). e.g. --headless
   -h, --help                    output usage information
 ```
 
@@ -28,6 +29,7 @@ Options:
 * Open 20 browsers concurrently (default: 10): `$ crawler.js -s ./www.seleniumconf.com.xml -b 20`
 * Disable Visual Grid and Run locally: `$ crawler.js -s ./www.seleniumconf.com.xml --no-grid`
 * Enable Applitools Debug logs: `$ crawler.js -s ./www.seleniumconf.com.xml --log`
+* Run Chrome Headless: `$ crawler.js -s ./www.seleniumconf.com.xml --headless`
 
 ### VG Hardcoded Options:
 
