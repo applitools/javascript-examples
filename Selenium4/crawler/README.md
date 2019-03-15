@@ -1,6 +1,6 @@
-# JavaScript Sitemap Crawler
+# JavaScript Virtual Grid Sitemap Crawler
 
-### Quickly collect screenshots of all your website pages and responsiveness.
+### Quickly collect screenshots of all your website pages and responsive viewports.
 
 ### To use:
 
