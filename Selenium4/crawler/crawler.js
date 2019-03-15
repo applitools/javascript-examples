@@ -1,8 +1,5 @@
 "use strict"; 
 
-var batchId = Math.round((new Date()).getTime() / 1000).toString();
-console.log("My Applitools Batch ID: " + batchId)
-
 async function SitemapGenerator(url, maxUrls) {
    
    var urlParser = require('url');
@@ -182,6 +179,10 @@ function isInt(value) {
    var x = parseFloat(value);
    return (x | 0) === x;
 }
+
+//Global variables
+var batchId = Math.round((new Date()).getTime() / 1000).toString();
+console.log("My Applitools Batch ID: " + batchId)
 
 let enableVisualGrid = Boolean;
 let log = Boolean;
