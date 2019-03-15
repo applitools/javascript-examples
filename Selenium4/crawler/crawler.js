@@ -1,5 +1,3 @@
-//https://help.crossbrowsertesting.com/selenium-testing/getting-started/javascript/
-
 "use strict"; 
 
 var batchId = Math.round((new Date()).getTime() / 1000).toString();
@@ -118,10 +116,10 @@ async function browser(url) {
        	if (enableVisualGrid) {
        	
        		const configuration = new SeleniumConfiguration();
-	    	configuration.setAppName(appName);
-	    	configuration.setTestName(url);
-	    	configuration.addBrowser( 500,  800, BrowserType.CHROME  );
-			configuration.addBrowser( 500,  800, BrowserType.FIREFOX );
+	    	  configuration.setAppName(appName);
+	    	  configuration.setTestName(url);
+	    	  configuration.addBrowser( 500,  800, BrowserType.CHROME  );
+			    configuration.addBrowser( 500,  800, BrowserType.FIREFOX );
        		configuration.addBrowser( 1000, 800, BrowserType.CHROME  );
        		configuration.addBrowser( 1000, 800, BrowserType.FIREFOX );
        		configuration.addBrowser( 1500, 800, BrowserType.CHROME  );
