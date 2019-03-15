@@ -25,6 +25,7 @@ Options:
 
 * Generate Sitemap and Run: `$ crawler.js -u https://seleniumconf.com`
 * Use existing sitemap.xml and Run: `$ crawler.js -s ./www.seleniumconf.com.xml`
+* Use a self made sitemap and Run: `$ crawler.js -s ./random-sitemap.xml`
 * Use a sitemap.xml URL and Run: `$ crawler.js -m https://www.wunderlist.com/sitemap.xml`
 * Open 20 browsers concurrently (default: 10): `$ crawler.js -s ./www.seleniumconf.com.xml -b 20`
 * Disable Visual Grid and Run locally: `$ crawler.js -s ./www.seleniumconf.com.xml --no-grid`
