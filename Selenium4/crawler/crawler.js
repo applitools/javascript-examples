@@ -67,21 +67,22 @@ async function browser(url) {
    
    var path = require('path');
    require('chromedriver');
-  
+   
    const { Options: ChromeOptions } = require('selenium-webdriver/chrome');
-	const {Builder, By, until} = require('selenium-webdriver');
-
-	const { ConsoleLogHandler, Region, TestResults, GeneralUtils, MatchLevel } = require('@applitools/eyes-sdk-core');
-	const { Eyes, Target, SeleniumConfiguration, BrowserType, StitchMode, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
-
+   const {Builder, By, until} = require('selenium-webdriver');
+   
+   const { ConsoleLogHandler, Region, TestResults, GeneralUtils, MatchLevel } = require('@applitools/eyes-sdk-core');
+   const { Eyes, Target, SeleniumConfiguration, BrowserType, StitchMode, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
+   
    var expect = require('chai').expect;
 	
    try {
+      
       var eyes = new Eyes(enableVisualGrid);
       eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
-	   eyes.setLogHandler(new ConsoleLogHandler(log));
-	   eyes.setBatch({id: batchId, name: sitemapFile});
-	   //eyes.setBatch(new BatchInfo(sitemapFile));
+      eyes.setLogHandler(new ConsoleLogHandler(log));
+      eyes.setBatch({id: batchId, name: sitemapFile});
+      //eyes.setBatch(new BatchInfo(sitemapFile));
 
       if (headless) {
          var driver = new Builder().forBrowser('chrome').setChromeOptions(new ChromeOptions().headless()).build();
@@ -97,36 +98,36 @@ async function browser(url) {
       });
 
       await driver.get(url);
-
+      
       // Batching broke with 4.9.0 :(
       // const configuration = new SeleniumConfiguration();
-  	   // configuration.appName = path.basename(sitemapFile, '.xml');
-  	   // configuration.testName = url;
-    	// configuration.addBrowser(800, 800, BrowserType.CHROME);
-  	   // configuration.addBrowser(800, 800, BrowserType.FIREFOX);
-  	   // configuration.addBrowser(1300, 800, BrowserType.CHROME);
-  	   // configuration.addBrowser(1300, 800, BrowserType.FIREFOX);
-  	   // configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.LANDSCAPE);
-  	   // configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
-  	   // configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.LANDSCAPE);
-  	   // configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.PORTRAIT);
-  	   // eyes.setConfiguration(configuration);
-  	   // await eyes.open(driver);
-
-  	   var appName = path.basename(sitemapFile, '.xml');
-
-      if (enableVisualGrid) {
+      // configuration.appName = path.basename(sitemapFile, '.xml');
+      // configuration.testName = url;
+      // configuration.addBrowser(800, 800, BrowserType.CHROME);
+      // configuration.addBrowser(800, 800, BrowserType.FIREFOX);
+      // configuration.addBrowser(1300, 800, BrowserType.CHROME);
+      // configuration.addBrowser(1300, 800, BrowserType.FIREFOX);
+      // configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.LANDSCAPE);
+      // configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
+      // configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.LANDSCAPE);
+      // configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.PORTRAIT);
+      // eyes.setConfiguration(configuration);
+      // await eyes.open(driver);
       
+      var appName = path.basename(sitemapFile, '.xml');
+      
+      if (enableVisualGrid) {
+         
          const configuration = new SeleniumConfiguration();
-    	   configuration.setAppName(appName);
-    	   configuration.setTestName(url);
-  	      configuration.addBrowser( 500,  800, BrowserType.CHROME  );
-	      configuration.addBrowser( 500,  800, BrowserType.FIREFOX );
-   		configuration.addBrowser( 1000, 800, BrowserType.CHROME  );
-   		configuration.addBrowser( 1000, 800, BrowserType.FIREFOX );
-   		configuration.addBrowser( 1500, 800, BrowserType.CHROME  );
-   		configuration.addBrowser( 1500, 800, BrowserType.FIREFOX );
-   		await eyes.open(driver, configuration);
+         configuration.setAppName(appName);
+         configuration.setTestName(url);
+         configuration.addBrowser( 500,  800, BrowserType.CHROME  );
+         configuration.addBrowser( 500,  800, BrowserType.FIREFOX );
+         configuration.addBrowser( 1000, 800, BrowserType.CHROME  );
+         configuration.addBrowser( 1000, 800, BrowserType.FIREFOX );
+         configuration.addBrowser( 1500, 800, BrowserType.CHROME  );
+         configuration.addBrowser( 1500, 800, BrowserType.FIREFOX );
+         await eyes.open(driver, configuration);
      	
       } else {
 
@@ -161,16 +162,16 @@ const promiseProducer = () => {
    
    if (array.length === 0) {
       return null;
-	}	
-
-	const url = array.pop();
-
-	return new Promise((resolve) => {
+   }
+   
+   const url = array.pop();
+   
+   return new Promise((resolve) => {
       browser(url).then(function (url) {
-     	   resolve(url);
+         resolve(url);
       });
-	});
-};
+   });
+}
 
 function isInt(value) {
    
@@ -194,14 +195,14 @@ async function crawler() {
    
    program
    .version('0.1.0')
-  	.option('-u --url [url]', 'Add the site URL you want to generate a sitemap for. e.g. -u https://www.seleniumconf.com')
-  	.option('-s --sitemap [sitemap]', 'Use an already existing sitemap file. e.g. -s "/path/to/sitemap.xml" Note: This overrides the -u arg')
-  	.option('-b, --browsers [browsers]', 'Add the MAX number of browsers to run concurrently. e.g. -b 10. Note: Be careful with this!', parseInt)
-  	.option('-m, --sitemapUrl [sitemapUrl', 'Specify a sitemap URL. e.g. -m https://www.example.com/sitemap.xml')
-  	.option('--no-grid', 'Disable the Visual Grid and run locally only (Default: true). e.g. --no-grid')
-  	.option('--log', 'Enable Applitools Debug Logs (Default: false). e.g. --log')
+   .option('-u --url [url]', 'Add the site URL you want to generate a sitemap for. e.g. -u https://www.seleniumconf.com')
+   .option('-s --sitemap [sitemap]', 'Use an already existing sitemap file. e.g. -s "/path/to/sitemap.xml" Note: This overrides the -u arg')
+   .option('-b, --browsers [browsers]', 'Add the MAX number of browsers to run concurrently. e.g. -b 10. Note: Be careful with this!', parseInt)
+   .option('-m, --sitemapUrl [sitemapUrl', 'Specify a sitemap URL. e.g. -m https://www.example.com/sitemap.xml')
+   .option('--no-grid', 'Disable the Visual Grid and run locally only (Default: true). e.g. --no-grid')
+   .option('--log', 'Enable Applitools Debug Logs (Default: false). e.g. --log')
    .option('--headless', 'Run Chrome headless (Default: false). e.g. --headless')
-  	.parse(process.argv);
+   .parse(process.argv);
    
    enableVisualGrid = program.grid;
    log = program.log;
@@ -210,29 +211,28 @@ async function crawler() {
    if (!isInt(program.browsers)) {
       program.browsers = 10;
    }
-	
+   
    if (program.sitemapUrl) {
       
       var urlParser = require('url');
-   	var host = urlParser.parse(program.sitemapUrl).host;
-		sitemapFile = host;
-		array = await sitemapArray('', program.sitemapUrl);
+      var host = urlParser.parse(program.sitemapUrl).host;
+      sitemapFile = host;
+      array = await sitemapArray('', program.sitemapUrl);
    
    } else {
       
       if (program.sitemap) {
          sitemapFile = program.sitemap
 		} else {
-			sitemapFile = await SitemapGenerator(program.url, 500);
-		}
-		
-		array = await sitemapArray(sitemapFile);
+         sitemapFile = await SitemapGenerator(program.url, 500);
+      }
+      
+      array = await sitemapArray(sitemapFile);
    }
    
    const PromisePool = require('es6-promise-pool');
- 	const pool = new PromisePool(promiseProducer, program.browsers);
-
- 	await pool.start();
+   const pool = new PromisePool(promiseProducer, program.browsers);
+   await pool.start();
 }
 
 crawler();
