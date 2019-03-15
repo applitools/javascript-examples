@@ -5,7 +5,7 @@ console.log("My Applitools Batch ID: " + batchId)
 
 async function SitemapGenerator(url, maxUrls) {
 
-	var urlParser = require('url');
+	  var urlParser = require('url');
     const SitemapGenerator = require('sitemap-generator');
    
    	var host = urlParser.parse(url).host;
@@ -37,7 +37,7 @@ async function SitemapGenerator(url, maxUrls) {
 }
 
 async function sitemapArray(sitemap, url = null) {
-  
+
   const fs = require('fs');
   const smta = require('sitemap-to-array');
 
@@ -60,7 +60,8 @@ async function sitemapArray(sitemap, url = null) {
 	    }
 	    resolve(sitemapUrls);
 	  });
-   });
+  });
+
 };
 
 async function browser(url) {
@@ -79,85 +80,85 @@ async function browser(url) {
 
 	try {
 
-		var eyes = new Eyes(enableVisualGrid);
-     	eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
-	    eyes.setLogHandler(new ConsoleLogHandler(log));
-	    eyes.setBatch({id: batchId, name: sitemapFile});
-	    //eyes.setBatch(new BatchInfo(sitemapFile));
+    var eyes = new Eyes(enableVisualGrid);
+    eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
+	  eyes.setLogHandler(new ConsoleLogHandler(log));
+	  eyes.setBatch({id: batchId, name: sitemapFile});
+	  //eyes.setBatch(new BatchInfo(sitemapFile));
 
-	    var driver = new Builder().forBrowser('chrome').build();
+	  var driver = new Builder().forBrowser('chrome').build();
 
-	    var sessionId = await driver.getSession().then(function(session){
-	        var sessionId = session.id_;
-	        console.log('\nStarting Session: ', sessionId);
-	        console.log('Navigating to Url: ', url + '\n'); 
-	        return sessionId;
-	    });
+    var sessionId = await driver.getSession().then(function(session){
+        var sessionId = session.id_;
+        console.log('\nStarting Session: ', sessionId);
+        console.log('Navigating to Url: ', url + '\n'); 
+        return sessionId;
+    });
 
-	    await driver.get(url);
+    await driver.get(url);
 
-	    // Batching broke with 4.9.0 :(
-	    // const configuration = new SeleniumConfiguration();
-    	// configuration.appName = path.basename(sitemapFile, '.xml');
-    	// configuration.testName = url;
-    	// configuration.addBrowser(800, 800, BrowserType.CHROME);
-    	// configuration.addBrowser(800, 800, BrowserType.FIREFOX);
-    	// configuration.addBrowser(1300, 800, BrowserType.CHROME);
-    	// configuration.addBrowser(1300, 800, BrowserType.FIREFOX);
-    	// configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.LANDSCAPE);
-    	// configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
-    	// configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.LANDSCAPE);
-    	// configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.PORTRAIT);
-    	// eyes.setConfiguration(configuration);
-    	// await eyes.open(driver);
+    // Batching broke with 4.9.0 :(
+    // const configuration = new SeleniumConfiguration();
+  	// configuration.appName = path.basename(sitemapFile, '.xml');
+  	// configuration.testName = url;
+  	// configuration.addBrowser(800, 800, BrowserType.CHROME);
+  	// configuration.addBrowser(800, 800, BrowserType.FIREFOX);
+  	// configuration.addBrowser(1300, 800, BrowserType.CHROME);
+  	// configuration.addBrowser(1300, 800, BrowserType.FIREFOX);
+  	// configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.LANDSCAPE);
+  	// configuration.addDevice(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
+  	// configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.LANDSCAPE);
+  	// configuration.addDevice(DeviceName.Nexus_6, ScreenOrientation.PORTRAIT);
+  	// eyes.setConfiguration(configuration);
+  	// await eyes.open(driver);
 
-    	var appName = path.basename(sitemapFile, '.xml');
+  	var appName = path.basename(sitemapFile, '.xml');
 
-       	if (enableVisualGrid) {
-       	
-       		const configuration = new SeleniumConfiguration();
-	    	  configuration.setAppName(appName);
-	    	  configuration.setTestName(url);
-	    	  configuration.addBrowser( 500,  800, BrowserType.CHROME  );
-			    configuration.addBrowser( 500,  800, BrowserType.FIREFOX );
-       		configuration.addBrowser( 1000, 800, BrowserType.CHROME  );
-       		configuration.addBrowser( 1000, 800, BrowserType.FIREFOX );
-       		configuration.addBrowser( 1500, 800, BrowserType.CHROME  );
-       		configuration.addBrowser( 1500, 800, BrowserType.FIREFOX );
-       		await eyes.open(driver, configuration);
-       	
-       	} else {
+    if (enableVisualGrid) {
 
-       		await eyes.open(driver, appName, url, { width: 1200, height: 800 });
+      const configuration = new SeleniumConfiguration();
+    	configuration.setAppName(appName);
+    	configuration.setTestName(url);
+  	  configuration.addBrowser( 500,  800, BrowserType.CHROME  );
+	    configuration.addBrowser( 500,  800, BrowserType.FIREFOX );
+   		configuration.addBrowser( 1000, 800, BrowserType.CHROME  );
+   		configuration.addBrowser( 1000, 800, BrowserType.FIREFOX );
+   		configuration.addBrowser( 1500, 800, BrowserType.CHROME  );
+   		configuration.addBrowser( 1500, 800, BrowserType.FIREFOX );
+   		await eyes.open(driver, configuration);
+     	
+    } else {
 
-       	}
+      await eyes.open(driver, appName, url, { width: 1200, height: 800 });
 
-	    await eyes.check(url, Target.window().fully());
-	    await eyes.close(false);
+    }
 
-    } catch(err) {
+    await eyes.check(url, Target.window().fully());
+    await eyes.close(false);
 
-    	console.error('\n' + sessionId + ' Unhandled exception: ' + err.message);
-    	console.log('Fiailed Test: ', url + '\n'); 
+  } catch(err) {
+
+    console.error('\n' + sessionId + ' Unhandled exception: ' + err.message);
+    console.log('Fiailed Test: ', url + '\n'); 
     
-    	if (driver && sessionId) {
-        	await driver.quit();
-        	await eyes.abortIfNotClosed();
-    	}
+    if (driver && sessionId) {
+      await driver.quit();
+      await eyes.abortIfNotClosed();
+    }
           
-  	} finally {
+  } finally {
 
-  		console.error('\nFinished Session: ' + sessionId + ', url: ' + url + '\n');
-     	await driver.quit();
-     	await eyes.abortIfNotClosed();     
+    console.error('\nFinished Session: ' + sessionId + ', url: ' + url + '\n');
+    await driver.quit();
+    await eyes.abortIfNotClosed();     
   
-  	}
+  }
 
 }
 
 const promiseProducer = () => {
 	
-	if (array.length === 0) {
+  if (array.length === 0) {
 		return null;
 	}	
 
@@ -185,7 +186,6 @@ let array = Array;
 
 async function crawler() {
 	
-	const PromisePool = require('es6-promise-pool');
 	var program = require('commander');
 
 	program
@@ -198,17 +198,17 @@ async function crawler() {
   		.option('--log', 'Enable Applitools Debug Logs (Default: false). e.g. --log')
   		.parse(process.argv);
 
-  	enableVisualGrid = program.grid;
-  	log = program.log;
+  enableVisualGrid = program.grid;
+  log = program.log;
 
-    if (!isInt(program.browsers)) {
-    	program.browsers = 10;
-    }
+  if (!isInt(program.browsers)) {
+    program.browsers = 10;
+  }
 	
 	if (program.sitemapUrl) {
 
-	    var urlParser = require('url');
-   		var host = urlParser.parse(program.sitemapUrl).host;
+    var urlParser = require('url');
+   	var host = urlParser.parse(program.sitemapUrl).host;
 		sitemapFile = host;
 		array = await sitemapArray('', program.sitemapUrl);
 
@@ -223,6 +223,7 @@ async function crawler() {
 		array = await sitemapArray(sitemapFile);
 	}
 
+  const PromisePool = require('es6-promise-pool');
  	const pool = new PromisePool(promiseProducer, program.browsers);
 
  	await pool.start();
