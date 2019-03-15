@@ -40,29 +40,28 @@ async function sitemapArray(sitemap, url = null) {
    
    const fs = require('fs');
    const smta = require('sitemap-to-array');
-
-   var data;
    
+   var data;
    if (url === null) {
-  	   console.log("Sitemap File: " + sitemap);
-  	   var data = fs.readFileSync(sitemap, 'utf-8');
+      console.log("Sitemap File: " + sitemap);
+      var data = fs.readFileSync(sitemap, 'utf-8');
    } else {
       console.log("Sitemap Url: " + url);
-  	   var data = url;
+      var data = url;
    };
- 
+   
    var sitemapUrls = [];
    const options = { returnOnComplete: true };
-  
+   
    return new Promise(async (resolve) => {
       await smta(data, options, (error, list) => {
          for (var url in list) {
-	         sitemapUrls.push(list[url].loc);
-	      }
-	   resolve(sitemapUrls);
-	   });
+            sitemapUrls.push(list[url].loc);
+         }
+	      resolve(sitemapUrls);
+      });
    });
-};
+}
 
 async function browser(url) {
    
