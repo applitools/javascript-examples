@@ -223,7 +223,7 @@ async function crawler() {
       
       if (program.sitemap) {
          sitemapFile = program.sitemap
-		} else {
+      } else {
          sitemapFile = await SitemapGenerator(program.url, 500);
       }
       
