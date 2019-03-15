@@ -31,7 +31,7 @@ async function SitemapGenerator(url, maxUrls) {
    return new Promise((resolve) => {
       generator.on('done', () => {
          console.log("\nSitemap Generation Complete!\n");
-    		resolve(filepath);
+         resolve(filepath);
       });
    });
 }
@@ -58,7 +58,7 @@ async function sitemapArray(sitemap, url = null) {
          for (var url in list) {
             sitemapUrls.push(list[url].loc);
          }
-	      resolve(sitemapUrls);
+         resolve(sitemapUrls);
       });
    });
 }
