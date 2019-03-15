@@ -32,8 +32,8 @@ async function SitemapGenerator(url, maxUrls) {
       generator.on('done', () => {
          console.log("\nSitemap Generation Complete!\n");
     		resolve(filepath);
-    	});
-	});
+      });
+   });
 }
 
 async function sitemapArray(sitemap, url = null) {
