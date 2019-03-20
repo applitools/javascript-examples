@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.5.0](https://github.com/applitools/eyes.sdk.javascript1/compare/@applitools/visual-grid-client@12.3.0...@applitools/visual-grid-client@12.5.0) (2019-03-17)
+
+
+### Bug Fixes
+
+* **visual-grid-client:** update dependencies ([052f440](https://github.com/applitools/eyes.sdk.javascript1/commit/052f440))
+
+
+### Features
+
+* **visual-grid-client:** added debug name space of visual-grid-client ([780ac7d](https://github.com/applitools/eyes.sdk.javascript1/commit/780ac7d))
+
+
+
+
+
 # [12.3.0](https://github.com/applitools/eyes.sdk.javascript1/compare/@applitools/visual-grid-client@12.2.0...@applitools/visual-grid-client@12.3.0) (2019-03-14)
 
 

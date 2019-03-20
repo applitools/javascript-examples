@@ -13,12 +13,7 @@
     "mocha": "^6.0.2",
     "chai": "^4.2.0"
   },
-  "devDependencies": {
-    "commander": "^2.19.0",
-    "es6-promise-pool": "^2.5.0",
-    "sitemap-generator": "^8.3.3",
-    "sitemap-to-array": "^6.0.0"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
