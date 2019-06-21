@@ -128,7 +128,7 @@ function getFileExtension(contentType) {
 
   // NOTE: this is because of missing mime type(s) in the `mime-db` package. Patching more missing types should be done inside this `if` statement.
   if (!fileExtension) {
-    if (contentType === 'application/font-woff2') {
+    if (contentType === 'application/font-woff2' || contentType === 'font/woff2') {
       fileExtension = 'woff2';
     } else if (contentType === 'application/x-font-ttf') {
       fileExtension = 'ttf';

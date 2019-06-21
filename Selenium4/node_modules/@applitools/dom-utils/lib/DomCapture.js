@@ -63,7 +63,7 @@ class DomCapture {
       (${captureDomScript})().then(res => {
         return callback(res)
       })`;
-    const url = await this.driver.getCurrentUrl();
+    const url = await this._driver.getCurrentUrl();
 
     return this.getFrameDom(asyncCaptureDomScript, url);
   }
@@ -74,7 +74,7 @@ class DomCapture {
    * @return {Promise<{string}>}
    */
   async getFrameDom(script, url) {
-    let domSnapshotRaw = await this.driver.executeAsyncScript(script);
+    let domSnapshotRaw = await this._driver.executeAsyncScript(script);
 
     const domSnapshotRawArr = domSnapshotRaw ? domSnapshotRaw.split('\n') : [];
 
@@ -141,7 +141,7 @@ class DomCapture {
 
     let framesCount = 0;
     for (const xpath of xpaths) {
-      const iframeEl = await this.driver.findElementByXPath(`/${xpath}`);
+      const iframeEl = await this._driver.findElementByXPath(`/${xpath}`);
       await this._driver.switchTo().frame(iframeEl);
       framesCount = framesCount + 1;
     }
@@ -192,7 +192,7 @@ class DomCapture {
     }
   }
 
-  get driver() {
+  getDriver() {
     return this._driver;
   }
 }

@@ -1,8 +1,6 @@
 'use strict';
 
-const { GeneralUtils, Region } = require('@applitools/eyes-common');
-
-const { FloatingMatchSettings } = require('../match/FloatingMatchSettings');
+const { GeneralUtils, Region, FloatingMatchSettings } = require('@applitools/eyes-common');
 
 class ImageMatchSettings {
   // noinspection FunctionWithMoreThanThreeNegationsJS

@@ -11,11 +11,11 @@
     "npm": "^6.8.0",
     "selenium-webdriver": "^3.6.0",
     "sleep": "^6.0.0",
-    "webdriverio": "^4.14.2",
+    "webdriverio": "^4.14.4",
     "wdio-sync": "^0.7.3"
   },
   "devDependencies": {
-    "@applitools/eyes.webdriverio": "^2.0.1",
+    "@applitools/eyes.webdriverio": "^2.4.0",
     "wdio-browserstack-service": "^0.1.18"
   },
   "scripts": {

@@ -9,7 +9,7 @@
     "wdio-mocha-framework": "^0.6.4"
   },
   "devDependencies": {
-    "@applitools/eyes.webdriverio": "^2.0.1",
+    "@applitools/eyes.webdriverio": "^2.3.0",
     "wdio-mocha-framework": "^0.6.4",
     "wdio-selenium-standalone-service": "0.0.12"
   }

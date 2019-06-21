@@ -7,7 +7,7 @@ function makeAbort({
   wrappers,
   openEyesPromises,
   resolveTests,
-  setIsAborted,
+  testController,
 }) {
   const waitAndResolveTests = makeWaitForTestEnd({
     getCheckWindowPromises,
@@ -15,7 +15,7 @@ function makeAbort({
   });
 
   return async () => {
-    setIsAborted();
+    testController.setIsAbortedByUser();
     return waitAndResolveTests(async testIndex => {
       const [closeErr, closeResult] = await presult(wrappers[testIndex].abortIfNotClosed());
       resolveTests[testIndex]();

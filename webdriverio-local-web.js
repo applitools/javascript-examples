@@ -22,7 +22,8 @@ async function main() {
   let browser = driver.init();
 
   // Initialize the eyes SDK and set your private API key.
-  const {Eyes, Target} = require('@applitools/eyes.webdriverio');
+  const {By, Eyes, Target, StitchMode} = require('@applitools/eyes.webdriverio');
+  var MatchLevel = require('eyes.sdk').MatchLevel;
   let eyes = new Eyes();
   eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
 
@@ -35,7 +36,12 @@ async function main() {
       await browser.url('https://applitools.com/helloworld');
 
       // Visual checkpoint #1.
-      await eyes.check('Main Page', Target.window());
+      //await eyes.check('Main Page', Target.window());
+      
+      await eyes.check("Full Page", Target.window().fully()
+      .ignore(By.cssSelector('body > div.demo-page.center > div:nth-child(2)'))
+      .layout(By.cssSelector('body > div.demo-page.center > div:nth-child(1)'))
+      .layout(By.cssSelector('div.section.button-section')));
 
       // Click the "Click me!" button.
       await browser.click('button');

@@ -9,7 +9,7 @@ const psetTimeout = t =>
 
 const failMsg = renderId => `failed to render screenshot${renderId ? ' ' + renderId : ''}`;
 
-function makeWaitForRenderedStatus({timeout = 120000, logger, getRenderStatus}) {
+function makeWaitForRenderedStatus({timeout = 3600000, logger, getRenderStatus}) {
   return async function waitForRenderedStatus(renderId, stopCondition = () => {}) {
     return new Promise(async (resolve, reject) => {
       log(`waiting for ${renderId} to be rendered`);

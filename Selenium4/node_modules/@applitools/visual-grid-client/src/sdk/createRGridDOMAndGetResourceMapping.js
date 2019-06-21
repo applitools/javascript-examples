@@ -13,14 +13,19 @@ function makeCreateRGridDOMAndGetResourceMapping({getAllResources}) {
     resourceUrls,
     resourceContents,
     frames = [],
+    fetchOptions,
   }) {
     const absoluteUrls = resourceUrls.map(resourceUrl => absolutizeUrl(resourceUrl, url));
-    const absoluteResourceContents = mapValues(
+    const preResources = mapValues(
       mapKeys(resourceContents, (_value, key) => absolutizeUrl(key, url)),
       ({url: resourceUrl, type, value}) => ({url: absolutizeUrl(resourceUrl, url), type, value}),
     );
 
-    const resources = await getAllResources(absoluteUrls, absoluteResourceContents);
+    const resources = await getAllResources({
+      resourceUrls: absoluteUrls,
+      preResources,
+      fetchOptions,
+    });
     const allResources = Object.assign({}, resources);
 
     const frameDoms = await Promise.all(frames.map(createRGridDOMAndGetResourceMapping));

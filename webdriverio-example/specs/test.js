@@ -53,7 +53,7 @@ describe('Google Search Functionality', function() {
       // eyes.setApiKey("9RkMajXrzS1Zu110oTWQps102CHiPRPmeyND99E9iL0G7yAc110");//(process.env.APPLITOOLS_API_KEY);
       // eyes.setLogHandler(new ConsoleLogHandler(true));
       // eyes.open(browser, 'Hello World!', 'WebdriverIO! Test');
-      // eyes.check('Main Page', Target.window());
+      eyes.check('Main Page', Target.window().ignore(By.id('blah')));
       // eyes.close();
       
       assert(browser.getTitle().match(/BrowserStack - Google Search/i));
