@@ -4,8 +4,8 @@ async function main() {
    const webdriverio = require('webdriverio');
    var ConsoleLogHandler = require('eyes.selenium').ConsoleLogHandler;
 
-   var sauceUser = process.env.SAUCE_USER || "matan";
-   var sauceKey = process.env.SAUCE_KEY || "ec79e940-078b-41d4-91a6-d7d6008cf1ea";
+   var sauceUser = process.env.SAUCE_USER || "yourUser";
+   var sauceKey = process.env.SAUCE_KEY || "yourKey";
 
    const browserOptions = {
       host: "ondemand.saucelabs.com",

@@ -7,7 +7,7 @@ const { Builder, By } = require('selenium-webdriver');
 const { Options: ChromeOptions } = require('selenium-webdriver/chrome');
 const { Region, TestResults } = require('@applitools/eyes-sdk-core');
 const { Eyes, VisualGridRunner, Target, ConsoleLogHandler, Configuration, BrowserType, DeviceName, ScreenOrientation, BatchInfo } = require('@applitools/eyes-selenium');
-
+let sleep = require('sleep');
 
 let /** @type {WebDriver} */ driver, /** @type {Eyes} */ eyes;
 
@@ -19,9 +19,10 @@ describe('VisualGrid - Hello World', function () {
   //Run Headless...
   //driver = new Builder().forBrowser('chrome').setChromeOptions(new ChromeOptions().headless()).build();
   const batchInfo = new BatchInfo("Visual Grid - Hello World");
-  batchInfo.setSequenceName('alpha sequence');
+  batchInfo.setSequenceName('alpha');
   
   before(async function () {
+    eyes.setServerUrl("https://eyes.applitools.com");
     eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
     eyes.setLogHandler(new ConsoleLogHandler(true));    
     await driver.get('https://applitools.com/helloworld');
@@ -29,20 +30,21 @@ describe('VisualGrid - Hello World', function () {
 
   beforeEach(async function () {
     var appName = this.test.parent.title;
-    var testName = this.currentTest.title; 
-    
+    var testName = this.currentTest.title;
+
     const configuration = new Configuration();
     configuration.setBatch(batchInfo);
     configuration.setConcurrentSessions(10);
     configuration.setAppName(appName);
     configuration.setTestName(testName);
+    configuration.setServerUrl("https://eyes.applitools.com");
     configuration.addBrowser(1200, 800, BrowserType.CHROME);
-    // configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
-    // configuration.addBrowser(1200, 800, BrowserType.EDGE);
-    // configuration.addBrowser(1200, 800, BrowserType.IE10);
-    // configuration.addBrowser(1200, 800, BrowserType.IE11);
-    // configuration.addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
-    // configuration.addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.LANDSCAPE);
+    configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
+    configuration.addBrowser(1200, 800, BrowserType.EDGE);
+    configuration.addBrowser(1200, 800, BrowserType.IE10);
+    configuration.addBrowser(1200, 800, BrowserType.IE11);
+    configuration.addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT);
+    configuration.addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.LANDSCAPE);
     //configuration.setProxy('http://localhost:8888');
     eyes.setConfiguration(configuration);
     
@@ -63,15 +65,17 @@ describe('VisualGrid - Hello World', function () {
       // Visual checkpoint #2.
       await eyes.check('Click!', Target.window().fully());
       
-      const results = await eyes.getRunner().getAllTestResults();
+      await eyes.closeAsync();
       
-      for (var result in results) {
-         console.log("My Indiv Result: " + result)
-         //await expect(results.getStatus()).to.equal('Passed');
-         await expect(result).to.equal('_passed');
-      }
-      
-      //await expect(results).to.eql([2, 1, 3, 5, 4]);
+      // const results = await eyes.getRunner().getAllTestResults();
+      //
+      // for (var result in results) {
+      //    console.log("My Indiv Result: " + result)
+      //    //await expect(results.getStatus()).to.equal('Passed');
+      //    await expect(result).to.equal('_passed');
+      // }
+      //
+      // await expect(results).to.eql([2, 1, 3, 5, 4]);
   });
   
   afterEach(async function () {

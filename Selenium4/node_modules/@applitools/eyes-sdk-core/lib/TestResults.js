@@ -358,7 +358,6 @@ class TestResults {
    * @param {Date|string} [startedAt]
    * @param {number} [duration]
    * @param {boolean} [isNew]
-   * @param {boolean} [isSaved]
    * @param {boolean} [isDifferent]
    * @param {boolean} [isAborted]
    * @param {SessionUrls|object} [appUrls]
@@ -376,7 +375,7 @@ class TestResults {
    * @param {string} [url]
    */
   constructor({ id, name, secretToken, status, appName, batchName, batchId, branchName, hostOS, hostApp,
-    hostDisplaySize, startedAt, duration, isNew, isSaved, isDifferent, isAborted, appUrls, apiUrls, stepsInfo, steps,
+    hostDisplaySize, startedAt, duration, isNew, isDifferent, isAborted, appUrls, apiUrls, stepsInfo, steps,
     matches, mismatches, missing, exactMatches, strictMatches, contentMatches, layoutMatches, noneMatches, url } = {}) {
     if (hostDisplaySize && !(hostDisplaySize instanceof RectangleSize)) {
       hostDisplaySize = new RectangleSize(hostDisplaySize);
@@ -413,7 +412,6 @@ class TestResults {
     this._startedAt = startedAt;
     this._duration = duration;
     this._isNew = isNew;
-    this._isSaved = isSaved;
     this._isDifferent = isDifferent;
     this._isAborted = isAborted;
     // this._defaultMatchSettings = undefined;
@@ -655,20 +653,6 @@ class TestResults {
    */
   setIsNew(value) {
     this._isNew = value;
-  }
-
-  /**
-   * @return {boolean} - Whether or not test was automatically saved as a baseline.
-   */
-  getIsSaved() {
-    return this._isSaved;
-  }
-
-  /**
-   * @param {boolean} value - Whether or not test was automatically saved as a baseline.
-   */
-  setIsSaved(value) {
-    this._isSaved = value;
   }
 
   /**

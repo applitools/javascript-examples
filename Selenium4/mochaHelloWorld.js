@@ -1,25 +1,18 @@
 'use strict';
 
 var expect = require('chai').expect;
-    
 require('chromedriver');
-
 const {Builder, By, until} = require('selenium-webdriver');
-
-var SeleniumSDK = require('@applitools/eyes-selenium');
-const {ConsoleLogHandler, BatchInfo, TestResults} = require('@applitools/eyes.sdk.core');
-var Eyes = SeleniumSDK.Eyes;
-
+const { Region, TestResults } = require('@applitools/eyes-sdk-core');
+const { Eyes, Target, ConsoleLogHandler, BatchInfo } = require('@applitools/eyes-selenium');
 var driver = null, eyes = null;
+
 describe('Eyes.Selenium.JavaScript - Selenium', function () {
         
     this.timeout(5 * 60 * 1000);
 
     before(function () {
-       driver = new Builder()
-       .forBrowser('chrome')
-       .build();
-      
+       driver = new Builder().forBrowser('chrome').build();
        eyes = new Eyes();
        eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
        eyes.setLogHandler(new ConsoleLogHandler(true));
@@ -63,6 +56,7 @@ describe('Eyes.Selenium.JavaScript - Selenium', function () {
         });
     });
 });
+
 
 // const assert = require('assert');
 // TestResultsStatus

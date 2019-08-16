@@ -6,7 +6,7 @@ const { TypeUtils } = require('../utils/TypeUtils');
 const { DateTimeUtils } = require('../utils/DateTimeUtils');
 
 /**
- * @typedef {{id: (string|undefined), name: (string|undefined), startedAt: (Date|string|undefined)}} BatchInfoObject
+ * @typedef {{id: (string|undefined), name: (string|undefined), startedAt: (Date|string|undefined), sequenceName: (string|undefined)}} BatchInfoObject
  */
 
 /**
@@ -15,7 +15,7 @@ const { DateTimeUtils } = require('../utils/DateTimeUtils');
 class BatchInfo {
   /**
    * Creates a new BatchInfo instance.
-   * Alternatively, batch can be set via global variables `APPLITOOLS_BATCH_ID`, `APPLITOOLS_BATCH_NAME`.
+   * Alternatively, batch can be set via global variables `APPLITOOLS_BATCH_ID`, `APPLITOOLS_BATCH_NAME`, `APPLITOOLS_BATCH_SEQUENCE`.
    *
    * @signature `new BatchInfo()`
    *
@@ -23,7 +23,7 @@ class BatchInfo {
    * @sigparam {BatchInfo} batchInfo - The BatchInfo instance to clone from.
    *
    * @signature `new BatchInfo(object)`
-   * @sigparam {{id: (string|undefined), name: (string|undefined), startedAt: (Date|string|undefined)}} object - The batch object to clone from.
+   * @sigparam {{id: (string|undefined), name: (string|undefined), startedAt: (Date|string|undefined), sequenceName: (string|undefined)}} object - The batch object to clone from.
    *
    * @signature `new BatchInfo(name, startedAt, id)`
    * @sigparam {string} name - Name of batch or {@code null} if anonymous.
@@ -37,16 +37,17 @@ class BatchInfo {
    */
   constructor(varArg1, varArg2, varArg3) {
     if (varArg1 instanceof BatchInfo) {
-      return new BatchInfo({ id: varArg1.getId(), name: varArg1.getName(), startedAt: varArg1.getStartedAt() });
+      return new BatchInfo({ id: varArg1.getId(), name: varArg1.getName(), startedAt: varArg1.getStartedAt(), sequenceName: varArg1.getSequenceName() });
     }
 
     if (TypeUtils.isString(varArg1)) {
       return new BatchInfo({ id: varArg3, name: varArg1, startedAt: varArg2 });
     }
 
-    let { id, name, startedAt } = varArg1 || {};
+    let { id, name, startedAt, sequenceName } = varArg1 || {};
     ArgumentGuard.isString(id, 'batchId', false);
     ArgumentGuard.isString(name, 'batchName', false);
+    ArgumentGuard.isString(sequenceName, 'sequenceName', false);
 
     if (startedAt && !(startedAt instanceof Date)) {
       ArgumentGuard.isString(startedAt, 'startedAt', false);
@@ -56,6 +57,7 @@ class BatchInfo {
     this._id = id || GeneralUtils.getEnvValue('BATCH_ID') || GeneralUtils.guid();
     this._name = name || GeneralUtils.getEnvValue('BATCH_NAME');
     this._startedAt = startedAt || new Date();
+    this._sequenceName = sequenceName || GeneralUtils.getEnvValue('BATCH_SEQUENCE');
   }
 
   /**
@@ -71,10 +73,12 @@ class BatchInfo {
    * together.
    *
    * @param {string} value - The batch's ID
+   * @return {this}
    */
   setId(value) {
     ArgumentGuard.notNullOrEmpty(value, 'id');
     this._id = value;
+    return this;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -87,6 +91,16 @@ class BatchInfo {
 
   // noinspection JSUnusedGlobalSymbols
   /**
+   * @param {string} name - The name of the batch to use.
+   * @return {this}
+   */
+  setName(name) {
+    this._name = name;
+    return this;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
    * @return {Date} - The batch start date
    */
   getStartedAt() {
@@ -94,10 +108,37 @@ class BatchInfo {
   }
 
   /**
+   * @param {string} startedAt
+   * @return {this}
+   */
+  setStartedAt(startedAt) {
+    this._startedAt = startedAt;
+    return this;
+  }
+
+  /**
+   * @return {string} - The name of the sequence.
+   */
+  getSequenceName() {
+    return this._sequenceName;
+  }
+
+  /**
+   * @param {string} sequenceName - The Batch's sequence name.
+   * @return {this}
+   */
+  setSequenceName(sequenceName) {
+    this._sequenceName = sequenceName;
+    return this;
+  }
+
+  /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this, undefined, {
+      sequenceName: 'batchSequenceName',
+    });
   }
 
   /**

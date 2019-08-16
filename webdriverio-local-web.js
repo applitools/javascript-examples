@@ -38,16 +38,32 @@ async function main() {
       // Visual checkpoint #1.
       //await eyes.check('Main Page', Target.window());
       
-      await eyes.check("Full Page", Target.window().fully()
-      .ignore(By.cssSelector('body > div.demo-page.center > div:nth-child(2)'))
-      .layout(By.cssSelector('body > div.demo-page.center > div:nth-child(1)'))
-      .layout(By.cssSelector('div.section.button-section')));
+      // await eyes.check("Full Page", Target.window().fully()
+      // .ignore(By.cssSelector('body > div.demo-page.center > div:nth-child(2)'))
+      // .layout(By.cssSelector('body > div.demo-page.center > div:nth-child(1)'))
+      // .layout(By.cssSelector('div.section.button-section')));
+      
+      // try {
+      //
+      //    //await eyes.check("Fluent - Region with Ignore region", Target.region(By.id("I-AM-A-BAD-LOCATOR")));
+      //
+      //    await eyes.check("Full Page", Target.window().fully()
+      //    .ignore(By.cssSelector('body > div.demo-page.center > div:nth-child(2)'))
+      //    .layout(By.cssSelector('body > div.demo-page.center > div:nth-child(1)'))
+      //    .layout(By.id('I-SHOULD-THROW-AN-ERROR'))
+      //    .layout(By.cssSelector('div.section.button-section')));
+      //
+      // } catch(error) {
+      //
+      //    console.log("My Error: " + error);
+      //
+      // }
 
       // Click the "Click me!" button.
       await browser.click('button');
 
       // Visual checkpoint #2.
-      await eyes.check('Click!', Target.window());
+      await eyes.check('Click!', Target.window().matchLevel(MatchLevel.Layout));
 
       // End the test.
       await eyes.close();
