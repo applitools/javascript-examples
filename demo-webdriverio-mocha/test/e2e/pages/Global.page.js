@@ -10,7 +10,7 @@ const {
 const eyes = new Eyes(); 
 
 var BatchId = Math.round((new Date()).getTime() / 1000).toString();
-var appName = "apple.com"
+var appName = "test-app.com"
 var viewport = {width: 1000, height: 600}
 
 var expect = require('chai').expect;
@@ -19,7 +19,7 @@ class GlobalPage {
 
     eyesOpen(testName) {
         eyes.setServerUrl("https://eyes.applitools.com")
-        eyes.setBatch({name: "Apple Visual Tests", id: BatchId});
+        eyes.setBatch({name: "Visual Tests", id: BatchId});
         eyes.setLogHandler(new ConsoleLogHandler(false));
         eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
         browser.call(() => eyes.open(browser, appName, testName, viewport))
