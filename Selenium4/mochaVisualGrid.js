@@ -67,23 +67,25 @@ describe('VisualGrid - Hello World', function () {
       
       await eyes.closeAsync();
       
-      // const results = await eyes.getRunner().getAllTestResults();
-      //
+      //const results = await eyes.getRunner().getAllTestResults();
+
       // for (var result in results) {
       //    console.log("My Indiv Result: " + result)
       //    //await expect(results.getStatus()).to.equal('Passed');
       //    await expect(result).to.equal('_passed');
       // }
-      //
-      // await expect(results).to.eql([2, 1, 3, 5, 4]);
+
+      //await expect(results).to.eql([2, 1, 3, 5, 4]);
   });
   
-  afterEach(async function () {
-    return eyes.abortIfNotClosed();
+  beforeEach(async function () {
+    await eyes.abortIfNotClosed();
   });
 
-  after(function () {
-    return driver.quit();
+  after(async function () {
+    await driver.quit();
   });
   
 });
+
+

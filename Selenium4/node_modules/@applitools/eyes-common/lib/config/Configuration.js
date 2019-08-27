@@ -36,6 +36,8 @@ class Configuration {
     this._appName = undefined;
     /** @type {string} */
     this._testName = undefined;
+    /** @type {string} */
+    this._displayName = undefined;
     /** @type {boolean} */
     this._isDisabled = undefined;
     /** @type {number} */
@@ -703,6 +705,23 @@ class Configuration {
   setTestName(value) {
     ArgumentGuard.isString(value, 'testName', false);
     this._testName = value;
+    return this;
+  }
+
+  /**
+   * @return {string} - The display name of the currently running test.
+   */
+  getDisplayName() {
+    return this._displayName;
+  }
+
+  /**
+   * @param {string} value - The display name of the currently running test.
+   * @return {this}
+   */
+  setDisplayName(value) {
+    ArgumentGuard.isString(value, 'displayName', false);
+    this._displayName = value;
     return this;
   }
 

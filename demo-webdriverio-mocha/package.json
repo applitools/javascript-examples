@@ -48,6 +48,7 @@
     "husky": "^3.0.3",
     "mocha": "^6.2.0",
     "prettier": "^1.18.2",
+    "sleep": "^6.1.0",
     "wdio-spec-reporter": "^0.1.5",
     "wdio-timeline-reporter": "^5.0.11",
     "webdriverio": "^5.12.1"

@@ -3,6 +3,7 @@
 module.exports = [
   'appName',
   'testName',
+  'displayName',
   'browser',
   'url',
   'apiKey',

@@ -6,10 +6,10 @@
   "dependencies": {
     "chromedriver": "^76.0.0",
     "geckodriver": "^1.16.2",
-    "@applitools/eyes-selenium": "4.25.0",
-    "npm": "^6.10.3",
+    "@applitools/eyes-selenium": "4.26.1",
+    "npm": "^6.11.2",
     "selenium-webdriver": "^4.0.0-alpha.4",
-    "sleep": "^6.0.0",
+    "sleep": "^6.1.0",
     "mocha": "^6.2.0",
     "chai": "^4.2.0"
   },

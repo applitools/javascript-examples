@@ -54,6 +54,7 @@ function makeOpenEyes({
 }) {
   return async function openEyes({
     testName,
+    displayName,
     wrappers,
     userAgent = _userAgent,
     appName = _appName,
@@ -114,6 +115,7 @@ function makeOpenEyes({
       wrappers,
       browsers,
       isDisabled,
+      displayName,
       batchSequenceName,
       batchName,
       batchId,

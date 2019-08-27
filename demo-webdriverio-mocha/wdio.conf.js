@@ -6,21 +6,24 @@ exports.config = {
     hostname: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    specs: ['./test/e2e/specs/*.spec.js'],
+    specs: ['./test/e2e/specs/*.js'],
     //maxInstances: 5,
     capabilities: [
         {
             maxInstances: 10,
             browserName: 'chrome',
-            // 'zal:recordVideo': true,
-            // 'zal:name': 'Demo Integration Tests',
-            // 'zal:build': 'WebDriverIO',
+            'goog:chromeOptions': {
+                args: [
+                    //awesome-testing.com/2019/03/disabling-javascript-using-selenium.html
+                   /// 'profile.managed_default_content_settings.javascript'
+                ]
+            }
         },
     ],
     logLevel: 'trace',
     outputDir: './test-report/output',
     bail: 0,
-    baseUrl: 'http://automationpractice.com',
+    baseUrl: '',
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
@@ -41,7 +44,7 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         compilers: ['js:@babel/register'],
-        timeout: 60000,
+        timeout: 120000,
         bail: 0
     },
     

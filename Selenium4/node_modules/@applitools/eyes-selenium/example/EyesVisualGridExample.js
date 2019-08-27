@@ -24,6 +24,7 @@ const { Eyes, VisualGridRunner, Target, ConsoleLogHandler, Configuration, Browse
     configuration.setConcurrentSessions(3);
     configuration.setAppName('Eyes Examples');
     configuration.setTestName('My first Javascript test!');
+    configuration.setDisplayName('The display title');
     configuration.addBrowser(1200, 800, BrowserType.CHROME);
     configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
     configuration.addDeviceEmulation(DeviceName.iPhone_4, ScreenOrientation.PORTRAIT);

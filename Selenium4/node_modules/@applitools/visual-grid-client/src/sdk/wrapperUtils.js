@@ -26,6 +26,7 @@ function configureWrappers({
   wrappers,
   browsers,
   isDisabled,
+  displayName,
   batchSequenceName,
   batchName,
   batchId,
@@ -66,6 +67,7 @@ function configureWrappers({
     validateAndAddProperties(wrapper, properties);
     wrapper.setBatch(batchInfo);
 
+    displayName !== undefined && wrapper.setDisplayName(displayName);
     baselineBranchName !== undefined && wrapper.setBaselineBranchName(baselineBranchName);
     baselineEnvName !== undefined && wrapper.setBaselineEnvName(baselineEnvName);
     baselineName !== undefined && wrapper.setBaselineName(baselineName);
