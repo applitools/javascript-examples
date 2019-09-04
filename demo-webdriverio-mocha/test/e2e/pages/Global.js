@@ -10,14 +10,18 @@ const sleep = require('sleep');
 
 const eyes = new Eyes(); 
 var BatchId = Math.round((new Date()).getTime() / 1000).toString();
+const batchInfo = new BatchInfo("WebdriverIO5");
+batchInfo.setSequenceName('Insights Batch');
 
 class Global {
 
     myEyes(log = false) {
         eyes.setServerUrl("https://eyes.applitools.com")
-        eyes.setBatch({name: "Visual Tests", id: BatchId});
+        //eyes.setBatch({name: "Visual Tests", id: BatchId});
+        eyes.setBatch(batchInfo);
         eyes.setLogHandler(new ConsoleLogHandler(log));
         eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
+        eyes.setForceFullPageScreenshot(true);
         return eyes;
     }
 

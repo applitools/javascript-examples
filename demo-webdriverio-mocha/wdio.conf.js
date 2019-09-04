@@ -6,18 +6,21 @@ exports.config = {
     hostname: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    specs: ['./test/e2e/specs/*.js'],
+    specs: ['./test/e2e/specs/iPad.js'],
     //maxInstances: 5,
     capabilities: [
         {
             maxInstances: 10,
             browserName: 'chrome',
-            'goog:chromeOptions': {
-                args: [
+            // 'safari.options': {
+            //     technologyPreview: true
+            // }
+            //'goog:chromeOptions': {
+            //    args: [
                     //awesome-testing.com/2019/03/disabling-javascript-using-selenium.html
                    /// 'profile.managed_default_content_settings.javascript'
-                ]
-            }
+           //     ]
+           // }
         },
     ],
     logLevel: 'trace',
