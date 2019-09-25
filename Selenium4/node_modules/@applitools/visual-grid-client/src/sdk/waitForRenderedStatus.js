@@ -53,7 +53,7 @@ function makeWaitForRenderedStatus({timeout = 3600000, logger, getRenderStatus})
     });
 
     function log(msg) {
-      logger.log(`[waitForRenderedStatus] ${msg}`);
+      logger.verbose(`[waitForRenderedStatus] ${msg}`);
     }
   };
 }

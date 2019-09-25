@@ -1,8 +1,4 @@
 function main() {
-
-    //const {Builder, By, until} = require('selenium-webdriver');
-        
-    //var driver = new Builder().forBrowser('safari').build();
     
     let wd = require('selenium-webdriver');
     let safari = require('selenium-webdriver/safari');

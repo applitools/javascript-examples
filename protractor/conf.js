@@ -3,12 +3,11 @@ const batchId = helper.genBatchId();
 
 exports.config = {
    //Run locally
-  //seleniumAddress: 'http://localhost:4444/wd/hub',
-  //framework: 'jasmine',
-  //specs: ['spec1.js'],
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+  framework: 'jasmine',
   
   //run on sauce
-  seleniumAddress: "https://#{sauceUser}:#{sauceKey}@ondemand.saucelabs.com:443/wd/hub",
+  //seleniumAddress: "https://#{sauceUser}:#{sauceKey}@ondemand.saucelabs.com:443/wd/hub",
 
   multiCapabilities: [
    {
@@ -25,7 +24,7 @@ exports.config = {
   
   framework: 'jasmine',
    
-  specs: ['spec1.js', 'spec2.js'],
+  specs: ['spec3.js'],
     
   jasmineNodeOpts: {
      showColors: true,

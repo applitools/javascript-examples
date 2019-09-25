@@ -12,32 +12,35 @@ let sleep = require('sleep');
 let /** @type {WebDriver} */ driver, /** @type {Eyes} */ eyes;
 
 describe('VisualGrid - Hello World', function () {
+
   this.timeout(5 * 60 * 1000);
   
-  const eyes = new Eyes(new VisualGridRunner());
+  const runner = new VisualGridRunner(10);
+  const eyes = new Eyes(runner);
+  
   const driver = new Builder().forBrowser('chrome').build();
   //Run Headless...
   //driver = new Builder().forBrowser('chrome').setChromeOptions(new ChromeOptions().headless()).build();
+  
   const batchInfo = new BatchInfo("Visual Grid - Hello World");
-  batchInfo.setSequenceName('alpha');
+  
+  batchInfo.setSequenceName('Insights Batch');
   
   before(async function () {
-    eyes.setServerUrl("https://eyes.applitools.com");
+    eyes.setServerUrl("https://eyesapi.applitools.com");
     eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
     eyes.setLogHandler(new ConsoleLogHandler(true));    
-    await driver.get('https://applitools.com/helloworld');
   });
 
   beforeEach(async function () {
     var appName = this.test.parent.title;
     var testName = this.currentTest.title;
 
-    const configuration = new Configuration();
+    const configuration = eyes.getConfiguration();
+
     configuration.setBatch(batchInfo);
-    configuration.setConcurrentSessions(10);
     configuration.setAppName(appName);
     configuration.setTestName(testName);
-    configuration.setServerUrl("https://eyes.applitools.com");
     configuration.addBrowser(1200, 800, BrowserType.CHROME);
     configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
     configuration.addBrowser(1200, 800, BrowserType.EDGE);
@@ -52,6 +55,8 @@ describe('VisualGrid - Hello World', function () {
   });
   
   it("Hello World", async function () {
+
+      await driver.get('https://applitools.com/helloworld');
      
       // Visual checkpoint #1.
       await eyes.check('Main Page', Target.window().fully());
@@ -66,24 +71,24 @@ describe('VisualGrid - Hello World', function () {
       await eyes.check('Click!', Target.window().fully());
       
       await eyes.closeAsync();
-      
-      // const results = await eyes.getRunner().getAllTestResults();
-      //
-      // for (var result in results) {
-      //    console.log("My Indiv Result: " + result)
-      //    //await expect(results.getStatus()).to.equal('Passed');
-      //    await expect(result).to.equal('_passed');
-      // }
-      //
-      // await expect(results).to.eql([2, 1, 3, 5, 4]);
   });
   
-  afterEach(async function () {
-    return eyes.abortIfNotClosed();
+  afterEach(async function () { 
+    const results = await runner.getAllTestResults(false);
+
+    for (var result in results) {
+       console.log("My Indiv Result: " + result)
+       //await expect(results.getStatus()).to.equal('Passed');
+       expect(result).to.equal('_passed');
+    }
+
+    await eyes.abortIfNotClosed();
   });
 
-  after(function () {
-    return driver.quit();
+  after(async function () {
+    await driver.quit();
   });
   
 });
+
+

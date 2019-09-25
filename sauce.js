@@ -42,12 +42,12 @@ try {
    // End the test.
    eyes.close(false);
 
-} finally {
+   } finally {
 
- // Close the browser.
- driver.quit();
+    // Close the browser.
+    driver.quit();
 
- // If the test was aborted before eyes.close was called ends the test as aborted.
- eyes.abortIfNotClosed();
+    // If the test was aborted before eyes.close was called ends the test as aborted.
+    eyes.abortIfNotClosed();
 
 }

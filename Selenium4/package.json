@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "chromedriver": "^76.0.0",
-    "geckodriver": "^1.16.2",
-    "@applitools/eyes-selenium": "4.25.0",
-    "npm": "^6.10.3",
-    "selenium-webdriver": "^4.0.0-alpha.4",
-    "sleep": "^6.0.0",
+    "@applitools/eyes-selenium": "4.29.2",
+    "@applitools/visual-grid-client": "^12.29.2",
+    "chai": "^4.2.0",
+    "chromedriver": "^77.0.0",
+    "geckodriver": "^1.17.0",
     "mocha": "^6.2.0",
-    "chai": "^4.2.0"
+    "npm": "^6.11.3",
+    "selenium-webdriver": "^4.0.0-alpha.5",
+    "sleep": "^6.1.0"
   },
   "devDependencies": {},
   "scripts": {
