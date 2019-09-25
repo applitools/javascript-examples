@@ -1,0 +1,22 @@
+{
+  "name": "eyes.selenium-example-ts",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@types/selenium-webdriver": "^4.0.0",
+    "eyes.selenium": "3.6.3",
+    "selenium-webdriver": "3.6.0",
+    "chromedriver": "^74.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "protractor": "^5.4.2",
+    "typescript": "^3.5.2"
+  },
+  "engines": {
+    "node": ">=6.4.0"
+  }
+}

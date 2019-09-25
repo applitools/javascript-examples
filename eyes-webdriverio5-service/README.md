@@ -1,0 +1,4 @@
+Run
+```bash
+npm test
+```
