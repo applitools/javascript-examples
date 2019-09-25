@@ -6,12 +6,12 @@ exports.config = {
     hostname: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    specs: ['./test/e2e/specs/GitHub.js'],
+    specs: ['./test/e2e/specs/*.js'],
     //maxInstances: 5,
     capabilities: [
         {
             maxInstances: 10,
-            browserName: 'safari',
+            browserName: 'chrome',
             // 'safari.options': {
             //     technologyPreview: true
             // }
