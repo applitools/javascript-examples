@@ -5,6 +5,9 @@
 // config
 exports.Configuration = require('./lib/config/Configuration').Configuration;
 exports.MatchLevel = require('./lib/config/MatchLevel').MatchLevel;
+exports.AccessibilityLevel = require('./lib/config/AccessibilityLevel').AccessibilityLevel;
+exports.AccessibilityRegionType = require('./lib/config/AccessibilityRegionType').AccessibilityRegionType;
+exports.AccessibilityMatchSettings = require('./lib/config/AccessibilityMatchSettings').AccessibilityMatchSettings;
 exports.BatchInfo = require('./lib/config/BatchInfo').BatchInfo;
 exports.PropertyData = require('./lib/config/PropertyData').PropertyData;
 exports.ProxySettings = require('./lib/config/ProxySettings').ProxySettings;

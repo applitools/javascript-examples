@@ -800,6 +800,24 @@ class Configuration {
   }
 
   /**
+   * @return {AccessibilityLevel} - The test-wide accessibility level.
+   */
+  getAccessibilityLevel() {
+    return this._defaultMatchSettings.getAccessibilityLevel();
+  }
+
+  /**
+   * The test-wide accessibility level to use when checking application screenshot.
+   *
+   * @param {AccessibilityLevel} value - The test-wide accessibility level to use when checking application screenshot.
+   * @return {this}
+   */
+  setAccessibilityLevel(value) {
+    this._defaultMatchSettings.setAccessibilityLevel(value);
+    return this;
+  }
+
+  /**
    * @return {boolean} - The test-wide useDom to use in match requests.
    */
   getUseDom() {

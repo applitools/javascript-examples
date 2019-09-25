@@ -26,7 +26,7 @@ describe('/ipad', async () => {
         await eyes.check('Check Search', Target.region(By.id('ac-gn-searchresults')));
     });
 
-    it('iPad Search Dialog with Background2', async () => {
+    it('iPad Search Dialog with Background', async () => {
         const searchButton = await $('#ac-gn-link-search');
         await searchButton.click();
         await eyes.open(browser, appName, testName, viewport);

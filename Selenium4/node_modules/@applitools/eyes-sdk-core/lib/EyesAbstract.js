@@ -640,6 +640,22 @@ class EyesAbstract {
   }
 
   /**
+   * The test-wide accessibilityLevel level to use when checking application screenshot.
+   *
+   * @param {AccessibilityLevel} accessibilityLevel - The test-wide accessibilityLevel level to use when checking application screenshot.
+   */
+  setAccessibilityLevel(accessibilityLevel) {
+    this._configuration.getDefaultMatchSettings().setAccessibilityLevel(accessibilityLevel);
+  }
+
+  /**
+   * @return {AccessibilityLevel} - The test-wide accessibilityLevel level.
+   */
+  getAccessibilityLevel() {
+    return this._configuration.getDefaultMatchSettings().getAccessibilityLevel();
+  }
+
+  /**
    * The test-wide useDom to use.
    *
    * @param {boolean} useDom - The test-wide useDom to use in match requests.

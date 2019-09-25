@@ -14,6 +14,12 @@ describe('GitHub', async () => {
         await eyes.open(browser, "github.com", testName, { width: 1000, height: 600 });
     });
 
+    it('Check Region in Viewable Viewport', async () => {
+        eyes.setForceFullPageScreenshot(false);
+        await browser.url('https://www.github.com');
+        await eyes.check('Check Region', Target.region(By.css("a.mr-4")).fully(false))
+    });
+
     it('Home Page', async () => {
         await browser.url('https://www.github.com');
         await global.lazyLoadPage();

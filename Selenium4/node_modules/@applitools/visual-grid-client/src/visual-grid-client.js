@@ -10,13 +10,14 @@ const {
 const makeVisualGridClient = require('./sdk/renderingGridClient');
 const configParams = require('./sdk/configParams');
 const takeScreenshot = require('./sdk/takeScreenshot');
-const capturePageDom = require('./troubleshoot/capturePageDom');
+const takeDomSnapshot = require('./utils/takeDomSnapshot');
 
 module.exports = {
   configParams,
   makeVisualGridClient,
   takeScreenshot,
-  capturePageDom,
+  capturePageDom: takeDomSnapshot, // TODO: should be removed later (used from WDIO SDKs)
+  takeDomSnapshot,
   DiffsFoundError,
   TestResults,
   TestFailedError,

@@ -16,7 +16,7 @@ batchInfo.setSequenceName('Insights Batch');
 class Global {
 
     myEyes(log = false) {
-        eyes.setServerUrl("https://eyes.applitools.com")
+        eyes.setServerUrl("https://eyesapi.applitools.com")
         //eyes.setBatch({name: "Visual Tests", id: BatchId});
         eyes.setBatch(batchInfo);
         eyes.setLogHandler(new ConsoleLogHandler(log));

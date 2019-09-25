@@ -216,8 +216,9 @@ class StepInfo {
    * @param {boolean} hasCurrentImage
    * @param {AppUrls|object} appUrls
    * @param {ApiUrls|object} apiUrls
+   * @param {string[]} [renderId]
    */
-  constructor({ name, isDifferent, hasBaselineImage, hasCurrentImage, appUrls, apiUrls } = {}) {
+  constructor({ name, isDifferent, hasBaselineImage, hasCurrentImage, appUrls, apiUrls, renderId } = {}) {
     if (appUrls && !(appUrls instanceof AppUrls)) {
       appUrls = new AppUrls(appUrls);
     }
@@ -231,7 +232,7 @@ class StepInfo {
     this._hasBaselineImage = hasBaselineImage;
     this._hasCurrentImage = hasCurrentImage;
     this._appUrls = appUrls;
-    this._apiUrls = apiUrls;
+    this._renderId = renderId;
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -328,6 +329,22 @@ class StepInfo {
    */
   setApiUrls(value) {
     this._apiUrls = value;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @return {string} value
+   */
+  getRenderId() {
+    return this._renderId;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * @param {string} value
+   */
+  setRenderId(value) {
+    this._renderId = value;
   }
 
   /**
