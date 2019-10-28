@@ -11,7 +11,7 @@ describe('GitHub', async () => {
 
     beforeEach(async function () {
         var testName = this.currentTest.title;
-        await eyes.open(browser, "github.com", testName, { width: 1000, height: 600 });
+        await eyes.open(browser, "github.com", testName, { width: 1400, height: 800 });
     });
 
     it('Check Region in Viewable Viewport', async () => {

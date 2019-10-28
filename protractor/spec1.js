@@ -39,6 +39,8 @@ describe('Capital One', function() {
      //remove js widget
      browser.driver.executeScript("document.querySelector('div.usabilla_live_button_container').setAttribute('style', 'display:none');");
     
+     eyes.setForceFullPageScreenshot(false);
+
      eyes.open(browser, 'Protractor Test', 'Quicksilver Landing Page', {width: 1200, height: 800});
 
      eyes.check("Quick Silver Page", Target.window().ignore(by.css("div.container")));

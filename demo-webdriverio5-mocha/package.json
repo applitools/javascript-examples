@@ -22,7 +22,7 @@
     "test": "./node_modules/.bin/wdio wdio.conf.js"
   },
   "dependencies": {
-    "@applitools/eyes-webdriverio": "^5.6.0",
+    "@applitools/eyes-webdriverio": "5.7.0",
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/polyfill": "^7.4.4",

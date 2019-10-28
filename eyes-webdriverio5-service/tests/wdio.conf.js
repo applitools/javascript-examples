@@ -20,7 +20,7 @@ exports.config = {
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
   specs: [
-    path.join(__dirname, '*.spec.js')
+    path.join(__dirname, 'nyt.spec.js')
   ],
   // Patterns to exclude.
   exclude: [
@@ -60,7 +60,7 @@ exports.config = {
     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
     // excludeDriverLogs: ['bugreport', 'server'],
     "goog:chromeOptions": {
-      args: ['--headless', '--disable-gpu'],
+      //args: ['--headless', '--disable-gpu'],
     }
   }],
   //

@@ -6,7 +6,7 @@ exports.config = {
     hostname: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    specs: ['./test/e2e/specs/*.js'],
+    specs: ['./test/e2e/specs/GitHub.js'],
     //maxInstances: 5,
     capabilities: [
         {
