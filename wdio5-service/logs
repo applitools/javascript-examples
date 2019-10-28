@@ -1,0 +1,505 @@
+
+> wdio5-service@1.0.0 test /Users/justin/repos/applitools/javascript-examples/wdio5-service
+> wdio tests/wdio.conf.js
+
+
+Execution of 1 spec files started at 2019-10-17T17:09:39.498Z
+
+[0-0] RUNNING in chrome - /tests/nyt.spec.js
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO.open(): Running using Webdriverio module
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWebDriver.getUserAgent(): user agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO.openBase(): Agent = eyes.webdriverio/5.7.2
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO.openBase(): openBase('WTF', 'MyTest', '1500x600')
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO._logOpenBase(): Eyes server URL is 'https://eyesapi.applitools.com'
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO._logOpenBase(): Timeout = 'undefined'
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO._logOpenBase(): matchTimeout = '2000'
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO._logOpenBase(): Default match settings = 'ImageMatchSettings { {"matchLevel":"Strict","accessibilityLevel":"None","ignoreCaret":true,"useDom":false,"enablePatterns":false,"ignoreDisplacements":false,"ignore":[],"layout":[],"strict":[],"content":[],"accessibility":[],"floating":[]} }'
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} EyesWDIO._logOpenBase(): FailureReports = 'OnClose'
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} FrameChain.<init>(): Frame chain copy constructor (size 0)
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} FrameChain.<init>(): Done!
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} FrameChain.<init>(): Frame chain copy constructor (size 0)
+2019-10-17T17:10:11Z Eyes: [VERBOSE] {} FrameChain.<init>(): Done!
+[0-0] 2019-10-17T17:10:11Z Eyes: [VERBOSE] {} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWebDriver.switchTo(): switchTo()
+2019-10-17T17:10:12Z Eyes: [VERBOSE] {} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.frames(): EyesTargetLocator.frames(frameChain)
+2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWebDriver.switchTo(): switchTo()
+2019-10-17T17:10:12Z Eyes: [VERBOSE] {} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.defaultContent(): EyesTargetLocator.defaultContent()
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.defaultContent(): Done!
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.frames(): Done switching into nested frames!
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWDIO._ensureRunningSession(): No running session, calling start session...
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWDIO.startSession(): startSession()
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWDIO.startSession(): Batch is BatchInfo { {"id":"9c4a2abf-f4f6-449a-b2e7-0cec70520d98","name":"WebDriverIO eyes-service tests","startedAt":"2019-10-17T17:09:45.312Z","notifyOnCompletion":false} }
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.defaultContent(): EyesTargetLocator.defaultContent()
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.defaultContent(): Done!
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} Function.setViewportSize(): setViewportSize( 1500x600 )
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} WDIOJSExecutor.executeScript(): Done!
+2019-10-17T17:10:12Z Eyes: [VERBOSE] {} Function.setViewportSize(): Initial viewport size: 1200x1195
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} Function.setBrowserSizeByViewportSize(): Current browser size: {"height":1318,"width":1200}
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} Function._setBrowserSizeLoop(): Trying to set browser size to: 1500x723
+[0-0] 2019-10-17T17:10:12Z Eyes: [LOG    ] {} Function._setBrowserSizeLoop(): Current browser size: 1500x723
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.frames(): EyesTargetLocator.frames(frameChain)
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.defaultContent(): EyesTargetLocator.defaultContent()
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.defaultContent(): Done!
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesTargetLocator.frames(): Done switching into nested frames!
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWebDriver.getUserAgent(): user agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
+[0-0] 2019-10-17T17:10:12Z Eyes: [LOG    ] {} (): No mobile OS detected.
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWDIO.startSession(): Application environment is AppEnvironment { {"displaySize":{"width":1500,"height":600},"inferred":"useragent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36"} }
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} EyesWDIO.startSession(): Starting server session...
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} ServerConnector.startSession(): ServerConnector.startSession called with: SessionStartInfo { {"agentId":"eyes.webdriverio/5.7.2","sessionType":null,"appIdOrName":"WTF","scenarioIdOrName":"MyTest","batchInfo":{"id":"9c4a2abf-f4f6-449a-b2e7-0cec70520d98","name":"WebDriverIO eyes-service tests","startedAt":"2019-10-17T17:09:45.312Z","notifyOnCompletion":false},"environment":{"displaySize":{"width":1500,"height":600},"inferred":"useragent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36"},"defaultMatchSettings":{"matchLevel":"Strict","accessibilityLevel":"None","ignoreCaret":true,"useDom":false,"enablePatterns":false,"ignoreDisplacements":false,"ignore":[],"layout":[],"strict":[],"content":[],"accessibility":[],"floating":[]},"compareWithParentBranch":false,"ignoreBaseline":false,"render":false,"properties":[{"name":"propName","value":"propValue"}]} }
+[0-0] 2019-10-17T17:10:12Z Eyes: [VERBOSE] {} (): ServerConnector.startSession will now call to https://eyesapi.applitools.com/api/sessions/running with params {"apiKey":"9RkMajXrzS1Zu110oTWQps102CHiPRPmeyND99E9iL0G7yAc110"}
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {} (): ServerConnector.startSession - result OK, status code 200, url https://eyesapi.applitools.com/api/sessions/running
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {} ServerConnector.startSession(): ServerConnector.startSession - post succeeded RunningSession { {"id":"MDAwMDAyNTE4MzA5Njg1ODY2Mjc~;MDAwMDAyNTE4MzA5Njg1ODY0ODY~","sessionId":"00000251830968586486","batchId":"00000251830968586627","baselineId":"8e6cc6a0-2358-4f09-bc27-4b81909a1234.d4dcdd2a-a8da-44d7-aed2-be3e19a80b38.6aPg9xAQPzrOEkVTGU8FW6f3ikIwzt0RyxMA_1ciBVM_.","url":"https://eyes.applitools.com/app/batches/00000251830968586627/00000251830968586486?accountId=6aMzO9JqKUmjcRkCqOUicg~~","isNewSession":false} }
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {} EyesWDIO.startSession(): Server session ID is MDAwMDAyNTE4MzA5Njg1ODY2Mjc~;MDAwMDAyNTE4MzA5Njg1ODY0ODY~
+[0-0] 2019-10-17T17:10:13Z Eyes: [LOG    ] {} EyesWDIO.startSession(): --- Test started - 'MyTest' of 'WTF' "AppEnvironment { {"displaySize":{"width":1500,"height":600},"inferred":"useragent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36"} }
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._ensureRunningSession(): Done!
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._initPositionProvider(): initializing position provider. stitchMode: CSS
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.<init>(): creating CssTranslatePositionProvider
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 0)
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} (): check("nav bar", checkSettings) - begin
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} FrameChain.<init>(): Frame chain copy constructor (size 0)
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} FrameChain.<init>(): Done!
+2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} FrameChain.<init>(): Frame chain copy constructor (size 0)
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} FrameChain.<init>(): Done!
+[0-0] 2019-10-17T17:10:13Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frames(): EyesTargetLocator.frames(frameChain)
+2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.defaultContent(): EyesTargetLocator.defaultContent()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.defaultContent(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frames(): Done switching into nested frames!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} Function.matchWindow(): CheckWindowBase(RegionProviderImpl, 'nav bar', false, -1)
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._ensureRunningSession(): session already running.
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} Function.matchWindow(): Calling match window...
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} MatchWindowTask.matchWindow(): retryTimeout = 2000
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._getAppOutputWithScreenshot(): getting screenshot...
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.getScreenshot(): getScreenshot()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._updateScalingParams(): Trying to extract device pixel ratio...
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} (): Device pixel ratio: 1
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} (): Setting scale provider...
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} (): CssTranslatePositionProvider - Entire size: 1500x4425
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} FrameChain.<init>(): Frame chain copy constructor (size 0)
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} FrameChain.<init>(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.getScreenshot(): Full page screenshot requested.
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.defaultContent(): EyesTargetLocator.defaultContent()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.defaultContent(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): getStitchedRegion()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): positionProvider: CssTranslatePositionProvider; Region: (0, 0) 0x0, SCREENSHOT_AS_IS
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.getCurrentPosition(): ScrollPositionProvider - getCurrentPosition()
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} (): Current position: (0, 0)
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} (): Current transform {"-webkit-transform":"translate(0px, 0px)","transform":"translate(0px, 0px)"}
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting top/left image...
+[0-0] 2019-10-17T17:10:14Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} ContextBasedScaleProvider.updateScaleRatio(): Image is already scaled correctly.
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} (): CssTranslatePositionProvider - Entire size: 1500x4425
+2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Entire size of region context: 1500x4425
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): entire page region: (0, 0) 1500x4425, SCREENSHOT_AS_IS, image part size: 1500x550
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Creating stitchedImage container.
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done! Adding initial screenshot...
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Initial part:(0,0)[1500 x 600]
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting the rest of the image parts...
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 0) 1500x550, SCREENSHOT_AS_IS
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 0)
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 0)
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 0)
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 0)
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+[0-0] 2019-10-17T17:10:15Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 0)
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 550) 1500x550, SCREENSHOT_AS_IS
+2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 550)
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:16Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 550)
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 550)
+2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 550)
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 550)
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 1100) 1500x550, SCREENSHOT_AS_IS
+2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 1100)
+2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 1100)
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 1100)
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 1100)
+2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 1100)
+[0-0] 2019-10-17T17:10:17Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 1650) 1500x550, SCREENSHOT_AS_IS
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 1650)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 1650)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 1650)
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 1650)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 1650)
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 2200) 1500x550, SCREENSHOT_AS_IS
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 2200)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 2200)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 2200)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 2200)
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 2200)
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 2750) 1500x550, SCREENSHOT_AS_IS
+2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 2750)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:18Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 2750)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 2750)
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 2750)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 2750)
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 3300) 1500x550, SCREENSHOT_AS_IS
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 3300)
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 3300)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 3300)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 3300)
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 3300)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 3850) 1500x550, SCREENSHOT_AS_IS
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 3850)
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 3850)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 3850)
+2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 3850)
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+[0-0] 2019-10-17T17:10:19Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 3850)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Taking screenshot for (0, 4400) 1500x25, SCREENSHOT_AS_IS
+2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.setPosition(): CssTranslatePositionProvider - Setting position to: (0, 4400)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 4400)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Origin Position is set to (0, 4400)
+2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Target Position is (0, 4400)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Getting image...
+2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Getting screenshot as base64...
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} TakesScreenshotImageProvider.getImage(): Done getting base64! Creating MutableImage...
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 4400)
+2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching part into the image container...
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Stitching done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} (): Transform (position) restored.
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.setPosition(): ScrollPositionProvider - Scrolling to (0, 0)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} (): ScrollPositionProvider - Done scrolling!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} (): Position restored.
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Extracted entire size: 1500x4425
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} FullPageCaptureAlgorithm.getStitchedRegion(): Actual stitched size: 1500x5000
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frames(): EyesTargetLocator.frames(frameChain)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.defaultContent(): EyesTargetLocator.defaultContent()
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.defaultContent(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frames(): Done switching into nested frames!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} (): CssTranslatePositionProvider - Entire size: 1500x4425
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} CssTranslatePositionProvider.getCurrentPosition(): position to return:  (0, 0)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIOScreenshot._getUpdatedFrameLocationInScreenshot(): frameLocationInScreenshot: (0, 0)
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} Function.fromScreenshotType(): Calculating frame window...
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} Function.fromScreenshotType(): Done!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.getScreenshot(): Done!
+2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._getAppOutputWithScreenshot(): Done getting screenshot!
+[0-0] 2019-10-17T17:10:20Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIOScreenshot.getSubScreenshot(): getSubScreenshot([(0, 0) 1500x64, CONTEXT_RELATIVE], false)
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._getAppOutputWithScreenshot(): Getting title, domUrl, imageLocation...
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._getAppOutputWithScreenshot(): Done getting title, domUrl, imageLocation!
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.tryCaptureDom(): Getting window DOM...
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} DomCapture._downloadCss(): Given URL to download: https://static01.nyt.com/applications/cooking/94e383b/assets/core.min.css
+[0-0] 2019-10-17T17:10:22Z Eyes: [VERBOSE] {00000251830968586486} DomCapture._downloadCss(): Given URL to download: https://static01.nyt.com/applications/cooking/94e383b/assets/homepage.min.css
+[0-0] 2019-10-17T17:10:23Z Eyes: [VERBOSE] {00000251830968586486} DomCapture._downloadCss(): downloading CSS in length of 37988 chars took 0s 248.62126ms
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} DomCapture._downloadCss(): downloading CSS in length of 1855854 chars took 1s 851.113689ms
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): EyesTargetLocator.frame(element)
+2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Making preparations...
+2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): willSwitchToFrame()
+2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): Frame
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.getCurrentPosition(): ScrollPositionProvider - getCurrentPosition()
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} (): Current position: (0, 0)
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} Frame.<init>(): Frame(logger, reference, (2, 2), 4x4, 0x0)
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done! Switching to frame...
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done!
+[0-0] 2019-10-17T17:10:24Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): EyesTargetLocator.parentFrame()
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Making preparations...
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Done! Switching to parent frame..
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): EyesTargetLocator.frame(element)
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Making preparations...
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): willSwitchToFrame()
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): Frame
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.getCurrentPosition(): ScrollPositionProvider - getCurrentPosition()
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} (): Current position: (0, 0)
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} Frame.<init>(): Frame(logger, reference, (0, 0), 0x0, 0x0)
+2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done! Switching to frame...
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:25Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): EyesTargetLocator.parentFrame()
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Making preparations...
+2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Done! Switching to parent frame..
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): EyesTargetLocator.frame(element)
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Making preparations...
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): willSwitchToFrame()
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): Frame
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.getCurrentPosition(): ScrollPositionProvider - getCurrentPosition()
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} (): Current position: (0, 0)
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} Frame.<init>(): Frame(logger, reference, (265, 592), 970x250, 970x250)
+2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done! Switching to frame...
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): EyesTargetLocator.frame(element)
+2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Making preparations...
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): willSwitchToFrame()
+2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): Frame
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.getCurrentPosition(): ScrollPositionProvider - getCurrentPosition()
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} (): Current position: (0, 0)
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} Frame.<init>(): Frame(logger, reference, (0, 250), 0x0, 0x0)
+2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done! Switching to frame...
+[0-0] 2019-10-17T17:10:26Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): EyesTargetLocator.parentFrame()
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Making preparations...
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Done! Switching to parent frame..
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): EyesTargetLocator.frame(element)
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Making preparations...
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): willSwitchToFrame()
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): Frame
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.getCurrentPosition(): ScrollPositionProvider - getCurrentPosition()
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} (): Current position: (0, 0)
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} Frame.<init>(): Frame(logger, reference, (2, 2), 304x154, 0x0)
+2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done! Switching to frame...
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:27Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): EyesTargetLocator.parentFrame()
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Making preparations...
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Done! Switching to parent frame..
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): EyesTargetLocator.frame(element)
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Making preparations...
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): willSwitchToFrame()
+2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.willSwitchToFrame(): Frame
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.getCurrentPosition(): ScrollPositionProvider - getCurrentPosition()
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} WDIOJSExecutor.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} (): Current position: (0, 0)
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} Frame.<init>(): Frame(logger, reference, (0, 0), 970x250, 970x250)
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done! Switching to frame...
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.frame(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.executeScript(): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): EyesTargetLocator.parentFrame()
+2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Making preparations...
+2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Done! Switching to parent frame..
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesWebDriver.switchTo(): switchTo()
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} ScrollPositionProvider.<init>(): creating ScrollPositionProvider
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): EyesTargetLocator.parentFrame()
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Making preparations...
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} EyesTargetLocator.parentFrame(): Done! Switching to parent frame..
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} (): Done!
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} ServerConnector.postDomSnapshot(): ServerConnector.postDomSnapshot called
+[0-0] 2019-10-17T17:10:28Z Eyes: [VERBOSE] {00000251830968586486} (): ServerConnector.postDomSnapshot will now call to https://eyesapi.applitools.com/api/sessions/running/data with params {"apiKey":"9RkMajXrzS1Zu110oTWQps102CHiPRPmeyND99E9iL0G7yAc110"}
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} (): ServerConnector.postDomSnapshot - result Created, status code 201, url https://eyesapi.applitools.com/api/sessions/running/data
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} ServerConnector.postDomSnapshot(): ServerConnector.postDomSnapshot - post succeeded
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._getAppOutputWithScreenshot(): domUrl: https://eyesapi.applitools.com/api/sessions/running/data/1571332229_de17b3c2-fa90-4d8d-8f6d-3dc3c83988ba?accessKey=9RkMajXrzS1Zu110oTWQps102CHiPRPmeyND99E9iL0G7yAc110
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO._getAppOutputWithScreenshot(): Done!
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.<init>(): EyesBase.close(false)
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.<init>(): Ending server session...
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.<init>(): Automatically save test? false
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} ServerConnector.stopSession(): ServerConnector.stopSession called with {"isAborted":false,"updateBaseline":false} for session: RunningSession { {"id":"MDAwMDAyNTE4MzA5Njg1ODY2Mjc~;MDAwMDAyNTE4MzA5Njg1ODY0ODY~","sessionId":"00000251830968586486","batchId":"00000251830968586627","baselineId":"8e6cc6a0-2358-4f09-bc27-4b81909a1234.d4dcdd2a-a8da-44d7-aed2-be3e19a80b38.6aPg9xAQPzrOEkVTGU8FW6f3ikIwzt0RyxMA_1ciBVM_.","url":"https://eyes.applitools.com/app/batches/00000251830968586627/00000251830968586486?accountId=6aMzO9JqKUmjcRkCqOUicg~~","isNewSession":false} }
+[0-0] 2019-10-17T17:10:29Z Eyes: [VERBOSE] {00000251830968586486} (): ServerConnector.stopSession will now call to https://eyesapi.applitools.com/api/sessions/running/MDAwMDAyNTE4MzA5Njg1ODY2Mjc~;MDAwMDAyNTE4MzA5Njg1ODY0ODY~ with params {"aborted":false,"updateBaseline":false,"apiKey":"9RkMajXrzS1Zu110oTWQps102CHiPRPmeyND99E9iL0G7yAc110"}
+[0-0] 2019-10-17T17:10:30Z Eyes: [VERBOSE] {00000251830968586486} (): ServerConnector.stopSession - result OK, status code 200, url https://eyesapi.applitools.com/api/sessions/running/MDAwMDAyNTE4MzA5Njg1ODY2Mjc~;MDAwMDAyNTE4MzA5Njg1ODY0ODY~
+[0-0] 2019-10-17T17:10:30Z Eyes: [VERBOSE] {00000251830968586486} ServerConnector.stopSession(): ServerConnector.stopSession - post succeeded TestResults of existing test {"id":"00000251830968586486","name":"MyTest","status":"Unresolved","appName":"WTF","batchName":"WebDriverIO eyes-service tests","batchId":"00000251830968586627","branchName":"default","hostOS":"Mac OS X 10.14","hostApp":"Chrome","hostDisplaySize":{"width":1500,"height":600},"startedAt":"2019-10-17T17:10:13.310Z","duration":16,"isNew":false,"isDifferent":true,"isAborted":false,"appUrls":{"batch":"https://eyes.applitools.com/app/test-results/00000251830968586627?accountId=6aMzO9JqKUmjcRkCqOUicg~~","session":"https://eyes.applitools.com/app/test-results/00000251830968586627/00000251830968586486?accountId=6aMzO9JqKUmjcRkCqOUicg~~"},"apiUrls":{"batch":"https://eyesapi.applitools.com/api/sessions/batches/00000251830968586627","session":"https://eyesapi.applitools.com/api/sessions/batches/00000251830968586627/00000251830968586486"},"stepsInfo":[{"name":"nav bar","isDifferent":false,"hasBaselineImage":true,"hasCurrentImage":false,"appUrls":{"step":"https://eyes.applitools.com/app/test-results/00000251830968586627/00000251830968586486/steps/1?accountId=6aMzO9JqKUmjcRkCqOUicg~~","stepEditor":"https://eyes.applitools.com/app/test-results/00000251830968586627/00000251830968586486/steps/1/edit?accountId=6aMzO9JqKUmjcRkCqOUicg~~"}}],"steps":1,"matches":0,"mismatches":0,"missing":1,"exactMatches":0,"strictMatches":0,"contentMatches":0,"layoutMatches":0,"noneMatches":0}
+[0-0] 2019-10-17T17:10:30Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.<init>(): Results: TestResults of existing test {"id":"00000251830968586486","name":"MyTest","status":"Unresolved","appName":"WTF","batchName":"WebDriverIO eyes-service tests","batchId":"00000251830968586627","branchName":"default","hostOS":"Mac OS X 10.14","hostApp":"Chrome","hostDisplaySize":{"width":1500,"height":600},"startedAt":"2019-10-17T17:10:13.310Z","duration":16,"isNew":false,"isDifferent":true,"isAborted":false,"appUrls":{"batch":"https://eyes.applitools.com/app/test-results/00000251830968586627?accountId=6aMzO9JqKUmjcRkCqOUicg~~","session":"https://eyes.applitools.com/app/test-results/00000251830968586627/00000251830968586486?accountId=6aMzO9JqKUmjcRkCqOUicg~~"},"apiUrls":{"batch":"https://eyesapi.applitools.com/api/sessions/batches/00000251830968586627","session":"https://eyesapi.applitools.com/api/sessions/batches/00000251830968586627/00000251830968586486"},"stepsInfo":[{"name":"nav bar","isDifferent":false,"hasBaselineImage":true,"hasCurrentImage":false,"appUrls":{"step":"https://eyes.applitools.com/app/test-results/00000251830968586627/00000251830968586486/steps/1?accountId=6aMzO9JqKUmjcRkCqOUicg~~","stepEditor":"https://eyes.applitools.com/app/test-results/00000251830968586627/00000251830968586486/steps/1/edit?accountId=6aMzO9JqKUmjcRkCqOUicg~~"}}],"steps":1,"matches":0,"mismatches":0,"missing":1,"exactMatches":0,"strictMatches":0,"contentMatches":0,"layoutMatches":0,"noneMatches":0,"url":"https://eyes.applitools.com/app/batches/00000251830968586627/00000251830968586486?accountId=6aMzO9JqKUmjcRkCqOUicg~~"}
+[0-0] 2019-10-17T17:10:30Z Eyes: [LOG    ] {00000251830968586486} EyesWDIO.<init>(): --- Failed test ended. See details at https://eyes.applitools.com/app/batches/00000251830968586627/00000251830968586486?accountId=6aMzO9JqKUmjcRkCqOUicg~~
+[0-0] TypeError in "EyesServiceTest checkWindow"
+this._eyes.getDefaultMatchSettings(...).getAccessibilityLevel is not a function
+[0-0] 2019-10-17T17:10:30Z Eyes: [VERBOSE] {00000251830968586486} EyesWDIO.abort(): Closed
+[0-0] FAILED in chrome - /tests/nyt.spec.js
+
+ "dot" Reporter:
+F
+
+Spec Files:	 0 passed, 1 failed, 1 total (100% completed) in 00:00:51 
+
