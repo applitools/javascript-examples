@@ -137,6 +137,7 @@ exports.config = {
     ui: 'bdd',
     timeout: 600000
   },
+  
   eyes: {
     batch: { name: 'WebDriverIO eyes-service tests' },
     properties: [

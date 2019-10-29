@@ -1,4 +1,4 @@
-//const { EyesService } = require('@applitools/eyes-webdriverio4-service');
+const { EyesService } = require('@applitools/eyes-webdriverio4-service');
 
 exports.config = {
   // ==================
@@ -102,7 +102,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ['selenium-standalone'],
+  services: ['selenium-standalone', [EyesService]],
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
   // see also: http://webdriver.io/guide/testrunner/frameworks.html
@@ -120,17 +120,17 @@ exports.config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: 120000,
+    timeout: 120000, //increase for visual tests. best practice is to keep tests quick...
     compilers: ['js:babel-register'],
     require: ['./test/helpers/common.js']
   },
   
-  // eyes: {
-  //   batch: 'WebDriverIO eyes-service tests',
-  //   viewport: {width: 1200, height: 700},
-  //   appName: 'Test App Name - Eyes Service',
-  //   stitchMode: 'CSS'
-  // },
+  eyes: {
+    batch: 'WebDriverIO eyes-service tests',
+    viewport: {width: 1200, height: 700},
+    appName: 'Test App Name - Eyes Service',
+    stitchMode: 'CSS'
+  },
   //
   // =====
   // Hooks
