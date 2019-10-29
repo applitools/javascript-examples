@@ -6,7 +6,7 @@ describe('EyesServiceTest233', async () => {
 
   beforeEach( () => {
      browser.url('https://cooking.nytimes.com/');
-    browser.pause(60000);
+     //browser.pause(60000);
   });
 
   it('checkWindow',  () => {
