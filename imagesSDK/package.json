@@ -1,0 +1,17 @@
+{
+  "name": "imagessdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@applitools/eyes-images": "^4.12.34",
+    "@applitools/eyes-selenium": "^4.33.10",
+    "assert-rejects": "^1.0.0",
+    "mocha": "^7.0.1"
+  }
+}

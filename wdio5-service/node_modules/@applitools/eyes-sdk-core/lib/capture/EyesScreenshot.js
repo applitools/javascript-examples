@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
-const { ArgumentGuard, Region } = require('@applitools/eyes-common');
+const {ArgumentGuard, Region} = require('@applitools/eyes-common')
 
 /**
  * Base class for handling screenshots.
@@ -14,15 +14,15 @@ class EyesScreenshot {
    * @param {MutableImage} image
    */
   constructor(image) {
-    ArgumentGuard.notNull(image, 'image');
-    this._image = image;
+    ArgumentGuard.notNull(image, 'image')
+    this._image = image
   }
 
   /**
    * @return {MutableImage} - the screenshot image.
    */
   getImage() {
-    return this._image;
+    return this._image
   }
 
   // noinspection JSUnusedLocalSymbols, JSMethodCanBeStatic
@@ -35,7 +35,7 @@ class EyesScreenshot {
    * @return {Promise<EyesScreenshot>} - A screenshot instance containing the given region.
    */
   getSubScreenshot(region, throwIfClipped) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSUnusedLocalSymbols, JSMethodCanBeStatic
@@ -49,7 +49,7 @@ class EyesScreenshot {
    * @return {Location} - A new location which is the transformation of {@code location} to the {@code to} type.
    */
   convertLocation(location, from, to) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSUnusedLocalSymbols, JSMethodCanBeStatic
@@ -63,7 +63,7 @@ class EyesScreenshot {
    * @throws OutOfBoundsError If the location is not inside the frame's region in the screenshot.
    */
   getLocationInScreenshot(location, coordinatesType) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSUnusedLocalSymbols, JSMethodCanBeStatic
@@ -75,7 +75,7 @@ class EyesScreenshot {
    * @return {Region} - The intersected region, in {@code resultCoordinatesType} coordinates.
    */
   getIntersectedRegion(region, coordinatesType) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   /**
@@ -87,19 +87,19 @@ class EyesScreenshot {
    * @return {Region} - A new region which is the transformation of {@code region} to the {@code to} coordinates type.
    */
   convertRegionLocation(region, from, to) {
-    ArgumentGuard.notNull(region, 'region');
+    ArgumentGuard.notNull(region, 'region')
 
     if (region.isSizeEmpty()) {
-      return new Region(region);
+      return new Region(region)
     }
 
-    ArgumentGuard.notNull(from, 'from');
-    ArgumentGuard.notNull(to, 'to');
+    ArgumentGuard.notNull(from, 'from')
+    ArgumentGuard.notNull(to, 'to')
 
-    const updatedLocation = this.convertLocation(region.getLocation(), from, to);
+    const updatedLocation = this.convertLocation(region.getLocation(), from, to)
 
-    return new Region(updatedLocation, region.getSize());
+    return new Region(updatedLocation, region.getSize())
   }
 }
 
-exports.EyesScreenshot = EyesScreenshot;
+exports.EyesScreenshot = EyesScreenshot

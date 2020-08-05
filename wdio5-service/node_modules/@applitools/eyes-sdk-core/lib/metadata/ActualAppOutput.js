@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils, DateTimeUtils } = require('@applitools/eyes-common');
+const {GeneralUtils, DateTimeUtils} = require('@applitools/eyes-common')
 
-const { ImageMatchSettings } = require('./ImageMatchSettings');
-const { Image } = require('./Image');
+const {ImageMatchSettings} = require('./ImageMatchSettings')
+const {Image} = require('./Image')
 
 class ActualAppOutput {
   // noinspection FunctionWithMoreThanThreeNegationsJS
@@ -20,35 +20,46 @@ class ActualAppOutput {
    * @param {string} tag
    * @param {boolean} isPrimary
    */
-  constructor({ image, thumbprint, imageMatchSettings, ignoreExpectedOutputSettings, isMatching, areImagesMatching,
-    occurredAt, userInputs, windowTitle, tag, isPrimary } = {}) {
+  constructor({
+    image,
+    thumbprint,
+    imageMatchSettings,
+    ignoreExpectedOutputSettings,
+    isMatching,
+    areImagesMatching,
+    occurredAt,
+    userInputs,
+    windowTitle,
+    tag,
+    isPrimary,
+  } = {}) {
     if (image && !(image instanceof Image)) {
-      image = new Image(image);
+      image = new Image(image)
     }
 
     if (thumbprint && !(thumbprint instanceof Image)) {
-      thumbprint = new Image(thumbprint);
+      thumbprint = new Image(thumbprint)
     }
 
     if (imageMatchSettings && !(imageMatchSettings instanceof ImageMatchSettings)) {
-      imageMatchSettings = new ImageMatchSettings(imageMatchSettings);
+      imageMatchSettings = new ImageMatchSettings(imageMatchSettings)
     }
 
     if (occurredAt && !(occurredAt instanceof Date)) {
-      occurredAt = DateTimeUtils.fromISO8601DateTime(occurredAt);
+      occurredAt = DateTimeUtils.fromISO8601DateTime(occurredAt)
     }
 
-    this._image = image;
-    this._thumbprint = thumbprint;
-    this._imageMatchSettings = imageMatchSettings;
-    this._ignoreExpectedOutputSettings = ignoreExpectedOutputSettings;
-    this._isMatching = isMatching;
-    this._areImagesMatching = areImagesMatching;
-    this._occurredAt = occurredAt;
-    this._userInputs = userInputs;
-    this._windowTitle = windowTitle;
-    this._tag = tag;
-    this._isPrimary = isPrimary;
+    this._image = image
+    this._thumbprint = thumbprint
+    this._imageMatchSettings = imageMatchSettings
+    this._ignoreExpectedOutputSettings = ignoreExpectedOutputSettings
+    this._isMatching = isMatching
+    this._areImagesMatching = areImagesMatching
+    this._occurredAt = occurredAt
+    this._userInputs = userInputs
+    this._windowTitle = windowTitle
+    this._tag = tag
+    this._isPrimary = isPrimary
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -56,7 +67,7 @@ class ActualAppOutput {
    * @return {Image}
    */
   getImage() {
-    return this._image;
+    return this._image
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -64,7 +75,7 @@ class ActualAppOutput {
    * @param {Image} value
    */
   setImage(value) {
-    this._image = value;
+    this._image = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -72,7 +83,7 @@ class ActualAppOutput {
    * @return {Image}
    */
   getThumbprint() {
-    return this._thumbprint;
+    return this._thumbprint
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -80,7 +91,7 @@ class ActualAppOutput {
    * @param {Image} value
    */
   setThumbprint(value) {
-    this._thumbprint = value;
+    this._thumbprint = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -88,7 +99,7 @@ class ActualAppOutput {
    * @return {ImageMatchSettings}
    */
   getImageMatchSettings() {
-    return this._imageMatchSettings;
+    return this._imageMatchSettings
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -96,7 +107,7 @@ class ActualAppOutput {
    * @param {ImageMatchSettings} value
    */
   setImageMatchSettings(value) {
-    this._imageMatchSettings = value;
+    this._imageMatchSettings = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -104,7 +115,7 @@ class ActualAppOutput {
    * @return {boolean}
    */
   getIgnoreExpectedOutputSettings() {
-    return this._ignoreExpectedOutputSettings;
+    return this._ignoreExpectedOutputSettings
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -112,7 +123,7 @@ class ActualAppOutput {
    * @param {boolean} value
    */
   setIgnoreExpectedOutputSettings(value) {
-    this._ignoreExpectedOutputSettings = value;
+    this._ignoreExpectedOutputSettings = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -120,7 +131,7 @@ class ActualAppOutput {
    * @return {boolean}
    */
   getIsMatching() {
-    return this._isMatching;
+    return this._isMatching
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -128,7 +139,7 @@ class ActualAppOutput {
    * @param {boolean} value
    */
   setIsMatching(value) {
-    this._isMatching = value;
+    this._isMatching = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -136,7 +147,7 @@ class ActualAppOutput {
    * @return {boolean}
    */
   getAreImagesMatching() {
-    return this._areImagesMatching;
+    return this._areImagesMatching
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -144,7 +155,7 @@ class ActualAppOutput {
    * @param {boolean} value
    */
   setAreImagesMatching(value) {
-    this._areImagesMatching = value;
+    this._areImagesMatching = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -152,7 +163,7 @@ class ActualAppOutput {
    * @return {Date}
    */
   getOccurredAt() {
-    return this._occurredAt;
+    return this._occurredAt
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -160,7 +171,7 @@ class ActualAppOutput {
    * @param {Date} value
    */
   setOccurredAt(value) {
-    this._occurredAt = value;
+    this._occurredAt = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -168,7 +179,7 @@ class ActualAppOutput {
    * @return {object[]}
    */
   getUserInputs() {
-    return this._userInputs;
+    return this._userInputs
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -176,7 +187,7 @@ class ActualAppOutput {
    * @param {object[]} value
    */
   setUserInputs(value) {
-    this._userInputs = value;
+    this._userInputs = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -184,7 +195,7 @@ class ActualAppOutput {
    * @return {string}
    */
   getWindowTitle() {
-    return this._windowTitle;
+    return this._windowTitle
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -192,7 +203,7 @@ class ActualAppOutput {
    * @param {string} value
    */
   setWindowTitle(value) {
-    this._windowTitle = value;
+    this._windowTitle = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -200,7 +211,7 @@ class ActualAppOutput {
    * @return {string}
    */
   getTag() {
-    return this._tag;
+    return this._tag
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -208,7 +219,7 @@ class ActualAppOutput {
    * @param {string} value
    */
   setTag(value) {
-    this._tag = value;
+    this._tag = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -216,7 +227,7 @@ class ActualAppOutput {
    * @return {boolean}
    */
   getIsPrimary() {
-    return this._isPrimary;
+    return this._isPrimary
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -224,22 +235,22 @@ class ActualAppOutput {
    * @param {boolean} value
    */
   setIsPrimary(value) {
-    this._isPrimary = value;
+    this._isPrimary = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `ActualAppOutput { ${JSON.stringify(this)} }`;
+    return `ActualAppOutput { ${JSON.stringify(this)} }`
   }
 }
 
-exports.ActualAppOutput = ActualAppOutput;
+exports.ActualAppOutput = ActualAppOutput

@@ -1,25 +1,35 @@
+import { config } from '../../../../JS-Mocha-WebdriverIO/wdio.conf';
+
 const {
     Eyes,
     BatchInfo,
     ConsoleLogHandler,
+    // FileLogHandler,
     MatchLevel,
-    StitchMode
+    StitchMode,
+    Configuration,
+    ClassicRunner
 } = require('@applitools/eyes-webdriverio');
 
 const sleep = require('sleep');
-
-const eyes = new Eyes(); 
-var BatchId = Math.round((new Date()).getTime() / 1000).toString();
-const batchInfo = new BatchInfo("WebdriverIO5");
-batchInfo.setSequenceName('Insights Batch');
+const runner = new ClassicRunner();
+const eyes = new Eyes(runner); 
 
 class Global {
 
     myEyes(log = false) {
         eyes.setServerUrl("https://eyesapi.applitools.com")
-        //eyes.setBatch({name: "Visual Tests", id: BatchId});
-        eyes.setBatch(batchInfo);
-        eyes.setLogHandler(new ConsoleLogHandler(log));
+        //The batch.id is only needed if you're running in parallel with multiple instances. This is set in the wdio.conf file.
+        //console.log("MY BATCH ID: " + batchId);
+        eyes.setBatch({
+            id: batchId,
+            name: 'WDIO5',
+            sequenceName: 'WDIO5',
+            notifyOnCompletion: true
+        });
+        eyes.setLogHandler(new ConsoleLogHandler(false));
+        //This will write logs to a file. Helpful for debugging issues at Applitools.
+        // eyes.setLogHandler(new FileLogHandler('/user/justin/logs/log.log'));
         eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
         eyes.setForceFullPageScreenshot(true);
         return eyes;
@@ -41,9 +51,11 @@ class Global {
         var pageHeight = await this.getPageHeight();
         for (var j = 0; j < pageHeight; j += (height - 20)) {
             await browser.execute("window.scrollTo(0," + j + ")");
-            sleep.msleep(100);
+            sleep.msleep(200);
             //console.log("\nI AM LAZY LOADING...\n")
         }
+        await browser.execute("window.scrollTo(0,0)");
+        sleep.msleep(500);
     };
 }
 

@@ -15,7 +15,7 @@ describe('VisualGrid - Hello World', function () {
 
   this.timeout(5 * 60 * 1000);
   
-  const runner = new VisualGridRunner(10);
+  const runner = new VisualGridRunner(100);
   const eyes = new Eyes(runner);
   
   const driver = new Builder().forBrowser('chrome').build();
@@ -37,12 +37,12 @@ describe('VisualGrid - Hello World', function () {
     var testName = this.currentTest.title;
 
     const configuration = eyes.getConfiguration();
-
     configuration.setBatch(batchInfo);
     configuration.setAppName(appName);
     configuration.setTestName(testName);
     configuration.addBrowser(1200, 800, BrowserType.CHROME);
-    configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
+    configuration.addBrowser(1200, 800, BrowserType.CHROME_ONE_VERSION_BACK);
+    configuration.addBrowser(1200, 800, BrowserType.SAFARI_ONE_VERSION_BACK);
     configuration.addBrowser(1200, 800, BrowserType.EDGE);
     configuration.addBrowser(1200, 800, BrowserType.IE10);
     configuration.addBrowser(1200, 800, BrowserType.IE11);
@@ -68,7 +68,7 @@ describe('VisualGrid - Hello World', function () {
       await driver.findElement(By.css('button')).click();
       
       // Visual checkpoint #2.
-      await eyes.check('Click!', Target.window().fully());
+      await eyes.check('Click!', Target.window().fully().ignoreDisplacements(true));
       
       await eyes.closeAsync();
   });

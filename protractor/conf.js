@@ -9,18 +9,20 @@ exports.config = {
   //run on sauce
   //seleniumAddress: "https://#{sauceUser}:#{sauceKey}@ondemand.saucelabs.com:443/wd/hub",
 
-  multiCapabilities: [
-   {
-     platform: 'Windows 10',
-     browserName: 'chrome',
-     version: '71.0',
-     screenResolution: '2560x1600'
-   }, {
-     platform: 'Windows 10',
-     browserName: 'firefox',
-     version: '64.0',
-     screenResolution: '2560x1600'
-   }],
+  // multiCapabilities: [
+  //  {
+  //    platform: 'Windows 10',
+  //    browserName: 'chrome',
+  //    version: '71.0',
+  //    screenResolution: '2560x1600'
+  //  }, 
+  //  {
+  //    platform: 'Windows 10',
+  //    browserName: 'firefox',
+  //    version: '64.0',
+  //    screenResolution: '2560x1600'
+  //  }
+  // ],
   
   framework: 'jasmine',
    

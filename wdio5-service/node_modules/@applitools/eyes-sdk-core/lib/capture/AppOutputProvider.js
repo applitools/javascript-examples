@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -17,8 +17,8 @@ class AppOutputProvider {
    * @return {Promise<AppOutputWithScreenshot>}
    */
   getAppOutput(region, lastScreenshot, checkSettings) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 }
 
-exports.AppOutputProvider = AppOutputProvider;
+exports.AppOutputProvider = AppOutputProvider

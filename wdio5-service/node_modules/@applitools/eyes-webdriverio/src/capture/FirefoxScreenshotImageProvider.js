@@ -40,7 +40,7 @@ class FirefoxScreenshotImageProvider extends ImageProvider {
     if (frameChain.size() > 0) {
       // Frame frame = frameChain.peek();
       // Region region = this._eyes.getRegionToCheck();
-      const screenshot = await EyesWDIOScreenshot.fromScreenshotType(this._logger, this._eyes.getDriver(), image);
+      const screenshot = await EyesWDIOScreenshot.fromScreenshotType({logger: this._logger, driver: this._eyes.getDriver(), image});
 
       const viewportSize = await this._eyes.getViewportSize();
       const location = screenshot.getFrameWindow().getLocation();

@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { ScaleProviderFactory } = require('./ScaleProviderFactory');
+const {ScaleProviderFactory} = require('./ScaleProviderFactory')
 
 /**
  * Factory implementation which simply returns the scale provider it is given as an argument.
@@ -13,8 +13,8 @@ class ScaleProviderIdentityFactory extends ScaleProviderFactory {
    * @param {PropertyHandler} scaleProviderHandler - A handler to update once a {@link ScaleProvider} instance is created.
    */
   constructor(scaleProvider, scaleProviderHandler) {
-    super(scaleProviderHandler);
-    this._scaleProvider = scaleProvider;
+    super(scaleProviderHandler)
+    this._scaleProvider = scaleProvider
   }
 
   /**
@@ -24,9 +24,10 @@ class ScaleProviderIdentityFactory extends ScaleProviderFactory {
    *   factory, but this is not mandatory.
    * @return {ScaleProvider} - The scale provider to be used.
    */
-  getScaleProviderImpl(imageToScaleWidth) { // eslint-disable-line no-unused-vars
-    return this._scaleProvider;
+  getScaleProviderImpl(imageToScaleWidth) {
+    // eslint-disable-line no-unused-vars
+    return this._scaleProvider
   }
 }
 
-exports.ScaleProviderIdentityFactory = ScaleProviderIdentityFactory;
+exports.ScaleProviderIdentityFactory = ScaleProviderIdentityFactory

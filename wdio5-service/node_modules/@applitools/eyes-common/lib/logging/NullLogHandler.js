@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-const { LogHandler } = require('./LogHandler');
+const {LogHandler} = require('./LogHandler')
 
 /**
  * Ignores all log messages.
  */
 class NullLogHandler extends LogHandler {}
 
-exports.NullLogHandler = NullLogHandler;
+exports.NullLogHandler = NullLogHandler

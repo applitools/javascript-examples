@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * Encapsulates scaling logic.
@@ -12,4 +12,4 @@ class ScaleProvider {
   getScaleRatio() {}
 }
 
-exports.ScaleProvider = ScaleProvider;
+exports.ScaleProvider = ScaleProvider

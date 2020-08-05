@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * Encapsulates image retrieval.
@@ -11,7 +11,7 @@ class Trigger {
    * @return {Trigger.TriggerType}
    */
   getTriggerType() {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 }
 
@@ -24,7 +24,7 @@ Trigger.TriggerType = {
   Mouse: 'Mouse',
   Text: 'Text',
   Keyboard: 'Keyboard',
-};
+}
 
-Object.freeze(Trigger.TriggerType);
-exports.Trigger = Trigger;
+Object.freeze(Trigger.TriggerType)
+exports.Trigger = Trigger

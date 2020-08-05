@@ -44,14 +44,19 @@ describe('/mac-pro', async () => {
     });
 
     afterEach(async function () {
-        await eyes.close(false)
-        .then(function (results) {
-            console.log("My Results: " + results);
-            //assert.equal(results._status, 'Passed');
-        });
+        try {
+            await eyes.close(false)
+            .then(function (results) {
+                console.log("My Results: " + results);
+                //assert.equal(results._status, 'Passed');
+            });
+        } finally {
+            await eyes.abort();
+        }
+        
     });
 
     after(async function () {
-        await eyes.abortIfNotClosed()
+        await eyes.getRunner().getAllTestResults(false);
     });
 });

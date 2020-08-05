@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { EyesError } = require('@applitools/eyes-common');
+const {EyesError} = require('@applitools/eyes-common')
 
 /**
  * Encapsulates an error converting between two coordinate types.
@@ -14,11 +14,11 @@ class CoordinatesTypeConversionError extends EyesError {
    */
   constructor(fromOrMsg, to) {
     if (arguments.length === 2) {
-      super(`Cannot convert from '${fromOrMsg}' to '${to}'`);
+      super(`Cannot convert from '${fromOrMsg}' to '${to}'`)
     } else {
-      super(fromOrMsg);
+      super(fromOrMsg)
     }
   }
 }
 
-exports.CoordinatesTypeConversionError = CoordinatesTypeConversionError;
+exports.CoordinatesTypeConversionError = CoordinatesTypeConversionError

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -13,7 +13,7 @@ class PositionProvider {
    * @return {Promise<Location>} - The current position, or {@code null} if position is not available.
    */
   async getCurrentPosition() {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSMethodCanBeStatic
@@ -24,7 +24,7 @@ class PositionProvider {
    * @return {Promise<Location>}
    */
   async setPosition(location) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSMethodCanBeStatic
@@ -32,7 +32,7 @@ class PositionProvider {
    * @return {Promise<RectangleSize>} - The entire size of the container which the position is relative to.
    */
   async getEntireSize() {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSMethodCanBeStatic
@@ -46,7 +46,7 @@ class PositionProvider {
    *   passing it as a parameter to {@link #restoreState}.
    */
   async getState() {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSMethodCanBeStatic
@@ -57,7 +57,7 @@ class PositionProvider {
    * @return {Promise}
    */
   async restoreState(state) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSMethodCanBeStatic
@@ -65,15 +65,15 @@ class PositionProvider {
    * @return {*}
    */
   async getScrolledElement() {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   /**
    * @override
    */
   toString() {
-    return this.constructor.name;
+    return this.constructor.name
   }
 }
 
-exports.PositionProvider = PositionProvider;
+exports.PositionProvider = PositionProvider

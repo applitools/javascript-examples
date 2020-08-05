@@ -105,27 +105,38 @@ class EyesWDIOScreenshot extends EyesScreenshot {
   /**
    * Creates a frame(!) window screenshot from screenshot type and location.
    *
-   * @param {Logger} logger A Logger instance.
-   * @param {EyesWebDriver} driver The web driver used to get the screenshot.
-   * @param {MutableImage} image The actual screenshot image.
-   * @param {ScreenshotType} [screenshotType] The screenshot's type (e.g., viewport/full page).
-   * @param {Location} [frameLocationInScreenshot[ The current frame's location in the screenshot.
+   * @param {Logger} logger - A Logger instance.
+   * @param {EyesWebDriver} driver - The web driver used to get the screenshot.
+   * @param {MutableImage} image - The actual screenshot image.
+   * @param {ScreenshotType} [screenshotType] - The screenshot's type (e.g., viewport/full page).
+   * @param {Location} [frameLocationInScreenshot[ - The current frame's location in the screenshot.
+   * @param {boolean} [isMobile]
    * @return {Promise<EyesWDIOScreenshot>}
    */
-  static async fromScreenshotType(logger, driver, image, screenshotType, frameLocationInScreenshot) {
+  static async fromScreenshotType({logger, driver, image, screenshotType, frameLocationInScreenshot, isMobile = false}) {
     const screenshot = new EyesWDIOScreenshot(logger, driver, image);
 
     screenshot._screenshotType = await screenshot._updateScreenshotType(screenshotType, image);
     const positionProvider = driver.eyes.getPositionProvider();
 
-    screenshot._frameChain = driver.getFrameChain();
-    const frameSize = await screenshot._getFrameSize(positionProvider);
+    let frameSize;
+    if (!isMobile) {
+      screenshot._frameChain = driver.getFrameChain();
+      frameSize = await screenshot._getFrameSize(positionProvider);
 
-    screenshot._currentFrameScrollPosition = await screenshot._getUpdatedScrollPosition(positionProvider);
-    screenshot._frameLocationInScreenshot = await screenshot._getUpdatedFrameLocationInScreenshot(frameLocationInScreenshot);
+      screenshot._currentFrameScrollPosition = await screenshot._getUpdatedScrollPosition(positionProvider);
+      screenshot._frameLocationInScreenshot = await screenshot._getUpdatedFrameLocationInScreenshot(frameLocationInScreenshot);
 
-    logger.verbose('Calculating frame window...');
-    screenshot._frameWindow = new Region(screenshot._frameLocationInScreenshot, frameSize);
+      logger.verbose('Calculating frame window...');
+      screenshot._frameWindow = new Region(screenshot._frameLocationInScreenshot, frameSize);
+    } else {
+      screenshot._frameChain = new FrameChain(logger);
+      screenshot._currentFrameScrollPosition = Location.ZERO;
+      screenshot._frameLocationInScreenshot = Location.ZERO;
+
+      screenshot._frameWindow = new Region(screenshot._frameLocationInScreenshot, new RectangleSize(image.getWidth(), image.getHeight()));
+    }
+
     screenshot._frameWindow.intersect(new Region(0, 0, image.getWidth(), image.getHeight()));
 
     if (screenshot._frameWindow.getWidth() <= 0 || screenshot._frameWindow.getHeight() <= 0) {
@@ -315,7 +326,7 @@ class EyesWDIOScreenshot extends EyesScreenshot {
         }
 
         if (image.getWidth() <= viewportSize.getWidth() && image.getHeight() <= viewportSize.getHeight()
-        || (that._driver.eyes._checkSettings.getFrameChain().length > 0 // workaround: define screenshotType as VIEWPORT
+          || (that._driver.eyes._checkSettings.getFrameChain().length > 0 // workaround: define screenshotType as VIEWPORT
             && that._driver.eyes._userAgent.getBrowser() === BrowserNames.Firefox
             && parseInt(that._driver.eyes._userAgent.getBrowserMajorVersion(), 10) < 48)) {
           return ScreenshotType.VIEWPORT;
@@ -367,7 +378,7 @@ class EyesWDIOScreenshot extends EyesScreenshot {
     return this._image.getImagePart(asIsSubScreenshotRegion).then(subScreenshotImage => {
       const result = new EyesWDIOScreenshot(that._logger, that._driver, subScreenshotImage);
       return result.initFromFrameSize(new RectangleSize(subScreenshotImage.getWidth(), subScreenshotImage.getHeight()));
-    }).then(/** EyesWDIOScreenshot */ result => {
+    }).then(/** EyesWDIOScreenshot */result => {
       result._frameLocationInScreenshot = new Location(-region.getLeft(), -region.getTop());
       that._logger.verbose("Done!");
       return result;

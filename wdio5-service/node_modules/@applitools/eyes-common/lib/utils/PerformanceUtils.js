@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-const MS_IN_S = 1000;
-const MS_IN_M = 60000;
-const NS_IN_MS = 1000000;
+const MS_IN_S = 1000
+const MS_IN_M = 60000
+const NS_IN_MS = 1000000
 
-const timeStorage = {};
+const timeStorage = {}
 
 /**
  * @private
@@ -12,20 +12,20 @@ const timeStorage = {};
 class Time {
   constructor(name) {
     if (name) {
-      this._name = String(name);
+      this._name = String(name)
     }
   }
 
   reset() {
-    this._startTime = null;
-    this._elapsedTime = null;
+    this._startTime = null
+    this._elapsedTime = null
 
-    this._result = null;
+    this._result = null
   }
 
   start() {
-    this.reset();
-    this._startTime = process.hrtime();
+    this.reset()
+    this._startTime = process.hrtime()
   }
 
   /**
@@ -33,26 +33,26 @@ class Time {
    */
   end() {
     if (!this._startTime) {
-      throw new Error('start() should be called first!');
+      throw new Error('start() should be called first!')
     }
 
-    this._elapsedTime = process.hrtime(this._startTime);
-    const elapsedMs = (this._elapsedTime[0] * MS_IN_S) + (this._elapsedTime[1] / NS_IN_MS);
+    this._elapsedTime = process.hrtime(this._startTime)
+    const elapsedMs = this._elapsedTime[0] * MS_IN_S + this._elapsedTime[1] / NS_IN_MS
 
     this._result = {
       name: this._name || '',
       time: Number(elapsedMs.toFixed(3)),
       summary: PerformanceUtils.elapsedString(elapsedMs),
-    };
+    }
 
-    return this._result;
+    return this._result
   }
 
   /**
    * @return {?{name: string, time: number, summary: string}}
    */
   result() {
-    return this._result;
+    return this._result
   }
 }
 
@@ -68,14 +68,14 @@ class PerformanceUtils {
    * @return {Time}
    */
   static start(name, storeResults = true) {
-    const time = new Time(name);
-    time.storeResults = storeResults;
-    time.start();
+    const time = new Time(name)
+    time.storeResults = storeResults
+    time.start()
 
     if (name && storeResults) {
-      timeStorage[name] = time;
+      timeStorage[name] = time
     }
-    return time;
+    return time
   }
 
   /**
@@ -85,24 +85,24 @@ class PerformanceUtils {
    */
   static end(name, deleteResults = false) {
     if (!name) {
-      throw new Error('Instance name required!');
+      throw new Error('Instance name required!')
     }
 
-    const time = timeStorage[name];
+    const time = timeStorage[name]
     if (!time) {
-      throw new Error(`No time instance with name: ${name}`);
+      throw new Error(`No time instance with name: ${name}`)
     }
 
     if (time.result()) {
-      return time.result();
+      return time.result()
     }
 
-    const result = time.end();
+    const result = time.end()
     if (deleteResults) {
-      delete timeStorage[name];
+      delete timeStorage[name]
     }
 
-    return result;
+    return result
   }
 
   /**
@@ -111,15 +111,15 @@ class PerformanceUtils {
    */
   static result(name) {
     if (!name) {
-      throw new Error('Instance name required!');
+      throw new Error('Instance name required!')
     }
 
-    const time = timeStorage[name];
+    const time = timeStorage[name]
     if (!time) {
-      throw new Error(`No time instance with name: ${name}`);
+      throw new Error(`No time instance with name: ${name}`)
     }
 
-    return time.result();
+    return time.result()
   }
 
   /**
@@ -129,20 +129,20 @@ class PerformanceUtils {
    * @return {string} - formatted string
    */
   static elapsedString(milliseconds) {
-    const minutes = Math.floor(milliseconds / MS_IN_M);
+    const minutes = Math.floor(milliseconds / MS_IN_M)
     if (minutes > 0) {
-      milliseconds -= minutes * MS_IN_M;
+      milliseconds -= minutes * MS_IN_M
     }
-    const seconds = Math.floor(milliseconds / MS_IN_S);
+    const seconds = Math.floor(milliseconds / MS_IN_S)
     if (seconds > 0) {
-      milliseconds -= seconds * MS_IN_S;
+      milliseconds -= seconds * MS_IN_S
     }
 
     if (minutes > 0) {
-      return `${minutes}m ${seconds}s ${milliseconds}ms`;
+      return `${minutes}m ${seconds}s ${milliseconds}ms`
     }
-    return `${seconds}s ${milliseconds}ms`;
+    return `${seconds}s ${milliseconds}ms`
   }
 }
 
-exports.PerformanceUtils = PerformanceUtils;
+exports.PerformanceUtils = PerformanceUtils

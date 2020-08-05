@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 function resourceType(contentType) {
   if (/text\/css/.test(contentType)) {
-    return 'CSS';
+    return 'CSS'
   } else if (/image\/svg/.test(contentType)) {
-    return 'SVG';
+    return 'SVG'
   }
 }
 
-module.exports = resourceType;
+module.exports = resourceType

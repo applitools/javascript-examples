@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const { EyesScreenshotFactory } = require('./EyesScreenshotFactory');
-const { EyesSimpleScreenshot } = require('./EyesSimpleScreenshot');
+const {EyesScreenshotFactory} = require('./EyesScreenshotFactory')
+const {EyesSimpleScreenshot} = require('./EyesSimpleScreenshot')
 
 /**
  * Encapsulates the instantiation of an EyesSimpleScreenshot.
@@ -15,8 +15,8 @@ class EyesSimpleScreenshotFactory extends EyesScreenshotFactory {
    * @return {Promise<EyesSimpleScreenshot>}
    */
   async makeScreenshot(image) {
-    return new EyesSimpleScreenshot(image);
+    return new EyesSimpleScreenshot(image)
   }
 }
 
-exports.EyesSimpleScreenshotFactory = EyesSimpleScreenshotFactory;
+exports.EyesSimpleScreenshotFactory = EyesSimpleScreenshotFactory

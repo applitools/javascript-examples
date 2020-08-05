@@ -1,0 +1,21 @@
+{
+  "name": "eyes-protractor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@applitools/eyes-protractor": "1.1.0",
+    "mocha": "^6.2.2",
+    "protractor": "^7.0.0",
+    "pry": "^0.8.12",
+    "pryjs": "^1.0.3",
+    "from": "^0.1.7",
+    "import": "0.0.6"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-const PromisePool = require('es6-promise-pool');
+const PromisePool = require('es6-promise-pool')
 
-const { ArgumentGuard } = require('@applitools/eyes-common');
+const {ArgumentGuard} = require('@applitools/eyes-common')
 
-const { RenderStatus } = require('./renderer/RenderStatus');
+const {RenderStatus} = require('./renderer/RenderStatus')
 
-const DEFAULT_CONCURRENCY_LIMIT = 100;
+const DEFAULT_CONCURRENCY_LIMIT = 100
 
 /**
  * @ignore
@@ -17,11 +17,11 @@ class RenderWindowTask {
    * @param {ServerConnector} serverConnector - Our gateway to the agent
    */
   constructor(logger, serverConnector) {
-    ArgumentGuard.notNull(logger, 'logger');
-    ArgumentGuard.notNull(serverConnector, 'serverConnector');
+    ArgumentGuard.notNull(logger, 'logger')
+    ArgumentGuard.notNull(serverConnector, 'serverConnector')
 
-    this._logger = logger;
-    this._serverConnector = serverConnector;
+    this._logger = logger
+    this._serverConnector = serverConnector
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -30,9 +30,9 @@ class RenderWindowTask {
    * @return {Promise<string>} - Rendered image URL
    */
   async renderWindow(renderRequest) {
-    const runningRender = await this.postRender(renderRequest);
-    const renderStatus = await this.getRenderStatus(runningRender);
-    return renderStatus.getImageLocation();
+    const runningRender = await this.postRender(renderRequest)
+    const renderStatus = await this.getRenderStatus(runningRender)
+    return renderStatus.getImageLocation()
   }
 
   /**
@@ -40,15 +40,15 @@ class RenderWindowTask {
    * @return {Promise<RunningRender>}
    */
   async postRender(renderRequest) {
-    const newRender = await this._serverConnector.render(renderRequest);
+    const newRender = await this._serverConnector.render(renderRequest)
     if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
-      renderRequest.setRenderId(newRender.getRenderId());
+      renderRequest.setRenderId(newRender.getRenderId())
 
-      await this.putResources(renderRequest.getDom(), newRender);
-      return this.postRender(renderRequest);
+      await this.putResources(renderRequest.getDom(), newRender)
+      return this.postRender(renderRequest)
     }
 
-    return newRender;
+    return newRender
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -57,7 +57,7 @@ class RenderWindowTask {
    * @return {Promise<RunningRender>}
    */
   postRenderBatch(renderRequests) {
-    return this._serverConnector.render(renderRequests);
+    return this._serverConnector.render(renderRequests)
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -66,12 +66,12 @@ class RenderWindowTask {
    * @return {Promise}
    */
   async checkAndPutResources(renderRequest) {
-    const newRender = await this._serverConnector.render(renderRequest);
+    const newRender = await this._serverConnector.render(renderRequest)
     if (newRender.getRenderStatus() === RenderStatus.NEED_MORE_RESOURCES) {
-      return this.putResources(renderRequest.getDom(), newRender);
+      return this.putResources(renderRequest.getDom(), newRender)
     }
 
-    return null;
+    return null
   }
 
   /**
@@ -80,16 +80,22 @@ class RenderWindowTask {
    * @return {Promise<RenderStatusResults>}
    */
   async getRenderStatus(runningRender, delayBeforeRequest = false) {
-    const renderStatusResults = await this._serverConnector.renderStatus(runningRender, delayBeforeRequest);
-    if (renderStatusResults.getStatus() === undefined || renderStatusResults.getStatus() === RenderStatus.RENDERING) {
-      return this.getRenderStatus(runningRender, true);
+    const renderStatusResults = await this._serverConnector.renderStatus(
+      runningRender,
+      delayBeforeRequest,
+    )
+    if (
+      renderStatusResults.getStatus() === undefined ||
+      renderStatusResults.getStatus() === RenderStatus.RENDERING
+    ) {
+      return this.getRenderStatus(runningRender, true)
     }
 
     if (renderStatusResults.getStatus() === RenderStatus.ERROR) {
-      throw new Error(renderStatusResults.getError());
+      throw new Error(renderStatusResults.getError())
     }
 
-    return renderStatusResults;
+    return renderStatusResults
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -99,7 +105,7 @@ class RenderWindowTask {
    * @return {Promise<RenderStatusResults[]>}
    */
   getRenderStatusBatch(renderIds, delayBeforeRequest) {
-    return this._serverConnector.renderStatusById(renderIds, delayBeforeRequest);
+    return this._serverConnector.renderStatusById(renderIds, delayBeforeRequest)
   }
 
   /**
@@ -110,23 +116,23 @@ class RenderWindowTask {
    */
   async putResources(rGridDom, runningRender, concurrency = DEFAULT_CONCURRENCY_LIMIT) {
     if (runningRender.getNeedMoreDom()) {
-      await this._serverConnector.renderPutResource(runningRender, rGridDom.asResource());
+      await this._serverConnector.renderPutResource(runningRender, rGridDom.asResource())
     }
 
     if (runningRender.getNeedMoreResources()) {
-      const resources = rGridDom.getResources();
+      const resources = rGridDom.getResources()
 
       const pool = new PromisePool(function* generatePutResourcesPromises() {
         for (let l = resources.length - 1; l >= 0; l -= 1) {
           if (runningRender.getNeedMoreResources().includes(resources[l].getUrl())) {
-            yield this._serverConnector.renderPutResource(runningRender, resources[l]);
+            yield this._serverConnector.renderPutResource(runningRender, resources[l])
           }
         }
-      }, concurrency);
+      }, concurrency)
 
-      await pool.start();
+      await pool.start()
     }
   }
 }
 
-exports.RenderWindowTask = RenderWindowTask;
+exports.RenderWindowTask = RenderWindowTask

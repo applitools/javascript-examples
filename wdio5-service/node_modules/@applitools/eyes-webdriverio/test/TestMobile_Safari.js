@@ -12,7 +12,7 @@ const test = new Common({testedPageUrl: testedPageUrl, mobileBrowser: true});
 describe(appName, function () {
 
   before(function () {
-    test.beforeTest({});
+    return test.beforeTest({});
   });
 
   beforeEach(function () {
@@ -37,7 +37,7 @@ describe(appName, function () {
   });
 
   after(function () {
-    test.afterTest();
+    return test.afterTest();
   });
 
   TestMobile.shouldBehaveLike('TestMobile', test);

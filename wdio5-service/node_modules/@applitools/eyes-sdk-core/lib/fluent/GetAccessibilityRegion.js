@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -14,8 +14,8 @@ class GetAccessibilityRegion {
    * @return {Promise<AccessibilityMatchSettings[]>}
    */
   async getRegion(eyesBase, screenshot) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 }
 
-exports.GetAccessibilityRegion = GetAccessibilityRegion;
+exports.GetAccessibilityRegion = GetAccessibilityRegion

@@ -1,6 +1,6 @@
 exports.config = {
-  user: process.env.BROWSERSTACK_USERNAME || 'yourBSUser',
-  key: process.env.BROWSERSTACK_ACCESS_KEY || 'YourAPIKey',
+  user: process.env.BROWSERSTACK_USERNAME,
+  key: process.env.BROWSERSTACK_ACCESS_KEY,
 
   updateJob: false,
   specs: [
@@ -9,11 +9,14 @@ exports.config = {
   exclude: [],
 
   capabilities: [{
-    browserName: 'chrome',
-    // os_version : '7.0',
-    // device : 'Samsung Galaxy S8',
-    // real_mobile : 'true'
-  }],
+    "os_version" : "12",
+    "device" : "iPhone 8",
+    "real_mobile" : "true",
+    "browserstack.local" : "false",
+    "browserstack.user" : "applitools",
+    "browserstack.key" : "zBo67o7BsoKhdkf8Va4u",
+    "browserName" : "iPhone"
+    }],
 
   logLevel: 'verbose',
   coloredLogs: true,
@@ -29,6 +32,6 @@ exports.config = {
   framework: 'mocha',
   mochaOpts: {
     ui: 'bdd',
-    timeout: 120000
+    timeout: 120000000
   }
 }

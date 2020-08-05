@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -74,4 +74,4 @@ class SessionEventHandler {
   validationEnded(autSessionId, validationId, validationResult) {}
 }
 
-exports.SessionEventHandler = SessionEventHandler;
+exports.SessionEventHandler = SessionEventHandler

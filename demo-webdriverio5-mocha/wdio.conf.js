@@ -1,16 +1,18 @@
 const { join } = require('path');
 const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
+const { NullCutProvider } = require('@applitools/eyes-webdriverio');
+let batchId = String;
 
 exports.config = {
     runner: 'local',
     hostname: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    specs: ['./test/e2e/specs/GitHub.js'],
-    //maxInstances: 5,
+    specs: ['./test/e2e/specs/*.js'],
+    maxInstances: 50,
     capabilities: [
         {
-            maxInstances: 10,
+            // maxInstances: 50,
             browserName: 'chrome',
             // 'safari.options': {
             //     technologyPreview: true
@@ -47,7 +49,7 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         compilers: ['js:@babel/register'],
-        timeout: 120000,
+        timeout: 1200000000,
         bail: 0
     },
     
@@ -57,8 +59,14 @@ exports.config = {
         [TimelineService],
         // Uncomment to run tests with Selenium Standalone, if you have JDK installed.
         ['selenium-standalone'],
+
     ],
+    // seleniumArgs: { javaArgs: ['-Dwebdriver.edge.driver=/Users/justin/Downloads/msedgedriver2'] },
     before() {
         browser.setWindowSize(1200, 800);
     },
+
+    beforeSession() {
+        global.batchId = Math.round((new Date()).getTime() / 1000).toString();
+     },
 };

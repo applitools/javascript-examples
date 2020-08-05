@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * The extent in which two images match (or are expected to match).
@@ -41,7 +41,7 @@ const MatchLevel = {
    * Images are identical.
    */
   Exact: 'Exact',
-};
+}
 
-Object.freeze(MatchLevel);
-exports.MatchLevel = MatchLevel;
+Object.freeze(MatchLevel)
+exports.MatchLevel = MatchLevel

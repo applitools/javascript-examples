@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @readonly
@@ -24,7 +24,7 @@ const RenderStatus = {
    * A rendering finished with an error
    */
   ERROR: 'error',
-};
+}
 
-Object.freeze(RenderStatus);
-exports.RenderStatus = RenderStatus;
+Object.freeze(RenderStatus)
+exports.RenderStatus = RenderStatus

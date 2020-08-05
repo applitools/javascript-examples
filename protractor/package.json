@@ -4,8 +4,12 @@
   "description": "",
   "main": "conf.js",
   "dependencies": {
-    "protractor": "^5.4.2",
-    "eyes.selenium": "^3.7.0"
+    "eyes.selenium": "^3.9.0",
+    "from": "^0.1.7",
+    "import": "0.0.6",
+    "protractor": "^7.0.0",
+    "pry": "^0.8.12",
+    "pryjs": "^1.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const { ScaleProviderFactory } = require('./ScaleProviderFactory');
-const { ContextBasedScaleProvider } = require('./ContextBasedScaleProvider');
+const {ScaleProviderFactory} = require('./ScaleProviderFactory')
+const {ContextBasedScaleProvider} = require('./ContextBasedScaleProvider')
 
 /**
  * Factory implementation for creating {@link ContextBasedScaleProvider} instances.
@@ -18,14 +18,21 @@ class ContextBasedScaleProviderFactory extends ScaleProviderFactory {
    * @param {boolean} isMobileDevice
    * @param {PropertyHandler} scaleProviderHandler
    */
-  constructor(logger, topLevelContextEntireSize, viewportSize, devicePixelRatio, isMobileDevice, scaleProviderHandler) {
-    super(scaleProviderHandler);
+  constructor(
+    logger,
+    topLevelContextEntireSize,
+    viewportSize,
+    devicePixelRatio,
+    isMobileDevice,
+    scaleProviderHandler,
+  ) {
+    super(scaleProviderHandler)
 
-    this._logger = logger;
-    this._topLevelContextEntireSize = topLevelContextEntireSize;
-    this._viewportSize = viewportSize;
-    this._devicePixelRatio = devicePixelRatio;
-    this._isMobileDevice = isMobileDevice;
+    this._logger = logger
+    this._topLevelContextEntireSize = topLevelContextEntireSize
+    this._viewportSize = viewportSize
+    this._devicePixelRatio = devicePixelRatio
+    this._isMobileDevice = isMobileDevice
   }
 
   /**
@@ -42,11 +49,11 @@ class ContextBasedScaleProviderFactory extends ScaleProviderFactory {
       this._topLevelContextEntireSize,
       this._viewportSize,
       this._devicePixelRatio,
-      this._isMobileDevice
-    );
-    scaleProvider.updateScaleRatio(imageToScaleWidth);
-    return scaleProvider;
+      this._isMobileDevice,
+    )
+    scaleProvider.updateScaleRatio(imageToScaleWidth)
+    return scaleProvider
   }
 }
 
-exports.ContextBasedScaleProviderFactory = ContextBasedScaleProviderFactory;
+exports.ContextBasedScaleProviderFactory = ContextBasedScaleProviderFactory

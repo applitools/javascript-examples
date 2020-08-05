@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const { FixedScaleProvider } = require('./FixedScaleProvider');
-const { ScaleProviderFactory } = require('./ScaleProviderFactory');
+const {FixedScaleProvider} = require('./FixedScaleProvider')
+const {ScaleProviderFactory} = require('./ScaleProviderFactory')
 
 /**
  * @ignore
@@ -12,9 +12,9 @@ class FixedScaleProviderFactory extends ScaleProviderFactory {
    * @param {PropertyHandler} scaleProviderHandler
    */
   constructor(scaleRatio, scaleProviderHandler) {
-    super(scaleProviderHandler);
+    super(scaleProviderHandler)
 
-    this._fixedScaleProvider = new FixedScaleProvider(scaleRatio);
+    this._fixedScaleProvider = new FixedScaleProvider(scaleRatio)
   }
 
   /**
@@ -24,9 +24,10 @@ class FixedScaleProviderFactory extends ScaleProviderFactory {
    *   factory, but this is not mandatory.
    * @return {ScaleProvider} - The scale provider to be used.
    */
-  getScaleProviderImpl(imageToScaleWidth) { // eslint-disable-line no-unused-vars
-    return this._fixedScaleProvider;
+  getScaleProviderImpl(imageToScaleWidth) {
+    // eslint-disable-line no-unused-vars
+    return this._fixedScaleProvider
   }
 }
 
-exports.FixedScaleProviderFactory = FixedScaleProviderFactory;
+exports.FixedScaleProviderFactory = FixedScaleProviderFactory

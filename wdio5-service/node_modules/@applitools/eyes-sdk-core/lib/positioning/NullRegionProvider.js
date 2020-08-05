@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-const { Region } = require('@applitools/eyes-common');
+const {Region} = require('@applitools/eyes-common')
 
-const { RegionProvider } = require('./RegionProvider');
+const {RegionProvider} = require('./RegionProvider')
 
 class NullRegionProvider extends RegionProvider {
   constructor() {
-    super(Region.EMPTY);
+    super(Region.EMPTY)
   }
 }
 
-exports.NullRegionProvider = NullRegionProvider;
+exports.NullRegionProvider = NullRegionProvider

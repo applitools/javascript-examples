@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { LogHandler } = require('./LogHandler');
+const {LogHandler} = require('./LogHandler')
 
 /**
  * Write log messages to the browser/node console
@@ -15,9 +15,9 @@ class ConsoleLogHandler extends LogHandler {
    */
   onMessage(verbose, logString) {
     if (!verbose || this.getIsVerbose()) {
-      console.log(logString); // eslint-disable-line no-console
+      console.log(logString) // eslint-disable-line no-console
     }
   }
 }
 
-exports.ConsoleLogHandler = ConsoleLogHandler;
+exports.ConsoleLogHandler = ConsoleLogHandler

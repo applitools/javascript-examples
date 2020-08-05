@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const { ArgumentGuard } = require('../utils/ArgumentGuard');
-const { GeneralUtils } = require('../utils/GeneralUtils');
-const { TypeUtils } = require('../utils/TypeUtils');
-const { MatchLevel } = require('./MatchLevel');
-const { AccessibilityLevel } = require('./AccessibilityLevel');
-const { ExactMatchSettings } = require('./ExactMatchSettings');
+const {ArgumentGuard} = require('../utils/ArgumentGuard')
+const {GeneralUtils} = require('../utils/GeneralUtils')
+const {TypeUtils} = require('../utils/TypeUtils')
+const {MatchLevel} = require('./MatchLevel')
+const {AccessibilityLevel} = require('./AccessibilityLevel')
+const {ExactMatchSettings} = require('./ExactMatchSettings')
 
 const DEFAULT_VALUES = {
   matchLevel: MatchLevel.Strict,
@@ -14,7 +14,7 @@ const DEFAULT_VALUES = {
   useDom: false,
   enablePatterns: false,
   ignoreDisplacements: false,
-};
+}
 
 /**
  * Encapsulates match settings for the a session.
@@ -35,45 +35,65 @@ class ImageMatchSettings {
    * @param {FloatingMatchSettings[]} [floating]
    * @param {AccessibilityLevel} [accessibilityLevel]
    */
-  constructor({ matchLevel, exact, ignoreCaret, useDom, enablePatterns, ignoreDisplacements, ignore, layout, strict, content, accessibility, floating, accessibilityLevel } = {}) {
+  constructor({
+    matchLevel,
+    exact,
+    ignoreCaret,
+    useDom,
+    enablePatterns,
+    ignoreDisplacements,
+    ignore,
+    layout,
+    strict,
+    content,
+    accessibility,
+    floating,
+    accessibilityLevel,
+  } = {}) {
     if (arguments.length > 1) {
-      throw new TypeError('Please, use object as a parameter to the constructor!');
+      throw new TypeError('Please, use object as a parameter to the constructor!')
     }
 
-    ArgumentGuard.isValidEnumValue(matchLevel, MatchLevel, false);
-    ArgumentGuard.isValidEnumValue(accessibilityLevel, AccessibilityLevel, false);
-    ArgumentGuard.isBoolean(ignoreCaret, 'ignoreCaret', false);
-    ArgumentGuard.isBoolean(useDom, 'useDom', false);
-    ArgumentGuard.isBoolean(enablePatterns, 'enablePatterns', false);
-    ArgumentGuard.isBoolean(ignoreDisplacements, 'ignoreDisplacements', false);
-    ArgumentGuard.isArray(ignore, 'ignore', false);
-    ArgumentGuard.isArray(layout, 'layout', false);
-    ArgumentGuard.isArray(strict, 'strict', false);
-    ArgumentGuard.isArray(content, 'content', false);
-    ArgumentGuard.isArray(accessibility, 'accessibility', false);
-    ArgumentGuard.isArray(floating, 'floating', false);
-    ArgumentGuard.isValidType(exact, ExactMatchSettings, false);
+    ArgumentGuard.isValidEnumValue(matchLevel, MatchLevel, false)
+    ArgumentGuard.isValidEnumValue(accessibilityLevel, AccessibilityLevel, false)
+    ArgumentGuard.isBoolean(ignoreCaret, 'ignoreCaret', false)
+    ArgumentGuard.isBoolean(useDom, 'useDom', false)
+    ArgumentGuard.isBoolean(enablePatterns, 'enablePatterns', false)
+    ArgumentGuard.isBoolean(ignoreDisplacements, 'ignoreDisplacements', false)
+    ArgumentGuard.isArray(ignore, 'ignore', false)
+    ArgumentGuard.isArray(layout, 'layout', false)
+    ArgumentGuard.isArray(strict, 'strict', false)
+    ArgumentGuard.isArray(content, 'content', false)
+    ArgumentGuard.isArray(accessibility, 'accessibility', false)
+    ArgumentGuard.isArray(floating, 'floating', false)
+    ArgumentGuard.isValidType(exact, ExactMatchSettings, false)
 
-    this._matchLevel = TypeUtils.getOrDefault(matchLevel, DEFAULT_VALUES.matchLevel);
-    this._accessibilityLevel = TypeUtils.getOrDefault(accessibilityLevel, DEFAULT_VALUES.accessibilityLevel);
-    this._ignoreCaret = TypeUtils.getOrDefault(ignoreCaret, DEFAULT_VALUES.ignoreCaret);
-    this._useDom = TypeUtils.getOrDefault(useDom, DEFAULT_VALUES.useDom);
-    this._enablePatterns = TypeUtils.getOrDefault(enablePatterns, DEFAULT_VALUES.enablePatterns);
-    this._ignoreDisplacements = TypeUtils.getOrDefault(ignoreDisplacements, DEFAULT_VALUES.ignoreDisplacements);
-    this._exact = exact;
+    this._matchLevel = TypeUtils.getOrDefault(matchLevel, DEFAULT_VALUES.matchLevel)
+    this._accessibilityLevel = TypeUtils.getOrDefault(
+      accessibilityLevel,
+      DEFAULT_VALUES.accessibilityLevel,
+    )
+    this._ignoreCaret = TypeUtils.getOrDefault(ignoreCaret, DEFAULT_VALUES.ignoreCaret)
+    this._useDom = TypeUtils.getOrDefault(useDom, DEFAULT_VALUES.useDom)
+    this._enablePatterns = TypeUtils.getOrDefault(enablePatterns, DEFAULT_VALUES.enablePatterns)
+    this._ignoreDisplacements = TypeUtils.getOrDefault(
+      ignoreDisplacements,
+      DEFAULT_VALUES.ignoreDisplacements,
+    )
+    this._exact = exact
 
     /** @type {Region[]} */
-    this._ignoreRegions = ignore || [];
+    this._ignoreRegions = ignore || []
     /** @type {Region[]} */
-    this._layoutRegions = layout || [];
+    this._layoutRegions = layout || []
     /** @type {Region[]} */
-    this._strictRegions = strict || [];
+    this._strictRegions = strict || []
     /** @type {Region[]} */
-    this._contentRegions = content || [];
+    this._contentRegions = content || []
     /** @type {AccessibilityMatchSettings[]} */
-    this._accessibilityMatchSettings = accessibility || [];
+    this._accessibilityMatchSettings = accessibility || []
     /** @type {FloatingMatchSettings[]} */
-    this._floatingMatchSettings = floating || [];
+    this._floatingMatchSettings = floating || []
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -81,7 +101,7 @@ class ImageMatchSettings {
    * @return {MatchLevel} - The match level to use.
    */
   getMatchLevel() {
-    return this._matchLevel;
+    return this._matchLevel
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -89,8 +109,8 @@ class ImageMatchSettings {
    * @param {MatchLevel} value - The match level to use.
    */
   setMatchLevel(value) {
-    ArgumentGuard.isValidEnumValue(value, MatchLevel);
-    this._matchLevel = value;
+    ArgumentGuard.isValidEnumValue(value, MatchLevel)
+    this._matchLevel = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -98,7 +118,7 @@ class ImageMatchSettings {
    * @return {AccessibilityLevel} - The accessablity level to use.
    */
   getAccessibilityValidation() {
-    return this._accessibilityLevel;
+    return this._accessibilityLevel
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -106,8 +126,8 @@ class ImageMatchSettings {
    * @param {AccessibilityLevel} value - The accessablity level to use.
    */
   setAccessibilityValidation(value) {
-    ArgumentGuard.isValidEnumValue(value, AccessibilityLevel);
-    this._accessibilityLevel = value;
+    ArgumentGuard.isValidEnumValue(value, AccessibilityLevel)
+    this._accessibilityLevel = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -115,7 +135,7 @@ class ImageMatchSettings {
    * @return {ExactMatchSettings} - The additional threshold params when the {@code Exact} match level is used, if any.
    */
   getExact() {
-    return this._exact;
+    return this._exact
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -123,7 +143,7 @@ class ImageMatchSettings {
    * @param {ExactMatchSettings} value - The additional threshold parameters when the {@code Exact} match level is used.
    */
   setExact(value) {
-    this._exact = value;
+    this._exact = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -131,7 +151,7 @@ class ImageMatchSettings {
    * @return {boolean} - The parameters for the "IgnoreCaret" match settings.
    */
   getIgnoreCaret() {
-    return this._ignoreCaret;
+    return this._ignoreCaret
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -139,7 +159,7 @@ class ImageMatchSettings {
    * @param {boolean} value - The parameters for the "ignoreCaret" match settings.
    */
   setIgnoreCaret(value) {
-    this._ignoreCaret = value;
+    this._ignoreCaret = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -147,7 +167,7 @@ class ImageMatchSettings {
    * @return {boolean}
    */
   getUseDom() {
-    return this._useDom;
+    return this._useDom
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -155,7 +175,7 @@ class ImageMatchSettings {
    * @param {boolean} value
    */
   setUseDom(value) {
-    this._useDom = value;
+    this._useDom = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -163,7 +183,7 @@ class ImageMatchSettings {
    * @return {boolean}
    */
   getEnablePatterns() {
-    return this._enablePatterns;
+    return this._enablePatterns
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -171,7 +191,7 @@ class ImageMatchSettings {
    * @param {boolean} value
    */
   setEnablePatterns(value) {
-    this._enablePatterns = value;
+    this._enablePatterns = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -179,7 +199,7 @@ class ImageMatchSettings {
    * @return {boolean}
    */
   getIgnoreDisplacements() {
-    return this._ignoreDisplacements;
+    return this._ignoreDisplacements
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -187,7 +207,7 @@ class ImageMatchSettings {
    * @param {boolean} value
    */
   setIgnoreDisplacements(value) {
-    this._ignoreDisplacements = value;
+    this._ignoreDisplacements = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -196,7 +216,7 @@ class ImageMatchSettings {
    * @return {Region[]} - the array of regions to ignore.
    */
   getIgnoreRegions() {
-    return this._ignoreRegions;
+    return this._ignoreRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -205,7 +225,7 @@ class ImageMatchSettings {
    * @param {Region[]} ignoreRegions - The array of regions to ignore.
    */
   setIgnoreRegions(ignoreRegions) {
-    this._ignoreRegions = ignoreRegions;
+    this._ignoreRegions = ignoreRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -214,7 +234,7 @@ class ImageMatchSettings {
    * @param {Region[]} layoutRegions - The array of regions to ignore.
    */
   setLayoutRegions(layoutRegions) {
-    this._layoutRegions = layoutRegions;
+    this._layoutRegions = layoutRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -223,7 +243,7 @@ class ImageMatchSettings {
    * @return {Region[]} - the array of regions to ignore.
    */
   getLayoutRegions() {
-    return this._layoutRegions;
+    return this._layoutRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -232,7 +252,7 @@ class ImageMatchSettings {
    * @return {Region[]} - the array of regions to ignore.
    */
   getStrictRegions() {
-    return this._strictRegions;
+    return this._strictRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -241,7 +261,7 @@ class ImageMatchSettings {
    * @param {Region[]} strictRegions - The array of regions to ignore.
    */
   setStrictRegions(strictRegions) {
-    this._strictRegions = strictRegions;
+    this._strictRegions = strictRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -250,7 +270,7 @@ class ImageMatchSettings {
    * @return {Region[]} - the array of regions to ignore.
    */
   getContentRegions() {
-    return this._contentRegions;
+    return this._contentRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -259,7 +279,7 @@ class ImageMatchSettings {
    * @param {Region[]} contentRegions - The array of regions to ignore.
    */
   setContentRegions(contentRegions) {
-    this._contentRegions = contentRegions;
+    this._contentRegions = contentRegions
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -268,7 +288,7 @@ class ImageMatchSettings {
    * @return {FloatingMatchSettings[]} - an array of floating regions.
    */
   getFloatingRegions() {
-    return this._floatingMatchSettings;
+    return this._floatingMatchSettings
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -277,7 +297,7 @@ class ImageMatchSettings {
    * @param {AccessibilityMatchSettings[]} accessibilityMatchSettings - The array of accessibility regions.
    */
   setAccessibilityRegions(accessibilityMatchSettings) {
-    this._accessibilityMatchSettings = accessibilityMatchSettings;
+    this._accessibilityMatchSettings = accessibilityMatchSettings
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -286,7 +306,7 @@ class ImageMatchSettings {
    * @return {AccessibilityMatchSettings[]} - an array of accessibility regions.
    */
   getAccessibilityRegions() {
-    return this._accessibilityMatchSettings;
+    return this._accessibilityMatchSettings
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -295,7 +315,7 @@ class ImageMatchSettings {
    * @param {FloatingMatchSettings[]} floatingMatchSettings - The array of floating regions.
    */
   setFloatingRegions(floatingMatchSettings) {
-    this._floatingMatchSettings = floatingMatchSettings;
+    this._floatingMatchSettings = floatingMatchSettings
   }
 
   /**
@@ -309,15 +329,15 @@ class ImageMatchSettings {
       contentRegions: 'content',
       floatingMatchSettings: 'floating',
       accessibilityMatchSettings: 'accessibility',
-    });
+    })
   }
 
   /**
    * @override
    */
   toString() {
-    return `ImageMatchSettings { ${JSON.stringify(this)} }`;
+    return `ImageMatchSettings { ${JSON.stringify(this)} }`
   }
 }
 
-exports.ImageMatchSettings = ImageMatchSettings;
+exports.ImageMatchSettings = ImageMatchSettings

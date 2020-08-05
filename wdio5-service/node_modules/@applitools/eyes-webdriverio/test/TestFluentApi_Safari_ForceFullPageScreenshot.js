@@ -15,7 +15,7 @@ platforms.forEach(function (platform) {
   describe.skip(appName, function () {
 
     before(function () {
-      test.beforeTest({fps: true});
+      return test.beforeTest({fps: true});
     });
 
     beforeEach(function () {

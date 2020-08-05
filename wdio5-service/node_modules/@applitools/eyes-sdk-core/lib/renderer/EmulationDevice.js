@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
 class EmulationDevice {
   /**
@@ -9,82 +9,82 @@ class EmulationDevice {
    * @param {string} deviceScaleFactor
    * @param {string} mobile
    */
-  constructor({ width, height, deviceScaleFactor, mobile } = {}) {
-    this._width = width;
-    this._height = height;
-    this._deviceScaleFactor = deviceScaleFactor;
-    this._mobile = mobile;
+  constructor({width, height, deviceScaleFactor, mobile} = {}) {
+    this._width = width
+    this._height = height
+    this._deviceScaleFactor = deviceScaleFactor
+    this._mobile = mobile
   }
 
   /**
    * @return {number}
    */
   getWidth() {
-    return this._width;
+    return this._width
   }
 
   /**
    * @param {number} value
    */
   setWidth(value) {
-    this._width = value;
+    this._width = value
   }
 
   /**
    * @return {number}
    */
   getHeight() {
-    return this._height;
+    return this._height
   }
 
   /**
    * @param {number} value
    */
   setHeight(value) {
-    this._height = value;
+    this._height = value
   }
 
   /**
    * @return {string}
    */
   getDeviceScaleFactor() {
-    return this._deviceScaleFactor;
+    return this._deviceScaleFactor
   }
 
   /**
    * @param {string} value
    */
   setDeviceScaleFactor(value) {
-    this._deviceScaleFactor = value;
+    this._deviceScaleFactor = value
   }
 
   /**
    * @return {string}
    */
   getMobile() {
-    return this._mobile;
+    return this._mobile
   }
 
   /**
    * @param {string} value
    */
   setMobile(value) {
-    this._mobile = value;
+    this._mobile = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `EmulationDevice { ${JSON.stringify(this)} }`;
+    return `EmulationDevice { ${JSON.stringify(this)} }`
   }
 }
 
-exports.EmulationDevice = EmulationDevice;
+exports.EmulationDevice = EmulationDevice

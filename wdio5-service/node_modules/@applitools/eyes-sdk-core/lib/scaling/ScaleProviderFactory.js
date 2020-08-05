@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ignore
@@ -10,7 +10,7 @@ class ScaleProviderFactory {
    * @param {PropertyHandler} scaleProviderHandler - A handler to update once a {@link ScaleProvider} instance is created.
    */
   constructor(scaleProviderHandler) {
-    this._scaleProviderHandler = scaleProviderHandler;
+    this._scaleProviderHandler = scaleProviderHandler
   }
 
   /**
@@ -21,9 +21,9 @@ class ScaleProviderFactory {
    * @return {ScaleProvider} - A {@link ScaleProvider} instance.
    */
   getScaleProvider(imageToScaleWidth) {
-    const scaleProvider = this.getScaleProviderImpl(imageToScaleWidth);
-    this._scaleProviderHandler.set(scaleProvider);
-    return scaleProvider;
+    const scaleProvider = this.getScaleProviderImpl(imageToScaleWidth)
+    this._scaleProviderHandler.set(scaleProvider)
+    return scaleProvider
   }
 
   // noinspection JSMethodCanBeStatic, JSUnusedLocalSymbols
@@ -34,9 +34,10 @@ class ScaleProviderFactory {
    *   factory, but this is not mandatory.
    * @return {ScaleProvider} - The scale provider to be used.
    */
-  getScaleProviderImpl(imageToScaleWidth) { // eslint-disable-line no-unused-vars
-    throw new TypeError('The method is not implemented!');
+  getScaleProviderImpl(imageToScaleWidth) {
+    // eslint-disable-line no-unused-vars
+    throw new TypeError('The method is not implemented!')
   }
 }
 
-exports.ScaleProviderFactory = ScaleProviderFactory;
+exports.ScaleProviderFactory = ScaleProviderFactory

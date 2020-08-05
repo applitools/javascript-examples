@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
 class Branch {
   /**
@@ -9,11 +9,11 @@ class Branch {
    * @param {boolean} isDeleted
    * @param {object} updateInfo - TODO: add typed `updateInfo`
    */
-  constructor({ id, name, isDeleted, updateInfo } = {}) {
-    this._id = id;
-    this._name = name;
-    this._isDeleted = isDeleted;
-    this._updateInfo = updateInfo;
+  constructor({id, name, isDeleted, updateInfo} = {}) {
+    this._id = id
+    this._name = name
+    this._isDeleted = isDeleted
+    this._updateInfo = updateInfo
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -21,7 +21,7 @@ class Branch {
    * @return {string}
    */
   getId() {
-    return this._id;
+    return this._id
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -29,7 +29,7 @@ class Branch {
    * @param {string} value
    */
   setId(value) {
-    this._id = value;
+    this._id = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -37,7 +37,7 @@ class Branch {
    * @return {string}
    */
   getName() {
-    return this._name;
+    return this._name
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -45,7 +45,7 @@ class Branch {
    * @param {string} value
    */
   setName(value) {
-    this._name = value;
+    this._name = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -53,7 +53,7 @@ class Branch {
    * @return {boolean}
    */
   getIsDeleted() {
-    return this._isDeleted;
+    return this._isDeleted
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -61,7 +61,7 @@ class Branch {
    * @param {boolean} value
    */
   setIsDeleted(value) {
-    this._isDeleted = value;
+    this._isDeleted = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -69,7 +69,7 @@ class Branch {
    * @return {object}
    */
   getUpdateInfo() {
-    return this._updateInfo;
+    return this._updateInfo
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -77,22 +77,22 @@ class Branch {
    * @param {object} value
    */
   setUpdateInfo(value) {
-    this._updateInfo = value;
+    this._updateInfo = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `Branch { ${JSON.stringify(this)} }`;
+    return `Branch { ${JSON.stringify(this)} }`
   }
 }
 
-exports.Branch = Branch;
+exports.Branch = Branch

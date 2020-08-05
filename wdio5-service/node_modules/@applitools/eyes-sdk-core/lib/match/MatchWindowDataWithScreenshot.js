@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
 /**
  * A container for a MatchWindowData along with the screenshot used for creating it. (We specifically avoid inheritance
@@ -13,13 +13,13 @@ class MatchWindowDataWithScreenshot {
    * @param {MatchWindowData} matchWindowData
    * @param {EyesScreenshot} screenshot
    */
-  constructor({ matchWindowData, screenshot } = {}) {
+  constructor({matchWindowData, screenshot} = {}) {
     if (arguments.length > 1) {
-      throw new TypeError('Please, use object as a parameter to the constructor!');
+      throw new TypeError('Please, use object as a parameter to the constructor!')
     }
 
-    this._matchWindowData = matchWindowData;
-    this._screenshot = screenshot;
+    this._matchWindowData = matchWindowData
+    this._screenshot = screenshot
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -27,7 +27,7 @@ class MatchWindowDataWithScreenshot {
    * @return {MatchWindowData}
    */
   getMatchWindowData() {
-    return this._matchWindowData;
+    return this._matchWindowData
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -35,22 +35,22 @@ class MatchWindowDataWithScreenshot {
    * @return {EyesScreenshot}
    */
   getScreenshot() {
-    return this._screenshot;
+    return this._screenshot
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `MatchWindowDataWithScreenshot { ${JSON.stringify(this)} }`;
+    return `MatchWindowDataWithScreenshot { ${JSON.stringify(this)} }`
   }
 }
 
-exports.MatchWindowDataWithScreenshot = MatchWindowDataWithScreenshot;
+exports.MatchWindowDataWithScreenshot = MatchWindowDataWithScreenshot

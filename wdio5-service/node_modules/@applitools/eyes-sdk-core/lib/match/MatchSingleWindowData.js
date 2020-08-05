@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
-const { MatchWindowData, Options } = require('./MatchWindowData');
+const {MatchWindowData, Options} = require('./MatchWindowData')
 
 /**
  * Encapsulates the data to be sent to the agent on a "matchWindow" command.
@@ -19,21 +19,21 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {boolean} [ignoreMismatch]
    * @param {Options} [options]
    */
-  constructor({ startInfo, userInputs, appOutput, tag, ignoreMismatch, options } = {}) {
+  constructor({startInfo, userInputs, appOutput, tag, ignoreMismatch, options} = {}) {
     if (arguments.length > 1) {
-      throw new TypeError('Please, use object as a parameter to the constructor!');
+      throw new TypeError('Please, use object as a parameter to the constructor!')
     }
 
-    super({ userInputs, appOutput, tag, ignoreMismatch, options });
+    super({userInputs, appOutput, tag, ignoreMismatch, options})
 
-    this._startInfo = startInfo;
-    this._updateBaseline = false;
-    this._updateBaselineIfDifferent = false;
-    this._updateBaselineIfNew = true;
-    this._removeSession = false;
-    this._removeSessionIfMatching = false;
+    this._startInfo = startInfo
+    this._updateBaseline = false
+    this._updateBaselineIfDifferent = false
+    this._updateBaselineIfNew = true
+    this._removeSession = false
+    this._removeSessionIfMatching = false
     /** @type {string} */
-    this._agentId = undefined;
+    this._agentId = undefined
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -41,7 +41,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @return {SessionStartInfo}
    */
   getStartInfo() {
-    return this._startInfo;
+    return this._startInfo
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -49,7 +49,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {SessionStartInfo} startInfo
    */
   setStartInfo(startInfo) {
-    this._startInfo = startInfo;
+    this._startInfo = startInfo
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -57,7 +57,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @return {boolean}
    */
   getUpdateBaseline() {
-    return this._updateBaseline;
+    return this._updateBaseline
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -65,7 +65,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {boolean} updateBaseline
    */
   setUpdateBaseline(updateBaseline) {
-    this._updateBaseline = updateBaseline;
+    this._updateBaseline = updateBaseline
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -73,7 +73,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @return {boolean}
    */
   getUpdateBaselineIfDifferent() {
-    return this._updateBaselineIfDifferent;
+    return this._updateBaselineIfDifferent
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -81,7 +81,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {boolean} updateBaselineIfDifferent
    */
   setUpdateBaselineIfDifferent(updateBaselineIfDifferent) {
-    this._updateBaselineIfDifferent = updateBaselineIfDifferent;
+    this._updateBaselineIfDifferent = updateBaselineIfDifferent
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -89,7 +89,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @return {boolean}
    */
   getUpdateBaselineIfNew() {
-    return this._updateBaselineIfNew;
+    return this._updateBaselineIfNew
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -97,7 +97,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {boolean} updateBaselineIfNew
    */
   setUpdateBaselineIfNew(updateBaselineIfNew) {
-    this._updateBaselineIfNew = updateBaselineIfNew;
+    this._updateBaselineIfNew = updateBaselineIfNew
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -105,7 +105,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @return {boolean}
    */
   getRemoveSession() {
-    return this._removeSession;
+    return this._removeSession
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -113,7 +113,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {boolean} removeSession
    */
   setRemoveSession(removeSession) {
-    this._removeSession = removeSession;
+    this._removeSession = removeSession
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -121,7 +121,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @return {boolean}
    */
   getRemoveSessionIfMatching() {
-    return this._removeSessionIfMatching;
+    return this._removeSessionIfMatching
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -129,7 +129,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {boolean} removeSessionIfMatching
    */
   setRemoveSessionIfMatching(removeSessionIfMatching) {
-    this._removeSessionIfMatching = removeSessionIfMatching;
+    this._removeSessionIfMatching = removeSessionIfMatching
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -137,7 +137,7 @@ class MatchSingleWindowData extends MatchWindowData {
    * @return {string}
    */
   getAgentId() {
-    return this._agentId;
+    return this._agentId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -145,31 +145,31 @@ class MatchSingleWindowData extends MatchWindowData {
    * @param {string} agentId
    */
   setAgentId(agentId) {
-    this._agentId = agentId;
+    this._agentId = agentId
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    const object = this.toJSON();
+    const object = this.toJSON()
 
     // noinspection JSUnresolvedVariable
     if (object.appOutput.screenshot64) {
       // noinspection JSUnresolvedVariable
-      object.appOutput.screenshot64 = 'REMOVED_FROM_OUTPUT';
+      object.appOutput.screenshot64 = 'REMOVED_FROM_OUTPUT'
     }
 
-    return `MatchSingleWindowData { ${JSON.stringify(object)} }`;
+    return `MatchSingleWindowData { ${JSON.stringify(object)} }`
   }
 }
 
-exports.Options = Options;
-exports.MatchSingleWindowData = MatchSingleWindowData;
+exports.Options = Options
+exports.MatchSingleWindowData = MatchSingleWindowData

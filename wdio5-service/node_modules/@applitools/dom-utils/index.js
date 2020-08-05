@@ -1,3 +1,3 @@
-'use strict';
+'use strict'
 
-exports.DomCapture = require('./lib/DomCapture').DomCapture;
+exports.DomCapture = require('./lib/DomCapture').DomCapture

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 function createEmulationInfo({
   deviceName,
@@ -8,14 +8,14 @@ function createEmulationInfo({
   width,
   height,
 }) {
-  const isEmulation = deviceName || deviceScaleFactor || mobile;
+  const isEmulation = deviceName || deviceScaleFactor || mobile
   return isEmulation
     ? {
         deviceName,
         screenOrientation,
         device: !deviceName ? {width, height, deviceScaleFactor, mobile} : undefined,
       }
-    : undefined;
+    : undefined
 }
 
-module.exports = createEmulationInfo;
+module.exports = createEmulationInfo

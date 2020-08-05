@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const debug = require('debug');
+const debug = require('debug')
 
-const { LogHandler } = require('./LogHandler');
+const {LogHandler} = require('./LogHandler')
 
 /**
  * Write log messages to the browser/node console
@@ -14,9 +14,9 @@ class DebugLogHandler extends LogHandler {
    * @param {object} [debugInstance] - Another instance which should be extended
    */
   constructor(isVerbose = false, appName, debugInstance) {
-    super(isVerbose);
+    super(isVerbose)
 
-    this._debug = debugInstance || debug(appName || 'eyes');
+    this._debug = debugInstance || debug(appName || 'eyes')
   }
 
   /**
@@ -28,7 +28,7 @@ class DebugLogHandler extends LogHandler {
    */
   onMessage(verbose, logString) {
     if (!verbose || this.getIsVerbose()) {
-      this._debug(logString);
+      this._debug(logString)
     }
   }
 
@@ -37,8 +37,8 @@ class DebugLogHandler extends LogHandler {
    * @return {DebugLogHandler}
    */
   extend(name) {
-    return new DebugLogHandler(this.getIsVerbose(), undefined, this._debug.extend(name));
+    return new DebugLogHandler(this.getIsVerbose(), undefined, this._debug.extend(name))
   }
 }
 
-exports.DebugLogHandler = DebugLogHandler;
+exports.DebugLogHandler = DebugLogHandler

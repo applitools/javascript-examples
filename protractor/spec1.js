@@ -24,7 +24,6 @@ describe('Capital One', function() {
      eyes.addProperty("Spec", "Spec1");
    });
    
-
    afterEach(function() {
      eyes.abortIfNotClosed();
    });
@@ -45,7 +44,7 @@ describe('Capital One', function() {
 
      eyes.check("Quick Silver Page", Target.window().ignore(by.css("div.container")));
           
-     eyes.check("Card Area", Target.region(by.css("div.container")).matchLevel(MatchLevel.Layout));
+     eyes.check("Card Area", Target.region(by.css("div.container")).matchLevel(MatchLevel.Layout).scro);
      
      eyes.close(false).then(function (results) {
         //console.log("My Test Results: " + results);

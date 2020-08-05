@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-const { CheckSettings } = require('./CheckSettings');
+const {CheckSettings} = require('./CheckSettings')
 
 class CheckTarget {
   /**
    * @return {CheckSettings}
    */
   static window() {
-    return new CheckSettings();
+    return new CheckSettings()
   }
 
   /**
@@ -15,8 +15,8 @@ class CheckTarget {
    * @return {CheckSettings}
    */
   static region(rect) {
-    return new CheckSettings(undefined, rect);
+    return new CheckSettings(undefined, rect)
   }
 }
 
-exports.CheckTarget = CheckTarget;
+exports.CheckTarget = CheckTarget

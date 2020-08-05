@@ -1,23 +1,23 @@
-'use strict';
+'use strict'
 
-const { EyesRunner } = require('./EyesRunner');
-const { TestResultsSummary } = require('./TestResultsSummary');
+const {EyesRunner} = require('./EyesRunner')
+const {TestResultsSummary} = require('./TestResultsSummary')
 
 class VisualGridRunner extends EyesRunner {
   /**
    * @param {number} [concurrentSessions]
    */
   constructor(concurrentSessions) {
-    super();
+    super()
 
-    this._concurrentSessions = concurrentSessions;
+    this._concurrentSessions = concurrentSessions
   }
 
   /**
    * @return {number}
    */
   getConcurrentSessions() {
-    return this._concurrentSessions;
+    return this._concurrentSessions
   }
 
   /**
@@ -26,32 +26,32 @@ class VisualGridRunner extends EyesRunner {
    */
   async getAllTestResults(shouldThrowException = true) {
     if (this._eyesInstances.length > 0) {
-      const resultsPromise = [];
-      const allResults = [];
+      const resultsPromise = []
+      const allResults = []
 
       for (const eyesInstance of this._eyesInstances) {
-        resultsPromise.push(eyesInstance.closeAndReturnResults(false));
+        resultsPromise.push(eyesInstance.closeAndReturnResults(false))
       }
 
-      const results = await Promise.all(resultsPromise);
+      const results = await Promise.all(resultsPromise)
       for (const result of results) {
-        allResults.push(...result.getAllResults());
+        allResults.push(...result.getAllResults())
       }
 
       if (shouldThrowException === true) {
         for (const result of allResults) {
           if (result.getException()) {
-            throw result.getException();
+            throw result.getException()
           }
         }
       }
 
-      await this._closeAllBatches();
-      return new TestResultsSummary(allResults);
+      await this._closeAllBatches()
+      return new TestResultsSummary(allResults)
     }
 
-    return null;
+    return null
   }
 }
 
-exports.VisualGridRunner = VisualGridRunner;
+exports.VisualGridRunner = VisualGridRunner

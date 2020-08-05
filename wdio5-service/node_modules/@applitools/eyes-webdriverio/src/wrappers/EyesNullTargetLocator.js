@@ -60,6 +60,10 @@ class EyesNullTargetLocator extends TargetLocator {
   async willSwitchToFrame() {
     return null;
   }
+
+  async resetScroll() {
+    return null;
+  }
 }
 
 module.exports = EyesNullTargetLocator;

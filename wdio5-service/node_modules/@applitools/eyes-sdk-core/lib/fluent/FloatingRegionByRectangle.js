@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const { FloatingMatchSettings } = require('@applitools/eyes-common');
+const {FloatingMatchSettings} = require('@applitools/eyes-common')
 
-const { GetFloatingRegion } = require('./GetFloatingRegion');
+const {GetFloatingRegion} = require('./GetFloatingRegion')
 
 /**
  * @ignore
@@ -16,18 +16,19 @@ class FloatingRegionByRectangle extends GetFloatingRegion {
    * @param {number} maxRightOffset
    */
   constructor(rect, maxUpOffset, maxDownOffset, maxLeftOffset, maxRightOffset) {
-    super();
-    this._rect = rect;
-    this._maxUpOffset = maxUpOffset;
-    this._maxDownOffset = maxDownOffset;
-    this._maxLeftOffset = maxLeftOffset;
-    this._maxRightOffset = maxRightOffset;
+    super()
+    this._rect = rect
+    this._maxUpOffset = maxUpOffset
+    this._maxDownOffset = maxDownOffset
+    this._maxLeftOffset = maxLeftOffset
+    this._maxRightOffset = maxRightOffset
   }
 
   /**
    * @inheritDoc
    */
-  async getRegion(eyesBase, screenshot) { // eslint-disable-line no-unused-vars
+  async getRegion(eyesBase, screenshot) {
+    // eslint-disable-line no-unused-vars
     const floatingRegion = new FloatingMatchSettings({
       left: this._rect.getLeft(),
       top: this._rect.getTop(),
@@ -37,9 +38,9 @@ class FloatingRegionByRectangle extends GetFloatingRegion {
       maxDownOffset: this._maxDownOffset,
       maxLeftOffset: this._maxLeftOffset,
       maxRightOffset: this._maxRightOffset,
-    });
-    return [floatingRegion];
+    })
+    return [floatingRegion]
   }
 }
 
-exports.FloatingRegionByRectangle = FloatingRegionByRectangle;
+exports.FloatingRegionByRectangle = FloatingRegionByRectangle

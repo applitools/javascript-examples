@@ -13,7 +13,7 @@ const test = new Common({testedPageUrl: testedPageUrl, browserName: 'chrome'});
 describe.skip(appName, function () {
 
   before(function () {
-    test.beforeTest({fps: true});
+    return test.beforeTest({fps: true});
   });
 
   beforeEach(function () {
@@ -25,7 +25,7 @@ describe.skip(appName, function () {
   });
 
   after(function () {
-    test.afterTest();
+    return test.afterTest();
   });
 
   TestSpecialCases.shouldBehaveLike('TestSpecialCases', test);

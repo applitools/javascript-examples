@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * The base Applitools Eyes error type.
@@ -9,19 +9,19 @@ class EyesError extends Error {
    * @param {Error} [error] - Another error to inherit from
    */
   constructor(message, error) {
-    super();
+    super()
 
     /** @inheritDoc */
-    this.name = this.constructor.name;
+    this.name = this.constructor.name
 
     /** @inheritDoc */
-    this.message = message;
+    this.message = message
 
     if (error instanceof Error) {
-      this.message = `${message}: ${error.message}`;
-      this.stack = error.stack;
+      this.message = `${message}: ${error.message}`
+      this.stack = error.stack
     }
   }
 }
 
-exports.EyesError = EyesError;
+exports.EyesError = EyesError

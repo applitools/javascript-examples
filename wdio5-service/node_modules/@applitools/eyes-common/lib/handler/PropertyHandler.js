@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -20,4 +20,4 @@ class PropertyHandler {
   get() {}
 }
 
-exports.PropertyHandler = PropertyHandler;
+exports.PropertyHandler = PropertyHandler

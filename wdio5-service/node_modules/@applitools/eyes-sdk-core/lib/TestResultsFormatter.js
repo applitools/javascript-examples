@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const OK = 'ok';
-const NOT_OK = 'not ok';
+const OK = 'ok'
+const NOT_OK = 'not ok'
 
 /**
  * A utility class for aggregating and formatting test results.
@@ -11,7 +11,7 @@ class TestResultsFormatter {
    * @param {TestResults[]} resultsList
    */
   constructor(resultsList = []) {
-    this._resultsList = resultsList;
+    this._resultsList = resultsList
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -23,10 +23,10 @@ class TestResultsFormatter {
    */
   addTestResults(results) {
     if (results) {
-      this._resultsList.push(results);
+      this._resultsList.push(results)
     }
 
-    return this;
+    return this
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -38,7 +38,7 @@ class TestResultsFormatter {
    * @return {TestResultsFormatter} - The updated 'TestResultsFormatter' instance.
    */
   addResults(results) {
-    return this.addTestResults(results);
+    return this.addTestResults(results)
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -46,7 +46,7 @@ class TestResultsFormatter {
    * @return {TestResults[]}
    */
   getResultsList() {
-    return this._resultsList;
+    return this._resultsList
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -54,7 +54,7 @@ class TestResultsFormatter {
    * @return {void}
    */
   clearResultsList() {
-    this._resultsList = [];
+    this._resultsList = []
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -67,46 +67,48 @@ class TestResultsFormatter {
    */
   asFormatterString(includeSubTests = true, markNewAsPassed = false) {
     if (this._resultsList.length === 0) {
-      return 'No results found.';
+      return 'No results found.'
     }
 
-    let formattedString = '[EYES: TEST RESULTS]:\n';
+    let formattedString = '[EYES: TEST RESULTS]:\n'
 
     for (let i = 0; i < this._resultsList.length; i += 1) {
-      /** @type {TestResults} */ const currentResult = this._resultsList[i];
+      /** @type {TestResults} */ const currentResult = this._resultsList[i]
 
-      const testTitle = `${currentResult.getName()} [${currentResult.getHostDisplaySize().toString()}]`;
-      let testResult = '';
+      const testTitle = `${currentResult.getName()} [${currentResult
+        .getHostDisplaySize()
+        .toString()}]`
+      let testResult = ''
 
       if (currentResult.getIsNew()) {
-        testResult = markNewAsPassed ? 'Passed' : 'New';
+        testResult = markNewAsPassed ? 'Passed' : 'New'
       } else if (currentResult.isPassed()) {
-        testResult = 'Passed';
+        testResult = 'Passed'
       } else {
-        const stepsFailed = currentResult.getMismatches() + currentResult.getMissing();
-        testResult = `Failed ${stepsFailed} of ${currentResult.getSteps()}`;
+        const stepsFailed = currentResult.getMismatches() + currentResult.getMissing()
+        testResult = `Failed ${stepsFailed} of ${currentResult.getSteps()}`
       }
 
-      formattedString += `${testTitle} - ${testResult}\n`;
+      formattedString += `${testTitle} - ${testResult}\n`
 
       if (includeSubTests) {
         if (currentResult.getStepsInfo().length > 0) {
           for (let j = 0; j < currentResult.getStepsInfo().length; j += 1) {
-            const currentStep = currentResult.getStepsInfo()[j];
+            const currentStep = currentResult.getStepsInfo()[j]
 
-            const subTestTitle = currentStep.getName();
-            const subTestResult = currentStep.getIsDifferent() ? 'Passed' : 'Failed';
-            formattedString += `\t> ${subTestTitle} - ${subTestResult}\n`;
+            const subTestTitle = currentStep.getName()
+            const subTestResult = currentStep.getIsDifferent() ? 'Passed' : 'Failed'
+            formattedString += `\t> ${subTestTitle} - ${subTestResult}\n`
           }
         } else {
-          formattedString += '\tNo steps exist for this test.\n';
+          formattedString += '\tNo steps exist for this test.\n'
         }
       }
     }
 
-    formattedString += `See details at ${this._resultsList[0].getAppUrls().getBatch()}`;
+    formattedString += `See details at ${this._resultsList[0].getAppUrls().getBatch()}`
 
-    return formattedString;
+    return formattedString
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -119,59 +121,62 @@ class TestResultsFormatter {
    */
   asHierarchicTAPString(includeSubTests = true, markNewAsPassed = false) {
     if (this._resultsList.length === 0) {
-      return '';
+      return ''
     }
 
-    let tapString = `1..${this._resultsList.length}\n`;
+    let tapString = `1..${this._resultsList.length}\n`
 
     for (let i = 0; i < this._resultsList.length; i += 1) {
-      /** @type {TestResults} */ const currentResult = this._resultsList[i];
-      const tapIndex = i + 1;
+      /** @type {TestResults} */ const currentResult = this._resultsList[i]
+      const tapIndex = i + 1
 
       if (i > 0) {
-        tapString += '#\n';
+        tapString += '#\n'
       }
 
-      const name = `Test: '${currentResult.getName()}', Application: '${currentResult.getAppName()}'`;
+      const name = `Test: '${currentResult.getName()}', Application: '${currentResult.getAppName()}'`
 
       if (currentResult.isPassed()) {
-        tapString += `${OK} ${tapIndex} - [PASSED TEST] ${name}\n`;
-      } else if (currentResult.getIsNew()) { // Test did not pass (might also be a new test).
+        tapString += `${OK} ${tapIndex} - [PASSED TEST] ${name}\n`
+      } else if (currentResult.getIsNew()) {
+        // Test did not pass (might also be a new test).
         // New test
-        const newResult = markNewAsPassed ? OK : NOT_OK;
-        tapString += `${newResult} ${tapIndex} - [NEW TEST] ${name}\n`;
+        const newResult = markNewAsPassed ? OK : NOT_OK
+        tapString += `${newResult} ${tapIndex} - [NEW TEST] ${name}\n`
       } else {
         // Failed / Aborted test.
-        tapString += `${NOT_OK} ${tapIndex} - `;
+        tapString += `${NOT_OK} ${tapIndex} - `
         if (currentResult.getIsAborted()) {
-          tapString += `[ABORTED TEST] ${name}\n`;
+          tapString += `[ABORTED TEST] ${name}\n`
         } else {
-          tapString += `[FAILED TEST] ${name}\n`;
+          tapString += `[FAILED TEST] ${name}\n`
         }
-        tapString += `#\tMismatches: ${currentResult.getMismatches()}\n`;
+        tapString += `#\tMismatches: ${currentResult.getMismatches()}\n`
       }
 
-      const url = currentResult.getAppUrls() && currentResult.getAppUrls().getSession() ?
-        currentResult.getAppUrls().getSession() : "No URL (session didn't start).";
-      tapString += `#\tTest url: ${url}\n`;
-      tapString += `#\tBrowser: ${currentResult.getHostApp()}, Viewport: ${currentResult.getHostDisplaySize()}\n`;
+      const url =
+        currentResult.getAppUrls() && currentResult.getAppUrls().getSession()
+          ? currentResult.getAppUrls().getSession()
+          : "No URL (session didn't start)."
+      tapString += `#\tTest url: ${url}\n`
+      tapString += `#\tBrowser: ${currentResult.getHostApp()}, Viewport: ${currentResult.getHostDisplaySize()}\n`
 
       if (includeSubTests) {
         if (currentResult.getStepsInfo().length > 0) {
-          tapString += `\t1..${currentResult.getStepsInfo().length}\n`;
+          tapString += `\t1..${currentResult.getStepsInfo().length}\n`
           for (let j = 0; j < currentResult.getStepsInfo().length; j += 1) {
-            const currentStep = currentResult.getStepsInfo()[j];
-            tapString += '\t';
-            tapString += currentStep.getIsDifferent() ? NOT_OK : OK;
-            tapString += ` '${currentStep.getName()}', URL: ${currentStep.getAppUrls().getStep()}\n`;
+            const currentStep = currentResult.getStepsInfo()[j]
+            tapString += '\t'
+            tapString += currentStep.getIsDifferent() ? NOT_OK : OK
+            tapString += ` '${currentStep.getName()}', URL: ${currentStep.getAppUrls().getStep()}\n`
           }
         } else {
-          tapString += '\tNo steps exist for this test.\n';
+          tapString += '\tNo steps exist for this test.\n'
         }
       }
     }
 
-    return tapString;
+    return tapString
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -183,60 +188,65 @@ class TestResultsFormatter {
    */
   asFlattenedTAPString(markNewAsPassed = false) {
     if (this._resultsList.length === 0) {
-      return '';
+      return ''
     }
 
-    let tapString = '';
-    let stepsCounter = 0;
+    let tapString = ''
+    let stepsCounter = 0
 
     // We'll add the TAP plan at the beginning, after we calculate the total number of steps.
     for (let i = 0; i < this._resultsList.length; i += 1) {
-      tapString += '#\n';
+      tapString += '#\n'
 
-      /** @type {TestResults} */ const currentResult = this._resultsList[i];
-      const tapIndex = i + 1;
+      /** @type {TestResults} */ const currentResult = this._resultsList[i]
+      const tapIndex = i + 1
 
-      const name = `Test: '${currentResult.getName()}', Application: '${currentResult.getAppName()}'`;
+      const name = `Test: '${currentResult.getName()}', Application: '${currentResult.getAppName()}'`
 
       if (currentResult.isPassed()) {
-        tapString += `# ${OK} ${tapIndex} - [PASSED TEST] ${name}\n`;
-      } else if (currentResult.getIsNew()) { // Test did not pass (might also be a new test).
+        tapString += `# ${OK} ${tapIndex} - [PASSED TEST] ${name}\n`
+      } else if (currentResult.getIsNew()) {
+        // Test did not pass (might also be a new test).
         // New test
-        const newResult = markNewAsPassed ? OK : NOT_OK;
-        tapString += `# ${newResult} ${tapIndex} - [NEW TEST] ${name}\n`;
+        const newResult = markNewAsPassed ? OK : NOT_OK
+        tapString += `# ${newResult} ${tapIndex} - [NEW TEST] ${name}\n`
       } else {
         // Failed / Aborted test.
-        tapString += `# ${NOT_OK} ${tapIndex} - `;
+        tapString += `# ${NOT_OK} ${tapIndex} - `
         if (currentResult.getIsAborted()) {
-          tapString += `[ABORTED TEST] ${name}\n`;
+          tapString += `[ABORTED TEST] ${name}\n`
         } else {
-          tapString += `[FAILED TEST] ${name}\n`;
+          tapString += `[FAILED TEST] ${name}\n`
         }
-        tapString += `#\tMismatches: ${currentResult.getMismatches()}\n`;
+        tapString += `#\tMismatches: ${currentResult.getMismatches()}\n`
       }
 
-      const url = currentResult.getAppUrls() && currentResult.getAppUrls().getSession() ?
-        currentResult.getAppUrls().getSession() : "No URL (session didn't start).";
+      const url =
+        currentResult.getAppUrls() && currentResult.getAppUrls().getSession()
+          ? currentResult.getAppUrls().getSession()
+          : "No URL (session didn't start)."
 
-      tapString += `#\tTest url: ${url}\n`;
+      tapString += `#\tTest url: ${url}\n`
       if (currentResult.getStepsInfo().length > 0) {
         for (let j = 0; j < currentResult.getStepsInfo().length; j += 1) {
-          stepsCounter += 1;
-          const currentStep = currentResult.getStepsInfo()[j];
-          tapString += currentStep.getIsDifferent() ? NOT_OK : OK;
-          tapString += ` ${stepsCounter} '${currentStep.getName()}', URL: ${currentStep.getAppUrls().getStep()}\n`;
+          stepsCounter += 1
+          const currentStep = currentResult.getStepsInfo()[j]
+          tapString += currentStep.getIsDifferent() ? NOT_OK : OK
+          tapString += ` ${stepsCounter} '${currentStep.getName()}', URL: ${currentStep
+            .getAppUrls()
+            .getStep()}\n`
         }
       } else {
-        tapString += '#\tNo steps exist for this test.\n';
+        tapString += '#\tNo steps exist for this test.\n'
       }
     }
 
     if (stepsCounter > 0) {
-      tapString = `1..${stepsCounter}\n${tapString}`;
+      tapString = `1..${stepsCounter}\n${tapString}`
     }
 
-    return tapString;
+    return tapString
   }
 }
 
-exports.TestResultsFormatter = TestResultsFormatter;
+exports.TestResultsFormatter = TestResultsFormatter

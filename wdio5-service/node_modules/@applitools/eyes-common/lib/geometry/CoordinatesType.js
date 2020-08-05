@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * Encapsulates the type of coordinates used by the region provider.
@@ -24,7 +24,7 @@ const CoordinatesType = {
    * region, we will need to calculate their respective "as is" coordinates.
    */
   CONTEXT_RELATIVE: 'CONTEXT_RELATIVE',
-};
+}
 
-Object.freeze(CoordinatesType);
-exports.CoordinatesType = CoordinatesType;
+Object.freeze(CoordinatesType)
+exports.CoordinatesType = CoordinatesType

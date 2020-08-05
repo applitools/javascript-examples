@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 function calculateMatchRegions({
   noOffsetSelectors,
@@ -6,40 +6,40 @@ function calculateMatchRegions({
   selectorRegions,
   imageLocationRegion,
 }) {
-  let selectorRegionIndex = imageLocationRegion ? 1 : 0;
+  let selectorRegionIndex = imageLocationRegion ? 1 : 0
   const noOffsetRegions = noOffsetSelectors.map(selection =>
     mapSelectionToRegions(selection, false),
-  );
-  const offsetRegions = offsetSelectors.map(selection => mapSelectionToRegions(selection, true));
+  )
+  const offsetRegions = offsetSelectors.map(selection => mapSelectionToRegions(selection, true))
 
   return {
     noOffsetRegions,
     offsetRegions,
-  };
+  }
 
   function mapSelectionToRegions(selection, addOffset) {
     if (selection) {
-      const regionObjects = Array.isArray(selection) ? selection : [selection];
+      const regionObjects = Array.isArray(selection) ? selection : [selection]
 
-      let region;
-      const regions = [];
+      let region
+      const regions = []
       for (const regionObj of regionObjects) {
-        region = selectorObjToRegion(regionObj, addOffset);
+        region = selectorObjToRegion(regionObj, addOffset)
         if (region) {
-          regions.push(region);
+          regions.push(region)
         }
       }
-      return regions.length === 0 ? undefined : regions;
+      return regions.length === 0 ? undefined : regions
     }
 
-    return selection;
+    return selection
   }
 
   function selectorObjToRegion(selectorObj, addOffset) {
     if (selectorObj.selector) {
-      const selectorRegion = selectorRegions[selectorRegionIndex++];
+      const selectorRegion = selectorRegions[selectorRegionIndex++]
       if (selectorRegion.getError()) {
-        return null;
+        return null
       }
 
       let ret = imageLocationRegion
@@ -49,7 +49,7 @@ function calculateMatchRegions({
             left: Math.max(0, selectorRegion.getLeft() - imageLocationRegion.getLeft()),
             top: Math.max(0, selectorRegion.getTop() - imageLocationRegion.getTop()),
           }
-        : selectorRegion.toJSON();
+        : selectorRegion.toJSON()
 
       if (addOffset) {
         ret = Object.assign(ret, {
@@ -57,17 +57,17 @@ function calculateMatchRegions({
           maxDownOffset: selectorObj.maxDownOffset,
           maxLeftOffset: selectorObj.maxLeftOffset,
           maxRightOffset: selectorObj.maxRightOffset,
-        });
+        })
       }
       if (selectorObj.accessibilityType) {
-        ret.accessibilityType = selectorObj.accessibilityType;
+        ret.accessibilityType = selectorObj.accessibilityType
       }
 
-      return ret;
+      return ret
     } else {
-      return selectorObj;
+      return selectorObj
     }
   }
 }
 
-module.exports = calculateMatchRegions;
+module.exports = calculateMatchRegions

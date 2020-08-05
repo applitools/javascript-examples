@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GetSelector } = require('./GetSelector');
+const {GetSelector} = require('./GetSelector')
 
 /* eslint-disable no-unused-vars */
 
@@ -10,7 +10,7 @@ const { GetSelector } = require('./GetSelector');
  */
 class GetRegion extends GetSelector {
   constructor() {
-    super(undefined);
+    super(undefined)
   }
 
   // noinspection JSMethodCanBeStatic
@@ -20,8 +20,8 @@ class GetRegion extends GetSelector {
    * @return {Promise<Region[]>}
    */
   async getRegion(eyesBase, screenshot) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 }
 
-exports.GetRegion = GetRegion;
+exports.GetRegion = GetRegion

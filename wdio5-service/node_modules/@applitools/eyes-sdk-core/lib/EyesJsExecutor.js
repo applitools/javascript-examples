@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -30,4 +30,4 @@ class EyesJsExecutor {
   sleep(ms) {}
 }
 
-exports.EyesJsExecutor = EyesJsExecutor;
+exports.EyesJsExecutor = EyesJsExecutor

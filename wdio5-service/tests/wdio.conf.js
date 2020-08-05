@@ -140,6 +140,7 @@ exports.config = {
   
   eyes: {
     batch: { name: 'WebDriverIO eyes-service tests' },
+    appName: "nyt.com",
     properties: [
       {name: 'propName', value: 'propValue'}
     ]

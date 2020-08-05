@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils, DateTimeUtils } = require('@applitools/eyes-common');
+const {GeneralUtils, DateTimeUtils} = require('@applitools/eyes-common')
 
-const { Annotations } = require('./Annotations');
-const { Image } = require('./Image');
+const {Annotations} = require('./Annotations')
+const {Image} = require('./Image')
 
 class ExpectedAppOutput {
   // noinspection FunctionWithMoreThanThreeNegationsJS
@@ -14,28 +14,28 @@ class ExpectedAppOutput {
    * @param {Date|string} occurredAt
    * @param {Annotations|object} annotations
    */
-  constructor({ tag, image, thumbprint, occurredAt, annotations } = {}) {
+  constructor({tag, image, thumbprint, occurredAt, annotations} = {}) {
     if (image && !(image instanceof Image)) {
-      image = new Image(image);
+      image = new Image(image)
     }
 
     if (thumbprint && !(thumbprint instanceof Image)) {
-      thumbprint = new Image(thumbprint);
+      thumbprint = new Image(thumbprint)
     }
 
     if (annotations && !(annotations instanceof Annotations)) {
-      annotations = new Annotations(annotations);
+      annotations = new Annotations(annotations)
     }
 
     if (occurredAt && !(occurredAt instanceof Date)) {
-      occurredAt = DateTimeUtils.fromISO8601DateTime(occurredAt);
+      occurredAt = DateTimeUtils.fromISO8601DateTime(occurredAt)
     }
 
-    this._tag = tag;
-    this._image = image;
-    this._thumbprint = thumbprint;
-    this._occurredAt = occurredAt;
-    this._annotations = annotations;
+    this._tag = tag
+    this._image = image
+    this._thumbprint = thumbprint
+    this._occurredAt = occurredAt
+    this._annotations = annotations
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -43,7 +43,7 @@ class ExpectedAppOutput {
    * @return {string}
    */
   getTag() {
-    return this._tag;
+    return this._tag
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -51,7 +51,7 @@ class ExpectedAppOutput {
    * @param {string} value
    */
   setTag(value) {
-    this._tag = value;
+    this._tag = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -59,7 +59,7 @@ class ExpectedAppOutput {
    * @return {Image}
    */
   getImage() {
-    return this._image;
+    return this._image
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -67,7 +67,7 @@ class ExpectedAppOutput {
    * @param {Image} value
    */
   setImage(value) {
-    this._image = value;
+    this._image = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -75,7 +75,7 @@ class ExpectedAppOutput {
    * @return {Image}
    */
   getThumbprint() {
-    return this._thumbprint;
+    return this._thumbprint
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -83,7 +83,7 @@ class ExpectedAppOutput {
    * @param {Image} value
    */
   setThumbprint(value) {
-    this._thumbprint = value;
+    this._thumbprint = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -91,7 +91,7 @@ class ExpectedAppOutput {
    * @return {Date}
    */
   getOccurredAt() {
-    return this._occurredAt;
+    return this._occurredAt
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -99,7 +99,7 @@ class ExpectedAppOutput {
    * @param {Date} value
    */
   setOccurredAt(value) {
-    this._occurredAt = value;
+    this._occurredAt = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -107,7 +107,7 @@ class ExpectedAppOutput {
    * @return {Annotations}
    */
   getAnnotations() {
-    return this._annotations;
+    return this._annotations
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -115,22 +115,22 @@ class ExpectedAppOutput {
    * @param {Annotations} value
    */
   setAnnotations(value) {
-    this._annotations = value;
+    this._annotations = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `ExpectedAppOutput { ${JSON.stringify(this)} }`;
+    return `ExpectedAppOutput { ${JSON.stringify(this)} }`
   }
 }
 
-exports.ExpectedAppOutput = ExpectedAppOutput;
+exports.ExpectedAppOutput = ExpectedAppOutput

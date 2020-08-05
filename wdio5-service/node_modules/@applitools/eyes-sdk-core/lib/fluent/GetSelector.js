@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ignore
@@ -8,7 +8,7 @@ class GetSelector {
    * @param {string} [selector]
    */
   constructor(selector) {
-    this._selector = selector;
+    this._selector = selector
   }
 
   // noinspection JSMethodCanBeStatic
@@ -17,8 +17,8 @@ class GetSelector {
    * @return {Promise<string>}
    */
   async getSelector(eyes) { // eslint-disable-line
-    return this._selector;
+    return this._selector
   }
 }
 
-exports.GetSelector = GetSelector;
+exports.GetSelector = GetSelector

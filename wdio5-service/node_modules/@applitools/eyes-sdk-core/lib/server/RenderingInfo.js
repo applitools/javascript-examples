@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
 class RenderingInfo {
   /**
@@ -8,17 +8,17 @@ class RenderingInfo {
    * @param {string} accessToken
    * @param {string} resultsUrl
    */
-  constructor({ serviceUrl, accessToken, resultsUrl } = {}) {
-    this._serviceUrl = serviceUrl;
-    this._accessToken = accessToken;
-    this._resultsUrl = resultsUrl;
+  constructor({serviceUrl, accessToken, resultsUrl} = {}) {
+    this._serviceUrl = serviceUrl
+    this._accessToken = accessToken
+    this._resultsUrl = resultsUrl
   }
 
   /**
    * @return {string}
    */
   getServiceUrl() {
-    return this._serviceUrl;
+    return this._serviceUrl
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -26,14 +26,14 @@ class RenderingInfo {
    * @param {string} value
    */
   setServiceUrl(value) {
-    this._serviceUrl = value;
+    this._serviceUrl = value
   }
 
   /**
    * @return {string}
    */
   getAccessToken() {
-    return this._accessToken;
+    return this._accessToken
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -41,7 +41,7 @@ class RenderingInfo {
    * @param {string} value
    */
   setAccessToken(value) {
-    this._accessToken = value;
+    this._accessToken = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -49,7 +49,7 @@ class RenderingInfo {
    * @return {string}
    */
   getResultsUrl() {
-    return this._resultsUrl;
+    return this._resultsUrl
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -57,7 +57,7 @@ class RenderingInfo {
    * @param {string} value
    */
   setResultsUrl(value) {
-    this._resultsUrl = value;
+    this._resultsUrl = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -66,24 +66,24 @@ class RenderingInfo {
    */
   getDecodedAccessToken() {
     if (this._payload) {
-      this._payload = GeneralUtils.jwtDecode(this._accessToken);
+      this._payload = GeneralUtils.jwtDecode(this._accessToken)
     }
-    return this._payload;
+    return this._payload
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this, ['_payload']);
+    return GeneralUtils.toPlain(this, ['_payload'])
   }
 
   /**
    * @override
    */
   toString() {
-    return `RenderingInfo { ${JSON.stringify(this)} }`;
+    return `RenderingInfo { ${JSON.stringify(this)} }`
   }
 }
 
-exports.RenderingInfo = RenderingInfo;
+exports.RenderingInfo = RenderingInfo

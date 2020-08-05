@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const { hasOwnProperty, toString } = Object.prototype;
+const {hasOwnProperty, toString} = Object.prototype
 
-const BASE64_CHARS_PATTERN = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/;
-const DUMMY_URL_PATTERN = /^(?:\w+:)?\/\/(\S+)$/;
+const BASE64_CHARS_PATTERN = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/
+const DUMMY_URL_PATTERN = /^(?:\w+:)?\/\/(\S+)$/
 
 /**
  * Collection of utility methods.
@@ -18,7 +18,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isNull(value) {
-    return value == null;
+    return value == null
   }
 
   /**
@@ -28,7 +28,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isNotNull(value) {
-    return !TypeUtils.isNull(value);
+    return !TypeUtils.isNull(value)
   }
 
   /**
@@ -38,7 +38,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isString(value) {
-    return typeof value === 'string' || value instanceof String;
+    return typeof value === 'string' || value instanceof String
   }
 
   /**
@@ -48,7 +48,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isNumber(value) {
-    return typeof value === 'number' || value instanceof Number;
+    return typeof value === 'number' || value instanceof Number
   }
 
   /**
@@ -58,7 +58,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isInteger(value) {
-    return TypeUtils.isNumber(value) && Number.isInteger(value);
+    return TypeUtils.isNumber(value) && Number.isInteger(value)
   }
 
   /**
@@ -68,7 +68,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isBoolean(value) {
-    return typeof value === 'boolean' || value instanceof Boolean;
+    return typeof value === 'boolean' || value instanceof Boolean
   }
 
   /**
@@ -78,7 +78,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isObject(value) {
-    return typeof value === 'object' && value !== null;
+    return typeof value === 'object' && value !== null
   }
 
   /**
@@ -89,11 +89,11 @@ class TypeUtils {
    */
   static isPlainObject(value) {
     if (!TypeUtils.isObject(value) || toString.call(value) !== '[object Object]') {
-      return false;
+      return false
     }
 
-    const prototype = Object.getPrototypeOf(value);
-    return prototype === null || prototype === Object.getPrototypeOf({});
+    const prototype = Object.getPrototypeOf(value)
+    return prototype === null || prototype === Object.getPrototypeOf({})
   }
 
   /**
@@ -103,7 +103,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isArray(value) {
-    return Array.isArray(value);
+    return Array.isArray(value)
   }
 
   /**
@@ -113,7 +113,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isBuffer(value) {
-    return Buffer.isBuffer(value);
+    return Buffer.isBuffer(value)
   }
 
   /**
@@ -123,7 +123,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isBase64(value) {
-    return TypeUtils.isString(value) && BASE64_CHARS_PATTERN.test(value);
+    return TypeUtils.isString(value) && BASE64_CHARS_PATTERN.test(value)
   }
 
   /**
@@ -133,7 +133,7 @@ class TypeUtils {
    * @return {boolean}
    */
   static isUrl(value) {
-    return TypeUtils.isString(value) && DUMMY_URL_PATTERN.test(value);
+    return TypeUtils.isString(value) && DUMMY_URL_PATTERN.test(value)
   }
 
   /**
@@ -144,20 +144,20 @@ class TypeUtils {
    */
   static has(object, keys) {
     if (object == null) {
-      return false;
+      return false
     }
 
     if (!Array.isArray(keys)) {
-      keys = [keys];
+      keys = [keys]
     }
 
     for (const key of keys) {
       if (!hasOwnProperty.call(object, key)) {
-        return false;
+        return false
       }
     }
 
-    return true;
+    return true
   }
 
   /**
@@ -168,20 +168,20 @@ class TypeUtils {
    */
   static hasMethod(object, methods) {
     if (object == null) {
-      return false;
+      return false
     }
 
     if (!Array.isArray(methods)) {
-      methods = [methods];
+      methods = [methods]
     }
 
     for (const key of methods) {
       if (typeof object[key] !== 'function') {
-        return false;
+        return false
       }
     }
 
-    return true;
+    return true
   }
 
   /**
@@ -193,11 +193,11 @@ class TypeUtils {
    */
   static getOrDefault(value, defaultValue) {
     if (value !== undefined) {
-      return value;
+      return value
     }
 
-    return defaultValue;
+    return defaultValue
   }
 }
 
-exports.TypeUtils = TypeUtils;
+exports.TypeUtils = TypeUtils

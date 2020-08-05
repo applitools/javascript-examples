@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const {RenderRequest, RenderInfo} = require('@applitools/eyes-sdk-core');
-const createEmulationInfo = require('./createEmulationInfo');
-const calculateSelectorsToFindRegionsFor = require('./calculateSelectorsToFindRegionsFor');
+const {RenderRequest, RenderInfo} = require('@applitools/eyes-sdk-core')
+const createEmulationInfo = require('./createEmulationInfo')
+const calculateSelectorsToFindRegionsFor = require('./calculateSelectorsToFindRegionsFor')
 
 function createRenderRequests({
   url,
@@ -23,7 +23,7 @@ function createRenderRequests({
     selector,
     noOffsetSelectors,
     offsetSelectors,
-  });
+  })
 
   return browsers.map(
     ({width, height, name, deviceName, screenOrientation, deviceScaleFactor, mobile}) => {
@@ -34,7 +34,7 @@ function createRenderRequests({
         mobile,
         width,
         height,
-      });
+      })
 
       return new RenderRequest({
         webhook: renderInfo.getResultsUrl(),
@@ -54,9 +54,9 @@ function createRenderRequests({
         scriptHooks,
         selectorsToFindRegionsFor,
         sendDom,
-      });
+      })
     },
-  );
+  )
 }
 
-module.exports = createRenderRequests;
+module.exports = createRenderRequests

@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 function flat(arr) {
-  return [].concat(...arr);
+  return [].concat(...arr)
 }
 
-module.exports = flat;
+module.exports = flat

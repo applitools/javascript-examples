@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { TypeUtils } = require('./TypeUtils');
+const {TypeUtils} = require('./TypeUtils')
 
 /**
  * Argument validation utilities.
@@ -18,7 +18,7 @@ class ArgumentGuard {
    */
   static notEqual(param, value, paramName) {
     if (param === value) {
-      throw new Error(`IllegalArgument: ${paramName} === ${value}`);
+      throw new Error(`IllegalArgument: ${paramName} === ${value}`)
     }
   }
 
@@ -31,7 +31,7 @@ class ArgumentGuard {
    */
   static alphanumeric(param, paramName) {
     if (!param.match(/^[a-z0-9]+$/i)) {
-      throw new Error(`IllegalArgument: ${paramName} is not alphanumeric`);
+      throw new Error(`IllegalArgument: ${paramName} is not alphanumeric`)
     }
   }
 
@@ -44,7 +44,7 @@ class ArgumentGuard {
    */
   static notNull(param, paramName) {
     if (param === null || param === undefined) {
-      throw new Error(`IllegalArgument: ${paramName} is null or undefined`);
+      throw new Error(`IllegalArgument: ${paramName} is null or undefined`)
     }
   }
 
@@ -57,7 +57,7 @@ class ArgumentGuard {
    */
   static isNull(param, paramName) {
     if (param !== null && param !== undefined) {
-      throw new Error(`IllegalArgument: ${paramName} is not null or undefined`);
+      throw new Error(`IllegalArgument: ${paramName} is not null or undefined`)
     }
   }
 
@@ -70,7 +70,7 @@ class ArgumentGuard {
    */
   static notNullOrEmpty(param, paramName) {
     if (!param) {
-      throw new Error(`IllegalArgument: ${paramName} is null or empty`);
+      throw new Error(`IllegalArgument: ${paramName} is null or empty`)
     }
   }
 
@@ -84,11 +84,11 @@ class ArgumentGuard {
    */
   static greaterThanOrEqualToZero(param, paramName, isInteger = false) {
     if (isInteger) {
-      ArgumentGuard.isInteger(param, paramName);
+      ArgumentGuard.isInteger(param, paramName)
     }
 
     if (param < 0) {
-      throw new Error(`IllegalArgument: ${paramName} < 0`);
+      throw new Error(`IllegalArgument: ${paramName} < 0`)
     }
   }
 
@@ -102,11 +102,11 @@ class ArgumentGuard {
    */
   static greaterThanZero(param, paramName, isInteger = false) {
     if (isInteger) {
-      ArgumentGuard.isInteger(param, paramName);
+      ArgumentGuard.isInteger(param, paramName)
     }
 
     if (param <= 0) {
-      throw new Error(`IllegalArgument: ${paramName} < 1`);
+      throw new Error(`IllegalArgument: ${paramName} < 1`)
     }
   }
 
@@ -120,11 +120,11 @@ class ArgumentGuard {
    */
   static notZero(param, paramName, isInteger = false) {
     if (isInteger) {
-      ArgumentGuard.isInteger(param, paramName);
+      ArgumentGuard.isInteger(param, paramName)
     }
 
     if (param === 0) {
-      throw new Error(`IllegalArgument: ${paramName} === 0`);
+      throw new Error(`IllegalArgument: ${paramName} === 0`)
     }
   }
 
@@ -138,7 +138,7 @@ class ArgumentGuard {
    */
   static isInteger(param, paramName, strict = true) {
     if ((strict || TypeUtils.isNotNull(param)) && !TypeUtils.isInteger(param)) {
-      throw new Error(`IllegalArgument: ${paramName} is not integer`);
+      throw new Error(`IllegalArgument: ${paramName} is not integer`)
     }
   }
 
@@ -152,7 +152,7 @@ class ArgumentGuard {
    */
   static isString(param, paramName, strict = true) {
     if ((strict || TypeUtils.isNotNull(param)) && !TypeUtils.isString(param)) {
-      throw new Error(`IllegalType: ${paramName} is not a string`);
+      throw new Error(`IllegalType: ${paramName} is not a string`)
     }
   }
 
@@ -166,7 +166,7 @@ class ArgumentGuard {
    */
   static isNumber(param, paramName, strict = true) {
     if ((strict || TypeUtils.isNotNull(param)) && !TypeUtils.isNumber(param)) {
-      throw new Error(`IllegalType: ${paramName} is not a number`);
+      throw new Error(`IllegalType: ${paramName} is not a number`)
     }
   }
 
@@ -180,7 +180,7 @@ class ArgumentGuard {
    */
   static isBoolean(param, paramName, strict = true) {
     if ((strict || TypeUtils.isNotNull(param)) && !TypeUtils.isBoolean(param)) {
-      throw new Error(`IllegalType: ${paramName} is not a boolean`);
+      throw new Error(`IllegalType: ${paramName} is not a boolean`)
     }
   }
 
@@ -194,7 +194,7 @@ class ArgumentGuard {
    */
   static isArray(param, paramName, strict = true) {
     if ((strict || TypeUtils.isNotNull(param)) && !TypeUtils.isArray(param)) {
-      throw new Error(`IllegalType: ${paramName} is not an array`);
+      throw new Error(`IllegalType: ${paramName} is not an array`)
     }
   }
 
@@ -208,7 +208,7 @@ class ArgumentGuard {
    */
   static isBuffer(param, paramName, strict = true) {
     if ((strict || TypeUtils.isNotNull(param)) && !TypeUtils.isBuffer(param)) {
-      throw new Error(`IllegalType: ${paramName} is not a buffer`);
+      throw new Error(`IllegalType: ${paramName} is not a buffer`)
     }
   }
 
@@ -220,7 +220,7 @@ class ArgumentGuard {
    */
   static isBase64(param) {
     if (!TypeUtils.isBase64(param)) {
-      throw new Error(`IllegalType: \`${param}\` is not a base64 string`);
+      throw new Error(`IllegalType: \`${param}\` is not a base64 string`)
     }
   }
 
@@ -233,7 +233,7 @@ class ArgumentGuard {
    */
   static isValidState(isValid, errMsg) {
     if (!isValid) {
-      throw new Error(`IllegalState: ${errMsg}`);
+      throw new Error(`IllegalState: ${errMsg}`)
     }
   }
 
@@ -247,7 +247,7 @@ class ArgumentGuard {
    */
   static isValidType(param, type, strict = true) {
     if ((strict || TypeUtils.isNotNull(param)) && !(param instanceof type)) {
-      throw new Error(`IllegalType: ${param} is not instance of ${type.constructor.name}`);
+      throw new Error(`IllegalType: ${param} is not instance of ${type.constructor.name}`)
     }
   }
 
@@ -260,8 +260,11 @@ class ArgumentGuard {
    * @param {boolean} [strict=true] - If {@code false} then the value can be null|undefined
    */
   static isValidEnumValue(value, enumObject, strict = true) {
-    if ((strict || TypeUtils.isNotNull(value)) && !Object.prototype.hasOwnProperty.call(enumObject, value)) {
-      throw new Error(`IllegalType: ${value} is not member of ${enumObject}`);
+    if (
+      (strict || TypeUtils.isNotNull(value)) &&
+      !Object.prototype.hasOwnProperty.call(enumObject, value)
+    ) {
+      throw new Error(`IllegalType: ${value} is not member of ${enumObject}`)
     }
   }
 
@@ -275,9 +278,11 @@ class ArgumentGuard {
    */
   static hasProperties(object, properties, paramName) {
     if (!TypeUtils.has(object, properties)) {
-      throw new Error(`IllegalArgument: ${paramName} don't have all required properties '${properties}'`);
+      throw new Error(
+        `IllegalArgument: ${paramName} don't have all required properties '${properties}'`,
+      )
     }
   }
 }
 
-exports.ArgumentGuard = ArgumentGuard;
+exports.ArgumentGuard = ArgumentGuard

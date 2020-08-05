@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
-const { EmulationDevice } = require('./EmulationDevice');
+const {EmulationDevice} = require('./EmulationDevice')
 
 class EmulationInfo {
   /**
@@ -10,56 +10,56 @@ class EmulationInfo {
    * @param {string} deviceName
    * @param {ScreenOrientation} screenOrientation
    */
-  constructor({ device, deviceName, screenOrientation } = {}) {
+  constructor({device, deviceName, screenOrientation} = {}) {
     if (device && !(device instanceof EmulationDevice)) {
-      device = new EmulationDevice(device);
+      device = new EmulationDevice(device)
     }
 
-    this._device = device;
-    this._deviceName = deviceName;
-    this._screenOrientation = screenOrientation;
+    this._device = device
+    this._deviceName = deviceName
+    this._screenOrientation = screenOrientation
   }
 
   /**
    * @return {EmulationDevice}
    */
   getDevice() {
-    return this._device;
+    return this._device
   }
 
   /**
    * @param {EmulationDevice} value
    */
   setDevice(value) {
-    this._device = value;
+    this._device = value
   }
 
   /**
    * @return {string}
    */
   getDeviceName() {
-    return this._deviceName;
+    return this._deviceName
   }
 
   /**
    * @param {string} value
    */
   setDeviceName(value) {
-    this._deviceName = value;
+    this._deviceName = value
   }
 
   /**
    * @return {ScreenOrientation}
    */
   getScreenOrientation() {
-    return this._screenOrientation;
+    return this._screenOrientation
   }
 
   /**
    * @param {ScreenOrientation} value
    */
   setScreenOrientation(value) {
-    this._screenOrientation = value;
+    this._screenOrientation = value
   }
 
   /**
@@ -67,20 +67,23 @@ class EmulationInfo {
    */
   toJSON() {
     if (this._device) {
-      return Object.assign({
-        screenOrientation: this._screenOrientation,
-      }, this._device.toJSON());
+      return Object.assign(
+        {
+          screenOrientation: this._screenOrientation,
+        },
+        this._device.toJSON(),
+      )
     }
 
-    return GeneralUtils.toPlain(this, ['_device']);
+    return GeneralUtils.toPlain(this, ['_device'])
   }
 
   /**
    * @override
    */
   toString() {
-    return `EmulationInfo { ${JSON.stringify(this)} }`;
+    return `EmulationInfo { ${JSON.stringify(this)} }`
   }
 }
 
-exports.EmulationInfo = EmulationInfo;
+exports.EmulationInfo = EmulationInfo

@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { EyesError } = require('@applitools/eyes-common');
+const {EyesError} = require('@applitools/eyes-common')
 
 /**
  * Applitools Eyes error indicating the a geometrical element is out of bounds (point outside a region, region outside
@@ -8,4 +8,4 @@ const { EyesError } = require('@applitools/eyes-common');
  */
 class OutOfBoundsError extends EyesError {}
 
-exports.OutOfBoundsError = OutOfBoundsError;
+exports.OutOfBoundsError = OutOfBoundsError

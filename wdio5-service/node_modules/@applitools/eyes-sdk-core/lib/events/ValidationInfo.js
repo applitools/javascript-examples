@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
 /**
  * Encapsulates the information for the validation about to execute.
@@ -11,44 +11,44 @@ class ValidationInfo {
    * @param {string} [tag]
    */
   constructor(validationId, tag) {
-    this._validationId = validationId;
-    this._tag = tag;
+    this._validationId = validationId
+    this._tag = tag
   }
 
   /**
    * @param {number} value
    */
   setValidationId(value) {
-    this._validationId = value;
+    this._validationId = value
   }
 
   /**
    * @return {number}
    */
   getValidationId() {
-    return this._validationId;
+    return this._validationId
   }
 
   /**
    * @param {string} value
    */
   setTag(value) {
-    this._tag = value;
+    this._tag = value
   }
 
   /**
    * @return {string}
    */
   getTag() {
-    return this._tag;
+    return this._tag
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 }
 
-exports.ValidationInfo = ValidationInfo;
+exports.ValidationInfo = ValidationInfo

@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { ArgumentGuard } = require('@applitools/eyes-common');
+const {ArgumentGuard} = require('@applitools/eyes-common')
 
 /**
  * Encapsulates data required to start render using the RenderingGrid API.
@@ -20,25 +20,37 @@ class RenderRequest {
    * @param {string} renderId
    * @param {string} agentId
    */
-  constructor({ webhook, url, dom, resources, renderInfo, platform, browserName, scriptHooks, selectorsToFindRegionsFor,
-    sendDom, renderId, agentId } = {}) {
-    ArgumentGuard.notNullOrEmpty(webhook, 'webhook');
-    ArgumentGuard.notNull(url, 'url');
-    ArgumentGuard.notNull(dom, 'dom');
-    ArgumentGuard.notNull(resources, 'resources');
+  constructor({
+    webhook,
+    url,
+    dom,
+    resources,
+    renderInfo,
+    platform,
+    browserName,
+    scriptHooks,
+    selectorsToFindRegionsFor,
+    sendDom,
+    renderId,
+    agentId,
+  } = {}) {
+    ArgumentGuard.notNullOrEmpty(webhook, 'webhook')
+    ArgumentGuard.notNull(url, 'url')
+    ArgumentGuard.notNull(dom, 'dom')
+    ArgumentGuard.notNull(resources, 'resources')
 
-    this._webhook = webhook;
-    this._url = url;
-    this._dom = dom;
-    this._resources = resources;
-    this._renderInfo = renderInfo;
-    this._platform = platform;
-    this._browserName = browserName;
-    this._renderId = renderId;
-    this._scriptHooks = scriptHooks;
-    this._selectorsToFindRegionsFor = selectorsToFindRegionsFor;
-    this._sendDom = sendDom;
-    this._agentId = agentId;
+    this._webhook = webhook
+    this._url = url
+    this._dom = dom
+    this._resources = resources
+    this._renderInfo = renderInfo
+    this._platform = platform
+    this._browserName = browserName
+    this._renderId = renderId
+    this._scriptHooks = scriptHooks
+    this._selectorsToFindRegionsFor = selectorsToFindRegionsFor
+    this._sendDom = sendDom
+    this._agentId = agentId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -46,7 +58,7 @@ class RenderRequest {
    * @return {string}
    */
   getWebhook() {
-    return this._webhook;
+    return this._webhook
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -54,7 +66,7 @@ class RenderRequest {
    * @return {string}
    */
   getUrl() {
-    return this._url;
+    return this._url
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -62,7 +74,7 @@ class RenderRequest {
    * @return {RGridDom}
    */
   getDom() {
-    return this._dom;
+    return this._dom
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -70,7 +82,7 @@ class RenderRequest {
    * @return {RGridResource[]}
    */
   getResources() {
-    return this._resources;
+    return this._resources
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -78,7 +90,7 @@ class RenderRequest {
    * @return {RenderInfo}
    */
   getRenderInfo() {
-    return this._renderInfo;
+    return this._renderInfo
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -86,7 +98,7 @@ class RenderRequest {
    * @return {string}
    */
   getPlatform() {
-    return this._platform;
+    return this._platform
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -94,7 +106,7 @@ class RenderRequest {
    * @return {string}
    */
   getBrowserName() {
-    return this._browserName;
+    return this._browserName
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -102,7 +114,7 @@ class RenderRequest {
    * @return {string}
    */
   getRenderId() {
-    return this._renderId;
+    return this._renderId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -110,7 +122,7 @@ class RenderRequest {
    * @return {string}
    */
   getAgentId() {
-    return this._agentId;
+    return this._agentId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -118,7 +130,7 @@ class RenderRequest {
    * @param {string} value
    */
   setAgentId(value) {
-    this._agentId = value;
+    this._agentId = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -126,7 +138,7 @@ class RenderRequest {
    * @param {string} value
    */
   setRenderId(value) {
-    this._renderId = value;
+    this._renderId = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -134,7 +146,7 @@ class RenderRequest {
    * @return {string}
    */
   getScriptHooks() {
-    return this._scriptHooks;
+    return this._scriptHooks
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -142,7 +154,7 @@ class RenderRequest {
    * @param {string} value
    */
   setScriptHooks(value) {
-    this._scriptHooks = value;
+    this._scriptHooks = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -150,7 +162,7 @@ class RenderRequest {
    * @return {string[]}
    */
   getSelectorsToFindRegionsFor() {
-    return this._selectorsToFindRegionsFor;
+    return this._selectorsToFindRegionsFor
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -158,82 +170,82 @@ class RenderRequest {
    * @param {string[]} value
    */
   setSelectorsToFindRegionsFor(value) {
-    this._selectorsToFindRegionsFor = value;
+    this._selectorsToFindRegionsFor = value
   }
 
   /**
    * @return {boolean}
    */
   getSendDom() {
-    return this._sendDom;
+    return this._sendDom
   }
 
   /**
    * @param {boolean} value
    */
   setSendDom(value) {
-    this._sendDom = value;
+    this._sendDom = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    const resources = {};
-    this.getResources().forEach((resource) => {
-      resources[resource.getUrl()] = resource.getHashAsObject();
-    });
+    const resources = {}
+    this.getResources().forEach(resource => {
+      resources[resource.getUrl()] = resource.getHashAsObject()
+    })
 
     const object = {
       webhook: this._webhook,
       url: this._url,
       dom: this._dom.getHashAsObject(),
       resources,
-    };
+    }
 
     if (this._renderId) {
-      object.renderId = this._renderId;
+      object.renderId = this._renderId
     }
 
     if (this._agentId) {
-      object.agentId = this._agentId;
+      object.agentId = this._agentId
     }
 
     if (this._browserName) {
       object.browser = {
         name: this._browserName,
-      };
+      }
 
       if (this._platform) {
-        object.browser.platform = this._platform;
+        object.browser.platform = this._platform
       }
     }
 
     if (this._renderInfo) {
-      object.renderInfo = this._renderInfo.toJSON();
+      object.renderInfo = this._renderInfo.toJSON()
     }
 
     if (this._scriptHooks) {
-      object.scriptHooks = this._scriptHooks;
+      object.scriptHooks = this._scriptHooks
     }
 
     if (this._selectorsToFindRegionsFor) {
-      object.selectorsToFindRegionsFor = this._selectorsToFindRegionsFor;
+      object.selectorsToFindRegionsFor = this._selectorsToFindRegionsFor
     }
 
     if (this._sendDom !== undefined) {
-      object.sendDom = this._sendDom;
+      object.sendDom = this._sendDom
     }
 
-    return object;
+    return object
   }
 
   /**
    * @override
    */
   toString() {
-    return `RenderRequest { ${JSON.stringify(this)} }`;
+    return `RenderRequest { ${JSON.stringify(this)} }`
   }
 }
 
-exports.RenderRequest = RenderRequest;
+exports.RenderRequest = RenderRequest

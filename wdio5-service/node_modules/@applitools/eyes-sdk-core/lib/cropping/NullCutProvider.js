@@ -1,18 +1,19 @@
-'use strict';
+'use strict'
 
-const { UnscaledFixedCutProvider } = require('./UnscaledFixedCutProvider');
+const {UnscaledFixedCutProvider} = require('./UnscaledFixedCutProvider')
 
 class NullCutProvider extends UnscaledFixedCutProvider {
   constructor() {
-    super(0, 0, 0, 0);
+    super(0, 0, 0, 0)
   }
 
   /**
    * @inheritDoc
    */
-  scale(scaleRatio) { // eslint-disable-line no-unused-vars
-    return this;
+  scale(scaleRatio) {
+    // eslint-disable-line no-unused-vars
+    return this
   }
 }
 
-exports.NullCutProvider = NullCutProvider;
+exports.NullCutProvider = NullCutProvider

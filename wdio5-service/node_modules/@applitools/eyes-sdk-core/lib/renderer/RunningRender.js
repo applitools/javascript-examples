@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
 /**
  * Encapsulates data for the render currently running in the client.
@@ -13,19 +13,19 @@ class RunningRender {
    * @param {string[]} needMoreResources
    * @param {boolean} needMoreDom
    */
-  constructor({ renderId, jobId, renderStatus, needMoreResources, needMoreDom } = {}) {
-    this._renderId = renderId;
-    this._jobId = jobId;
-    this._renderStatus = renderStatus;
-    this._needMoreResources = needMoreResources;
-    this._needMoreDom = needMoreDom;
+  constructor({renderId, jobId, renderStatus, needMoreResources, needMoreDom} = {}) {
+    this._renderId = renderId
+    this._jobId = jobId
+    this._renderStatus = renderStatus
+    this._needMoreResources = needMoreResources
+    this._needMoreDom = needMoreDom
   }
 
   /**
    * @return {string}
    */
   getRenderId() {
-    return this._renderId;
+    return this._renderId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -33,7 +33,7 @@ class RunningRender {
    * @param {string} value
    */
   setRenderId(value) {
-    this._renderId = value;
+    this._renderId = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -41,7 +41,7 @@ class RunningRender {
    * @return {string}
    */
   getJobId() {
-    return this._jobId;
+    return this._jobId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -49,14 +49,14 @@ class RunningRender {
    * @param {string} value
    */
   setJobId(value) {
-    this._jobId = value;
+    this._jobId = value
   }
 
   /**
    * @return {RenderStatus}
    */
   getRenderStatus() {
-    return this._renderStatus;
+    return this._renderStatus
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -64,14 +64,14 @@ class RunningRender {
    * @param {RenderStatus} value
    */
   setRenderStatus(value) {
-    this._renderStatus = value;
+    this._renderStatus = value
   }
 
   /**
    * @return {string[]}
    */
   getNeedMoreResources() {
-    return this._needMoreResources;
+    return this._needMoreResources
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -79,14 +79,14 @@ class RunningRender {
    * @param {string[]} value
    */
   setNeedMoreResources(value) {
-    this._needMoreResources = value;
+    this._needMoreResources = value
   }
 
   /**
    * @return {boolean}
    */
   getNeedMoreDom() {
-    return this._needMoreDom;
+    return this._needMoreDom
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -94,22 +94,22 @@ class RunningRender {
    * @param {boolean} value
    */
   setNeedMoreDom(value) {
-    this._needMoreDom = value;
+    this._needMoreDom = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `RunningRender { ${JSON.stringify(this)} }`;
+    return `RunningRender { ${JSON.stringify(this)} }`
   }
 }
 
-exports.RunningRender = RunningRender;
+exports.RunningRender = RunningRender

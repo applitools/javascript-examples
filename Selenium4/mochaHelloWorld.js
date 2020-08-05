@@ -4,8 +4,10 @@ var expect = require('chai').expect;
 require('chromedriver');
 const {Builder, By, until} = require('selenium-webdriver');
 const { Region, TestResults } = require('@applitools/eyes-sdk-core');
-const { Eyes, Target, ConsoleLogHandler, BatchInfo } = require('@applitools/eyes-selenium');
+const { Eyes, Target, ConsoleLogHandler, Logger, FileLogHandler, BatchInfo } = require('@applitools/eyes-selenium');
 var driver = null, eyes = null;
+var logger = new Logger();
+var path = require('path');
 
 describe('Eyes.Selenium.JavaScript - Selenium', function () {
         
@@ -15,8 +17,9 @@ describe('Eyes.Selenium.JavaScript - Selenium', function () {
        driver = new Builder().forBrowser('chrome').build();
        eyes = new Eyes();
        eyes.setApiKey(process.env.APPLITOOLS_API_KEY);
-       eyes.setLogHandler(new ConsoleLogHandler(true));
-       //eyes.getLogHandler().setPrintSessionId(true);      
+       //eyes.setLogHandler(new ConsoleLogHandler(true));
+       //const logsPath = './';
+       eyes.setLogHandler(new FileLogHandler(true, path.join(logsPath, 'log.log')));
     });
 
     beforeEach(async function () {
@@ -35,6 +38,9 @@ describe('Eyes.Selenium.JavaScript - Selenium', function () {
 
         // Visual checkpoint #1.
         await eyes.checkWindow('Main Page');
+        
+        var element = driver.findElement(By.id("myId"));
+        await eyes.check("MyTag", Target.region(By.id("myId")).ignoreRegions(By.css("css")));
 
         await eyes.checkElementBy(By.css("div.section"), null, "Hello World Image");
 
@@ -43,6 +49,8 @@ describe('Eyes.Selenium.JavaScript - Selenium', function () {
 
         // Visual checkpoint #2.
         await eyes.checkWindow('Click!');
+
+        await eyes.check('Click!', Target.window().ignoreDisplacements());
 
         await eyes.close(false).then(function (results) {
            console.log("My Test Results: " + results);
@@ -56,9 +64,3 @@ describe('Eyes.Selenium.JavaScript - Selenium', function () {
         });
     });
 });
-
-
-// const assert = require('assert');
-// TestResultsStatus
-// const results = await eyes.close(false);
-// assert.strictEqual(results.getStatus(), TestResultsStatus.Unresolved);

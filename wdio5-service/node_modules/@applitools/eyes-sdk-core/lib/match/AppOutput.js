@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * An application output (title, image, etc).
@@ -15,16 +15,16 @@ class AppOutput {
    * @param {Location} [imageLocation] - Location of the provided screenshot relative to the logical full-page
    *   screenshot (e.g. in checkRegion)
    */
-  constructor({ title, screenshot, screenshotUrl, domUrl, imageLocation } = {}) {
+  constructor({title, screenshot, screenshotUrl, domUrl, imageLocation} = {}) {
     if (arguments.length > 1) {
-      throw new TypeError('Please, use object as a parameter to the constructor!');
+      throw new TypeError('Please, use object as a parameter to the constructor!')
     }
 
-    this._title = title;
-    this._screenshot64 = screenshot;
-    this._screenshotUrl = screenshotUrl;
-    this._domUrl = domUrl;
-    this._imageLocation = imageLocation;
+    this._title = title
+    this._screenshot64 = screenshot
+    this._screenshotUrl = screenshotUrl
+    this._domUrl = domUrl
+    this._imageLocation = imageLocation
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -32,7 +32,7 @@ class AppOutput {
    * @return {string}
    */
   getTitle() {
-    return this._title;
+    return this._title
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -40,21 +40,21 @@ class AppOutput {
    * @param {string} value
    */
   setTitle(value) {
-    this._title = value;
+    this._title = value
   }
 
   /**
    * @return {Buffer}
    */
   getScreenshot64() {
-    return this._screenshot64;
+    return this._screenshot64
   }
 
   /**
    * @param {Buffer} value
    */
   setScreenshot64(value) {
-    this._screenshot64 = value;
+    this._screenshot64 = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -62,7 +62,7 @@ class AppOutput {
    * @return {string}
    */
   getScreenshotUrl() {
-    return this._screenshotUrl;
+    return this._screenshotUrl
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -70,7 +70,7 @@ class AppOutput {
    * @param {string} value
    */
   setScreenshotUrl(value) {
-    this._screenshotUrl = value;
+    this._screenshotUrl = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -78,7 +78,7 @@ class AppOutput {
    * @return {string}
    */
   getDomUrl() {
-    return this._domUrl;
+    return this._domUrl
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -86,21 +86,21 @@ class AppOutput {
    * @param {string} value
    */
   setDomUrl(value) {
-    this._domUrl = value;
+    this._domUrl = value
   }
 
   /**
    * @return {Location}
    */
   getImageLocation() {
-    return this._imageLocation;
+    return this._imageLocation
   }
 
   /**
    * @param {Location} value
    */
   setImageLocation(value) {
-    this._imageLocation = value;
+    this._imageLocation = value
   }
 
   /**
@@ -109,39 +109,39 @@ class AppOutput {
   toJSON() {
     const object = {
       title: this._title,
-    };
+    }
 
     if (this._screenshot64) {
-      object.screenshot64 = this._screenshot64;
+      object.screenshot64 = this._screenshot64
     }
 
     if (this._screenshotUrl) {
-      object.screenshotUrl = this._screenshotUrl;
+      object.screenshotUrl = this._screenshotUrl
     }
 
     if (this._domUrl) {
-      object.domUrl = this._domUrl;
+      object.domUrl = this._domUrl
     }
 
     if (this._imageLocation) {
-      object.location = this._imageLocation.toJSON();
+      object.location = this._imageLocation.toJSON()
     }
 
-    return object;
+    return object
   }
 
   /**
    * @override
    */
   toString() {
-    const object = this.toJSON();
+    const object = this.toJSON()
 
     if (object.screenshot64) {
-      object.screenshot64 = 'REMOVED_FROM_OUTPUT';
+      object.screenshot64 = 'REMOVED_FROM_OUTPUT'
     }
 
-    return `AppOutput { ${object} }`;
+    return `AppOutput { ${object} }`
   }
 }
 
-exports.AppOutput = AppOutput;
+exports.AppOutput = AppOutput

@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils, RectangleSize, Region } = require('@applitools/eyes-common');
+const {GeneralUtils, RectangleSize, Region} = require('@applitools/eyes-common')
 
 /**
  * Encapsulates data for the render currently running in the client.
@@ -16,29 +16,41 @@ class RenderStatusResults {
    * @param {RectangleSize|object} deviceSize
    * @param {Region[]||object[]} selectorRegions
    */
-  constructor({ status, imageLocation, domLocation, error, os, userAgent, deviceSize, selectorRegions } = {}) {
+  constructor({
+    status,
+    imageLocation,
+    domLocation,
+    error,
+    os,
+    userAgent,
+    deviceSize,
+    selectorRegions,
+  } = {}) {
     if (deviceSize && !(deviceSize instanceof RectangleSize)) {
-      deviceSize = new RectangleSize(deviceSize);
+      deviceSize = new RectangleSize(deviceSize)
     }
 
     if (selectorRegions && selectorRegions.length > 0 && !(selectorRegions[0] instanceof Region)) {
-      selectorRegions = selectorRegions.map(region => new Region({
-        left: region.x,
-        top: region.y,
-        width: region.width,
-        height: region.height,
-        error: region.error,
-      }));
+      selectorRegions = selectorRegions.map(
+        region =>
+          new Region({
+            left: region.x,
+            top: region.y,
+            width: region.width,
+            height: region.height,
+            error: region.error,
+          }),
+      )
     }
 
-    this._status = status;
-    this._imageLocation = imageLocation;
-    this._domLocation = domLocation;
-    this._error = error;
-    this._os = os;
-    this._userAgent = userAgent;
-    this._deviceSize = deviceSize;
-    this._selectorRegions = selectorRegions;
+    this._status = status
+    this._imageLocation = imageLocation
+    this._domLocation = domLocation
+    this._error = error
+    this._os = os
+    this._userAgent = userAgent
+    this._deviceSize = deviceSize
+    this._selectorRegions = selectorRegions
   }
 
   /**
@@ -54,134 +66,134 @@ class RenderStatusResults {
       this._userAgent === undefined &&
       this._deviceSize === undefined &&
       this._selectorRegions === undefined
-    );
+    )
   }
 
   /**
    * @return {RenderStatus}
    */
   getStatus() {
-    return this._status;
+    return this._status
   }
 
   /**
    * @param {RenderStatus} value
    */
   setStatus(value) {
-    this._status = value;
+    this._status = value
   }
 
   /**
    * @return {string}
    */
   getImageLocation() {
-    return this._imageLocation;
+    return this._imageLocation
   }
 
   /**
    * @param {string} value
    */
   setImageLocation(value) {
-    this._imageLocation = value;
+    this._imageLocation = value
   }
 
   /**
    * @return {string}
    */
   getDomLocation() {
-    return this._domLocation;
+    return this._domLocation
   }
 
   /**
    * @param {string} value
    */
   setDomLocation(value) {
-    this._domLocation = value;
+    this._domLocation = value
   }
 
   /**
    * @return {string}
    */
   getError() {
-    return this._error;
+    return this._error
   }
 
   /**
    * @param {string} value
    */
   setError(value) {
-    this._error = value;
+    this._error = value
   }
 
   /**
    * @return {string}
    */
   getOS() {
-    return this._os;
+    return this._os
   }
 
   /**
    * @param {string} value
    */
   setOS(value) {
-    this._os = value;
+    this._os = value
   }
 
   /**
    * @return {string}
    */
   getUserAgent() {
-    return this._userAgent;
+    return this._userAgent
   }
 
   /**
    * @param {string} value
    */
   setUserAgent(value) {
-    this._userAgent = value;
+    this._userAgent = value
   }
 
   /**
    * @return {RectangleSize}
    */
   getDeviceSize() {
-    return this._deviceSize;
+    return this._deviceSize
   }
 
   /**
    * @param {RectangleSize} value
    */
   setDeviceSize(value) {
-    this._deviceSize = value;
+    this._deviceSize = value
   }
 
   /**
    * @return {Region[]}
    */
   getSelectorRegions() {
-    return this._selectorRegions;
+    return this._selectorRegions
   }
 
   /**
    * @param {Region[]} value
    */
   setSelectorRegions(value) {
-    this._selectorRegions = value;
+    this._selectorRegions = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `RenderStatusResults { ${JSON.stringify(this)} }`;
+    return `RenderStatusResults { ${JSON.stringify(this)} }`
   }
 }
 
-exports.RenderStatusResults = RenderStatusResults;
+exports.RenderStatusResults = RenderStatusResults

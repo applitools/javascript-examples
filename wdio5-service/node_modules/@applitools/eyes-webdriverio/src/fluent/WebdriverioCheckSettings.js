@@ -312,7 +312,8 @@ class WebdriverioCheckSettings extends CheckSettings {
         return 'full-page';
       }
       return 'viewport';
-    } if (this._targetRegion) {
+    }
+    if (this._targetRegion) {
       if (this.getStitchContent()) {
         return 'region';
       }
@@ -322,6 +323,42 @@ class WebdriverioCheckSettings extends CheckSettings {
       return 'selector';
     }
     return 'selector';
+  }
+
+  /**
+   * @param {By|WebElement|EyesWebElement} element
+   * @return {this}
+   */
+  scrollRootElement(element) {
+    if (EyesWebElement.isLocator(element)) {
+      if (this._frameChain.length === 0) {
+        this._scrollRootSelector = element;
+      } else {
+        this._frameChain[this._frameChain.length - 1].setScrollRootSelector(element);
+      }
+    } else if (this._frameChain.length === 0) {
+      this._scrollRootElement = element;
+    } else {
+      this._frameChain[this._frameChain.length - 1].setScrollRootElement(element);
+    }
+
+    return this;
+  }
+
+  /**
+   * @ignore
+   * @return {Promise<WebElement>}
+   */
+  async getScrollRootElement() {
+    return this._scrollRootElement;
+  }
+
+  /**
+   * @ignore
+   * @return {By}
+   */
+  getScrollRootSelector() {
+    return this._scrollRootSelector;
   }
 
   /**

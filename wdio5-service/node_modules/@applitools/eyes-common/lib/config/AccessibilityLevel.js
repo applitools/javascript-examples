@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * The extent in which to check the image visual accessibility level.
@@ -19,7 +19,7 @@ const AccessibilityLevel = {
    * Highest accessibility level.
    */
   AAA: 'AAA',
-};
+}
 
-Object.freeze(AccessibilityLevel);
-exports.AccessibilityLevel = AccessibilityLevel;
+Object.freeze(AccessibilityLevel)
+exports.AccessibilityLevel = AccessibilityLevel

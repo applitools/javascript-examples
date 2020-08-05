@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('../utils/GeneralUtils');
-const { Region } = require('../geometry/Region');
-const { ArgumentGuard } = require('../utils/ArgumentGuard');
-const { AccessibilityRegionType } = require('./AccessibilityRegionType');
+const {GeneralUtils} = require('../utils/GeneralUtils')
+const {Region} = require('../geometry/Region')
+const {ArgumentGuard} = require('../utils/ArgumentGuard')
+const {AccessibilityRegionType} = require('./AccessibilityRegionType')
 
 /**
  * Encapsulates Accessibility match settings.
@@ -16,17 +16,17 @@ class AccessibilityMatchSettings {
    * @param {number} height
    * @param {AccessibilityRegionType} [type]
    */
-  constructor({ left, top, width, height, type } = {}) {
+  constructor({left, top, width, height, type} = {}) {
     if (arguments.length > 1) {
-      throw new TypeError('Please, use object as a parameter to the constructor!');
+      throw new TypeError('Please, use object as a parameter to the constructor!')
     }
-    ArgumentGuard.isValidEnumValue(type, AccessibilityRegionType, false);
+    ArgumentGuard.isValidEnumValue(type, AccessibilityRegionType, false)
 
-    this._left = left;
-    this._top = top;
-    this._width = width;
-    this._height = height;
-    this._type = type;
+    this._left = left
+    this._top = top
+    this._width = width
+    this._height = height
+    this._type = type
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -34,7 +34,7 @@ class AccessibilityMatchSettings {
    * @return {number}
    */
   getLeft() {
-    return this._left;
+    return this._left
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -42,7 +42,7 @@ class AccessibilityMatchSettings {
    * @param {number} value
    */
   setLeft(value) {
-    this._left = value;
+    this._left = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -50,7 +50,7 @@ class AccessibilityMatchSettings {
    * @return {number}
    */
   getTop() {
-    return this._top;
+    return this._top
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -58,14 +58,14 @@ class AccessibilityMatchSettings {
    * @param {number} value
    */
   setTop(value) {
-    this._top = value;
+    this._top = value
   }
 
   /**
    * @return {number}
    */
   getWidth() {
-    return this._width;
+    return this._width
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -73,14 +73,14 @@ class AccessibilityMatchSettings {
    * @param {number} value
    */
   setWidth(value) {
-    this._width = value;
+    this._width = value
   }
 
   /**
    * @return {number}
    */
   getHeight() {
-    return this._height;
+    return this._height
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -88,14 +88,14 @@ class AccessibilityMatchSettings {
    * @param {number} value
    */
   setHeight(value) {
-    this._height = value;
+    this._height = value
   }
 
   /**
    * @return {AccessibilityRegionType}
    */
   getType() {
-    return this._type;
+    return this._type
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -103,30 +103,30 @@ class AccessibilityMatchSettings {
    * @param {AccessibilityRegionType} value
    */
   setType(value) {
-    ArgumentGuard.isValidEnumValue(value, AccessibilityRegionType);
-    this._type = value;
+    ArgumentGuard.isValidEnumValue(value, AccessibilityRegionType)
+    this._type = value
   }
 
   /**
    * @return {Region}
    */
   getRegion() {
-    return new Region(this._left, this._top, this._width, this._height);
+    return new Region(this._left, this._top, this._width, this._height)
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `AccessibilityMatchSettings { ${JSON.stringify(this)} }`;
+    return `AccessibilityMatchSettings { ${JSON.stringify(this)} }`
   }
 }
 
-exports.AccessibilityMatchSettings = AccessibilityMatchSettings;
+exports.AccessibilityMatchSettings = AccessibilityMatchSettings

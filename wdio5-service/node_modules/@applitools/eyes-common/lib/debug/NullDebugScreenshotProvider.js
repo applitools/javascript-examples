@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { DebugScreenshotsProvider } = require('./DebugScreenshotsProvider');
+const {DebugScreenshotsProvider} = require('./DebugScreenshotsProvider')
 
 /**
  * TODO: rename to NullDebugScreenshotsProvider, should be renamed in other SDKs as well (come from Java)
@@ -11,9 +11,10 @@ class NullDebugScreenshotProvider extends DebugScreenshotsProvider {
   /**
    * @inheritDoc
    */
-  async save(image, suffix) { // eslint-disable-line no-unused-vars
+  async save(image, suffix) {
+    // eslint-disable-line no-unused-vars
     // Do nothing.
   }
 }
 
-exports.NullDebugScreenshotProvider = NullDebugScreenshotProvider;
+exports.NullDebugScreenshotProvider = NullDebugScreenshotProvider

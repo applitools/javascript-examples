@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
-const { MatchWindowTask } = require('./MatchWindowTask');
-const { MatchSingleWindowData, Options } = require('./match/MatchSingleWindowData');
+const {MatchWindowTask} = require('./MatchWindowTask')
+const {MatchSingleWindowData, Options} = require('./match/MatchSingleWindowData')
 
 /**
  * Handles matching of output with the expected output (including retry and 'ignore mismatch' when needed).
@@ -20,12 +20,20 @@ class MatchSingleWindowTask extends MatchWindowTask {
    * @param {SessionStartInfo} startInfo - The start parameters for the session.
    * @param {boolean} saveNewTests - Used for automatic save of a test run. New tests are automatically saved by default.
    */
-  constructor(logger, serverConnector, retryTimeout, eyes, appOutputProvider, startInfo, saveNewTests) {
-    super(logger, serverConnector, null, retryTimeout, eyes, appOutputProvider);
+  constructor(
+    logger,
+    serverConnector,
+    retryTimeout,
+    eyes,
+    appOutputProvider,
+    startInfo,
+    saveNewTests,
+  ) {
+    super(logger, serverConnector, null, retryTimeout, eyes, appOutputProvider)
 
-    /** @type {SessionStartInfo} */ this._startInfo = startInfo;
-    /** @type {TestResults} */ this._matchResult = undefined;
-    /** @type {boolean} */ this._saveNewTests = saveNewTests;
+    /** @type {SessionStartInfo} */ this._startInfo = startInfo
+    /** @type {TestResults} */ this._matchResult = undefined
+    /** @type {boolean} */ this._saveNewTests = saveNewTests
   }
 
   // noinspection JSCheckFunctionSignatures
@@ -42,13 +50,29 @@ class MatchSingleWindowTask extends MatchWindowTask {
    */
   async performMatch(userInputs, appOutput, name, renderId, ignoreMismatch, imageMatchSettings) {
     // Prepare match model.
-    const options = new Options({ name, renderId, userInputs, ignoreMismatch, ignoreMatch: false, forceMismatch: false, forceMatch: false, imageMatchSettings });
-    const data = new MatchSingleWindowData({ startInfo: this._startInfo, userInputs, appOutput: appOutput.getAppOutput(), tag: name, ignoreMismatch, options });
-    data.setRemoveSessionIfMatching(ignoreMismatch);
-    data.setUpdateBaselineIfNew(this._saveNewTests);
+    const options = new Options({
+      name,
+      renderId,
+      userInputs,
+      ignoreMismatch,
+      ignoreMatch: false,
+      forceMismatch: false,
+      forceMatch: false,
+      imageMatchSettings,
+    })
+    const data = new MatchSingleWindowData({
+      startInfo: this._startInfo,
+      userInputs,
+      appOutput: appOutput.getAppOutput(),
+      tag: name,
+      ignoreMismatch,
+      options,
+    })
+    data.setRemoveSessionIfMatching(ignoreMismatch)
+    data.setUpdateBaselineIfNew(this._saveNewTests)
 
     // Perform match.
-    return this._serverConnector.matchSingleWindow(data);
+    return this._serverConnector.matchSingleWindow(data)
   }
 
   /**
@@ -61,18 +85,34 @@ class MatchSingleWindowTask extends MatchWindowTask {
    * @param {number} retryTimeout
    * @return {Promise<EyesScreenshot>}
    */
-  async _retryTakingScreenshot(userInputs, region, tag, ignoreMismatch, checkSettings, retryTimeout) {
-    const start = Date.now(); // Start the retry timer.
-    const retry = Date.now() - start;
+  async _retryTakingScreenshot(
+    userInputs,
+    region,
+    tag,
+    ignoreMismatch,
+    checkSettings,
+    retryTimeout,
+  ) {
+    const start = Date.now() // Start the retry timer.
+    const retry = Date.now() - start
 
     // The match retry loop.
-    const screenshot = await this._takingScreenshotLoop(userInputs, region, tag, ignoreMismatch, checkSettings, retryTimeout, retry, start);
+    const screenshot = await this._takingScreenshotLoop(
+      userInputs,
+      region,
+      tag,
+      ignoreMismatch,
+      checkSettings,
+      retryTimeout,
+      retry,
+      start,
+    )
 
     // if we're here because we haven't found a match yet, try once more
     if (this._matchResult.getIsDifferent()) {
-      return this._tryTakeScreenshot(userInputs, region, tag, ignoreMismatch, checkSettings);
+      return this._tryTakeScreenshot(userInputs, region, tag, ignoreMismatch, checkSettings)
     }
-    return screenshot;
+    return screenshot
   }
 
   /**
@@ -88,20 +128,46 @@ class MatchSingleWindowTask extends MatchWindowTask {
    * @param {EyesScreenshot} [screenshot]
    * @return {Promise<EyesScreenshot>}
    */
-  async _takingScreenshotLoop(userInputs, region, tag, ignoreMismatch, checkSettings, retryTimeout, retry, start, screenshot) {
+  async _takingScreenshotLoop(
+    userInputs,
+    region,
+    tag,
+    ignoreMismatch,
+    checkSettings,
+    retryTimeout,
+    retry,
+    start,
+    screenshot,
+  ) {
     if (retry >= retryTimeout) {
-      return screenshot;
+      return screenshot
     }
 
-    await GeneralUtils.sleep(MatchWindowTask.MATCH_INTERVAL);
+    await GeneralUtils.sleep(MatchWindowTask.MATCH_INTERVAL)
 
-    const newScreenshot = await this._tryTakeScreenshot(userInputs, region, tag, true, checkSettings);
+    const newScreenshot = await this._tryTakeScreenshot(
+      userInputs,
+      region,
+      tag,
+      true,
+      checkSettings,
+    )
     if (this._matchResult.getIsDifferent()) {
-      return this._takingScreenshotLoop(userInputs, region, tag, ignoreMismatch, checkSettings, retryTimeout, Date.now() - start, start, newScreenshot);
+      return this._takingScreenshotLoop(
+        userInputs,
+        region,
+        tag,
+        ignoreMismatch,
+        checkSettings,
+        retryTimeout,
+        Date.now() - start,
+        start,
+        newScreenshot,
+      )
     }
 
-    return newScreenshot;
+    return newScreenshot
   }
 }
 
-exports.MatchSingleWindowTask = MatchSingleWindowTask;
+exports.MatchSingleWindowTask = MatchSingleWindowTask

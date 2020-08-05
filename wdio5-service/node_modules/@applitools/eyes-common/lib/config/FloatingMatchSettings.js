@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('../utils/GeneralUtils');
-const { Region } = require('../geometry/Region');
+const {GeneralUtils} = require('../utils/GeneralUtils')
+const {Region} = require('../geometry/Region')
 
 /**
  * Encapsulates floating match settings for the a session.
@@ -17,19 +17,28 @@ class FloatingMatchSettings {
    * @param {number} maxLeftOffset
    * @param {number} maxRightOffset
    */
-  constructor({ left, top, width, height, maxUpOffset, maxDownOffset, maxLeftOffset, maxRightOffset } = {}) {
+  constructor({
+    left,
+    top,
+    width,
+    height,
+    maxUpOffset,
+    maxDownOffset,
+    maxLeftOffset,
+    maxRightOffset,
+  } = {}) {
     if (arguments.length > 1) {
-      throw new TypeError('Please, use object as a parameter to the constructor!');
+      throw new TypeError('Please, use object as a parameter to the constructor!')
     }
 
-    this._left = left;
-    this._top = top;
-    this._width = width;
-    this._height = height;
-    this._maxUpOffset = maxUpOffset;
-    this._maxDownOffset = maxDownOffset;
-    this._maxLeftOffset = maxLeftOffset;
-    this._maxRightOffset = maxRightOffset;
+    this._left = left
+    this._top = top
+    this._width = width
+    this._height = height
+    this._maxUpOffset = maxUpOffset
+    this._maxDownOffset = maxDownOffset
+    this._maxLeftOffset = maxLeftOffset
+    this._maxRightOffset = maxRightOffset
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -37,7 +46,7 @@ class FloatingMatchSettings {
    * @return {number}
    */
   getLeft() {
-    return this._left;
+    return this._left
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -45,7 +54,7 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setLeft(value) {
-    this._left = value;
+    this._left = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -53,7 +62,7 @@ class FloatingMatchSettings {
    * @return {number}
    */
   getTop() {
-    return this._top;
+    return this._top
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -61,14 +70,14 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setTop(value) {
-    this._top = value;
+    this._top = value
   }
 
   /**
    * @return {number}
    */
   getWidth() {
-    return this._width;
+    return this._width
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -76,14 +85,14 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setWidth(value) {
-    this._width = value;
+    this._width = value
   }
 
   /**
    * @return {number}
    */
   getHeight() {
-    return this._height;
+    return this._height
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -91,14 +100,14 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setHeight(value) {
-    this._height = value;
+    this._height = value
   }
 
   /**
    * @return {number}
    */
   getMaxUpOffset() {
-    return this._maxUpOffset;
+    return this._maxUpOffset
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -106,14 +115,14 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setMaxUpOffset(value) {
-    this._maxUpOffset = value;
+    this._maxUpOffset = value
   }
 
   /**
    * @return {number}
    */
   getMaxDownOffset() {
-    return this._maxDownOffset;
+    return this._maxDownOffset
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -121,14 +130,14 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setMaxDownOffset(value) {
-    this._maxDownOffset = value;
+    this._maxDownOffset = value
   }
 
   /**
    * @return {number}
    */
   getMaxLeftOffset() {
-    return this._maxLeftOffset;
+    return this._maxLeftOffset
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -136,14 +145,14 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setMaxLeftOffset(value) {
-    this._maxLeftOffset = value;
+    this._maxLeftOffset = value
   }
 
   /**
    * @return {number}
    */
   getMaxRightOffset() {
-    return this._maxRightOffset;
+    return this._maxRightOffset
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -151,29 +160,29 @@ class FloatingMatchSettings {
    * @param {number} value
    */
   setMaxRightOffset(value) {
-    this._maxRightOffset = value;
+    this._maxRightOffset = value
   }
 
   /**
    * @return {Region}
    */
   getRegion() {
-    return new Region(this._left, this._top, this._width, this._height);
+    return new Region(this._left, this._top, this._width, this._height)
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `FloatingMatchSettings { ${JSON.stringify(this)} }`;
+    return `FloatingMatchSettings { ${JSON.stringify(this)} }`
   }
 }
 
-exports.FloatingMatchSettings = FloatingMatchSettings;
+exports.FloatingMatchSettings = FloatingMatchSettings

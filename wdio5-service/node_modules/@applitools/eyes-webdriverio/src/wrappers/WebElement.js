@@ -208,6 +208,10 @@ class WebElement {
     return this._locator;
   }
 
+  toString() {
+    return this._element ? JSON.stringify(this._element) : JSON.stringify(this.locator);
+  }
+
 }
 
 module.exports = WebElement;

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @readonly
@@ -11,7 +11,7 @@ const BrowserNames = {
   Chrome: 'Chrome',
   Safari: 'Safari',
   Chromium: 'Chromium',
-};
+}
 
-Object.freeze(BrowserNames);
-exports.BrowserNames = BrowserNames;
+Object.freeze(BrowserNames)
+exports.BrowserNames = BrowserNames

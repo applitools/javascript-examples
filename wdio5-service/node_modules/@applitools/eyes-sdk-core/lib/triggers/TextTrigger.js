@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const { ArgumentGuard } = require('@applitools/eyes-common');
+const {ArgumentGuard} = require('@applitools/eyes-common')
 
-const { Trigger } = require('./Trigger');
+const {Trigger} = require('./Trigger')
 
 /**
  * Encapsulates a text input by the user.
@@ -14,13 +14,13 @@ class TextTrigger extends Trigger {
    * @param {string} text
    */
   constructor(control, text) {
-    super();
+    super()
 
-    ArgumentGuard.notNull(control, 'control');
-    ArgumentGuard.notNullOrEmpty(text, 'text');
+    ArgumentGuard.notNull(control, 'control')
+    ArgumentGuard.notNullOrEmpty(text, 'text')
 
-    this._text = text;
-    this._control = control;
+    this._text = text
+    this._control = control
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -28,7 +28,7 @@ class TextTrigger extends Trigger {
    * @return {string}
    */
   getText() {
-    return this._text;
+    return this._text
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -36,7 +36,7 @@ class TextTrigger extends Trigger {
    * @return {Region}
    */
   getControl() {
-    return this._control;
+    return this._control
   }
 
   // noinspection JSMethodCanBeStatic, JSUnusedGlobalSymbols
@@ -44,15 +44,15 @@ class TextTrigger extends Trigger {
    * @return {Trigger.TriggerType}
    */
   getTriggerType() {
-    return Trigger.TriggerType.Text;
+    return Trigger.TriggerType.Text
   }
 
   /**
    * @override
    */
   toString() {
-    return `Text [${this._control}] ${this._text}`;
+    return `Text [${this._control}] ${this._text}`
   }
 }
 
-exports.TextTrigger = TextTrigger;
+exports.TextTrigger = TextTrigger

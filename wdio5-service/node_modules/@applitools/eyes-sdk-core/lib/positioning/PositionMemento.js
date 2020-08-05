@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * A base class for position related memento instances. This is intentionally not an interface, since the mementos
@@ -8,4 +8,4 @@
  */
 class PositionMemento {}
 
-exports.PositionMemento = PositionMemento;
+exports.PositionMemento = PositionMemento

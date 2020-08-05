@@ -1,20 +1,20 @@
-'use strict';
+'use strict'
 
-const path = require('path');
-const fs = require('fs');
-const os = require('os');
+const path = require('path')
+const fs = require('fs')
+const os = require('os')
 
-const { LogHandler } = require('./LogHandler');
+const {LogHandler} = require('./LogHandler')
 
 /**
  * @private
  * @param {string} filename
  */
 function ensureDirectoryExistence(filename) {
-  const dirname = path.dirname(filename);
+  const dirname = path.dirname(filename)
   if (!fs.existsSync(dirname)) {
-    ensureDirectoryExistence(dirname);
-    fs.mkdirSync(dirname);
+    ensureDirectoryExistence(dirname)
+    fs.mkdirSync(dirname)
   }
 }
 
@@ -28,10 +28,10 @@ class FileLogHandler extends LogHandler {
    * @param {boolean} [append=true] - Whether to append the logs to existing file, or to overwrite the existing file.
    */
   constructor(isVerbose, filename = 'eyes.log', append = true) {
-    super(isVerbose);
+    super(isVerbose)
 
-    this._filename = filename;
-    this._append = append;
+    this._filename = filename
+    this._append = append
   }
 
   /**
@@ -40,16 +40,16 @@ class FileLogHandler extends LogHandler {
    * @override
    */
   open() {
-    this.close();
+    this.close()
 
-    const file = path.normalize(this._filename);
+    const file = path.normalize(this._filename)
     const opts = {
       flags: this._append ? 'a' : 'w',
       encoding: 'utf8',
-    };
+    }
 
-    ensureDirectoryExistence(file);
-    this._writer = fs.createWriteStream(file, opts);
+    ensureDirectoryExistence(file)
+    this._writer = fs.createWriteStream(file, opts)
   }
 
   /**
@@ -59,8 +59,8 @@ class FileLogHandler extends LogHandler {
    */
   close() {
     if (this._writer) {
-      this._writer.end();
-      this._writer = undefined;
+      this._writer.end()
+      this._writer = undefined
     }
   }
 
@@ -74,9 +74,9 @@ class FileLogHandler extends LogHandler {
    */
   onMessage(verbose, logString) {
     if (this._writer && (!verbose || this.getIsVerbose())) {
-      this._writer.write(logString + os.EOL);
+      this._writer.write(logString + os.EOL)
     }
   }
 }
 
-exports.FileLogHandler = FileLogHandler;
+exports.FileLogHandler = FileLogHandler

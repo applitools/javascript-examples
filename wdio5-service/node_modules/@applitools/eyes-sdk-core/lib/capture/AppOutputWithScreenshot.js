@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * A container for a AppOutput along with the screenshot used for creating it.
@@ -12,23 +12,23 @@ class AppOutputWithScreenshot {
    * @param {EyesScreenshot} screenshot
    */
   constructor(appOutput, screenshot) {
-    this._appOutput = appOutput;
-    this._screenshot = screenshot;
+    this._appOutput = appOutput
+    this._screenshot = screenshot
   }
 
   /**
    * @return {AppOutput}
    */
   getAppOutput() {
-    return this._appOutput;
+    return this._appOutput
   }
 
   /**
    * @return {EyesScreenshot}
    */
   getScreenshot() {
-    return this._screenshot;
+    return this._screenshot
   }
 }
 
-exports.AppOutputWithScreenshot = AppOutputWithScreenshot;
+exports.AppOutputWithScreenshot = AppOutputWithScreenshot

@@ -1,5 +1,6 @@
 'use strict';
 
+const {Region} = require('@applitools/eyes-sdk-core');
 const RegionPositionCompensation = require('./RegionPositionCompensation');
 
 class SafariRegionPositionCompensation extends RegionPositionCompensation {

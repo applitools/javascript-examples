@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * Encapsulates image retrieval.
@@ -11,8 +11,8 @@ class ImageProvider {
    * @return {Promise<MutableImage>}
    */
   async getImage() {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 }
 
-exports.ImageProvider = ImageProvider;
+exports.ImageProvider = ImageProvider

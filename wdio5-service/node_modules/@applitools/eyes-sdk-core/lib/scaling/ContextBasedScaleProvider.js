@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-const { ArgumentGuard } = require('@applitools/eyes-common');
+const {ArgumentGuard} = require('@applitools/eyes-common')
 
-const { ScaleProvider } = require('./ScaleProvider');
+const {ScaleProvider} = require('./ScaleProvider')
 
 // Allowed deviations for viewport size and default content entire size.
-const ALLOWED_VS_DEVIATION = 1;
-const ALLOWED_DCES_DEVIATION = 10;
-const UNKNOWN_SCALE_RATIO = 0;
+const ALLOWED_VS_DEVIATION = 1
+const ALLOWED_DCES_DEVIATION = 10
+const UNKNOWN_SCALE_RATIO = 0
 
 /**
  * @param {number} viewportWidth
@@ -16,9 +16,9 @@ const UNKNOWN_SCALE_RATIO = 0;
  * @return {number}
  */
 function getScaleRatioToViewport(viewportWidth, imageToScaleWidth, currentScaleRatio) {
-  const scaledImageWidth = Math.round(imageToScaleWidth * currentScaleRatio);
-  const fromScaledToViewportRatio = viewportWidth / scaledImageWidth;
-  return currentScaleRatio * fromScaledToViewportRatio;
+  const scaledImageWidth = Math.round(imageToScaleWidth * currentScaleRatio)
+  const fromScaledToViewportRatio = viewportWidth / scaledImageWidth
+  return currentScaleRatio * fromScaledToViewportRatio
 }
 
 /**
@@ -34,22 +34,22 @@ class ContextBasedScaleProvider extends ScaleProvider {
    * @param {boolean} isMobileDevice
    */
   constructor(logger, topLevelContextEntireSize, viewportSize, devicePixelRatio, isMobileDevice) {
-    super();
+    super()
 
     /** @type {Logger} */
-    this._logger = logger;
+    this._logger = logger
     /** @type {RectangleSize} */
-    this._topLevelContextEntireSize = topLevelContextEntireSize;
+    this._topLevelContextEntireSize = topLevelContextEntireSize
     /** @type {RectangleSize} */
-    this._viewportSize = viewportSize;
+    this._viewportSize = viewportSize
     /** @type {number} */
-    this._devicePixelRatio = devicePixelRatio;
+    this._devicePixelRatio = devicePixelRatio
     /** @type {boolean} */
-    this._isMobileDevice = isMobileDevice;
+    this._isMobileDevice = isMobileDevice
 
     // Since we need the image size to decide what the scale ratio is.
     /** @type {number} */
-    this._scaleRatio = UNKNOWN_SCALE_RATIO;
+    this._scaleRatio = UNKNOWN_SCALE_RATIO
   }
 
   /**
@@ -57,8 +57,11 @@ class ContextBasedScaleProvider extends ScaleProvider {
    * @return {number} - The ratio by which an image will be scaled.
    */
   getScaleRatio() {
-    ArgumentGuard.isValidState(this._scaleRatio !== UNKNOWN_SCALE_RATIO, 'scaleRatio not defined yet');
-    return this._scaleRatio;
+    ArgumentGuard.isValidState(
+      this._scaleRatio !== UNKNOWN_SCALE_RATIO,
+      'scaleRatio not defined yet',
+    )
+    return this._scaleRatio
   }
 
   /**
@@ -67,8 +70,8 @@ class ContextBasedScaleProvider extends ScaleProvider {
    * @param {number} imageToScaleWidth - The width of the image to scale, used for calculating the scale ratio.
    */
   updateScaleRatio(imageToScaleWidth) {
-    const viewportWidth = this._viewportSize.getWidth();
-    const dcesWidth = this._topLevelContextEntireSize.getWidth();
+    const viewportWidth = this._viewportSize.getWidth()
+    const dcesWidth = this._topLevelContextEntireSize.getWidth()
 
     // If the image's width is the same as the viewport's width or the
     // top level context's width, no scaling is necessary.
@@ -78,19 +81,23 @@ class ContextBasedScaleProvider extends ScaleProvider {
       (imageToScaleWidth >= dcesWidth - ALLOWED_DCES_DEVIATION &&
         imageToScaleWidth <= dcesWidth + ALLOWED_DCES_DEVIATION)
     ) {
-      this._logger.verbose('Image is already scaled correctly.');
-      this._scaleRatio = 1;
+      this._logger.verbose('Image is already scaled correctly.')
+      this._scaleRatio = 1
     } else {
-      this._logger.verbose('Calculating the scale ratio...');
-      this._scaleRatio = 1 / this._devicePixelRatio;
+      this._logger.verbose('Calculating the scale ratio...')
+      this._scaleRatio = 1 / this._devicePixelRatio
       if (this._isMobileDevice) {
-        this._logger.verbose('Mobile device, so using 2 step calculation for scale ration...');
-        this._logger.verbose(`Scale ratio based on DRP: ${this._scaleRatio}`);
-        this._scaleRatio = getScaleRatioToViewport(viewportWidth, imageToScaleWidth, this._scaleRatio);
+        this._logger.verbose('Mobile device, so using 2 step calculation for scale ration...')
+        this._logger.verbose(`Scale ratio based on DRP: ${this._scaleRatio}`)
+        this._scaleRatio = getScaleRatioToViewport(
+          viewportWidth,
+          imageToScaleWidth,
+          this._scaleRatio,
+        )
       }
-      this._logger.verbose(`Final scale ratio: ${this._scaleRatio}`);
+      this._logger.verbose(`Final scale ratio: ${this._scaleRatio}`)
     }
   }
 }
 
-exports.ContextBasedScaleProvider = ContextBasedScaleProvider;
+exports.ContextBasedScaleProvider = ContextBasedScaleProvider

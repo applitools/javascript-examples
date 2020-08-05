@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * Handles log messages produces by the Eyes API.
@@ -10,7 +10,7 @@ class LogHandler {
    * @param {boolean} [isVerbose=false] - Whether to handle or ignore verbose log messages.
    */
   constructor(isVerbose = false) {
-    this.setIsVerbose(isVerbose);
+    this.setIsVerbose(isVerbose)
   }
 
   /**
@@ -20,7 +20,7 @@ class LogHandler {
    */
   setIsVerbose(isVerbose) {
     // noinspection PointlessBooleanExpressionJS
-    this._isVerbose = !!isVerbose;
+    this._isVerbose = !!isVerbose
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -30,7 +30,7 @@ class LogHandler {
    * @return {boolean} - isVerbose
    */
   getIsVerbose() {
-    return this._isVerbose;
+    return this._isVerbose
   }
 
   open() {}
@@ -44,4 +44,4 @@ class LogHandler {
   onMessage(verbose, logString) {} // eslint-disable-line no-unused-vars
 }
 
-exports.LogHandler = LogHandler;
+exports.LogHandler = LogHandler

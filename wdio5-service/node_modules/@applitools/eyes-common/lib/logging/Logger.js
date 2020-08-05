@@ -1,18 +1,18 @@
-'use strict';
+'use strict'
 
-const stackTrace = require('stack-trace');
+const stackTrace = require('stack-trace')
 
-const { ArgumentGuard } = require('../utils/ArgumentGuard');
-const { GeneralUtils } = require('../utils/GeneralUtils');
-const { TypeUtils } = require('../utils/TypeUtils');
-const { DateTimeUtils } = require('../utils/DateTimeUtils');
-const { PerformanceUtils } = require('../utils/PerformanceUtils');
+const {ArgumentGuard} = require('../utils/ArgumentGuard')
+const {GeneralUtils} = require('../utils/GeneralUtils')
+const {TypeUtils} = require('../utils/TypeUtils')
+const {DateTimeUtils} = require('../utils/DateTimeUtils')
+const {PerformanceUtils} = require('../utils/PerformanceUtils')
 
-const { NullLogHandler } = require('./NullLogHandler');
-const { ConsoleLogHandler } = require('./ConsoleLogHandler');
-const { DebugLogHandler } = require('./DebugLogHandler');
+const {NullLogHandler} = require('./NullLogHandler')
+const {ConsoleLogHandler} = require('./ConsoleLogHandler')
+const {DebugLogHandler} = require('./DebugLogHandler')
 
-const timeStorage = PerformanceUtils.start();
+const timeStorage = PerformanceUtils.start()
 
 /**
  * Write log messages using the provided Log Handler
@@ -25,22 +25,24 @@ class Logger {
    */
   constructor(showLogs = false, debugAppName) {
     if (TypeUtils.isString(showLogs)) {
-      showLogs = (showLogs === 'true');
+      showLogs = showLogs === 'true'
     }
 
-    ArgumentGuard.isBoolean(showLogs, 'showLogs');
-    ArgumentGuard.isString(debugAppName, 'debugAppName', false);
+    ArgumentGuard.isBoolean(showLogs, 'showLogs')
+    ArgumentGuard.isString(debugAppName, 'debugAppName', false)
 
-    this._logHandler = showLogs ? new ConsoleLogHandler(true) : new DebugLogHandler(true, debugAppName);
-    this._sessionId = '';
-    this._isIncludeTime = false;
+    this._logHandler = showLogs
+      ? new ConsoleLogHandler(true)
+      : new DebugLogHandler(true, debugAppName)
+    this._sessionId = ''
+    this._isIncludeTime = false
   }
 
   /**
    * @param {string} sessionId
    */
   setSessionId(sessionId) {
-    this._sessionId = sessionId;
+    this._sessionId = sessionId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -48,14 +50,14 @@ class Logger {
    * @param {boolean} isIncludeTime
    */
   setIncludeTime(isIncludeTime) {
-    this._isIncludeTime = isIncludeTime;
+    this._isIncludeTime = isIncludeTime
   }
 
   /**
    * @return {LogHandler} - The currently set log handler.
    */
   getLogHandler() {
-    return this._logHandler;
+    return this._logHandler
   }
 
   /**
@@ -63,7 +65,7 @@ class Logger {
    *   {@link NullLogHandler}.
    */
   setLogHandler(handler) {
-    this._logHandler = handler || new NullLogHandler();
+    this._logHandler = handler || new NullLogHandler()
   }
 
   /**
@@ -71,12 +73,12 @@ class Logger {
    * @return {Logger}
    */
   extend(name) {
-    const newLogger = new Logger();
-    const handler = this._logHandler.extend ? this._logHandler.extend(name) : this._logHandler;
-    newLogger.setLogHandler(handler);
-    newLogger.setIncludeTime(this._isIncludeTime);
-    newLogger.setSessionId(this._sessionId);
-    return newLogger;
+    const newLogger = new Logger()
+    const handler = this._logHandler.extend ? this._logHandler.extend(name) : this._logHandler
+    newLogger.setLogHandler(handler)
+    newLogger.setIncludeTime(this._isIncludeTime)
+    newLogger.setSessionId(this._sessionId)
+    return newLogger
   }
 
   /**
@@ -85,7 +87,10 @@ class Logger {
    * @param {*} args
    */
   verbose(...args) {
-    this._logHandler.onMessage(true, this._getFormattedString('VERBOSE', GeneralUtils.stringify(...args)));
+    this._logHandler.onMessage(
+      true,
+      this._getFormattedString('VERBOSE', GeneralUtils.stringify(...args)),
+    )
   }
 
   /**
@@ -94,7 +99,10 @@ class Logger {
    * @param {*} args
    */
   log(...args) {
-    this._logHandler.onMessage(false, this._getFormattedString('LOG    ', GeneralUtils.stringify(...args)));
+    this._logHandler.onMessage(
+      false,
+      this._getFormattedString('LOG    ', GeneralUtils.stringify(...args)),
+    )
   }
 
   // noinspection JSMethodCanBeStatic
@@ -103,15 +111,17 @@ class Logger {
    * @return {string} - The name of the method which called the logger, if possible, or an empty string.
    */
   _getFormattedString(logLevel, message) {
-    const dateTime = DateTimeUtils.toISO8601DateTime();
+    const dateTime = DateTimeUtils.toISO8601DateTime()
 
-    let elapsedTime = '';
+    let elapsedTime = ''
     if (this._isIncludeTime) {
-      elapsedTime = `${timeStorage.end().time} ms. `;
-      timeStorage.start();
+      elapsedTime = `${timeStorage.end().time} ms. `
+      timeStorage.start()
     }
 
-    return `${dateTime} Eyes: [${logLevel}] {${this._sessionId}} ${this._getMethodName()}${elapsedTime}${message}`;
+    return `${dateTime} Eyes: [${logLevel}] {${
+      this._sessionId
+    }} ${this._getMethodName()}${elapsedTime}${message}`
   }
 
   // noinspection JSMethodCanBeStatic
@@ -133,18 +143,18 @@ class Logger {
        */
       // noinspection JSUnresolvedFunction
       /** @type {CallSite[]} */
-      const trace = stackTrace.get();
+      const trace = stackTrace.get()
 
       // _getMethodName() <- _getFormattedString <- log()/verbose() <- "actual caller"
       if (trace && trace.length >= 3) {
-        const className = trace[3].getTypeName();
-        const methodName = trace[3].getMethodName();
-        return className ? `${className}.${(methodName || '<init>')}(): ` : '(): ';
+        const className = trace[3].getTypeName()
+        const methodName = trace[3].getMethodName()
+        return className ? `${className}.${methodName || '<init>'}(): ` : '(): '
       }
     }
 
-    return '';
+    return ''
   }
 }
 
-exports.Logger = Logger;
+exports.Logger = Logger

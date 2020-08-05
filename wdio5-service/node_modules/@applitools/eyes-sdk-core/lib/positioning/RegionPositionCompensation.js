@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -15,4 +15,4 @@ class RegionPositionCompensation {
   compensateRegionPosition(region, pixelRatio) {}
 }
 
-exports.RegionPositionCompensation = RegionPositionCompensation;
+exports.RegionPositionCompensation = RegionPositionCompensation

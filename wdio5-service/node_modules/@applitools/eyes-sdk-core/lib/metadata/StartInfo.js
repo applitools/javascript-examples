@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils } = require('@applitools/eyes-common');
+const {GeneralUtils} = require('@applitools/eyes-common')
 
-const { ImageMatchSettings } = require('./ImageMatchSettings');
-const { BatchInfo } = require('./BatchInfo');
-const { AppEnvironment } = require('../AppEnvironment');
+const {ImageMatchSettings} = require('./ImageMatchSettings')
+const {BatchInfo} = require('./BatchInfo')
+const {AppEnvironment} = require('../AppEnvironment')
 
 class StartInfo {
   /**
@@ -22,33 +22,46 @@ class StartInfo {
    * @param {object[]} properties
    * @param {boolean} render
    */
-  constructor({ sessionType, isTransient, ignoreBaseline, appIdOrName, compareWithParentBranch, scenarioIdOrName,
-    batchInfo, environment, matchLevel, defaultMatchSettings, agentId, properties, render } = {}) {
+  constructor({
+    sessionType,
+    isTransient,
+    ignoreBaseline,
+    appIdOrName,
+    compareWithParentBranch,
+    scenarioIdOrName,
+    batchInfo,
+    environment,
+    matchLevel,
+    defaultMatchSettings,
+    agentId,
+    properties,
+    render,
+  } = {}) {
     if (batchInfo && !(batchInfo instanceof BatchInfo)) {
-      batchInfo = new BatchInfo(batchInfo);
+      batchInfo = new BatchInfo(batchInfo)
     }
 
     if (defaultMatchSettings && !(defaultMatchSettings instanceof ImageMatchSettings)) {
-      defaultMatchSettings = new ImageMatchSettings(defaultMatchSettings);
+      defaultMatchSettings = new ImageMatchSettings(defaultMatchSettings)
     }
 
     if (environment && !(environment instanceof AppEnvironment)) {
-      environment = new AppEnvironment(environment);
+      environment = new AppEnvironment(environment)
     }
 
-    this._sessionType = sessionType;
-    this._isTransient = isTransient;
-    this._ignoreBaseline = ignoreBaseline;
-    this._appIdOrName = appIdOrName;
-    this._compareWithParentBranch = compareWithParentBranch;
-    this._scenarioIdOrName = scenarioIdOrName;
-    this._batchInfo = batchInfo;
-    this._environment = environment;
-    this._matchLevel = matchLevel;
-    this._defaultMatchSettings = defaultMatchSettings;
-    this._agentId = agentId;
-    this._properties = properties;
-    this._render = render;
+    this._sessionType = sessionType
+    this._isTransient = isTransient
+    this._ignoreBaseline = ignoreBaseline
+    this._appIdOrName = appIdOrName
+    this._compareWithParentBranch = compareWithParentBranch
+    this._scenarioIdOrName = scenarioIdOrName
+    this._batchInfo = batchInfo
+    this._environment = environment
+    this._matchLevel = matchLevel
+    this._defaultMatchSettings = defaultMatchSettings
+    this._agentId = agentId
+    this._properties = properties
+    this._render = render
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -56,7 +69,7 @@ class StartInfo {
    * @return {string}
    */
   getSessionType() {
-    return this._sessionType;
+    return this._sessionType
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -64,7 +77,7 @@ class StartInfo {
    * @param {string} value
    */
   setSessionType(value) {
-    this._sessionType = value;
+    this._sessionType = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -72,7 +85,7 @@ class StartInfo {
    * @return {boolean}
    */
   getIsTransient() {
-    return this._isTransient;
+    return this._isTransient
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -80,7 +93,7 @@ class StartInfo {
    * @param {boolean} value
    */
   setIsTransient(value) {
-    this._isTransient = value;
+    this._isTransient = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -88,7 +101,7 @@ class StartInfo {
    * @return {boolean}
    */
   getIgnoreBaseline() {
-    return this._ignoreBaseline;
+    return this._ignoreBaseline
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -96,7 +109,7 @@ class StartInfo {
    * @param {boolean} value
    */
   setIgnoreBaseline(value) {
-    this._ignoreBaseline = value;
+    this._ignoreBaseline = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -104,7 +117,7 @@ class StartInfo {
    * @return {string}
    */
   getAppIdOrName() {
-    return this._appIdOrName;
+    return this._appIdOrName
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -112,7 +125,7 @@ class StartInfo {
    * @param {string} value
    */
   setAppIdOrName(value) {
-    this._appIdOrName = value;
+    this._appIdOrName = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -120,7 +133,7 @@ class StartInfo {
    * @return {boolean}
    */
   getCompareWithParentBranch() {
-    return this._compareWithParentBranch;
+    return this._compareWithParentBranch
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -128,7 +141,7 @@ class StartInfo {
    * @param {boolean} value
    */
   setCompareWithParentBranch(value) {
-    this._compareWithParentBranch = value;
+    this._compareWithParentBranch = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -136,7 +149,7 @@ class StartInfo {
    * @return {string}
    */
   getScenarioIdOrName() {
-    return this._scenarioIdOrName;
+    return this._scenarioIdOrName
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -144,7 +157,7 @@ class StartInfo {
    * @param {string} value
    */
   setScenarioIdOrName(value) {
-    this._scenarioIdOrName = value;
+    this._scenarioIdOrName = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -152,7 +165,7 @@ class StartInfo {
    * @return {BatchInfo}
    */
   getBatchInfo() {
-    return this._batchInfo;
+    return this._batchInfo
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -160,7 +173,7 @@ class StartInfo {
    * @param {BatchInfo} value
    */
   setBatchInfo(value) {
-    this._batchInfo = value;
+    this._batchInfo = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -168,7 +181,7 @@ class StartInfo {
    * @return {AppEnvironment}
    */
   getEnvironment() {
-    return this._environment;
+    return this._environment
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -176,7 +189,7 @@ class StartInfo {
    * @param {AppEnvironment} value
    */
   setEnvironment(value) {
-    this._environment = value;
+    this._environment = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -184,7 +197,7 @@ class StartInfo {
    * @return {string}
    */
   getMatchLevel() {
-    return this._matchLevel;
+    return this._matchLevel
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -192,7 +205,7 @@ class StartInfo {
    * @param {string} value
    */
   setMatchLevel(value) {
-    this._matchLevel = value;
+    this._matchLevel = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -200,7 +213,7 @@ class StartInfo {
    * @return {ImageMatchSettings}
    */
   getDefaultMatchSettings() {
-    return this._defaultMatchSettings;
+    return this._defaultMatchSettings
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -208,7 +221,7 @@ class StartInfo {
    * @param {ImageMatchSettings} value
    */
   setDefaultMatchSettings(value) {
-    this._defaultMatchSettings = value;
+    this._defaultMatchSettings = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -216,7 +229,7 @@ class StartInfo {
    * @return {string}
    */
   getAgentId() {
-    return this._agentId;
+    return this._agentId
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -224,7 +237,7 @@ class StartInfo {
    * @param {string} value
    */
   setAgentId(value) {
-    this._agentId = value;
+    this._agentId = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -232,7 +245,7 @@ class StartInfo {
    * @return {object[]}
    */
   getProperties() {
-    return this._properties;
+    return this._properties
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -240,7 +253,7 @@ class StartInfo {
    * @param {object[]} value
    */
   setProperties(value) {
-    this._properties = value;
+    this._properties = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -248,7 +261,7 @@ class StartInfo {
    * @return {boolean}
    */
   getRender() {
-    return this._render;
+    return this._render
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -256,22 +269,22 @@ class StartInfo {
    * @param {boolean} value
    */
   setRender(value) {
-    this._render = value;
+    this._render = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `StartInfo { ${JSON.stringify(this)} }`;
+    return `StartInfo { ${JSON.stringify(this)} }`
   }
 }
 
-exports.StartInfo = StartInfo;
+exports.StartInfo = StartInfo

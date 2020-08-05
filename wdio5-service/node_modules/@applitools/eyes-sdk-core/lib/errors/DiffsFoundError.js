@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const { TestFailedError } = require('./TestFailedError');
-const { SessionStartInfo } = require('../server/SessionStartInfo');
+const {TestFailedError} = require('./TestFailedError')
+const {SessionStartInfo} = require('../server/SessionStartInfo')
 
 /**
  * Indicates that an existing test ended, and that differences where found from the baseline.
@@ -15,12 +15,12 @@ class DiffsFoundError extends TestFailedError {
    */
   constructor(testResults, messageOrSession) {
     if (messageOrSession instanceof SessionStartInfo) {
-      const testName = `'${messageOrSession.getScenarioIdOrName()}' of '${messageOrSession.getAppIdOrName()}'`;
-      messageOrSession = `Test ${testName} detected differences!. See details at: ${testResults.getUrl()}`;
+      const testName = `'${messageOrSession.getScenarioIdOrName()}' of '${messageOrSession.getAppIdOrName()}'`
+      messageOrSession = `Test ${testName} detected differences!. See details at: ${testResults.getUrl()}`
     }
 
-    super(testResults, messageOrSession);
+    super(testResults, messageOrSession)
   }
 }
 
-exports.DiffsFoundError = DiffsFoundError;
+exports.DiffsFoundError = DiffsFoundError

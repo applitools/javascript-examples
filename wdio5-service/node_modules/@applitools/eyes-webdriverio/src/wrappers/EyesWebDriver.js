@@ -129,9 +129,13 @@ class EyesWebDriver {
 
   async getUserAgent() {
     try {
-      let userAgent = await this.remoteWebDriver.execute('return navigator.userAgent');
-      this._logger.verbose("user agent: " + userAgent);
-      return userAgent;
+      if (!EyesWDIOUtils.isMobileDevice(this.remoteWebDriver)) {
+        let userAgent = await this.remoteWebDriver.execute('return navigator.userAgent');
+        this._logger.verbose("user agent: " + userAgent);
+        return userAgent;
+      } else {
+        this._logger.verbose('no user agent for native apps');
+      }
     } catch (e) {
       this._logger.verbose("Failed to obtain user-agent string");
       return null;
@@ -286,7 +290,11 @@ class EyesWebDriver {
 
   // noinspection JSUnusedGlobalSymbols
   async getCurrentUrl() {
-    return await this.getUrl();
+    if (!EyesWDIOUtils.isMobileDevice(this.remoteWebDriver)) {
+      return await this.getUrl();
+    } else {
+      return null;
+    }
   }
 
 

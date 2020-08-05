@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { ArgumentGuard } = require('../utils/ArgumentGuard');
+const {ArgumentGuard} = require('../utils/ArgumentGuard')
 
 /**
  * @typedef {{width: number, height: number}} RectangleSizeObject
@@ -28,19 +28,19 @@ class RectangleSize {
    */
   constructor(varArg1, varArg2) {
     if (arguments.length === 2) {
-      return new RectangleSize({ width: varArg1, height: varArg2 });
+      return new RectangleSize({width: varArg1, height: varArg2})
     }
 
     if (varArg1 instanceof RectangleSize) {
-      return new RectangleSize({ width: varArg1.getWidth(), height: varArg1.getHeight() });
+      return new RectangleSize({width: varArg1.getWidth(), height: varArg1.getHeight()})
     }
 
-    const { width, height } = varArg1;
-    ArgumentGuard.greaterThanOrEqualToZero(width, 'width', true);
-    ArgumentGuard.greaterThanOrEqualToZero(height, 'height', true);
+    const {width, height} = varArg1
+    ArgumentGuard.greaterThanOrEqualToZero(width, 'width', true)
+    ArgumentGuard.greaterThanOrEqualToZero(height, 'height', true)
 
-    this._width = width;
-    this._height = height;
+    this._width = width
+    this._height = height
   }
 
   /**
@@ -50,34 +50,34 @@ class RectangleSize {
    * @return {RectangleSize} - An instance representing the input size.
    */
   static parse(size) {
-    ArgumentGuard.notNull(size, 'size');
-    const parts = size.split('x');
+    ArgumentGuard.notNull(size, 'size')
+    const parts = size.split('x')
     if (parts.length !== 2) {
-      throw new Error(`IllegalArgument: Not a valid size string: ${size}`);
+      throw new Error(`IllegalArgument: Not a valid size string: ${size}`)
     }
 
-    return new RectangleSize({ width: parseInt(parts[0], 10), height: parseInt(parts[1], 10) });
+    return new RectangleSize({width: parseInt(parts[0], 10), height: parseInt(parts[1], 10)})
   }
 
   /**
    * @return {boolean}
    */
   isEmpty() {
-    return this.getWidth() === 0 && this.getHeight() === 0;
+    return this.getWidth() === 0 && this.getHeight() === 0
   }
 
   /**
    * @return {number} - The rectangle's width.
    */
   getWidth() {
-    return this._width;
+    return this._width
   }
 
   /**
    * @return {number} - The rectangle's height.
    */
   getHeight() {
-    return this._height;
+    return this._height
   }
 
   /**
@@ -88,10 +88,10 @@ class RectangleSize {
    */
   equals(obj) {
     if (typeof obj !== typeof this || !(obj instanceof RectangleSize)) {
-      return false;
+      return false
     }
 
-    return this.getWidth() === obj.getWidth() && this.getHeight() === obj.getHeight();
+    return this.getWidth() === obj.getWidth() && this.getHeight() === obj.getHeight()
   }
 
   /**
@@ -104,24 +104,24 @@ class RectangleSize {
     return new RectangleSize({
       width: Math.ceil(this._width * scaleRatio),
       height: Math.ceil(this._height * scaleRatio),
-    });
+    })
   }
 
   /**
    * @override
    */
   toJSON() {
-    return { width: this._width, height: this._height };
+    return {width: this._width, height: this._height}
   }
 
   /**
    * @override
    */
   toString() {
-    return `${this._width}x${this._height}`;
+    return `${this._width}x${this._height}`
   }
 }
 
-RectangleSize.EMPTY = new RectangleSize(0, 0);
+RectangleSize.EMPTY = new RectangleSize(0, 0)
 
-exports.RectangleSize = RectangleSize;
+exports.RectangleSize = RectangleSize

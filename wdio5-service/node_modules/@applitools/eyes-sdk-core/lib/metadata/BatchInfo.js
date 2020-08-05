@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { GeneralUtils, DateTimeUtils } = require('@applitools/eyes-common');
+const {GeneralUtils, DateTimeUtils} = require('@applitools/eyes-common')
 
 class BatchInfo {
   /**
@@ -8,14 +8,14 @@ class BatchInfo {
    * @param {string} name
    * @param {Date|string} startedAt
    */
-  constructor({ id, name, startedAt } = {}) {
+  constructor({id, name, startedAt} = {}) {
     if (startedAt && !(startedAt instanceof Date)) {
-      startedAt = DateTimeUtils.fromISO8601DateTime(startedAt);
+      startedAt = DateTimeUtils.fromISO8601DateTime(startedAt)
     }
 
-    this._id = id;
-    this._name = name;
-    this._startedAt = startedAt;
+    this._id = id
+    this._name = name
+    this._startedAt = startedAt
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -23,7 +23,7 @@ class BatchInfo {
    * @return {string}
    */
   getId() {
-    return this._id;
+    return this._id
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -31,7 +31,7 @@ class BatchInfo {
    * @param {string} value
    */
   setId(value) {
-    this._id = value;
+    this._id = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -39,7 +39,7 @@ class BatchInfo {
    * @return {string}
    */
   getName() {
-    return this._name;
+    return this._name
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -47,7 +47,7 @@ class BatchInfo {
    * @param {string} value
    */
   setName(value) {
-    this._name = value;
+    this._name = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -55,7 +55,7 @@ class BatchInfo {
    * @return {Date}
    */
   getStartedAt() {
-    return this._startedAt;
+    return this._startedAt
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -63,22 +63,22 @@ class BatchInfo {
    * @param {Date} value
    */
   setStartedAt(value) {
-    this._startedAt = value;
+    this._startedAt = value
   }
 
   /**
    * @override
    */
   toJSON() {
-    return GeneralUtils.toPlain(this);
+    return GeneralUtils.toPlain(this)
   }
 
   /**
    * @override
    */
   toString() {
-    return `BatchInfo { ${JSON.stringify(this)} }`;
+    return `BatchInfo { ${JSON.stringify(this)} }`
   }
 }
 
-exports.BatchInfo = BatchInfo;
+exports.BatchInfo = BatchInfo

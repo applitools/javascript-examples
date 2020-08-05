@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -15,8 +15,8 @@ class EyesScreenshotFactory {
    * @return {Promise<EyesScreenshot>}
    */
   async makeScreenshot(image) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 }
 
-exports.EyesScreenshotFactory = EyesScreenshotFactory;
+exports.EyesScreenshotFactory = EyesScreenshotFactory

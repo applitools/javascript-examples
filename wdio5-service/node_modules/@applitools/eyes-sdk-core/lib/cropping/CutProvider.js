@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* eslint-disable no-unused-vars */
 
@@ -14,7 +14,7 @@ class CutProvider {
    * @return {Promise<MutableImage>} - A new cut image.
    */
   async cut(image) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 
   // noinspection JSMethodCanBeStatic
@@ -25,8 +25,8 @@ class CutProvider {
    * @return {CutProvider} - A new scale cut provider instance.
    */
   scale(scaleRatio) {
-    throw new TypeError('The method is not implemented!');
+    throw new TypeError('The method is not implemented!')
   }
 }
 
-exports.CutProvider = CutProvider;
+exports.CutProvider = CutProvider

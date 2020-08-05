@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { ArgumentGuard } = require('../utils/ArgumentGuard');
+const {ArgumentGuard} = require('../utils/ArgumentGuard')
 
 /**
  * @typedef {{name: string, value: string}} PropertyDataObject
@@ -26,21 +26,21 @@ class PropertyData {
    */
   constructor(varArg1, varArg2) {
     if (arguments.length === 2) {
-      return new PropertyData({ name: varArg1, value: varArg2 });
+      return new PropertyData({name: varArg1, value: varArg2})
     }
 
     if (varArg1 instanceof PropertyData) {
-      return new PropertyData({ name: varArg1.getName(), value: varArg1.getValue() });
+      return new PropertyData({name: varArg1.getName(), value: varArg1.getValue()})
     }
 
-    const { name, value } = varArg1;
-    ArgumentGuard.isString(name, 'name');
-    ArgumentGuard.notNull(value, 'value');
+    const {name, value} = varArg1
+    ArgumentGuard.isString(name, 'name')
+    ArgumentGuard.notNull(value, 'value')
 
     /** @type {string} */
-    this._name = name;
+    this._name = name
     /** @type {string} */
-    this._value = value;
+    this._value = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -48,7 +48,7 @@ class PropertyData {
    * @return {string}
    */
   getName() {
-    return this._name;
+    return this._name
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -56,7 +56,7 @@ class PropertyData {
    * @param {string} value
    */
   setName(value) {
-    this._name = value;
+    this._name = value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -64,7 +64,7 @@ class PropertyData {
    * @return {string}
    */
   getValue() {
-    return this._value;
+    return this._value
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -72,7 +72,7 @@ class PropertyData {
    * @param {string} value
    */
   setValue(value) {
-    this._value = value;
+    this._value = value
   }
 
   /**
@@ -82,15 +82,15 @@ class PropertyData {
     return {
       name: this._name,
       value: this._value,
-    };
+    }
   }
 
   /**
    * @override
    */
   toString() {
-    return `PropertyData { ${JSON.stringify(this)} }`;
+    return `PropertyData { ${JSON.stringify(this)} }`
   }
 }
 
-exports.PropertyData = PropertyData;
+exports.PropertyData = PropertyData

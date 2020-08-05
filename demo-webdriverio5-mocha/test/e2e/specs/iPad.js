@@ -55,8 +55,8 @@ describe('/ipad', async () => {
     it('iPad Full Page Screenshot', async () => {
         //set stitchMode to CSS so Toolbar is not duplicated.
         eyes.setStitchMode(StitchMode.CSS);
-        await eyes.open(browser, appName, testName, viewport);
-        await eyes.check('Entire Page', Target.window().fully(true));
+        await eyes.open(browser, "nytimes.com", "loginPage - ${auth-user}", viewport);
+        await eyes.check('Entire Page', Target.window().useDom(true).enablePatterns(true).matchLevel(MatchLevel.Layout).fully(true));
     });
 
     afterEach(async function () {
@@ -68,14 +68,18 @@ describe('/ipad', async () => {
             console.log("Error: " + err);
         }
 
-        await eyes.close(false)
-        .then(function (results) {
-            console.log("My Results: " + results);
-            //assert.equal(results._status, 'Passed');
-        });
+        try {
+            await eyes.close(false)
+            .then(function (results) {
+                console.log("My Results: " + results);
+                //assert.equal(results._status, 'Passed');
+            });
+        } finally {
+            await eyes.abort();
+        }
     });
 
     after(async function () {
-        await eyes.abortIfNotClosed()
+        await eyes.getRunner().getAllTestResults(false);
     });
 });

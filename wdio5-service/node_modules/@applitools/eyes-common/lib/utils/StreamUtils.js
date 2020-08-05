@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const Stream = require('stream');
+const Stream = require('stream')
 
 /**
  * @ignore
@@ -11,8 +11,8 @@ class ReadableBufferStream extends Stream.Readable {
    * @param {object} [options] - An "options" object to be passed to the stream constructor.
    */
   constructor(buffer, options) {
-    super(options);
-    this._buffer = buffer;
+    super(options)
+    this._buffer = buffer
   }
 
   // noinspection JSUnusedGlobalSymbols,JSCheckFunctionSignatures
@@ -21,8 +21,8 @@ class ReadableBufferStream extends Stream.Readable {
    * @private
    */
   _read() {
-    this.push(this._buffer);
-    this.push(null);
+    this.push(this._buffer)
+    this.push(null)
   }
 }
 
@@ -35,8 +35,8 @@ class WritableBufferStream extends Stream.Writable {
    * @return {WritableBufferStream}
    */
   constructor(options) {
-    super(options);
-    this._buffer = Buffer.alloc(0);
+    super(options)
+    this._buffer = Buffer.alloc(0)
   }
 
   // noinspection JSUnusedGlobalSymbols,JSCheckFunctionSignatures
@@ -49,9 +49,9 @@ class WritableBufferStream extends Stream.Writable {
    */
   _write(chunk, enc, next) {
     // Since chunk could be either a Buffer or a string.
-    const chunkAsBuffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk, enc);
-    this._buffer = Buffer.concat([this._buffer, chunkAsBuffer]);
-    next();
+    const chunkAsBuffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk, enc)
+    this._buffer = Buffer.concat([this._buffer, chunkAsBuffer])
+    next()
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -60,9 +60,9 @@ class WritableBufferStream extends Stream.Writable {
    *   emitted before continuing to write additional data, otherwise {@code true}.
    */
   writeInt(value) {
-    const buf = Buffer.alloc(4);
-    buf.writeInt32BE(value, 0);
-    return this.write(buf);
+    const buf = Buffer.alloc(4)
+    buf.writeInt32BE(value, 0)
+    return this.write(buf)
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -71,9 +71,9 @@ class WritableBufferStream extends Stream.Writable {
    *   emitted before continuing to write additional data, otherwise {@code true}.
    */
   writeShort(value) {
-    const buf = Buffer.alloc(2);
-    buf.writeInt16BE(value, 0);
-    return this.write(buf);
+    const buf = Buffer.alloc(2)
+    buf.writeInt16BE(value, 0)
+    return this.write(buf)
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -82,9 +82,9 @@ class WritableBufferStream extends Stream.Writable {
    *   emitted before continuing to write additional data, otherwise {@code true}.
    */
   writeByte(value) {
-    const buf = Buffer.alloc(1);
-    buf.writeInt8(value, 0);
-    return this.write(buf);
+    const buf = Buffer.alloc(1)
+    buf.writeInt8(value, 0)
+    return this.write(buf)
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -92,7 +92,7 @@ class WritableBufferStream extends Stream.Writable {
    * @return {Buffer} - The buffer which contains the chunks written up to this point.
    */
   getBuffer() {
-    return this._buffer;
+    return this._buffer
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -101,11 +101,11 @@ class WritableBufferStream extends Stream.Writable {
    * @return {Buffer} - The buffer which contains the chunks written up to the reset.
    */
   resetBuffer() {
-    const buffer = this._buffer;
-    this._buffer = Buffer.alloc(0);
-    return buffer;
+    const buffer = this._buffer
+    this._buffer = Buffer.alloc(0)
+    return buffer
   }
 }
 
-exports.ReadableBufferStream = ReadableBufferStream;
-exports.WritableBufferStream = WritableBufferStream;
+exports.ReadableBufferStream = ReadableBufferStream
+exports.WritableBufferStream = WritableBufferStream

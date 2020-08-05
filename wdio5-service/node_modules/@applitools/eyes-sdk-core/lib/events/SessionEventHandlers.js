@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-const { SessionEventHandler } = require('./SessionEventHandler');
+const {SessionEventHandler} = require('./SessionEventHandler')
 
 class SessionEventHandlers extends SessionEventHandler {
   constructor() {
-    super();
+    super()
 
     /** @type {SessionEventHandler[]} */
-    this._eventHandlers = [];
+    this._eventHandlers = []
   }
 
   /**
@@ -15,10 +15,10 @@ class SessionEventHandlers extends SessionEventHandler {
    */
   addEventHandler(handler) {
     if (handler === this) {
-      return;
+      return
     }
 
-    this._eventHandlers.push(handler);
+    this._eventHandlers.push(handler)
   }
 
   /**
@@ -26,15 +26,15 @@ class SessionEventHandlers extends SessionEventHandler {
    */
   removeEventHandler(handler) {
     if (handler === this) {
-      return;
+      return
     }
 
-    const index = this._eventHandlers.indexOf(handler);
-    this._eventHandlers.splice(index, 1);
+    const index = this._eventHandlers.indexOf(handler)
+    this._eventHandlers.splice(index, 1)
   }
 
   clearEventHandlers() {
-    this._eventHandlers.length = 0;
+    this._eventHandlers.length = 0
   }
 
   /**
@@ -44,7 +44,7 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   initStarted() {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.initStarted()));
+    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.initStarted()))
   }
 
   /**
@@ -54,7 +54,7 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   initEnded() {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.initEnded()));
+    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.initEnded()))
   }
 
   /**
@@ -65,7 +65,9 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   setSizeWillStart(sizeToSet) {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.setSizeWillStart(sizeToSet)));
+    return Promise.all(
+      this._eventHandlers.map(eventHandler => eventHandler.setSizeWillStart(sizeToSet)),
+    )
   }
 
   /**
@@ -75,7 +77,7 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   setSizeEnded() {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.setSizeEnded()));
+    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.setSizeEnded()))
   }
 
   /**
@@ -86,7 +88,9 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   testStarted(autSessionId) {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.testStarted(autSessionId)));
+    return Promise.all(
+      this._eventHandlers.map(eventHandler => eventHandler.testStarted(autSessionId)),
+    )
   }
 
   /**
@@ -98,7 +102,9 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   testEnded(autSessionId, testResults) {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.testEnded(autSessionId, testResults)));
+    return Promise.all(
+      this._eventHandlers.map(eventHandler => eventHandler.testEnded(autSessionId, testResults)),
+    )
   }
 
   /**
@@ -110,7 +116,11 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   validationWillStart(autSessionId, validationInfo) {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.validationWillStart(autSessionId, validationInfo)));
+    return Promise.all(
+      this._eventHandlers.map(eventHandler =>
+        eventHandler.validationWillStart(autSessionId, validationInfo),
+      ),
+    )
   }
 
   /**
@@ -123,8 +133,12 @@ class SessionEventHandlers extends SessionEventHandler {
    * @return {Promise}
    */
   validationEnded(autSessionId, validationId, validationResult) {
-    return Promise.all(this._eventHandlers.map(eventHandler => eventHandler.validationEnded(autSessionId, validationId, validationResult)));
+    return Promise.all(
+      this._eventHandlers.map(eventHandler =>
+        eventHandler.validationEnded(autSessionId, validationId, validationResult),
+      ),
+    )
   }
 }
 
-exports.SessionEventHandlers = SessionEventHandlers;
+exports.SessionEventHandlers = SessionEventHandlers

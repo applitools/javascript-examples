@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const { EyesError } = require('@applitools/eyes-common');
+const {EyesError} = require('@applitools/eyes-common')
 
-const { SessionStartInfo } = require('../server/SessionStartInfo');
+const {SessionStartInfo} = require('../server/SessionStartInfo')
 
 /**
  * Indicates that a test did not pass (i.e., test either failed or is a new test).
@@ -16,12 +16,12 @@ class TestFailedError extends EyesError {
    */
   constructor(testResults, messageOrSession) {
     if (messageOrSession instanceof SessionStartInfo) {
-      const testName = `'${messageOrSession.getScenarioIdOrName()}' of '${messageOrSession.getAppIdOrName()}'`;
-      messageOrSession = `${testName}. See details at ${testResults.getUrl()}`;
+      const testName = `'${messageOrSession.getScenarioIdOrName()}' of '${messageOrSession.getAppIdOrName()}'`
+      messageOrSession = `${testName}. See details at ${testResults.getUrl()}`
     }
 
-    super(messageOrSession);
-    this._testResults = testResults;
+    super(messageOrSession)
+    this._testResults = testResults
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -30,8 +30,8 @@ class TestFailedError extends EyesError {
    *   due to {@link FailureReports#IMMEDIATE} settings).
    */
   getTestResults() {
-    return this._testResults;
+    return this._testResults
   }
 }
 
-exports.TestFailedError = TestFailedError;
+exports.TestFailedError = TestFailedError

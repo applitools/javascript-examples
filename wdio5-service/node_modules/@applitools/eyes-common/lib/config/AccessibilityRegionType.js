@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * The type of accessibility for a resion.
@@ -12,7 +12,7 @@ const AccessibilityRegionType = {
   LargeText: 'LargeText',
   BoldText: 'BoldText',
   GraphicalObject: 'GraphicalObject',
-};
+}
 
-Object.freeze(AccessibilityRegionType);
-exports.AccessibilityRegionType = AccessibilityRegionType;
+Object.freeze(AccessibilityRegionType)
+exports.AccessibilityRegionType = AccessibilityRegionType
