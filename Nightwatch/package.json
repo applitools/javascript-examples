@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "eyes.selenium": "0.0.83",
-    "nightwatch": "^0.9.21",
+    "nightwatch": "^2.3.9",
     "selenium-webdriver": "^3.6.0"
   }
 }
